@@ -1,0 +1,12 @@
+{
+    "name": "svbk/shortcakes",
+    "description": "Wordpress Shortcake (Shortcode-UI) prebuilt shortcodes",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Brando Meniconi",
+            "email": "b.meniconi@silverbackstudio.it"
+        }
+    ],
+    "require": {}
+}
