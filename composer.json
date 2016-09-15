@@ -8,5 +8,8 @@
             "email": "b.meniconi@silverbackstudio.it"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {"Svbk\\WP\\Shortcakes": "src/"}
+    }
 }
