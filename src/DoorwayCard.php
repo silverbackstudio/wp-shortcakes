@@ -2,25 +2,12 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class Doorway_Card {
+class DoorwayCard extends Base {
     
-    const SHORTCODE_ID = 'doorway_card';
+    public $shortcode_id = 'doorway_card';
+    public $title = 'Doorway Card';
 
-    static function register(){
-        
-        $instance = new self;
-        
-        add_action( 'init', array($instance, 'add') );
-        add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
-        
-        return $instance;
-    }
-    
-    function add(){
-        add_shortcode( self::SHORTCODE_ID, array($this, 'output') );
-    }        
-    
-    static function fields(){
+    function fields(){
         return array(
     		array(
     			'label'       => esc_html__( 'Image', 'turini' ),
@@ -40,6 +27,11 @@ class Doorway_Card {
     			),
     		),
     		array(
+    			'label'    => esc_html__( 'URL', 'turini' ),
+    			'attr'     => 'url',
+    			'type'     => 'url'
+    		),       		
+    		array(
     			'label'    => esc_html__( 'Select Page', 'shortcode-ui-example' ),
     			'attr'     => 'linked_post',
     			'type'     => 'post_select',
@@ -54,82 +46,57 @@ class Doorway_Card {
     			'meta'   => array(
     				'placeholder' => esc_html__( 'Insert title', 'turini' ),
     			),
-    		),    		
+    		),   
+    		array(
+    			'label'    => esc_html__( 'Open in new window', 'turini' ),
+    			'attr'     => 'target',
+    			'type'     => 'checkbox'
+    		),      		
+    		array(
+    			'label'    => esc_html__( 'Enable Markdown', 'turini' ),
+    			'attr'     => 'enable_markdown',
+    			'type'     => 'checkbox',
+    		),        		
     	);
     }
     
-    static function ui_args(){
-    	/*
-    	 * Define the Shortcode UI arguments.
-    	 */
-    	return array(
-    		/*
-    		 * How the shortcode should be labeled in the UI. Required argument.
-    		 */
-    		'label' => esc_html__( 'Doorway Card', 'turini' ),
-    
-    		/*
-    		 * Include an icon with your shortcode. Optional.
-    		 * Use a dashicon, or full URL to image.
-    		 */
-    		'listItemImage' => 'dashicons-admin-links',
-    
-    		/*
-    		 * Limit this shortcode UI to specific posts. Optional.
-    		 */
-    		'post_type' => array( 'page' ),
-    
-    		/*
-    		 * Register UI for the "inner content" of the shortcode. Optional.
-    		 * If no UI is registered for the inner content, then any inner content
-    		 * data present will be backed-up during editing.
-    		 */
-    		'inner_content' => array(
-    			'label'        => esc_html__( 'Contenuto', 'shortcode-ui-example' ),
-    			'description'  => esc_html__( 'Insert content here', 'shortcode-ui-example' ),
-    		),
-    
-    		/*
-    		 * Define the UI for attributes of the shortcode. Optional.
-    		 *
-    		 * See above, to where the the assignment to the $fields variable was made.
-    		 */
-    		'attrs' => self::fields(),
-    	);        
-    }
-    
-    function register_ui(){
-    	shortcode_ui_register_for_shortcode( self::SHORTCODE_ID, self::ui_args() );        
-    }
-    
     function output( $attr, $content, $shortcode_tag ) {
+        
     	$attr = shortcode_atts( array(
+    		
     		'head_image' => 0,
     		'heading' => '',
     		'title' => '',
+    		'enable_markdown' => false,
+    		'url' => '',
+    		'target' => '',
     		'linked_post' => '',
     		'link_label' => '',
+    		
     	), $attr, $shortcode_tag );
     
-    	// Shortcode callbacks must return content, hence, output buffering here.
-    	ob_start();
+    	$link = $attr['url'] ?: get_permalink($attr[ 'linked_post' ]);
     	
-    	$link = get_permalink($attr[ 'linked_post' ]);
+    	$image = wp_get_attachment_image($attr['head_image'], 'post-thumbnail') ?: '<div class="image-placeholder"></div>';
     	
-    	?>
-    	<section class="doorway-card">
-    	    <header class="card-header">
-    	        <a href="<?php echo $link; ?>"><?php echo wp_get_attachment_image($attr['head_image'], 'post-thumbnail'); ?></a>
-    	        <h2><a href="<?php echo $link; ?>"><span><?php echo $attr['heading']; ?></span> <?php echo $attr['title']; ?></a></h2>
-    	    </header>
-    		<div class="card-content">
-    			<p><?php echo  $content; ?></p>
-    			<a class="action-button" href="<?php echo $link; ?>"><?php echo $attr[ 'link_label' ]; ?></a>
-    		</div>
-    	</section>
-    	<?php
+    	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
+    	
+   
+    	if($attr['enable_markdown']){
+    	    $parsedown = new \Parsedown(); 
+    	    $content = $parsedown->text(strip_tags($content));
+    	}
+    	
+    	$output  = '<div class="doorway-card">';
+    	$output .= '  <div class="card-header">';
+        $output .=      '<a href="'.esc_attr($link).'">' . $image . '</a>';
+        $output .=      '<h2><a href="' . esc_attr($link) . '"><span>' . $attr['heading'] . '</span>' . $title . '</a></h2>';
+    	$output .= '  </div>';
+        $output .= '  <div class="card-content">' . $content . '</div>';
+        $output .= '  <a class="action-button" href="' . esc_attr($link) . '">' . $attr[ 'link_label' ] . '</a>';
+    	$output .= '</div>';
     
-    	return ob_get_clean();
+    	return $output;
     }
     
 }
