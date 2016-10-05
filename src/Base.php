@@ -2,11 +2,16 @@
 
 namespace Svbk\WP\Shortcakes;
 
+
+load_textdomain( 'svbk-shortcakes', dirname(__DIR__).'/languages/svbk-shortcakes' . '-' . get_locale() . '.mo'   ); 
+
+
 abstract class Base {
     
     public $shortcode_id = 'shortcake_base';
     public $title = 'Base Shortcode';
     public $post_types;
+
 
     static function register($post_types=array('page')){
         
@@ -16,7 +21,7 @@ abstract class Base {
         
         $instance->post_type = $post_types;
         
-        add_action( 'init', array($instance, 'add') );
+        add_action( 'init', array($instance, 'add'), 12 );
         add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
         
         return $instance;
@@ -55,8 +60,8 @@ abstract class Base {
     		 * data present will be backed-up during editing.
     		 */
     		'inner_content' => array(
-    			'label'        => esc_html__( 'Contenuto', 'shortcode-ui-example' ),
-    			'description'  => esc_html__( 'Insert content here', 'shortcode-ui-example' ),
+    			'label'        => esc_html__( 'Content', 'svbk-shortcakes' ),
+    			'description'  => esc_html__( 'Insert content here', 'svbk-shortcakes' ),
     		),
     
     		/*

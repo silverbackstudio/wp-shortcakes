@@ -10,52 +10,60 @@ class DoorwayCard extends Base {
     function fields(){
         return array(
     		array(
-    			'label'       => esc_html__( 'Image', 'turini' ),
+    			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
     			'attr'        => 'head_image',
     			'type'        => 'attachment',
     			'libraryType' => array( 'image' ),
-    			'addButton'   => esc_html__( 'Select Image', 'turini' ),
-    			'frameTitle'  => esc_html__( 'Select Image', 'turini' ),
+    			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
+    			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
     		),
     		array(
-    			'label'  => esc_html__( 'Title', 'turini' ),
+    			'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),
     			'attr'   => 'title',
     			'type'   => 'text',
     			'encode' => false,
+    			'description' => esc_html__( 'This title will replace the Page title', 'svbk-shortcakes' ),
     			'meta'   => array(
-    				'placeholder' => esc_html__( 'Insert title', 'turini' ),
+    				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
     		),
     		array(
-    			'label'    => esc_html__( 'URL', 'turini' ),
+    			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
     			'attr'     => 'url',
-    			'type'     => 'url'
+    			'type'     => 'url',
+				'description' => esc_html__( 'This URL will be used instead of Page permalink.', 'svbk-shortcakes' ),
+
     		),       		
     		array(
-    			'label'    => esc_html__( 'Select Page', 'shortcode-ui-example' ),
+    			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
     			'attr'     => 'linked_post',
     			'type'     => 'post_select',
     			'query'    => array( 'post_type' => 'page' ),
     			'multiple' => false,
     		),
     		array(
-    			'label'  => esc_html__( 'Link Label', 'turini' ),
+    			'label'  => esc_html__( 'Link Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
     			'type'   => 'text',
     			'encode' => true,
     			'meta'   => array(
-    				'placeholder' => esc_html__( 'Insert title', 'turini' ),
+    				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
     		),   
     		array(
-    			'label'    => esc_html__( 'Open in new window', 'turini' ),
+    			'label'    => esc_html__( 'Open in new window', 'svbk-shortcakes' ),
     			'attr'     => 'target',
     			'type'     => 'checkbox'
     		),      		
     		array(
-    			'label'    => esc_html__( 'Enable Markdown', 'turini' ),
+    			'label'    => esc_html__( 'Enable Markdown', 'svbk-shortcakes' ),
     			'attr'     => 'enable_markdown',
     			'type'     => 'checkbox',
+    		),        	
+    		array(
+    			'label'    => esc_html__( 'Classes', 'svbk-shortcakes' ),
+    			'attr'     => 'classes',
+    			'type'     => 'text',
     		),        		
     	);
     }
@@ -72,6 +80,7 @@ class DoorwayCard extends Base {
     		'target' => '',
     		'linked_post' => '',
     		'link_label' => '',
+    		'classes' => '',
     		
     	), $attr, $shortcode_tag );
     
@@ -81,19 +90,20 @@ class DoorwayCard extends Base {
     	
     	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
     	
+    	$target = $attr['target'] ? ' target="_blank" ' : '';
    
     	if($attr['enable_markdown']){
     	    $parsedown = new \Parsedown(); 
     	    $content = $parsedown->text(strip_tags($content));
     	}
     	
-    	$output  = '<div class="doorway-card">';
+    	$output  = '<div class="doorway-card ' . esc_attr( $attr['classes'] ) . '">';
     	$output .= '  <div class="card-header">';
-        $output .=      '<a href="'.esc_attr($link).'">' . $image . '</a>';
-        $output .=      '<h2><a href="' . esc_attr($link) . '"><span>' . $attr['heading'] . '</span>' . $title . '</a></h2>';
+        $output .=      '<a href="' . esc_attr($link) . '" ' . $target . ' >' . $image . '</a>';
+        $output .=      '<h2><a href="' . esc_attr($link) . '" ' . $target . ' ><span>' . $attr['heading'] . '</span>' . $title . '</a></h2>';
     	$output .= '  </div>';
         $output .= '  <div class="card-content">' . $content . '</div>';
-        $output .= '  <a class="action-button" href="' . esc_attr($link) . '">' . $attr[ 'link_label' ] . '</a>';
+        $output .= '  <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
     	$output .= '</div>';
     
     	return $output;
