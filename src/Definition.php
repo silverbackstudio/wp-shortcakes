@@ -9,14 +9,16 @@ class Definition extends Base {
 
     public $footnotes = array();
 
-
     static function  register($post_types=array('page')){
-        
         $self = parent::register($post_types);
+    }
+    
+    function add(){
+        
+        parent::add();
         
         add_filter('the_content', array($self, 'inline_shortcode'), 1);
-        add_filter('the_content', array($self, 'add_footnotes'), 99);
-    
+        add_filter('the_content', array($self, 'add_footnotes'), 99);        
     }
 
     function fields(){

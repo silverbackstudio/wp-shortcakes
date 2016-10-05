@@ -19,7 +19,7 @@ abstract class Base {
         
         $instance = new $class;
         
-        $instance->post_type = $post_types;
+        $instance->post_types = $post_types;
         
         add_action( 'init', array($instance, 'add'), 12 );
         add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
@@ -52,7 +52,7 @@ abstract class Base {
     		/*
     		 * Limit this shortcode UI to specific posts. Optional.
     		 */
-    		'post_type' => array( 'page' ),
+    		'post_type' => $this->post_types,
     
     		/*
     		 * Register UI for the "inner content" of the shortcode. Optional.
