@@ -2,7 +2,7 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class Responsive_Image extends Base {
+class ResponsiveImage extends Base {
     
     public $shortcode_id = 'responsive_image';
     public $title = 'Responsive Image';

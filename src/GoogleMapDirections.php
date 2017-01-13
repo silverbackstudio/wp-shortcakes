@@ -2,7 +2,7 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class GoogleMap_Directions extends Base {
+class GoogleMapDirections extends Base {
     
     public $shortcode_id = 'gmap_directions';
     public $title = 'Google Maps Directions';
