@@ -99,7 +99,7 @@ class TeamMember extends Base {
         if('dialog' === $attr['link_dest']) {
             $output  .= '<div class="dialog-content">';
         }        
-		$output .=    get_avatar( $user->ID );
+		$output .=    get_avatar( $user->ID, 240 );
 		$output .= '    <div class="author-info">';
 		$output .= '        <span class="fn n">'.esc_html( $user->display_name ).'</span>';
 		
