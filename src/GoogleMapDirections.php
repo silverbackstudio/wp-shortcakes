@@ -40,7 +40,7 @@ class GoogleMapDirections extends Base {
     			'encode' => true
     		), 	    		
     	);
-    	
+    
     }
     
     function ui_args(){
@@ -68,8 +68,8 @@ class GoogleMapDirections extends Base {
     		<div class="map-locker locked">
     			<div class="google-map"></div>
     			<div class="map-lock">
-    				<span class="unlock-label"><?php _e('Unlock map','svbk-shortcakes'); ?></span>
-    				<span class="lock-label"><?php _e('Lock map','svbk-shortcakes'); ?></span>
+    				<button class="unlock-label"><span class="label"><?php _e('Unlock map','svbk-shortcakes'); ?></span></button>
+    				<button class="lock-label"><span class="label"><?php _e('Lock map','svbk-shortcakes'); ?></span></button>
     			</div>
     		</div>
         	<div id="directions">
