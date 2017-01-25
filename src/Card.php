@@ -56,8 +56,7 @@ class Card extends Base {
     	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
    
     	if($attr['enable_markdown']){
-    	    $parsedown = new \Parsedown(); 
-    	    $content = $parsedown->text(strip_tags($content));
+            $content = \Michelf\MarkdownExtra::defaultTransform($content);
     	}
     	
     	$output  = '<div class="card ' . esc_attr( $attr['classes'] ) . '">';

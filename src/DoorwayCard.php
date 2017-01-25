@@ -45,7 +45,7 @@ class DoorwayCard extends Base {
     			'label'  => esc_html__( 'Link Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
     			'type'   => 'text',
-    			'encode' => true,
+    			'encode' => false,
     			'meta'   => array(
     				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
@@ -93,8 +93,7 @@ class DoorwayCard extends Base {
     	$target = $attr['target'] ? ' target="_blank" ' : '';
    
     	if($attr['enable_markdown']){
-    	    $parsedown = new \Parsedown(); 
-    	    $content = $parsedown->text(strip_tags($content));
+    	    $content = \Michelf\MarkdownExtra::defaultTransform($content);
     	}
     	
     	$output  = '<div class="doorway-card ' . esc_attr( $attr['classes'] ) . '">';

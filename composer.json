@@ -10,7 +10,8 @@
     ],
     "version": "1.0.0",
     "require": {
-        "erusev/parsedown": "^1.6"
+        "erusev/parsedown": "^1.6",
+        "michelf/php-markdown": "^1.7"
     },
     "autoload": {
         "psr-4": {"Svbk\\WP\\Shortcakes\\": "src/"}
