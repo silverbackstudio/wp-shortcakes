@@ -64,7 +64,18 @@ class DoorwayCard extends Base {
     			'label'    => esc_html__( 'Classes', 'svbk-shortcakes' ),
     			'attr'     => 'classes',
     			'type'     => 'text',
-    		),        		
+    		),
+            array(
+    			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
+    			'attr'          => 'image_size',
+    			'type'          => 'select',
+    			'options'       => array(
+    				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
+    				array( 'value' => 'medium', 'label' => 'Medium'  ),
+    				array( 'value' => 'large', 'label' => 'Large' ),
+    				array( 'value' => 'full', 'label' => 'Full'  ),
+    			),
+    		),    		
     	);
     }
     
@@ -73,6 +84,7 @@ class DoorwayCard extends Base {
     	$attr = shortcode_atts( array(
     		
     		'head_image' => 0,
+            'image_size' => 'thumbnail',    		
     		'title' => '',
     		'enable_markdown' => false,
     		'url' => '',
@@ -85,14 +97,19 @@ class DoorwayCard extends Base {
     
     	$link = $attr['url'] ?: get_permalink($attr[ 'linked_post' ]);
     	
-    	$image = wp_get_attachment_image($attr['head_image'], 'post-thumbnail') ?: '<div class="image-placeholder"></div>';
+    	$image = wp_get_attachment_image($attr['head_image'], $attr[ 'head_image' ]) ?: '<div class="image-placeholder"></div>';
     	
     	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
     	
     	$target = $attr['target'] ? ' target="_blank" ' : '';
    
     	if($attr['enable_markdown']){
-    	    $content = \Michelf\MarkdownExtra::defaultTransform($content);
+            $content = str_replace(array("\n", '<p>'), "", $content);
+            $content = str_replace(array("<br />", "<br>", "<br/>"), "\n", $content);
+            $content = str_replace("</p>", "\n\n", $content);      	    
+    	    
+            $md = new \Michelf\Markdown;
+            $content = $md->transform($content);
     	}
     	
     	$output  = '<div class="doorway-card ' . esc_attr( $attr['classes'] ) . '">';
