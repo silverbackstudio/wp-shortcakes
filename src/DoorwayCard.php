@@ -10,14 +10,6 @@ class DoorwayCard extends Base {
     function fields(){
         return array(
     		array(
-    			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
-    			'attr'        => 'head_image',
-    			'type'        => 'attachment',
-    			'libraryType' => array( 'image' ),
-    			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
-    			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
-    		),
-    		array(
     			'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),
     			'attr'   => 'title',
     			'type'   => 'text',
@@ -26,6 +18,32 @@ class DoorwayCard extends Base {
     			'meta'   => array(
     				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
+    		),            
+    		array(
+    			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
+    			'attr'        => 'head_image',
+    			'type'        => 'attachment',
+    			'libraryType' => array( 'image' ),
+    			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
+    			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
+    		),
+            array(
+    			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
+    			'attr'          => 'image_size',
+    			'type'          => 'select',
+    			'options'       => array(
+    				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
+    				array( 'value' => 'medium', 'label' => 'Medium'  ),
+    				array( 'value' => 'large', 'label' => 'Large' ),
+    				array( 'value' => 'full', 'label' => 'Full'  ),
+    			),
+    		),      		
+    		array(
+    			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
+    			'attr'     => 'linked_post',
+    			'type'     => 'post_select',
+    			'query'    => array( 'post_type' => 'page' ),
+    			'multiple' => false,
     		),
     		array(
     			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
@@ -34,13 +52,6 @@ class DoorwayCard extends Base {
 				'description' => esc_html__( 'This URL will be used instead of Page permalink.', 'svbk-shortcakes' ),
 
     		),       		
-    		array(
-    			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
-    			'attr'     => 'linked_post',
-    			'type'     => 'post_select',
-    			'query'    => array( 'post_type' => 'page' ),
-    			'multiple' => false,
-    		),
     		array(
     			'label'  => esc_html__( 'Link Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
@@ -61,21 +72,10 @@ class DoorwayCard extends Base {
     			'type'     => 'checkbox',
     		),        	
     		array(
-    			'label'    => esc_html__( 'Classes', 'svbk-shortcakes' ),
+    			'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
     			'attr'     => 'classes',
     			'type'     => 'text',
     		),
-            array(
-    			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
-    			'attr'          => 'image_size',
-    			'type'          => 'select',
-    			'options'       => array(
-    				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
-    				array( 'value' => 'medium', 'label' => 'Medium'  ),
-    				array( 'value' => 'large', 'label' => 'Large' ),
-    				array( 'value' => 'full', 'label' => 'Full'  ),
-    			),
-    		),    		
     	);
     }
     
