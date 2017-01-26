@@ -73,7 +73,6 @@ class DoorwayCard extends Base {
     	$attr = shortcode_atts( array(
     		
     		'head_image' => 0,
-    		'heading' => '',
     		'title' => '',
     		'enable_markdown' => false,
     		'url' => '',
@@ -98,13 +97,13 @@ class DoorwayCard extends Base {
     	
     	$output  = '<div class="doorway-card ' . esc_attr( $attr['classes'] ) . '">';
     	$output .= '  <div class="card-header">';
-        $output .=      '<h2><a href="' . esc_attr($link) . '" ' . $target . ' ><span>' . $attr['heading'] . '</span>' . $title . '</a></h2>';
+        $output .=      '<h2><a href="' . esc_attr($link) . '" ' . $target . ' >' . $title . '</a></h2>';
     	$output .= '  </div>';
-    	$output .= '  <a href="' . esc_attr($link) . '" ' . $target . ' >' . $image . '</a>';
-    	$output .= '  <div class="card-text">';
-        $output .= '    <div class="card-content">' . $content . '</div>';
-        $output .= '    <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
-    	$output .= '  </div>';
+    	$output .= '<a href="' . esc_attr($link) . '" ' . $target . ' >' . $image . '</a>';
+    	$output .= '<div class="card-text">';
+        $output .= '  <div class="card-content">' . $content . '</div>';
+        $output .= '  <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
+    	$output .= '</div>';
     	$output .= '</div>';
     
     	return $output;
