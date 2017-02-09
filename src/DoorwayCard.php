@@ -4,8 +4,21 @@ namespace Svbk\WP\Shortcakes;
 
 class DoorwayCard extends Base {
     
+    public static $defaults = array(
+    		'head_image' => 0,
+    		'title' => '',
+    		'enable_markdown' => false,
+    		'url' => '',
+    		'target' => '',
+    		'linked_post' => '',
+    		'link_label' => '',
+    		'classes' => '',
+    );
+    
     public $shortcode_id = 'doorway_card';
     public $title = 'Doorway Card';
+    public $post_query = array( 'post_type' => 'page' );
+    public $image_size = 'post-thumbnail';
 
     function fields(){
         return array(
@@ -38,16 +51,16 @@ class DoorwayCard extends Base {
     			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
     			'attr'     => 'linked_post',
     			'type'     => 'post_select',
-    			'query'    => array( 'post_type' => 'page' ),
+    			'query'    => $this->post_query,
     			'multiple' => false,
     		),
     		array(
-    			'label'  => esc_html__( 'Link Label', 'svbk-shortcakes' ),
+    			'label'  => esc_html__( 'Button Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
     			'type'   => 'text',
     			'encode' => false,
     			'meta'   => array(
-    				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
+    				'placeholder' => esc_html__( 'Insert button label', 'svbk-shortcakes' ),
     			),
     		),   
     		array(
@@ -68,25 +81,17 @@ class DoorwayCard extends Base {
     	);
     }
     
-    function output( $attr, $content, $shortcode_tag ) {
-        
-    	$attr = shortcode_atts( array(
-    		
-    		'head_image' => 0,
-    		'title' => '',
-    		'enable_markdown' => false,
-    		'url' => '',
-    		'target' => '',
-    		'linked_post' => '',
-    		'link_label' => '',
-    		'classes' => '',
-    		
-    	), $attr, $shortcode_tag );
+    function renderOutput($attr, $content, $shortcode_tag){
+    
+    	$attr = shortcode_atts( array_merge( 
+    	    self::$defaults, 
+    	    array(
+    	       'show_childs'=>false
+    	    )
+    	), $attr, $shortcode_tag );    
     
     	$link = $attr['url'] ?: get_permalink($attr[ 'linked_post' ]);
-    	
-    	$image = wp_get_attachment_image($attr['head_image'], 'post-thumbnail') ?: '<div class="image-placeholder"></div>';
-    	
+    	$image = wp_get_attachment_image($attr['head_image'], $this->image_size) ?: '<div class="image-placeholder"></div>';
     	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
     	
     	$target = $attr['target'] ? ' target="_blank" ' : '';
@@ -95,18 +100,34 @@ class DoorwayCard extends Base {
     	    $content = \Michelf\MarkdownExtra::defaultTransform($content);
     	}
     	
-    	$output  = '<div class="doorway-card ' . esc_attr( $attr['classes'] ) . '">';
-    	$output .= '  <div class="card-header">';
-        $output .=      '<h2><a href="' . esc_attr($link) . '" ' . $target . ' >' . $title . '</a></h2>';
-    	$output .= '  </div>';
-    	$output .= '<a href="' . esc_attr($link) . '" ' . $target . ' >' . $image . '</a>';
-    	$output .= '<div class="card-text">';
-        $output .= '  <div class="card-content">' . $content . '</div>';
-        $output .= '  <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
-    	$output .= '</div>';
-    	$output .= '</div>';
-    
+    	$output['wrapperBegin']  = '<div class="doorway-card ' . esc_attr( trim($attr['classes']) ) . '">';
+    	
+    	if($title){
+    	    $output['headerBegin'] = '<div class="card-header">';
+            $output['title'] = sprintf( $link ? '<h2 class="card-title"><a href="%2$s" %3$s >%1$s</a></h2>':'<h2 class="card-title">%1$s</h2>', $title, esc_attr($link), $target) ;
+    	    $output['headerEnd'] = '</div>';
+    	}
+    	
+    	if($image){
+    	    $output['image'] = sprintf( $link ? '<a href="%2$s" %3$s >%1$s</a>':'%1$s', $image, esc_attr($link), $target);
+    	}
+    	
+    	$output['contentBegin'] = '<div class="card-text">';
+        $output['content'] = '  <div class="card-content">' . $content . '</div>';
+        
+        if($link && $attr[ 'link_label' ]){
+            $output['button'] = '  <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
+        }
+    	
+    	$output['contentEnd'] = '</div>';
+    	$output['wrapperEnd'] = '</div>';  
+    	
     	return $output;
-    }
+        
+    }    
+    
+    function output( $attr, $content, $shortcode_tag ) {
+        return join('', $this->renderOutput($attr, $content, $shortcode_tag));
+    }  
     
 }
