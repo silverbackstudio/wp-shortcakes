@@ -26,12 +26,12 @@ class Definition extends Base {
     function registerCPT(){
         
         	$labels = array(
-        		"name" => __( 'Definitions', '_svbk' ),
-        		"singular_name" => __( 'Definition', '_svbk' ),
+        		"name" => __( 'Definitions', 'svbk-shortcakes' ),
+        		"singular_name" => __( 'Definition', 'svbk-shortcakes' ),
         	);
         
         	$args = array(
-        		"label" => __( 'Definitions', '_svbk' ),
+        		"label" => __( 'Definitions', 'svbk-shortcakes' ),
         		"labels" => $labels,
         		"description" => "",
         		"public" => true,
