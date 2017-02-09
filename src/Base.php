@@ -2,9 +2,7 @@
 
 namespace Svbk\WP\Shortcakes;
 
-
-load_textdomain( 'svbk-shortcakes', dirname(__DIR__).'/languages/svbk-shortcakes' . '-' . get_locale() . '.mo'   ); 
-
+add_action( 'after_setup_theme', __NAMESPACE__.'\\Base::load_texdomain' );
 
 abstract class Base {
     
@@ -28,9 +26,9 @@ abstract class Base {
     }
 
     public static function load_texdomain(){
-        load_theme_textdomain( 'svbk-shortcakes', dirname(__DIR__) . '/languages' );
+        load_textdomain( 'svbk-shortcakes', dirname(__DIR__).'/languages/svbk-shortcakes' . '-' . get_locale() . '.mo'   ); 
     }
-    
+
     function add(){
         add_shortcode( $this->shortcode_id, array($this, 'output') );
     }        
