@@ -42,6 +42,22 @@ class Index extends Base {
         add_filter('the_content', 'do_shortcode', 12);
     }
     
+    function register_ui(){
+        parent::register_ui();
+    	shortcode_ui_register_for_shortcode( 'index',   array(
+    		'label' => __('Index', 'svbk-shortcakes'),
+    		'listItemImage' => 'dashicons-admin-links',
+    		'post_type' => $this->post_types,
+    		'attrs' => array(
+        		array(
+        			'label'  => esc_html__( 'Index group', 'svbk-shortcakes' ),
+        			'attr'   => 'group',
+        			'type'   => 'text'
+        		)      		    
+    		),
+    	    )
+    	);           
+    }    
     
     function render_index($sections){
         
@@ -73,7 +89,12 @@ class Index extends Base {
         	      'group' => 'default',
         ), $attr );    
         
+        
         if('index' == $shortcode_tag){
+        
+            if( defined('SHORTCODE_UI_DOING_PREVIEW') && SHORTCODE_UI_DOING_PREVIEW ) {
+                return '<div class="index-preview">'.__('-- Page Index --', 'svbk-shortcakes').'</div>';
+            }        
             
             $new_tag = '[index-real ';
             
@@ -128,7 +149,8 @@ class Index extends Base {
                         .'<header class="section-header">'
                             .'<h3 class="section-title" ><span class="index-counter">%4$s</span>&nbsp;%2$s</h3>'
                             .'<a class="anchor to-top" href="#index" title="' . __('Go to index', 'svbk-shortcakes') . '">&uarr;</a>'
-                            .'<div class="section-content">%3$s</div>'
+                        .'</header>'
+                        .'<div class="section-content">%3$s</div>'
                     .'</section>';
     
         $output .= sprintf( $template, $attr['slug'], esc_html($attr['title']), $content, $index);
