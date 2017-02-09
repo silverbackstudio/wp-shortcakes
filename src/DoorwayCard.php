@@ -23,14 +23,6 @@ class DoorwayCard extends Base {
     function fields(){
         return array(
     		array(
-    			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
-    			'attr'        => 'head_image',
-    			'type'        => 'attachment',
-    			'libraryType' => array( 'image' ),
-    			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
-    			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
-    		),
-    		array(
     			'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),
     			'attr'   => 'title',
     			'type'   => 'text',
@@ -39,14 +31,26 @@ class DoorwayCard extends Base {
     			'meta'   => array(
     				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
-    		),
+    		),            
     		array(
-    			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
-    			'attr'     => 'url',
-    			'type'     => 'url',
-				'description' => esc_html__( 'This URL will be used instead of Page permalink.', 'svbk-shortcakes' ),
-
-    		),       		
+    			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
+    			'attr'        => 'head_image',
+    			'type'        => 'attachment',
+    			'libraryType' => array( 'image' ),
+    			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
+    			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
+    		),
+            array(
+    			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
+    			'attr'          => 'image_size',
+    			'type'          => 'select',
+    			'options'       => array(
+    				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
+    				array( 'value' => 'medium', 'label' => 'Medium'  ),
+    				array( 'value' => 'large', 'label' => 'Large' ),
+    				array( 'value' => 'full', 'label' => 'Full'  ),
+    			),
+    		),      		
     		array(
     			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
     			'attr'     => 'linked_post',
@@ -54,6 +58,12 @@ class DoorwayCard extends Base {
     			'query'    => $this->post_query,
     			'multiple' => false,
     		),
+    		array(
+    			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
+    			'attr'     => 'url',
+    			'type'     => 'url',
+				'description' => esc_html__( 'This URL will be used instead of Page permalink.', 'svbk-shortcakes' ),
+    		),       		
     		array(
     			'label'  => esc_html__( 'Button Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
@@ -74,30 +84,31 @@ class DoorwayCard extends Base {
     			'type'     => 'checkbox',
     		),        	
     		array(
-    			'label'    => esc_html__( 'Classes', 'svbk-shortcakes' ),
+    			'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
     			'attr'     => 'classes',
     			'type'     => 'text',
-    		),        		
+    		),
     	);
     }
     
     function renderOutput($attr, $content, $shortcode_tag){
     
-    	$attr = shortcode_atts( array_merge( 
-    	    self::$defaults, 
-    	    array(
-    	       'show_childs'=>false
-    	    )
-    	), $attr, $shortcode_tag );    
+    	$attr = shortcode_atts( self::$defaults, $attr, $shortcode_tag );    
     
     	$link = $attr['url'] ?: get_permalink($attr[ 'linked_post' ]);
     	$image = wp_get_attachment_image($attr['head_image'], $this->image_size) ?: '<div class="image-placeholder"></div>';
+
     	$title = $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
     	
     	$target = $attr['target'] ? ' target="_blank" ' : '';
    
     	if($attr['enable_markdown']){
-    	    $content = \Michelf\MarkdownExtra::defaultTransform($content);
+            $content = str_replace(array("\n", '<p>'), "", $content);
+            $content = str_replace(array("<br />", "<br>", "<br/>"), "\n", $content);
+            $content = str_replace("</p>", "\n\n", $content);      	    
+    	    
+            $md = new \Michelf\Markdown;
+            $content = $md->transform($content);
     	}
     	
     	$output['wrapperBegin']  = '<div class="doorway-card ' . esc_attr( trim($attr['classes']) ) . '">';
