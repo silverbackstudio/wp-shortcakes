@@ -18,7 +18,6 @@ abstract class Base {
         $class = get_called_class();
         
         $instance = new $class;
-        
         $instance->post_types = $post_types;
         
         add_action( 'init', array($instance, 'add'), 12 );

@@ -17,8 +17,41 @@ class Definition extends Base {
         
         parent::add();
         
-        add_filter('the_content', array($self, 'inline_shortcode'), 1);
-        add_filter('the_content', array($self, 'add_footnotes'), 99);        
+        $this->registerCPT();
+        
+        add_filter('the_content', array($this, 'inline_shortcode'), 1);
+        add_filter('the_content', array($this, 'add_footnotes'), 99);        
+    }
+
+    function registerCPT(){
+        
+        	$labels = array(
+        		"name" => __( 'Definitions', '_svbk' ),
+        		"singular_name" => __( 'Definition', '_svbk' ),
+        	);
+        
+        	$args = array(
+        		"label" => __( 'Definitions', '_svbk' ),
+        		"labels" => $labels,
+        		"description" => "",
+        		"public" => true,
+        		"publicly_queryable" => true,
+        		"show_ui" => true,
+        		"show_in_rest" => false,
+        		"rest_base" => "",
+        		"has_archive" => false,
+        		"show_in_menu" => true,
+        		"exclude_from_search" => false,
+        		"capability_type" => "post",
+        		"map_meta_cap" => true,
+        		"hierarchical" => false,
+        		"rewrite" => array( "slug" => "definition", "with_front" => true ),
+        		"query_var" => true,
+        		"menu_icon" => "dashicons-exerpt-view",
+        		"supports" => array( "title", "editor" ),
+        	);
+        
+        	register_post_type( "definition", $args );
     }
 
     function fields(){
@@ -48,10 +81,12 @@ class Definition extends Base {
         
         $output = '<aside id="footnotes"><dl>';
         
-        $dfns = new \WP_Query( array('post_type'=> 'definition', 'include' => $this->footnotes) );
+        $dfns = new \WP_Query( array('post_type'=> 'definition', 'post__in' => $this->footnotes, 'orderby' => 'post__in') );
+        
+        $index = 1;
         
         while( $dfns->have_posts() ): $dfns->the_post();
-        	$output .= '<dt id="dfn-' . get_the_ID() . '" ><dfn>' . get_the_title() . '</dfn></dt>';
+        	$output .= '<dt id="dfn-' . get_the_ID() . '" ><sup><a href="#dfn-ref-' . get_the_ID() . '">['.$index.']</a></sup>' . get_the_title() . '</dt>';
         	$output .= '<dd>' . get_the_content() . '</dd>';
         endwhile;
         
@@ -66,13 +101,14 @@ class Definition extends Base {
     }
     
     function inline_shortcode($content){
-        
         return $content;
-        
-        
     }
+  
     
     function output( $attr, $content, $shortcode_tag ) {
+    	
+    	static $index = 1;
+    	
     	$attr = shortcode_atts( array(
     		'definition_post' => false,
     		'abbr' => false,
@@ -82,9 +118,13 @@ class Definition extends Base {
     
         if($attr['definition_post']){
          
-            $output .= '<a class="sidenote" href="#dfn-' . esc_attr($attr['definition_post']) . '">' . $content . '</a>';
+            $output .= '<a id="dfn-ref-' . esc_attr($attr['definition_post']) . '" class="sidenote" href="#dfn-' . esc_attr($attr['definition_post']) . '">' . $content . '<sup>['.$index.']</sup></a>';
             
-            $this->footnotes[] = $attr['definition_post'];
+            $this->footnotes[$index] = $attr['definition_post'];
+        }
+        
+        if(defined('SHORTCODE_UI_DOING_PREVIEW') && (SHORTCODE_UI_DOING_PREVIEW === true)){
+            return false;
         }
         
         return $output;
