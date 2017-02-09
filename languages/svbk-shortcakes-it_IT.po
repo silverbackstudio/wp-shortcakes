@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Silverback Shortcakes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 12:06+0000\n"
-"PO-Revision-Date: 2016-10-04 12:06+0000\n"
+"POT-Creation-Date: 2017-02-09 09:33+0000\n"
+"PO-Revision-Date: 2017-02-09 09:35+0000\n"
 "Last-Translator: SilverbackStudio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
@@ -13,15 +13,131 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
+#: src/Section.php:11
+msgid "HTML ID"
+msgstr "Attributo ID in HTML"
+
+#: src/Section.php:15
+msgid "The HTML id attribute value "
+msgstr "L'id HTML da assegnare"
+
+#: src/Section.php:17
+msgid "section1"
+msgstr "sezione1"
+
+#: src/Definition.php:29 src/Definition.php:34
+msgid "Definitions"
+msgstr "Definizioni"
+
+#: src/Definition.php:30
+msgid "Definition"
+msgstr "Definizione"
+
+#: src/DoorwayCard.php:44
+msgid "Image Size"
+msgstr "Dimensione Immagine"
+
+#: src/DoorwayCard.php:73
+msgid "Insert button label"
+msgstr "Inserisci l'etichetta del bottone"
+
+#: src/DoorwayCard.php:87
+msgid "Custom Classes"
+msgstr "Classi Personalizzate"
+
+#: src/Index.php:21
+msgid "Slug"
+msgstr "Identificativo"
+
+#: src/Index.php:27 src/Index.php:53
+msgid "Index group"
+msgstr "Gruppo Indice"
+
+#: src/Index.php:48
+msgid "Index"
+msgstr "Indice"
+
+#: src/Index.php:96
+msgid "-- Page Index --"
+msgstr "-- Indice Pagina --"
+
+#: src/Index.php:151
+msgid "Go to index"
+msgstr "Vai all'indice"
+
+#: src/Base.php:67
+msgid "Content"
+msgstr "Contenuto"
+
+#: src/Base.php:68
+msgid "Insert content here"
+msgstr "Inserisci qui il contenuto"
+
+#: src/GoogleMapDirections.php:14
+msgid "Lat"
+msgstr "Lat"
+
+#: src/GoogleMapDirections.php:20
+msgid "Long"
+msgstr "Long"
+
+#: src/GoogleMapDirections.php:26
+msgid "Zoom"
+msgstr "Zoom"
+
+#: src/GoogleMapDirections.php:31
+msgid "Marker Title"
+msgstr "Titolo Pin"
+
+#: src/GoogleMapDirections.php:37
+msgid "Marker Icon"
+msgstr "Icona Pin"
+
+#: src/GoogleMapDirections.php:71
+msgid "Unlock map"
+msgstr "Sblocca Mappa"
+
+#: src/GoogleMapDirections.php:72
+msgid "Lock map"
+msgstr "Blocca Mappa"
+
+#: src/GoogleMapDirections.php:78
+msgid "Directions"
+msgstr "Indicazioni"
+
+#: src/GoogleMapDirections.php:80
+msgid "Get route"
+msgstr "Ottieni percorso"
+
+#: src/GoogleMapDirections.php:84
+msgid "Walking"
+msgstr "A Piedi"
+
+#: src/GoogleMapDirections.php:86
+msgid "Driving"
+msgstr "In Auto"
+
+#: src/GoogleMapDirections.php:88
+msgid "Transit"
+msgstr "Mezzi Pubblici"
+
+#: src/GoogleMapDirections.php:93
+msgid "Navigate"
+msgstr "Navigatore"
+
+#: src/GoogleMapDirections.php:94
+msgid "Show Route"
+msgstr "Mostra indicazioni"
+
 #: src/TeamMember.php:20
 msgid "User"
 msgstr "Utente"
 
-#: src/TeamMember.php:26 src/DoorwayCard.php:27 src/DoorwayCard.php:50
+#: src/TeamMember.php:26 src/DoorwayCard.php:32 src/Card.php:27
 msgid "Insert title"
 msgstr "Inserisci titolo"
 
-#: src/TeamMember.php:30 src/TeamMember.php:49 src/DoorwayCard.php:31
+#: src/TeamMember.php:30 src/TeamMember.php:49 src/DoorwayCard.php:62
 msgid "URL"
 msgstr "URL"
 
@@ -49,7 +165,7 @@ msgstr "Popup"
 msgid "Profile"
 msgstr "Profilo"
 
-#: src/TeamMember.php:56
+#: src/TeamMember.php:56 src/DoorwayCard.php:68
 msgid "Button Label"
 msgstr "Etichetta pulsante"
 
@@ -61,118 +177,50 @@ msgstr "Contattami"
 msgid "User not found"
 msgstr "Nessun utente trovato"
 
-#: src/Definition.php:26
-msgid "Select Definition"
-msgstr "Seleziona la definizione"
-
-#: src/Definition.php:33
-msgid "Abbreviation"
-msgstr "Abbreviazione"
-
-#: src/DoorwayCard.php:13 src/Responsive_Image.php:14
-msgid "Image"
-msgstr "Immagine"
-
-#: src/DoorwayCard.php:17 src/DoorwayCard.php:18 src/Responsive_Image.php:18 
-#: src/Responsive_Image.php:19
-msgid "Select Image"
-msgstr "Seleziona Immagine"
-
-#: src/DoorwayCard.php:21
-msgid "Title"
-msgstr "Titolo"
-
-#: src/DoorwayCard.php:25
-msgid "This title will replace the Page title"
-msgstr "Questo titolo sostituirà quello specificato nella pagina"
-
-#: src/DoorwayCard.php:34
-msgid "This URL will be used instead of Page permalink."
-msgstr "Questa URL sostituirà quella della pagina/articolo correlato"
-
-#: src/DoorwayCard.php:38
-msgid "Select Page"
-msgstr "Seleziona la pagina"
-
-#: src/DoorwayCard.php:45
-msgid "Link Label"
-msgstr "Etichetta del collegamento"
-
-#: src/DoorwayCard.php:54
-msgid "Open in new window"
-msgstr "Apri in una nuova finestra/scheda"
-
-#: src/DoorwayCard.php:59
-msgid "Enable Markdown"
-msgstr "Abilita la formattazione Markdown"
-
-#: src/DoorwayCard.php:64
+#: src/Section.php:21 src/Card.php:36
 msgid "Classes"
 msgstr "Classi CSS"
 
-#: src/Base.php:58
-msgid "Content"
-msgstr "Contenuto"
+#: src/ResponsiveImage.php:14 src/DoorwayCard.php:36 src/Card.php:13
+msgid "Image"
+msgstr "Immagine"
 
-#: src/Base.php:59
-msgid "Insert content here"
-msgstr "Inserisci qui il contenuto"
+#: src/ResponsiveImage.php:18 src/ResponsiveImage.php:19 src/DoorwayCard.php:40
+#: src/DoorwayCard.php:41 src/Card.php:17 src/Card.php:18
+msgid "Select Image"
+msgstr "Seleziona Immagine"
 
-#: src/GoogleMap_Directions.php:14
-msgid "Lat"
-msgstr "Lat"
+#: src/Definition.php:61
+msgid "Select Definition"
+msgstr "Seleziona la definizione"
 
-#: src/GoogleMap_Directions.php:20
-msgid "Long"
-msgstr "Long"
+#: src/Definition.php:68
+msgid "Abbreviation"
+msgstr "Abbreviazione"
 
-#: src/GoogleMap_Directions.php:26
-msgid "Zoom"
-msgstr "Zoom"
+#: src/DoorwayCard.php:26 src/Index.php:16 src/Card.php:21
+msgid "Title"
+msgstr "Titolo"
 
-#: src/GoogleMap_Directions.php:31
-msgid "Marker Title"
-msgstr "Titolo Pin"
+#: src/DoorwayCard.php:30 src/Card.php:25
+msgid "This title will replace the Page title"
+msgstr "Questo titolo sostituirà quello specificato nella pagina"
 
-#: src/GoogleMap_Directions.php:37
-msgid "Marker Icon"
-msgstr "Icona Pin"
+#: src/DoorwayCard.php:55
+msgid "Select Page"
+msgstr "Seleziona la pagina"
 
-#: src/GoogleMap_Directions.php:71
-msgid "Unlock map"
-msgstr "Sblocca Mappa"
+#: src/DoorwayCard.php:65
+msgid "This URL will be used instead of Page permalink."
+msgstr "Questa URL sostituirà quella della pagina/articolo correlato"
 
-#: src/GoogleMap_Directions.php:72
-msgid "Lock map"
-msgstr "Blocca Mappa"
+#: src/DoorwayCard.php:77
+msgid "Open in new window"
+msgstr "Apri in una nuova finestra/scheda"
 
-#: src/GoogleMap_Directions.php:78
-msgid "Directions"
-msgstr "Indicazioni"
-
-#: src/GoogleMap_Directions.php:80
-msgid "Get route"
-msgstr "Ottieni percorso"
-
-#: src/GoogleMap_Directions.php:84
-msgid "Walking"
-msgstr "A Piedi"
-
-#: src/GoogleMap_Directions.php:86
-msgid "Driving"
-msgstr "In Auto"
-
-#: src/GoogleMap_Directions.php:88
-msgid "Transit"
-msgstr "Mezzi Pubblici"
-
-#: src/GoogleMap_Directions.php:93
-msgid "Navigate"
-msgstr "Navigatore"
-
-#: src/GoogleMap_Directions.php:94
-msgid "Show Route"
-msgstr "Mostra indicazioni"
+#: src/DoorwayCard.php:82 src/Card.php:31
+msgid "Enable Markdown"
+msgstr "Abilita la formattazione Markdown"
 
 #. Name of the plugin
 msgid "Silverback Shortcakes"

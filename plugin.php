@@ -11,6 +11,7 @@ Description: Shortcode UI Helpers
 Author: Silverback Studio
 Version: 1.6
 Author URI: http://www.silverbackstudio.it/
+Text Domain: svbk-shortcakes
 */
 
 function svbk_shortcakes_init() {

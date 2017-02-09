@@ -22,8 +22,13 @@ abstract class Base {
         
         add_action( 'init', array($instance, 'add'), 12 );
         add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
-        
+        add_action( 'after_setup_theme', array(__CLASS__, 'load_texdomain') );
+
         return $instance;
+    }
+
+    public static function load_texdomain(){
+        load_theme_textdomain( 'svbk-shortcakes', dirname(__DIR__) . '/languages' );
     }
     
     function add(){
