@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-09 09:33+0000\n"
+"POT-Creation-Date: 2017-02-17 07:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,213 +14,287 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: src/Base.php:67
-msgid "Content"
+#: src/LatestPosts.php:15
+msgid "Latest Posts"
 msgstr ""
 
-#: src/Base.php:68
-msgid "Insert content here"
+#: src/LatestPosts.php:31
+msgid "Post Count"
 msgstr ""
 
-#: src/GoogleMapDirections.php:14
-msgid "Lat"
+#: src/LatestPosts.php:32
+msgid "The number of posts shown"
 msgstr ""
 
-#: src/GoogleMapDirections.php:20
-msgid "Long"
+#: src/Card.php:10 src/PreviewCard.php:34
+msgid "Preview Card"
 msgstr ""
 
-#: src/GoogleMapDirections.php:26
-msgid "Zoom"
-msgstr ""
-
-#: src/GoogleMapDirections.php:31
-msgid "Marker Title"
-msgstr ""
-
-#: src/GoogleMapDirections.php:37
-msgid "Marker Icon"
-msgstr ""
-
-#: src/GoogleMapDirections.php:71
-msgid "Unlock map"
-msgstr ""
-
-#: src/GoogleMapDirections.php:72
-msgid "Lock map"
-msgstr ""
-
-#: src/GoogleMapDirections.php:78
-msgid "Directions"
-msgstr ""
-
-#: src/GoogleMapDirections.php:80
-msgid "Get route"
-msgstr ""
-
-#: src/GoogleMapDirections.php:84
-msgid "Walking"
-msgstr ""
-
-#: src/GoogleMapDirections.php:86
-msgid "Driving"
-msgstr ""
-
-#: src/GoogleMapDirections.php:88
-msgid "Transit"
-msgstr ""
-
-#: src/GoogleMapDirections.php:93
-msgid "Navigate"
-msgstr ""
-
-#: src/GoogleMapDirections.php:94
-msgid "Show Route"
-msgstr ""
-
-#: src/TeamMember.php:20
-msgid "User"
-msgstr ""
-
-#: src/TeamMember.php:26 src/DoorwayCard.php:32 src/Card.php:27
-msgid "Insert title"
-msgstr ""
-
-#: src/TeamMember.php:30 src/TeamMember.php:49 src/DoorwayCard.php:62
-msgid "URL"
-msgstr ""
-
-#: src/TeamMember.php:35
-msgid "Show role"
-msgstr ""
-
-#: src/TeamMember.php:40
-msgid "Show description"
-msgstr ""
-
-#: src/TeamMember.php:45
-msgid "Link destination"
-msgstr ""
-
-#: src/TeamMember.php:50
-msgid "Mail"
-msgstr ""
-
-#: src/TeamMember.php:51
-msgid "Popup"
-msgstr ""
-
-#: src/TeamMember.php:52
-msgid "Profile"
-msgstr ""
-
-#: src/TeamMember.php:56 src/DoorwayCard.php:68
-msgid "Button Label"
-msgstr ""
-
-#: src/TeamMember.php:61
-msgid "Contact me"
-msgstr ""
-
-#: src/TeamMember.php:91
-msgid "User not found"
-msgstr ""
-
-#: src/Section.php:11
-msgid "HTML ID"
-msgstr ""
-
-#: src/Section.php:15
-msgid "The HTML id attribute value "
-msgstr ""
-
-#: src/Section.php:17
-msgid "section1"
-msgstr ""
-
-#: src/Section.php:21 src/Card.php:36
-msgid "Classes"
-msgstr ""
-
-#: src/ResponsiveImage.php:14 src/DoorwayCard.php:36 src/Card.php:13
+#: src/Card.php:16 src/PreviewCard.php:50 src/DoorwayCard.php:36
+#: src/ResponsiveImage.php:21
 msgid "Image"
 msgstr ""
 
-#: src/ResponsiveImage.php:18 src/ResponsiveImage.php:19 src/DoorwayCard.php:40
-#: src/DoorwayCard.php:41 src/Card.php:17 src/Card.php:18
+#: src/Card.php:20 src/Card.php:21 src/PreviewCard.php:54
+#: src/PreviewCard.php:55 src/DoorwayCard.php:40 src/DoorwayCard.php:41
+#: src/ResponsiveImage.php:25 src/ResponsiveImage.php:26
 msgid "Select Image"
 msgstr ""
 
-#: src/Definition.php:29 src/Definition.php:34
-msgid "Definitions"
-msgstr ""
-
-#: src/Definition.php:30
-msgid "Definition"
-msgstr ""
-
-#: src/Definition.php:61
-msgid "Select Definition"
-msgstr ""
-
-#: src/Definition.php:68
-msgid "Abbreviation"
-msgstr ""
-
-#: src/DoorwayCard.php:26 src/Index.php:16 src/Card.php:21
+#: src/Card.php:24 src/Index.php:19 src/PreviewCard.php:40
+#: src/DoorwayCard.php:26
 msgid "Title"
 msgstr ""
 
-#: src/DoorwayCard.php:30 src/Card.php:25
+#: src/Card.php:28 src/PreviewCard.php:44 src/DoorwayCard.php:30
 msgid "This title will replace the Page title"
 msgstr ""
 
-#: src/DoorwayCard.php:44
-msgid "Image Size"
+#: src/Card.php:30 src/TeamMember.php:38 src/PreviewCard.php:46
+#: src/DoorwayCard.php:32
+msgid "Insert title"
 msgstr ""
 
-#: src/DoorwayCard.php:55
-msgid "Select Page"
-msgstr ""
-
-#: src/DoorwayCard.php:65
-msgid "This URL will be used instead of Page permalink."
-msgstr ""
-
-#: src/DoorwayCard.php:73
-msgid "Insert button label"
-msgstr ""
-
-#: src/DoorwayCard.php:77
-msgid "Open in new window"
-msgstr ""
-
-#: src/DoorwayCard.php:82 src/Card.php:31
+#: src/Card.php:34 src/PreviewCard.php:89 src/DoorwayCard.php:82
 msgid "Enable Markdown"
 msgstr ""
 
-#: src/DoorwayCard.php:87
-msgid "Custom Classes"
+#: src/Card.php:39 src/Section.php:28
+msgid "Classes"
 msgstr ""
 
-#: src/Index.php:21
+#: src/Definition.php:11 src/Definition.php:28
+msgid "Definition"
+msgstr ""
+
+#: src/Definition.php:27 src/Definition.php:32
+msgid "Definitions"
+msgstr ""
+
+#: src/Definition.php:59
+msgid "Select Definition"
+msgstr ""
+
+#: src/Definition.php:66
+msgid "Abbreviation"
+msgstr ""
+
+#: src/PreviewCard_Post.php:12
+msgid "Post Preview Card"
+msgstr ""
+
+#: src/PreviewCard_Post.php:22 src/DoorwayCard.php:55
+msgid "Select Page"
+msgstr ""
+
+#: src/Testimonials.php:38 src/Testimonials.php:58 src/Testimonials.php:63
+msgid "Testimonials"
+msgstr ""
+
+#: src/Testimonials.php:59
+msgid "Testimonial"
+msgstr ""
+
+#: src/Testimonials.php:98
+msgid "Count"
+msgstr ""
+
+#: src/Testimonials.php:102
+msgid "How many testimonials to show"
+msgstr ""
+
+#: src/Testimonials.php:104
+msgid "2"
+msgstr ""
+
+#: src/TeamMember.php:19
+msgid "Team Member"
+msgstr ""
+
+#: src/TeamMember.php:32
+msgid "User"
+msgstr ""
+
+#: src/TeamMember.php:42 src/TeamMember.php:61 src/PreviewCard.php:69
+#: src/DoorwayCard.php:62
+msgid "URL"
+msgstr ""
+
+#: src/TeamMember.php:47
+msgid "Show role"
+msgstr ""
+
+#: src/TeamMember.php:52
+msgid "Show description"
+msgstr ""
+
+#: src/TeamMember.php:57
+msgid "Link destination"
+msgstr ""
+
+#: src/TeamMember.php:62
+msgid "Mail"
+msgstr ""
+
+#: src/TeamMember.php:63
+msgid "Popup"
+msgstr ""
+
+#: src/TeamMember.php:64
+msgid "Profile"
+msgstr ""
+
+#: src/TeamMember.php:68 src/PreviewCard.php:75 src/DoorwayCard.php:68
+msgid "Button Label"
+msgstr ""
+
+#: src/TeamMember.php:73
+msgid "Contact me"
+msgstr ""
+
+#: src/TeamMember.php:95
+msgid "User not found"
+msgstr ""
+
+#: src/Index.php:12
+msgid "Indexed Content"
+msgstr ""
+
+#: src/Index.php:24
 msgid "Slug"
 msgstr ""
 
-#: src/Index.php:27 src/Index.php:53
+#: src/Index.php:30 src/Index.php:56
 msgid "Index group"
 msgstr ""
 
-#: src/Index.php:48
+#: src/Index.php:51
 msgid "Index"
 msgstr ""
 
-#: src/Index.php:96
+#: src/Index.php:99
 msgid "-- Page Index --"
 msgstr ""
 
-#: src/Index.php:151
+#: src/Index.php:154
 msgid "Go to index"
+msgstr ""
+
+#: src/PreviewCard.php:58 src/DoorwayCard.php:44
+msgid "Image Size"
+msgstr ""
+
+#: src/PreviewCard.php:72 src/DoorwayCard.php:65
+msgid "This URL will be used instead of Page permalink."
+msgstr ""
+
+#: src/PreviewCard.php:80 src/DoorwayCard.php:73
+msgid "Insert button label"
+msgstr ""
+
+#: src/PreviewCard.php:84 src/DoorwayCard.php:77
+msgid "Open in new window"
+msgstr ""
+
+#: src/PreviewCard.php:94 src/DoorwayCard.php:87
+msgid "Custom Classes"
+msgstr ""
+
+#: src/Base.php:90 src/Shortcake.php:90
+msgid "Content"
+msgstr ""
+
+#: src/Base.php:91 src/Shortcake.php:91
+msgid "Insert content here"
+msgstr ""
+
+#: src/PreviewCard_Term.php:19
+#, php-format
+msgid "Term Preview Card [%s]"
+msgstr ""
+
+#: src/PreviewCard_Term.php:29
+msgid "Select Term"
+msgstr ""
+
+#: src/ResponsiveImage.php:14
+msgid "Responsive Image"
+msgstr ""
+
+#: src/GoogleMapDirections.php:18
+msgid "Google Maps Directions"
+msgstr ""
+
+#: src/GoogleMapDirections.php:25
+msgid "Lat"
+msgstr ""
+
+#: src/GoogleMapDirections.php:31
+msgid "Long"
+msgstr ""
+
+#: src/GoogleMapDirections.php:37
+msgid "Zoom"
+msgstr ""
+
+#: src/GoogleMapDirections.php:42
+msgid "Marker Title"
+msgstr ""
+
+#: src/GoogleMapDirections.php:48
+msgid "Marker Icon"
+msgstr ""
+
+#: src/GoogleMapDirections.php:76
+msgid "Unlock map"
+msgstr ""
+
+#: src/GoogleMapDirections.php:77
+msgid "Lock map"
+msgstr ""
+
+#: src/GoogleMapDirections.php:83
+msgid "Directions"
+msgstr ""
+
+#: src/GoogleMapDirections.php:85
+msgid "Get route"
+msgstr ""
+
+#: src/GoogleMapDirections.php:89
+msgid "Walking"
+msgstr ""
+
+#: src/GoogleMapDirections.php:91
+msgid "Driving"
+msgstr ""
+
+#: src/GoogleMapDirections.php:93
+msgid "Transit"
+msgstr ""
+
+#: src/GoogleMapDirections.php:98
+msgid "Navigate"
+msgstr ""
+
+#: src/GoogleMapDirections.php:99
+msgid "Show Route"
+msgstr ""
+
+#: src/Section.php:12
+msgid "Section Tag"
+msgstr ""
+
+#: src/Section.php:18
+msgid "HTML ID"
+msgstr ""
+
+#: src/Section.php:22
+msgid "The HTML id attribute value "
+msgstr ""
+
+#: src/Section.php:24
+msgid "section1"
 msgstr ""
 
 #. Name of the plugin
