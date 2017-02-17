@@ -2,7 +2,7 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class DoorwayCard extends Base {
+class PreviewCard extends Shortcake {
     
     public static $defaults = array(
     		'head_image' => 0,
@@ -10,15 +10,29 @@ class DoorwayCard extends Base {
     		'enable_markdown' => false,
     		'url' => '',
     		'target' => '',
-    		'linked_post' => '',
     		'link_label' => '',
     		'classes' => '',
     );
     
-    public $shortcode_id = 'doorway_card';
-    public $title = 'Doorway Card';
-    public $post_query = array( 'post_type' => 'page' );
+    public $shortcode_id = 'preview_card';
     public $image_size = 'post-thumbnail';
+
+    public static $renderOrder = array(
+    	'wrapperBegin',
+        'headerBegin',
+        'title',
+        'headerEnd',
+        'image',
+        'contentBegin',
+        'content',
+        'button',
+        'contentEnd',
+        'wrapperEnd'
+    );
+
+    public function title(){
+        return __('Preview Card', 'svbk-shortcakes');
+    }
 
     function fields(){
         return array(
@@ -51,13 +65,6 @@ class DoorwayCard extends Base {
     				array( 'value' => 'full', 'label' => 'Full'  ),
     			),
     		),      		
-    		array(
-    			'label'    => esc_html__( 'Select Page', 'svbk-shortcakes' ),
-    			'attr'     => 'linked_post',
-    			'type'     => 'post_select',
-    			'query'    => $this->post_query,
-    			'multiple' => false,
-    		),
     		array(
     			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
     			'attr'     => 'url',
@@ -92,7 +99,7 @@ class DoorwayCard extends Base {
     }
     
     protected function getLink($attr){
-        return $attr['url'] ?: get_permalink($attr[ 'linked_post' ]);
+        return $attr['url'];
     }
     
     protected function getImage($attr){
@@ -100,33 +107,47 @@ class DoorwayCard extends Base {
     }  
     
     protected function getTitle($attr){
-        return $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
+        return $attr['title'];
     }      
     
-    function renderOutput($attr, $content, $shortcode_tag){
-
-    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );      
-
-    	$link = $this->getLink($attr);
-    	$image = $this->getImage($attr);;
-    	$title = $this->getTitle($attr);
-
-    	$target = $attr['target'] ? ' target="_blank" ' : '';
-   
-    	if($attr['enable_markdown']){
+    protected function parseMarkdown($content){
             $content = str_replace(array("\n", '<p>'), "", $content);
             $content = str_replace(array("<br />", "<br>", "<br/>"), "\n", $content);
             $content = str_replace("</p>", "\n\n", $content);      	    
     	    
             $md = new \Michelf\Markdown;
-            $content = $md->transform($content);
+            return $md->transform($content);        
+    }
+    
+    public static function setRenderPosition($parts, $position){
+        
+        $parts = (array)$parts;
+        
+        self::$renderOrder = array_diff(self::$renderOrder, $parts);
+        
+        array_splice( self::$renderOrder, $position, 0, $parts ); 
+    }
+
+
+    function renderOutput($attr, $content, $shortcode_tag){
+    
+    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );      
+    
+    	$link = $this->getLink($attr);
+    	$image = $this->getImage($attr);;
+    	$title = $this->getTitle($attr);
+    
+    	$target = $attr['target'] ? ' target="_blank" ' : '';
+   
+    	if($attr['enable_markdown']){
+            $content = $this->parseMarkdown($content);
     	}
     	
-    	$output['wrapperBegin']  = '<div class="doorway-card ' . esc_attr( trim($attr['classes']) ) . '">';
+    	$output['wrapperBegin']  = '<div class="post-thumb preview-card ' . esc_attr( trim($attr['classes']) ) . '">';
     	
     	if($title){
-    	    $output['headerBegin'] = '<div class="card-header">';
-            $output['title'] = sprintf( $link ? '<h2 class="card-title"><a href="%2$s" %3$s >%1$s</a></h2>':'<h2 class="card-title">%1$s</h2>', $title, esc_attr($link), $target) ;
+    	    $output['headerBegin'] = '<div class="entry-header">';
+            $output['title'] = sprintf( $link ? '<h2 class="entry-title"><a href="%2$s" %3$s >%1$s</a></h2>':'<h2 class="entry-title">%1$s</h2>', $title, esc_attr($link), $target) ;
     	    $output['headerEnd'] = '</div>';
     	}
     	
@@ -135,10 +156,10 @@ class DoorwayCard extends Base {
     	}
     	
     	$output['contentBegin'] = '<div class="card-text">';
-        $output['content'] = '  <div class="card-content">' . $content . '</div>';
+        $output['content'] = '  <div class="entry-content">' . $content . '</div>';
         
         if($link && $attr[ 'link_label' ]){
-            $output['button'] = '  <a class="action-button" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
+            $output['button'] = '  <a class="readmore" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
         }
     	
     	$output['contentEnd'] = '</div>';
@@ -149,7 +170,24 @@ class DoorwayCard extends Base {
     }    
     
     function output( $attr, $content, $shortcode_tag ) {
-        return join('', $this->renderOutput($attr, $content, $shortcode_tag));
+        
+        $output = $this->renderOutput($attr, $content, $shortcode_tag);
+        
+        if(is_array($output)){
+        
+            $output_html = '';
+            $parts = self::$renderOrder;
+            
+            foreach($parts as $part){
+                if(array_key_exists($part, $output)){
+                    $output_html .= $output[$part];
+                }
+            }
+            
+            $output = $output_html;
+        }
+        
+        return $output;
     }  
     
 }

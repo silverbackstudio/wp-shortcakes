@@ -2,10 +2,22 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class TeamMember extends Base {
+class TeamMember extends Shortcake {
     
     public $shortcode_id = 'team_member';
-    public $title = 'Team Member';
+    
+    public static $defaults  = array(
+		'user' => 0,
+		'url' => '',
+		'link_dest' => 'dialog',
+		'show_role' => 'false',
+		'show_desc' => 'false',
+		'button_label' => _('Read More'),
+	);
+
+    public function title(){
+        return __('Team Member', 'svbk-shortcakes');
+    } 
 
     function fields(){
         
@@ -75,25 +87,15 @@ class TeamMember extends Base {
     // }
     
     function output( $attr, $content, $shortcode_tag ) {
-    	$attr = shortcode_atts( array(
-    		'user' => get_current_user_id(),
-    		'url' => '',
-    		'link_dest' => 'dialog',
-    		'show_role' => 'false',
-    		'show_desc' => 'false',
-    		'button_label' => _('Read More'),
-    	), $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
-    
         $user = get_user_by('id', $attr['user']); 
         
         if(!is_a($user, 'WP_User')) {
             return __('User not found', 'svbk-shortcakes');
         }
         
-        
         $output = '';
-        
         
         $output  .= '<div class="author vcard ' . ( ('dialog' === $attr['link_dest']) ? 'dialogable' : '' ) . '">';
         if('dialog' === $attr['link_dest']) {

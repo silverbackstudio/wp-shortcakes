@@ -1,9 +1,16 @@
 <?php namespace Svbk\WP\Shortcakes;
 
-class Section extends Base {
+class Section extends Shortcake {
     
     public $shortcode_id = 'section';
-    public $title = 'Section';
+    public static $defaults = array(
+		'id' => 0,
+		'classes' => '',
+	);
+
+    public function title(){
+        return __('Section Tag', 'svbk-shortcakes');
+    }  
 
     function fields(){
         return array(        
@@ -37,12 +44,7 @@ class Section extends Base {
     
     function output( $attr, $content, $shortcode_tag ) {
         
-    	$attr = shortcode_atts( array(
-    		
-    		'id' => 0,
-    		'classes' => '',
-    		
-    	), $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
         
         return '<section id="'.esc_attr($attr['classes']).'" class="'.esc_attr($attr['classes']).'">'.$content.'</section>';
     	

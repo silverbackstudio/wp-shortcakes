@@ -2,10 +2,17 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class ResponsiveImage extends Base {
+class ResponsiveImage extends Shortcake {
     
     public $shortcode_id = 'responsive_image';
-    public $title = 'Responsive Image';
+    public static $defualts = array(
+	    'image_id' => '',
+	    'size' => '',
+	);
+
+    public function title(){
+        return __('Responsive Image', 'svbk-shortcakes');
+    }    
 
     function fields(){
         
@@ -28,10 +35,7 @@ class ResponsiveImage extends Base {
     }
     
     function output( $attr, $content, $shortcode_tag ) {
-    	$attr = shortcode_atts( array(
-    		'image_id' => '',
-    		'size' => '',
-    		), $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
         return wp_get_attachment_image( $attr['image_id'], $attr['size'] );
         

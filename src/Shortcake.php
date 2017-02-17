@@ -2,9 +2,9 @@
 
 namespace Svbk\WP\Shortcakes;
 
-add_action( 'after_setup_theme', __NAMESPACE__.'\\Base::load_texdomain' );
+add_action( 'after_setup_theme', __NAMESPACE__.'\\Shortcake::load_texdomain' );
 
-abstract class Base {
+abstract class Shortcake {
     
     public $shortcode_id = 'shortcake_base';
     public $title = '';

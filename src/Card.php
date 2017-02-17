@@ -5,7 +5,10 @@ namespace Svbk\WP\Shortcakes;
 class Card extends Base {
     
     public $shortcode_id = 'card';
-    public $title = 'Card';
+    
+    public function title(){
+        return __('Preview Card', 'svbk-shortcakes');
+    }
 
     function fields(){
         return array(

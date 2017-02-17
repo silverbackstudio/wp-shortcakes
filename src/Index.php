@@ -2,12 +2,15 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class Index extends Base {
+class Index extends Shortcake {
     
     public $shortcode_id = 'indexed_content';
-    public $title = 'Indexed Content';
     public $sections = array();
     public $current_index = array();
+
+    public function title(){
+        return __('Indexed Content', 'svbk-shortcakes');
+    }
 
     function fields(){
         
@@ -122,7 +125,7 @@ class Index extends Base {
     
     function output( $attr, $content, $shortcode_tag ) {
         
-    	$attr = shortcode_atts( array(
+    	$attr = $this->shortcode_atts( array(
     		'title' => '',
     		'slug' => sanitize_title(isset($attr['title']) ? $attr['title'] : uniqid()),
     		'group' => 'default',

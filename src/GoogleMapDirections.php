@@ -2,10 +2,21 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class GoogleMapDirections extends Base {
+class GoogleMapDirections extends Shortcake {
     
     public $shortcode_id = 'gmap_directions';
-    public $title = 'Google Maps Directions';
+
+    public static $defaults = array(
+		'lat' => '',
+		'lng' => '',
+		'zoom' => '',
+		'marker_title' => '',
+		'marker_icon' => '',
+	);
+
+    public function title(){
+        return __('Google Maps Directions', 'svbk-shortcakes');
+    }
 
     function fields(){
         
@@ -54,13 +65,7 @@ class GoogleMapDirections extends Base {
     }
     
     function output( $attr, $content, $shortcode_tag ) {
-    	$attr = shortcode_atts( array(
-    		'lat' => '',
-    		'lng' => '',
-    		'zoom' => '',
-    		'marker_title' => '',
-    		'marker_icon' => '',
-    	), $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( self::$defaults , $attr, $shortcode_tag );
     
 		ob_start();
 		?>
