@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 07:56+0000\n"
+"POT-Creation-Date: 2017-02-17 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -18,49 +18,12 @@ msgstr ""
 msgid "Latest Posts"
 msgstr ""
 
-#: src/LatestPosts.php:31
+#: src/LatestPosts.php:31 src/Archive.php:33
 msgid "Post Count"
 msgstr ""
 
 #: src/LatestPosts.php:32
 msgid "The number of posts shown"
-msgstr ""
-
-#: src/Card.php:10 src/PreviewCard.php:34
-msgid "Preview Card"
-msgstr ""
-
-#: src/Card.php:16 src/PreviewCard.php:50 src/DoorwayCard.php:36
-#: src/ResponsiveImage.php:21
-msgid "Image"
-msgstr ""
-
-#: src/Card.php:20 src/Card.php:21 src/PreviewCard.php:54
-#: src/PreviewCard.php:55 src/DoorwayCard.php:40 src/DoorwayCard.php:41
-#: src/ResponsiveImage.php:25 src/ResponsiveImage.php:26
-msgid "Select Image"
-msgstr ""
-
-#: src/Card.php:24 src/Index.php:19 src/PreviewCard.php:40
-#: src/DoorwayCard.php:26
-msgid "Title"
-msgstr ""
-
-#: src/Card.php:28 src/PreviewCard.php:44 src/DoorwayCard.php:30
-msgid "This title will replace the Page title"
-msgstr ""
-
-#: src/Card.php:30 src/TeamMember.php:38 src/PreviewCard.php:46
-#: src/DoorwayCard.php:32
-msgid "Insert title"
-msgstr ""
-
-#: src/Card.php:34 src/PreviewCard.php:89 src/DoorwayCard.php:82
-msgid "Enable Markdown"
-msgstr ""
-
-#: src/Card.php:39 src/Section.php:28
-msgid "Classes"
 msgstr ""
 
 #: src/Definition.php:11 src/Definition.php:28
@@ -83,7 +46,7 @@ msgstr ""
 msgid "Post Preview Card"
 msgstr ""
 
-#: src/PreviewCard_Post.php:22 src/DoorwayCard.php:55
+#: src/PreviewCard_Post.php:22
 msgid "Select Page"
 msgstr ""
 
@@ -115,8 +78,11 @@ msgstr ""
 msgid "User"
 msgstr ""
 
+#: src/TeamMember.php:38 src/PreviewCard.php:46
+msgid "Insert title"
+msgstr ""
+
 #: src/TeamMember.php:42 src/TeamMember.php:61 src/PreviewCard.php:69
-#: src/DoorwayCard.php:62
 msgid "URL"
 msgstr ""
 
@@ -144,7 +110,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: src/TeamMember.php:68 src/PreviewCard.php:75 src/DoorwayCard.php:68
+#: src/TeamMember.php:68 src/PreviewCard.php:75
 msgid "Button Label"
 msgstr ""
 
@@ -158,6 +124,10 @@ msgstr ""
 
 #: src/Index.php:12
 msgid "Indexed Content"
+msgstr ""
+
+#: src/Index.php:19 src/PreviewCard.php:40
+msgid "Title"
 msgstr ""
 
 #: src/Index.php:24
@@ -180,32 +150,45 @@ msgstr ""
 msgid "Go to index"
 msgstr ""
 
-#: src/PreviewCard.php:58 src/DoorwayCard.php:44
+#: src/PreviewCard.php:34
+msgid "Preview Card"
+msgstr ""
+
+#: src/PreviewCard.php:44
+msgid "This title will replace the Page title"
+msgstr ""
+
+#: src/PreviewCard.php:50 src/ResponsiveImage.php:21
+msgid "Image"
+msgstr ""
+
+#: src/PreviewCard.php:54 src/PreviewCard.php:55 src/ResponsiveImage.php:25
+#: src/ResponsiveImage.php:26
+msgid "Select Image"
+msgstr ""
+
+#: src/PreviewCard.php:58
 msgid "Image Size"
 msgstr ""
 
-#: src/PreviewCard.php:72 src/DoorwayCard.php:65
+#: src/PreviewCard.php:72
 msgid "This URL will be used instead of Page permalink."
 msgstr ""
 
-#: src/PreviewCard.php:80 src/DoorwayCard.php:73
+#: src/PreviewCard.php:80
 msgid "Insert button label"
 msgstr ""
 
-#: src/PreviewCard.php:84 src/DoorwayCard.php:77
+#: src/PreviewCard.php:84
 msgid "Open in new window"
 msgstr ""
 
-#: src/PreviewCard.php:94 src/DoorwayCard.php:87
+#: src/PreviewCard.php:89
+msgid "Enable Markdown"
+msgstr ""
+
+#: src/PreviewCard.php:94
 msgid "Custom Classes"
-msgstr ""
-
-#: src/Base.php:90 src/Shortcake.php:90
-msgid "Content"
-msgstr ""
-
-#: src/Base.php:91 src/Shortcake.php:91
-msgid "Insert content here"
 msgstr ""
 
 #: src/PreviewCard_Term.php:19
@@ -281,6 +264,14 @@ msgstr ""
 msgid "Show Route"
 msgstr ""
 
+#: src/Archive.php:15
+msgid "Archive"
+msgstr ""
+
+#: src/Archive.php:26
+msgid "Select Post Type"
+msgstr ""
+
 #: src/Section.php:12
 msgid "Section Tag"
 msgstr ""
@@ -295,6 +286,18 @@ msgstr ""
 
 #: src/Section.php:24
 msgid "section1"
+msgstr ""
+
+#: src/Section.php:28
+msgid "Classes"
+msgstr ""
+
+#: src/Shortcake.php:97
+msgid "Content"
+msgstr ""
+
+#: src/Shortcake.php:98
+msgid "Insert content here"
 msgstr ""
 
 #. Name of the plugin

@@ -23,6 +23,13 @@ abstract class Shortcake {
         }      
     }
 
+    public static function castSelect(&$value, $key){
+        $value = array(
+            'label'=>$value,
+            'value'=>$key,
+        );
+    }
+
     static function register($options=array()){
         
         $class = get_called_class();
