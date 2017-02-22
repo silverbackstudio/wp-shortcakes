@@ -10,6 +10,10 @@ abstract class Shortcake {
     public $title = '';
     public $icon = 'dashicons-admin-links';
     public $attach_to = array('page');
+    
+    public $renderOrder = array(
+        'content',
+    );    
 
     public function title(){
         return __('Base Shortcode', 'svbk-shortcodes');
@@ -111,6 +115,37 @@ abstract class Shortcake {
     	shortcode_ui_register_for_shortcode( $this->shortcode_id, $this->ui_args() );        
     }
     
-    abstract function output( $attr, $content, $shortcode_tag );
+    public static function setRenderPosition($parts, $position){
+        
+        $parts = (array)$parts;
+        
+        $this->renderOrder = array_diff($this->renderOrder, $parts);
+        
+        array_splice( $this->renderOrder, $position, 0, $parts ); 
+    }     
     
+    function renderOutput($attr, $content, $shortcode_tag){
+        return array('content'=>$content);
+    }
+    
+    public function output( $attr, $content, $shortcode_tag ) {
+        
+        $output = $this->renderOutput($attr, $content, $shortcode_tag);
+        
+        if(is_array($output)){
+        
+            $output_html = '';
+            $parts = $this->renderOrder;
+            
+            foreach($parts as $part){
+                if(array_key_exists($part, $output)){
+                    $output_html .= $output[$part];
+                }
+            }
+            
+            $output = $output_html;
+        }
+        
+        return $output;
+    }      
 }

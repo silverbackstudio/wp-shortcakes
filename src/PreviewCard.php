@@ -17,7 +17,7 @@ class PreviewCard extends Shortcake {
     public $shortcode_id = 'preview_card';
     public $image_size = 'post-thumbnail';
 
-    public static $renderOrder = array(
+    public $renderOrder = array(
     	'wrapperBegin',
         'headerBegin',
         'title',
@@ -168,26 +168,5 @@ class PreviewCard extends Shortcake {
     	return $output;
         
     }    
-    
-    function output( $attr, $content, $shortcode_tag ) {
-        
-        $output = $this->renderOutput($attr, $content, $shortcode_tag);
-        
-        if(is_array($output)){
-        
-            $output_html = '';
-            $parts = self::$renderOrder;
-            
-            foreach($parts as $part){
-                if(array_key_exists($part, $output)){
-                    $output_html .= $output[$part];
-                }
-            }
-            
-            $output = $output_html;
-        }
-        
-        return $output;
-    }  
     
 }
