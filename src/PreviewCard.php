@@ -17,7 +17,7 @@ class PreviewCard extends Shortcake {
     public $shortcode_id = 'preview_card';
     public $image_size = 'post-thumbnail';
 
-    public $renderOrder = array(
+    public static $defaultRenderOrder = array(
     	'wrapperBegin',
         'headerBegin',
         'title',
@@ -29,6 +29,15 @@ class PreviewCard extends Shortcake {
         'contentEnd',
         'wrapperEnd'
     );
+    
+    public $renderOrder;
+
+    public function __construct($properties){
+        parent::__construct($properties);
+        
+        $this->renderOrder = self::$defaultRenderOrder;
+    }
+    
 
     public function title(){
         return __('Preview Card', 'svbk-shortcakes');
@@ -119,19 +128,9 @@ class PreviewCard extends Shortcake {
             return $md->transform($content);        
     }
     
-    public static function setRenderPosition($parts, $position){
-        
-        $parts = (array)$parts;
-        
-        self::$renderOrder = array_diff(self::$renderOrder, $parts);
-        
-        array_splice( self::$renderOrder, $position, 0, $parts ); 
-    }
-
-
     function renderOutput($attr, $content, $shortcode_tag){
     
-    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );      
+    	$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );      
     
     	$link = $this->getLink($attr);
     	$image = $this->getImage($attr);
