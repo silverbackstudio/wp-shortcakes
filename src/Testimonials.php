@@ -31,7 +31,9 @@ class Testimonials extends Shortcake {
 
     public static $defaults = array(
         'count' => 2,
-    	'paged' => 1
+    	'paged' => 1,
+    	'load_more' => 1,
+    	'offset' => 0,
     );
 
     public function title(){
@@ -95,15 +97,31 @@ class Testimonials extends Shortcake {
     function fields(){
         return array(        
         		array(
-        			'label'  => esc_html__( 'Count', 'svbk-shortcakes' ),
+        			'label'  => esc_html__( 'Reviews Count', 'svbk-shortcakes' ),
         			'attr'   => 'count',
         			'type'   => 'number',
         			'encode' => true,
         			'description' => esc_html__( 'How many testimonials to show', 'svbk-shortcakes' ),
         			'meta'   => array(
-        				'placeholder' => esc_html__( '2', 'svbk-shortcakes' ),
+        				'placeholder' =>  self::$defaults['count'],
         			),
-        		)
+        		),
+        		array(
+        			'label'  => esc_html__( 'Show Load More', 'svbk-shortcakes' ),
+        			'attr'   => 'load_more',
+        			'type'   => 'checkbox',
+        			'default' => self::$defaults['load_more'],
+        			'description' => esc_html__( 'Show the AJAX "Load More" button', 'svbk-shortcakes' ),
+        		),
+        		array(
+        			'label'  => esc_html__( 'Offset', 'svbk-shortcakes' ),
+        			'attr'   => 'offset',
+        			'type'   => 'number',
+        			'description' => esc_html__( 'Skip the first N testimonials', 'svbk-shortcakes' ),
+        			'meta'   => array(
+        				'placeholder' => self::$defaults['offset'],
+        			),
+        		)           		
             );
     }
 
@@ -114,6 +132,7 @@ class Testimonials extends Shortcake {
     	    'post_status' => 'publish',
     	    'posts_per_page' => $attr['count'],
     	    'paged' => $attr['paged'],
+    	    'offset' => $attr['offset'],
     	);
     	
     }
