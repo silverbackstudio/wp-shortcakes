@@ -134,7 +134,7 @@ class PreviewCard extends Shortcake {
     	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );      
     
     	$link = $this->getLink($attr);
-    	$image = $this->getImage($attr);;
+    	$image = $this->getImage($attr);
     	$title = $this->getTitle($attr);
     
     	$target = $attr['target'] ? ' target="_blank" ' : '';
