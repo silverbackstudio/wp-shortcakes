@@ -20,13 +20,22 @@ abstract class Shortcake {
     }
 
     public function __construct($properties){
-        foreach($properties as $properties => $value){
-            if(property_exists($this, $properties)) {
-                $this->$properties = $value;
+        
+        foreach($properties as $property => $value){
+            if(!property_exists($this, $property)) {
+                continue;
             }
+            
+            if($property === 'defaults'){
+                $this->defaults = array_merge($this->defaults, $value);
+            } else {
+                $this->$property = $value;
+            }
+            
         }      
+        
     }
-
+    
     public static function castSelect(&$value, $key){
         $value = array(
             'label'=>$value,
