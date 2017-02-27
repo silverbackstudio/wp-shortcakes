@@ -28,6 +28,7 @@ class Testimonials extends Shortcake {
     
     public $shortcode_id = 'testimonials';
     public $post_type = 'testimonials';
+    public $register_cpt = true;
 
     public static $defaults = array(
         'count' => 2,
@@ -44,7 +45,7 @@ class Testimonials extends Shortcake {
         
         $instance = parent::register($options);
         
-        if(!isset($options['register_cpt']) || $options['register_cpt']){
+        if($instance->register_cpt){
             add_action( 'init', array($instance, 'register_cpts') );
         }
         
@@ -84,6 +85,7 @@ class Testimonials extends Shortcake {
     	);
     
     	register_post_type( $this->post_type, $args );
+    	
     }
     
     public function loadMore(){
