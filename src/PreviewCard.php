@@ -4,8 +4,9 @@ namespace Svbk\WP\Shortcakes;
 
 class PreviewCard extends Shortcake {
     
-    public static $defaults = array(
+    public $defaults = array(
     		'head_image' => 0,
+    		'image_size' => 'thumbnail',
     		'title' => '',
     		'enable_markdown' => false,
     		'url' => '',
@@ -16,6 +17,7 @@ class PreviewCard extends Shortcake {
     
     public $shortcode_id = 'preview_card';
     public $image_size = 'post-thumbnail';
+    public $classes = array('preview-card');
 
     public static $defaultRenderOrder = array(
     	'wrapperBegin',
@@ -33,9 +35,10 @@ class PreviewCard extends Shortcake {
     public $renderOrder;
 
     public function __construct($properties){
-        parent::__construct($properties);
         
         $this->renderOrder = self::$defaultRenderOrder;
+        
+        parent::__construct($properties);
     }
     
 
@@ -67,6 +70,7 @@ class PreviewCard extends Shortcake {
     			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
     			'attr'          => 'image_size',
     			'type'          => 'select',
+    			'default'       => $this->defaults['image_size'],
     			'options'       => array(
     				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
     				array( 'value' => 'medium', 'label' => 'Medium'  ),
@@ -119,6 +123,10 @@ class PreviewCard extends Shortcake {
         return $attr['title'];
     }      
     
+    protected function getClasses($attr){
+        return array_map('trim', explode(' ', $attr['classes']));
+    }
+    
     protected function parseMarkdown($content){
             $content = str_replace(array("\n", '<p>'), "", $content);
             $content = str_replace(array("<br />", "<br>", "<br/>"), "\n", $content);
@@ -142,7 +150,9 @@ class PreviewCard extends Shortcake {
             $content = $this->parseMarkdown($content);
     	}
     	
-    	$output['wrapperBegin']  = '<div class="post-thumb preview-card ' . esc_attr( trim($attr['classes']) ) . '">';
+    	$classes = array_merge($this->classes, $this->getClasses($attr) );
+    	
+    	$output['wrapperBegin']  = '<div class="' . esc_attr( join( ' ', $classes) ) . '">';
     	
     	if($title){
     	    $output['headerBegin'] = '<div class="entry-header">';

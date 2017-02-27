@@ -6,7 +6,7 @@ class PreviewCard_Post extends PreviewCard {
     
     public $shortcode_id = 'preview_card_post';
     public $post_query = array( 'post_type' => 'page' );    
-    public $title = '';
+    public $classes = array('preview-card', 'post-thumb');
 
     public function title(){
         return $this->title ?: __('Post Preview Card', 'svbk-shortcakes');
@@ -31,7 +31,7 @@ class PreviewCard_Post extends PreviewCard {
         return $fields;
     }
     
-    protected function shortcode_atts($defaults, $attr, $shortcode_tag){
+    protected function shortcode_atts($defaults, $attr=array(), $shortcode_tag=''){
         
         unset($defaults['url']);
         

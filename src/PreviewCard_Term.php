@@ -6,6 +6,7 @@ class PreviewCard_Term extends PreviewCard {
     
     public $shortcode_id = 'preview_card_term';
     public $taxonomy = 'category';
+    public $classes = array('preview-card', 'term-thumb');
     
     public function title(){
         
@@ -65,7 +66,7 @@ class PreviewCard_Term extends PreviewCard {
         return '';
     }
     
-    protected function shortcode_atts($defaults, $attr, $shortcode_tag){
+    protected function shortcode_atts($defaults, $attr=array(), $shortcode_tag=''){
         
         unset($defaults['linked_post']);
         
