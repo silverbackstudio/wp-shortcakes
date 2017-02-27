@@ -19,12 +19,12 @@ abstract class Shortcake {
         return __('Base Shortcode', 'svbk-shortcodes');
     }
 
-    public function __construct($properties){
-        foreach($properties as $properties => $value){
-            if(property_exists($this, $properties)) {
-                $this->$properties = $value;
+    public function __construct($properties=array()){
+        foreach($properties as $property => $value){
+            if(property_exists($this, $property)) {
+                $this->$property = $value;
             }
-        }      
+        }       
     }
 
     public static function castSelect(&$value, $key){
@@ -41,9 +41,9 @@ abstract class Shortcake {
         $instance = new $class($options);
         
         //backward compatibility
-        if(!array_key_exists('attach_to', $options)){
-            $instance->attach_to = $options;
-        }
+        // if(!array_key_exists('attach_to', $options)){
+        //     $instance->attach_to = $options;
+        // }
         
         add_action( 'init', array($instance, 'add'), 12 );
         add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
