@@ -5,7 +5,17 @@ namespace Svbk\WP\Shortcakes;
 class ResponsiveImage extends Shortcake {
     
     public $shortcode_id = 'responsive_image';
-    public static $defualts = array(
+    
+    public $classes = array();
+    
+    public $renderOrder = array(
+        'wrapperBegin',
+        'image',
+        'caption',
+        'wrapperEnd'
+    );
+    
+    public static $defaults = array(
 	    'image_id' => '',
 	    'size' => '',
 	);
@@ -34,10 +44,18 @@ class ResponsiveImage extends Shortcake {
     	);
     }
     
-    function output( $attr, $content, $shortcode_tag ) {
+    function renderOutput( $attr, $content, $shortcode_tag ) {
     	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
-        return wp_get_attachment_image( $attr['image_id'], $attr['size'] );
+        $output['wrapperBegin'] = '<figure class="'.join(' ', $this->classes).'">';
+        $output['image'] = wp_get_attachment_image( $attr['image_id'], $attr['size'] );
+        
+        if($content){
+            $output['caption'] = '<figcaption class="caption">' .$content .'</figcaption>';
+        }
+        $output['wrapperEnd'] = '</figure>';
+        
+        return $output;
         
     }
     
