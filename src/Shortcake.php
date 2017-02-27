@@ -50,9 +50,9 @@ abstract class Shortcake {
         $instance = new $class($options);
         
         //backward compatibility
-        if(!array_key_exists('attach_to', $options)){
-            $instance->attach_to = $options;
-        }
+        // if(!array_key_exists('attach_to', $options)){
+        //     $instance->attach_to = $options;
+        // }
         
         add_action( 'init', array($instance, 'add'), 12 );
         add_action( 'register_shortcode_ui', array($instance, 'register_ui') );
