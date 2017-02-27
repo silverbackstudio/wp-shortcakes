@@ -15,7 +15,7 @@ class ResponsiveImage extends Shortcake {
         'wrapperEnd'
     );
     
-    public static $defaults = array(
+    public $defaults = array(
 	    'image_id' => '',
 	    'size' => '',
 	);
@@ -45,7 +45,7 @@ class ResponsiveImage extends Shortcake {
     }
     
     function renderOutput( $attr, $content, $shortcode_tag ) {
-    	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 
         $output['wrapperBegin'] = '<figure class="'.join(' ', $this->classes).'">';
         $output['image'] = wp_get_attachment_image( $attr['image_id'], $attr['size'] );
