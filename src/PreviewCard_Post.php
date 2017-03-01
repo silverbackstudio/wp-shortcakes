@@ -45,7 +45,7 @@ class PreviewCard_Post extends PreviewCard {
     }
     
     protected function getTitle($attr){
-        return get_the_title($attr[ 'linked_post' ]);
+        return $attr['title'] ?: get_the_title($attr[ 'linked_post' ]);
     }          
     
     protected function getImage($attr){

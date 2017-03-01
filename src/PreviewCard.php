@@ -6,7 +6,6 @@ class PreviewCard extends Shortcake {
     
     public $defaults = array(
     		'head_image' => 0,
-    		'image_size' => 'thumbnail',
     		'title' => '',
     		'enable_markdown' => false,
     		'url' => '',
@@ -16,7 +15,7 @@ class PreviewCard extends Shortcake {
     );
     
     public $shortcode_id = 'preview_card';
-    public $image_size = 'post-thumbnail';
+    public $image_size = 'thumbnail';
     public $classes = array('preview-card');
 
     public static $defaultRenderOrder = array(
@@ -48,7 +47,7 @@ class PreviewCard extends Shortcake {
 
     function fields(){
         return array(
-    		array(
+    		'title' => array(
     			'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),
     			'attr'   => 'title',
     			'type'   => 'text',
@@ -58,7 +57,7 @@ class PreviewCard extends Shortcake {
     				'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
     			),
     		),            
-    		array(
+    		'head_image' => array(
     			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
     			'attr'        => 'head_image',
     			'type'        => 'attachment',
@@ -66,25 +65,13 @@ class PreviewCard extends Shortcake {
     			'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
     			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
     		),
-            array(
-    			'label'         => esc_html__( 'Image Size', 'svbk-shortcakes' ),
-    			'attr'          => 'image_size',
-    			'type'          => 'select',
-    			'default'       => $this->defaults['image_size'],
-    			'options'       => array(
-    				array( 'value' => 'thumbnail', 'label' => 'Thumbnail' ),
-    				array( 'value' => 'medium', 'label' => 'Medium'  ),
-    				array( 'value' => 'large', 'label' => 'Large' ),
-    				array( 'value' => 'full', 'label' => 'Full'  ),
-    			),
-    		),      		
-    		array(
+    		'url' => array(
     			'label'    => esc_html__( 'URL', 'svbk-shortcakes' ),
     			'attr'     => 'url',
     			'type'     => 'url',
 				'description' => esc_html__( 'This URL will be used instead of Page permalink.', 'svbk-shortcakes' ),
     		),       		
-    		array(
+    		'link_label' => array(
     			'label'  => esc_html__( 'Button Label', 'svbk-shortcakes' ),
     			'attr'   => 'link_label',
     			'type'   => 'text',
@@ -93,17 +80,17 @@ class PreviewCard extends Shortcake {
     				'placeholder' => esc_html__( 'Insert button label', 'svbk-shortcakes' ),
     			),
     		),   
-    		array(
+    		'target' => array(
     			'label'    => esc_html__( 'Open in new window', 'svbk-shortcakes' ),
     			'attr'     => 'target',
     			'type'     => 'checkbox'
     		),      		
-    		array(
+    		'enable_markdown' => array(
     			'label'    => esc_html__( 'Enable Markdown', 'svbk-shortcakes' ),
     			'attr'     => 'enable_markdown',
     			'type'     => 'checkbox',
     		),        	
-    		array(
+    		'classes' => array(
     			'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
     			'attr'     => 'classes',
     			'type'     => 'text',

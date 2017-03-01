@@ -24,18 +24,14 @@ class PreviewCard_Term extends PreviewCard {
          
         $fields = parent::fields();
      
-        foreach ($fields as &$field) {
-            if($field['attr'] === 'url'){
-        		$field = array(
-        			'label'    => esc_html__( 'Select Term', 'svbk-shortcakes' ),
-        			'attr'     => 'linked_term',
-        			'type'     => 'term_select',
-        			'taxonomy' => $this->taxonomy,
-        			'multiple' => false,
-        		);
-            }
-        }
-         
+        $fields['url'] = array(
+			'label'    => esc_html__( 'Select Term', 'svbk-shortcakes' ),
+			'attr'     => 'linked_term',
+			'type'     => 'term_select',
+			'taxonomy' => $this->taxonomy,
+			'multiple' => false,
+		);
+     
         return $fields;
          
     }
