@@ -11,6 +11,8 @@ abstract class Shortcake {
     public $icon = 'dashicons-admin-links';
     public $attach_to = array('page');
     
+    public $show_content = true;
+    
     public $renderOrder = array(
         'content',
     );    
@@ -74,7 +76,7 @@ abstract class Shortcake {
     protected function shortcode_atts($defaults, $attr=array(), $shortcode_tag=''){
         
         if(!$shortcode_tag){
-            $this->shortcode_id;
+            $shortcode_tag = $this->shortcode_id;
         }
         
         return shortcode_atts( $defaults, $attr, $shortcode_tag ); 
@@ -116,7 +118,7 @@ abstract class Shortcake {
     		 *
     		 * See above, to where the the assignment to the $fields variable was made.
     		 */
-    		'attrs' => $this->fields(),
+    		'attrs' => array_values( $this->fields() ),
     	);        
     }
     
@@ -124,7 +126,7 @@ abstract class Shortcake {
     	shortcode_ui_register_for_shortcode( $this->shortcode_id, $this->ui_args() );        
     }
     
-    public static function setRenderPosition($parts, $position){
+    public function setRenderPosition($parts, $position){
         
         $parts = (array)$parts;
         
