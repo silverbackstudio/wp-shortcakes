@@ -162,10 +162,10 @@ class Testimonials extends Shortcake {
             while( $testimonials->have_posts() ): $testimonials->next_post();
                 $output .= '<blockquote class="testimonial">';
                 $output .= apply_filters( 'the_content', $testimonials->post->post_content );
-                $output .= '<footer>';
-                $output .= '<cite class="author name">'. get_the_title( $testimonials->post ) .'</cite>';
-                $output .=  get_the_post_thumbnail( $testimonials->post->ID, 'small' );
-                $output .= '<span class="role">'. get_field( 'author_role', $testimonials->post->ID ) .'</span>';
+                $output .= '<footer class="author">';
+                $output .=  '<cite class="name">'. get_the_title( $testimonials->post ) .'</cite>';
+                $output .=  '<div class="picture">' . get_the_post_thumbnail( $testimonials->post->ID, 'small' ) . '</div>';
+                $output .=  '<span class="role">'. get_field( 'author_role', $testimonials->post->ID ) .'</span>';
                 $output .= '</footer>';
                 $output .= '</blockquote>';
             endwhile;
