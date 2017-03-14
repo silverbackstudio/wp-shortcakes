@@ -27,13 +27,13 @@ use WP_Query;
 class Testimonials extends Shortcake {
     
     public $shortcode_id = 'testimonials';
-    public $post_type = 'testimonials';
+    public $post_type = 'testimonial';
     public $register_cpt = true;
 
     public static $defaults = array(
         'count' => 2,
     	'paged' => 1,
-    	'load_more' => 1,
+    	'load_more' => 0,
     	'offset' => 0,
     );
 
@@ -170,7 +170,7 @@ class Testimonials extends Shortcake {
                 $output .= '</blockquote>';
             endwhile;
             
-            if(intval($attr['paged']) < $testimonials->max_num_pages){
+            if($attr['load_more'] && (intval($attr['paged']) < $testimonials->max_num_pages) ){
                 $output .= '<button class="button loadmore">'.__('Show more testimonials', 'svbk-shorcakes').'</button>';
             }
             

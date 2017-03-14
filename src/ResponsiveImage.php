@@ -6,7 +6,7 @@ class ResponsiveImage extends Shortcake {
     
     public $shortcode_id = 'responsive_image';
     
-    public $classes = array();
+    public $classes = array('content-image');
     
     public $renderOrder = array(
         'wrapperBegin',
