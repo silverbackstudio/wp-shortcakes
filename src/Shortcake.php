@@ -67,7 +67,7 @@ abstract class Shortcake {
         load_textdomain( 'svbk-shortcakes', dirname(__DIR__).'/languages/svbk-shortcakes' . '-' . get_locale() . '.mo'   ); 
     }
 
-    function add(){
+    public function add(){
         add_shortcode( $this->shortcode_id, array($this, 'output') );
     }        
     
@@ -122,7 +122,7 @@ abstract class Shortcake {
     	);        
     }
     
-    function register_ui(){
+    public function register_ui(){
     	shortcode_ui_register_for_shortcode( $this->shortcode_id, $this->ui_args() );        
     }
     
@@ -135,8 +135,35 @@ abstract class Shortcake {
         array_splice( $this->renderOrder, $position, 0, $parts ); 
     }     
     
-    function renderOutput($attr, $content, $shortcode_tag){
+    protected function renderOutput($attr, $content, $shortcode_tag){
         return array('content'=>$content);
+    }
+    
+    
+    protected function outputParts($output, $order=null){
+        
+        if( empty($order) ) {
+            $order = array_keys( $output );
+        }
+        
+        $output_html = '';
+        
+        foreach($order as $part){
+            
+            if(!array_key_exists($part, $output)){
+                continue;
+            }
+            
+            if(is_array($output[$part])){
+                $output_html .= $this->outputParts( $output[$part] );
+            } else {
+                $output_html .= $output[$part];
+            }
+            
+        }        
+        
+        return $output_html;
+        
     }
     
     public function output( $attr, $content, $shortcode_tag ) {
@@ -144,17 +171,8 @@ abstract class Shortcake {
         $output = $this->renderOutput($attr, $content, $shortcode_tag);
         
         if(is_array($output)){
-        
-            $output_html = '';
-            $parts = $this->renderOrder;
-            
-            foreach($parts as $part){
-                if(array_key_exists($part, $output)){
-                    $output_html .= $output[$part];
-                }
-            }
-            
-            $output = $output_html;
+            $order = $this->renderOrder;
+            $output = $this->outputParts( $output, $order );
         }
         
         return $output;
