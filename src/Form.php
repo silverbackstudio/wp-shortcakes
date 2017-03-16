@@ -171,7 +171,7 @@ class Form extends Shortcake {
         if($attr['hidden']){
             $output['openButton'] = '<a class="button svbk-show-content" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
             $output['collapseBegin'] = '<div class="svbk-form-content">';
-            $output['closeButton'] = '<a class="button svbk-hide-content" href="#' . $this->field_prefix . '-container-' . $index .'" ><span class="screen-reader-text">' . __('Close', 'svbk-shortcakes') . '</span></a>';
+            $output['closeButton'] = '<a class="button svbk-hide-content" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';
             $output['collapseEnd'] = '</div>';
         }
         
