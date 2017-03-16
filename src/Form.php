@@ -59,6 +59,8 @@ class Form extends Shortcake {
         
         $errors = $form->getErrors();
         
+        header('Content-Type: application/json');
+
         echo $this->formatResponse($errors, $form);
     }
     
@@ -158,7 +160,7 @@ class Form extends Shortcake {
     	$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );      
         $form = $this->getForm();
 
-        $output = array();
+        $output = $form->renderParts( $this->action, $attr );
 
         $output['wrapperBegin'] = '<div class="whitepaper-dl svbk-form-container" id="' . $this->field_prefix . '-container-' . $index  . '">';
     
@@ -166,8 +168,6 @@ class Form extends Shortcake {
             $output['title'] = '<h2 class="form-title">'.$attr['title'].'</h2>';
         }
     
-        $output = array_merge( $output, $form->renderParts( $this->action, $attr ) );
-
         if($attr['hidden']){
             $output['openButton'] = '<a class="button svbk-show-content" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
             $output['collapseBegin'] = '<div class="svbk-form-content">';
