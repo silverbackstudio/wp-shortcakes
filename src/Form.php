@@ -19,6 +19,9 @@ class Form extends Shortcake {
     public $formClass = '\Svbk\WP\Helpers\Form\Submission';
     public $confirmMessage = '';
 
+    public $recipientEmail = 'webmaster@silverbackstudio.it';    
+    public $recipientName = 'Webmaster'; 
+
     public $renderOrder = array(
         'wrapperBegin',
         'openButton',
@@ -146,6 +149,11 @@ class Form extends Shortcake {
         
         $form->field_prefix = $this->field_prefix;
         $form->action = $this->action;
+        
+        if($set_send_params){
+            $form->recipientEmail = $this->recipientEmail;
+            $form->recipientName = $this->recipientName;            
+        }
         
         return $form;
     }
