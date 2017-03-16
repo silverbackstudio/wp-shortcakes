@@ -4,6 +4,8 @@ namespace Svbk\WP\Shortcakes;
 
 add_action( 'after_setup_theme', __NAMESPACE__.'\\Shortcake::load_texdomain' );
 
+use Svbk\WP\Helpers\Renderer;
+
 abstract class Shortcake {
     
     public $shortcode_id = 'shortcake_base';
@@ -126,13 +128,11 @@ abstract class Shortcake {
     	shortcode_ui_register_for_shortcode( $this->shortcode_id, $this->ui_args() );        
     }
     
-    public function setRenderPosition($parts, $position){
+    public function setRenderPosition($parts, $after, $position='after'){
         
         $parts = (array)$parts;
         
-        $this->renderOrder = array_diff($this->renderOrder, $parts);
-        
-        array_splice( $this->renderOrder, $position, 0, $parts ); 
+        $this->renderOrder = Renderer::arrayInsert(array_diff($this->renderOrder, $parts), $parts, $after, $position ); 
     }     
     
     protected function renderOutput($attr, $content, $shortcode_tag){
