@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 10:40+0000\n"
+"POT-Creation-Date: 2017-03-16 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,32 +14,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: src/LatestPosts.php:15
-msgid "Latest Posts"
+#: src/Link.php:14
+msgid "Link"
 msgstr ""
 
-#: src/LatestPosts.php:31 src/Archive.php:33
-msgid "Post Count"
+#: src/Link.php:20
+msgid "Post/Page to Link"
 msgstr ""
 
-#: src/LatestPosts.php:32
-msgid "The number of posts shown"
+#: src/Link.php:25
+msgid "Select the post to link"
 msgstr ""
 
-#: src/Definition.php:11 src/Definition.php:28
-msgid "Definition"
-msgstr ""
-
-#: src/Definition.php:27 src/Definition.php:32
-msgid "Definitions"
-msgstr ""
-
-#: src/Definition.php:59
-msgid "Select Definition"
-msgstr ""
-
-#: src/Definition.php:66
-msgid "Abbreviation"
+#: src/Link.php:34
+msgid "Link Label"
 msgstr ""
 
 #: src/PreviewCard_Post.php:12
@@ -50,24 +38,13 @@ msgstr ""
 msgid "Select Page"
 msgstr ""
 
-#: src/Testimonials.php:38 src/Testimonials.php:58 src/Testimonials.php:63
-msgid "Testimonials"
+#: src/WhitepaperDl.php:30
+msgid "Whitepaper Download"
 msgstr ""
 
-#: src/Testimonials.php:59
-msgid "Testimonial"
-msgstr ""
-
-#: src/Testimonials.php:98
-msgid "Count"
-msgstr ""
-
-#: src/Testimonials.php:102
-msgid "How many testimonials to show"
-msgstr ""
-
-#: src/Testimonials.php:104
-msgid "2"
+#: src/WhitepaperDl.php:51
+msgid ""
+"Thanks for your request, the file you requested will be sent to your inbox."
 msgstr ""
 
 #: src/TeamMember.php:19
@@ -78,7 +55,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: src/TeamMember.php:38 src/PreviewCard.php:46
+#: src/TeamMember.php:38 src/SimpleBox.php:43 src/SimpleBox.php:61
+#: src/PreviewCard.php:57 src/Form.php:105
 msgid "Insert title"
 msgstr ""
 
@@ -126,7 +104,7 @@ msgstr ""
 msgid "Indexed Content"
 msgstr ""
 
-#: src/Index.php:19 src/PreviewCard.php:40
+#: src/Index.php:19 src/SimpleBox.php:37 src/PreviewCard.php:51 src/Form.php:99
 msgid "Title"
 msgstr ""
 
@@ -150,126 +128,162 @@ msgstr ""
 msgid "Go to index"
 msgstr ""
 
-#: src/PreviewCard.php:34
-msgid "Preview Card"
-msgstr ""
-
-#: src/PreviewCard.php:44
-msgid "This title will replace the Page title"
-msgstr ""
-
-#: src/PreviewCard.php:50 src/ResponsiveImage.php:21
-msgid "Image"
-msgstr ""
-
-#: src/PreviewCard.php:54 src/PreviewCard.php:55 src/ResponsiveImage.php:25
-#: src/ResponsiveImage.php:26
-msgid "Select Image"
-msgstr ""
-
-#: src/PreviewCard.php:58
-msgid "Image Size"
-msgstr ""
-
-#: src/PreviewCard.php:72
-msgid "This URL will be used instead of Page permalink."
-msgstr ""
-
-#: src/PreviewCard.php:80
-msgid "Insert button label"
-msgstr ""
-
-#: src/PreviewCard.php:84
-msgid "Open in new window"
-msgstr ""
-
-#: src/PreviewCard.php:89
-msgid "Enable Markdown"
-msgstr ""
-
-#: src/PreviewCard.php:94
-msgid "Custom Classes"
-msgstr ""
-
-#: src/PreviewCard_Term.php:19
-#, php-format
-msgid "Term Preview Card [%s]"
-msgstr ""
-
-#: src/PreviewCard_Term.php:29
-msgid "Select Term"
-msgstr ""
-
-#: src/ResponsiveImage.php:14
-msgid "Responsive Image"
-msgstr ""
-
-#: src/GoogleMapDirections.php:18
+#: src/GoogleMapDirections.php:19
 msgid "Google Maps Directions"
 msgstr ""
 
-#: src/GoogleMapDirections.php:25
+#: src/GoogleMapDirections.php:26
 msgid "Lat"
 msgstr ""
 
-#: src/GoogleMapDirections.php:31
+#: src/GoogleMapDirections.php:32
 msgid "Long"
 msgstr ""
 
-#: src/GoogleMapDirections.php:37
+#: src/GoogleMapDirections.php:38
 msgid "Zoom"
 msgstr ""
 
-#: src/GoogleMapDirections.php:42
+#: src/GoogleMapDirections.php:44
+msgid "Show directions"
+msgstr ""
+
+#: src/GoogleMapDirections.php:49
 msgid "Marker Title"
 msgstr ""
 
-#: src/GoogleMapDirections.php:48
+#: src/GoogleMapDirections.php:55
 msgid "Marker Icon"
 msgstr ""
 
-#: src/GoogleMapDirections.php:76
+#: src/GoogleMapDirections.php:85
 msgid "Unlock map"
 msgstr ""
 
-#: src/GoogleMapDirections.php:77
+#: src/GoogleMapDirections.php:86
 msgid "Lock map"
 msgstr ""
 
-#: src/GoogleMapDirections.php:83
+#: src/GoogleMapDirections.php:94
 msgid "Directions"
 msgstr ""
 
-#: src/GoogleMapDirections.php:85
+#: src/GoogleMapDirections.php:96
 msgid "Get route"
 msgstr ""
 
-#: src/GoogleMapDirections.php:89
+#: src/GoogleMapDirections.php:100
 msgid "Walking"
 msgstr ""
 
-#: src/GoogleMapDirections.php:91
+#: src/GoogleMapDirections.php:102
 msgid "Driving"
 msgstr ""
 
-#: src/GoogleMapDirections.php:93
+#: src/GoogleMapDirections.php:104
 msgid "Transit"
 msgstr ""
 
-#: src/GoogleMapDirections.php:98
+#: src/GoogleMapDirections.php:109
 msgid "Navigate"
 msgstr ""
 
-#: src/GoogleMapDirections.php:99
+#: src/GoogleMapDirections.php:110
 msgid "Show Route"
 msgstr ""
 
-#: src/Archive.php:15
-msgid "Archive"
+#: src/Definition.php:11 src/Definition.php:28
+msgid "Definition"
 msgstr ""
 
-#: src/Archive.php:26
-msgid "Select Post Type"
+#: src/Definition.php:27 src/Definition.php:32
+msgid "Definitions"
+msgstr ""
+
+#: src/Definition.php:59
+msgid "Select Definition"
+msgstr ""
+
+#: src/Definition.php:66
+msgid "Abbreviation"
+msgstr ""
+
+#: src/LatestPosts.php:15
+msgid "Latest Posts"
+msgstr ""
+
+#: src/LatestPosts.php:31 src/Archive.php:33
+msgid "Post Count"
+msgstr ""
+
+#: src/LatestPosts.php:32
+msgid "The number of posts shown"
+msgstr ""
+
+#: src/Testimonials.php:41 src/Testimonials.php:61 src/Testimonials.php:66
+msgid "Testimonials"
+msgstr ""
+
+#: src/Testimonials.php:62
+msgid "Testimonial"
+msgstr ""
+
+#: src/Testimonials.php:102
+msgid "Reviews Count"
+msgstr ""
+
+#: src/Testimonials.php:106
+msgid "How many testimonials to show"
+msgstr ""
+
+#: src/Testimonials.php:112
+msgid "Show Load More"
+msgstr ""
+
+#: src/Testimonials.php:116
+msgid "Show the AJAX \"Load More\" button"
+msgstr ""
+
+#: src/Testimonials.php:119
+msgid "Offset"
+msgstr ""
+
+#: src/Testimonials.php:122
+msgid "Skip the first N testimonials"
+msgstr ""
+
+#: src/SimpleBox.php:31
+msgid "Simple Box"
+msgstr ""
+
+#: src/SimpleBox.php:41 src/SimpleBox.php:59 src/PreviewCard.php:55
+#: src/Form.php:103
+msgid "This title will replace the Page title"
+msgstr ""
+
+#: src/SimpleBox.php:47 src/PreviewCard.php:61 src/ResponsiveImage.php:31
+msgid "Image"
+msgstr ""
+
+#: src/SimpleBox.php:51 src/SimpleBox.php:52 src/PreviewCard.php:65
+#: src/PreviewCard.php:66 src/ResponsiveImage.php:35 src/ResponsiveImage.php:36
+msgid "Select Image"
+msgstr ""
+
+#: src/SimpleBox.php:55
+msgid "Subtitle"
+msgstr ""
+
+#: src/SimpleBox.php:65 src/PreviewCard.php:94 src/Form.php:134
+msgid "Custom Classes"
+msgstr ""
+
+#: src/ContactForm.php:17
+msgid "Contact Form"
+msgstr ""
+
+#: src/ContactForm.php:21 src/Form.php:93
+msgid "Thanks for your request, we will reply as soon as possible."
 msgstr ""
 
 #: src/Section.php:12
@@ -292,12 +306,81 @@ msgstr ""
 msgid "Classes"
 msgstr ""
 
-#: src/Shortcake.php:97
+#: src/Archive.php:15
+msgid "Archive"
+msgstr ""
+
+#: src/Archive.php:26
+msgid "Select Post Type"
+msgstr ""
+
+#: src/PreviewCard_Term.php:20
+#, php-format
+msgid "Term Preview Card [%s]"
+msgstr ""
+
+#: src/PreviewCard_Term.php:28
+msgid "Select Term"
+msgstr ""
+
+#: src/PreviewCard.php:45
+msgid "Preview Card"
+msgstr ""
+
+#: src/PreviewCard.php:72
+msgid "This URL will be used instead of Page permalink."
+msgstr ""
+
+#: src/PreviewCard.php:80
+msgid "Insert button label"
+msgstr ""
+
+#: src/PreviewCard.php:84
+msgid "Open in new window"
+msgstr ""
+
+#: src/PreviewCard.php:89
+msgid "Enable Markdown"
+msgstr ""
+
+#: src/Shortcake.php:114
 msgid "Content"
 msgstr ""
 
-#: src/Shortcake.php:98
+#: src/Shortcake.php:115
 msgid "Insert content here"
+msgstr ""
+
+#: src/Form.php:41
+msgid "Form"
+msgstr ""
+
+#: src/Form.php:109
+msgid "Hidden"
+msgstr ""
+
+#: src/Form.php:114
+msgid "Open button label"
+msgstr ""
+
+#: src/Form.php:118
+msgid "The label for the lightbox open button"
+msgstr ""
+
+#: src/Form.php:124
+msgid "Submit button label"
+msgstr ""
+
+#: src/Form.php:128
+msgid "The label for submit button"
+msgstr ""
+
+#: src/Form.php:174
+msgid "Close"
+msgstr ""
+
+#: src/ResponsiveImage.php:24
+msgid "Responsive Image"
 msgstr ""
 
 #. Name of the plugin

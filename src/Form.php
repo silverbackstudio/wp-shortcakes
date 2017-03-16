@@ -125,7 +125,7 @@ class Form extends Shortcake {
     			'attr'   => 'submit_button_label',
     			'type'   => 'text',
     			'encode' => true,
-    			'description' => esc_html__( 'The label form submit button', 'svbk-shortcakes' ),
+    			'description' => esc_html__( 'The label for submit button', 'svbk-shortcakes' ),
     			'meta'   => array(
     				'placeholder' => $this->defaults['submit_button_label'],
     			),
