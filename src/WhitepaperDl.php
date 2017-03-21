@@ -35,13 +35,13 @@ class WhitepaperDl extends Form {
         $fields = parent::fields();
         
         $fields['file'] = array(
-			'label'       => 'File to Download',
+			'label'       => __('File to Download', 'svbk-shortcakes'),
 			'attr'        => 'file',
 			'type'        => 'attachment',
-			'libraryType' => array( 'pdf' ),
+			//'libraryType' => array( 'pdf' ),
 			'multiple'    => false,
-			'addButton'   => 'Select File',
-			'frameTitle'  => 'Select File',
+			'addButton'   => __('Select File', 'svbk-shortcakes'),
+			'frameTitle'  => __('Select File', 'svbk-shortcakes'),
 		);
         
         return $fields;
