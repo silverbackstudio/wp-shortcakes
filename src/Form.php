@@ -24,9 +24,10 @@ class Form extends Shortcake {
 
     public $renderOrder = array(
         'wrapperBegin',
-        'openButton',
-        'collapseBegin',
+        'openButton',  
+        'hiddenBegin',
         'closeButton',
+        'hiddenContentBegin',
     	'formBegin',
     	'title',
     	'input',
@@ -36,7 +37,8 @@ class Form extends Shortcake {
         'messages',
         'endPolicySubmit',
         'formEnd',
-        'collapseEnd',
+        'hiddenContentEnd',
+        'hiddenEnd',
         'wrapperEnd',
     );
 
@@ -111,7 +113,12 @@ class Form extends Shortcake {
     		'hidden' => array(
     			'label'       => esc_html__( 'Hidden', 'svbk-shortcakes' ),
     			'attr'        => 'hidden',
-    			'type'        => 'checkbox',
+                'type'        => 'select',
+    			'options'     => array(
+    				array( 'value' => false, 'label' => esc_html__( 'Always Visible', 'svbk-shortcakes', 'shortcode-ui' ) ),
+    				array( 'value' => 'lightbox', 'label' => esc_html__( 'Lightbox', 'svbk-shortcakes', 'shortcode-ui' ) ),
+    				array( 'value' => 'collapse', 'label' => esc_html__( 'Collapse', 'svbk-shortcakes', 'shortcode-ui' ) ),
+    			),    			
     		),    		
     		'open_button_label' => array(
     			'label'  => esc_html__( 'Open button label', 'svbk-shortcakes' ),
@@ -170,17 +177,29 @@ class Form extends Shortcake {
 
         $output = $form->renderParts( $this->action, $attr );
 
-        $output['wrapperBegin'] = '<div class="whitepaper-dl svbk-form-container" id="' . $this->field_prefix . '-container-' . $index  . '">';
+        $output['wrapperBegin'] = '<div class="whitepaper-dl svbk-form-container'.($attr['hidden']?(' svbk-hidden svbk-'.$attr['hidden']):'').'" id="' . $this->field_prefix . '-container-' . $index  . '">';
     
         if($attr['title']){
             $output['title'] = '<h2 class="form-title">'.$attr['title'].'</h2>';
         }
     
-        if($attr['hidden']){
-            $output['openButton'] = '<a class="button svbk-show-content" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
-            $output['collapseBegin'] = '<div class="svbk-form-content">';
-            $output['closeButton'] = '<a class="button svbk-hide-content" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';
-            $output['collapseEnd'] = '</div>';
+        switch($attr['hidden']){
+            case 'collapse':
+                $output['openButton'] = '<a class="button svbk-show-content svbk-collapse-open" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+                $output['hiddenBegin'] = '<div class="svbk-collapse-container">';
+                $output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';                
+                $output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-collapse-content">';
+                $output['hiddenContentEnd'] = '</div>';
+                $output['hiddenEnd'] = '</div>';                
+                break;
+            case 'lightbox':
+                $output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+                $output['hiddenBegin'] = '<div class="svbk-lightbox-container">';
+                $output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';                
+                $output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-lightbox-content">';
+                $output['hiddenContentEnd'] = '</div>';
+                $output['hiddenEnd'] = '</div>';                   
+                break;                
         }
         
         $output['beginPolicySubmit'] = '<div class="form-policy-submit-wrapper">';
