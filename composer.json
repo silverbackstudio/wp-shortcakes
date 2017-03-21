@@ -18,7 +18,7 @@
         {
             "type": "vcs",
             "url": "git@gitlab.com:silverbackstudio/wp-themehelper.git"
-        },
+        }
     ], 
     "autoload": {
         "psr-4": {"Svbk\\WP\\Shortcakes\\": "src/"}
