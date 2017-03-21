@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-16 14:43+0000\n"
+"POT-Creation-Date: 2017-03-21 11:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -42,6 +42,14 @@ msgstr ""
 msgid "Whitepaper Download"
 msgstr ""
 
+#: src/WhitepaperDl.php:38
+msgid "File to Download"
+msgstr ""
+
+#: src/WhitepaperDl.php:43 src/WhitepaperDl.php:44
+msgid "Select File"
+msgstr ""
+
 #: src/WhitepaperDl.php:51
 msgid ""
 "Thanks for your request, the file you requested will be sent to your inbox."
@@ -56,7 +64,7 @@ msgid "User"
 msgstr ""
 
 #: src/TeamMember.php:38 src/SimpleBox.php:43 src/SimpleBox.php:61
-#: src/PreviewCard.php:57 src/Form.php:105
+#: src/PreviewCard.php:57 src/Form.php:110
 msgid "Insert title"
 msgstr ""
 
@@ -104,7 +112,8 @@ msgstr ""
 msgid "Indexed Content"
 msgstr ""
 
-#: src/Index.php:19 src/SimpleBox.php:37 src/PreviewCard.php:51 src/Form.php:99
+#: src/Index.php:19 src/SimpleBox.php:37 src/PreviewCard.php:51
+#: src/Form.php:104
 msgid "Title"
 msgstr ""
 
@@ -257,7 +266,7 @@ msgid "Simple Box"
 msgstr ""
 
 #: src/SimpleBox.php:41 src/SimpleBox.php:59 src/PreviewCard.php:55
-#: src/Form.php:103
+#: src/Form.php:108
 msgid "This title will replace the Page title"
 msgstr ""
 
@@ -274,7 +283,7 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: src/SimpleBox.php:65 src/PreviewCard.php:94 src/Form.php:134
+#: src/SimpleBox.php:65 src/PreviewCard.php:94 src/Form.php:144
 msgid "Custom Classes"
 msgstr ""
 
@@ -282,7 +291,7 @@ msgstr ""
 msgid "Contact Form"
 msgstr ""
 
-#: src/ContactForm.php:21 src/Form.php:93
+#: src/ContactForm.php:21 src/Form.php:98
 msgid "Thanks for your request, we will reply as soon as possible."
 msgstr ""
 
@@ -351,31 +360,43 @@ msgstr ""
 msgid "Insert content here"
 msgstr ""
 
-#: src/Form.php:41
+#: src/Form.php:46
 msgid "Form"
 msgstr ""
 
-#: src/Form.php:109
+#: src/Form.php:114
 msgid "Hidden"
 msgstr ""
 
-#: src/Form.php:114
-msgid "Open button label"
+#: src/Form.php:118
+msgid "Always Visible"
 msgstr ""
 
-#: src/Form.php:118
-msgid "The label for the lightbox open button"
+#: src/Form.php:119
+msgid "Lightbox"
+msgstr ""
+
+#: src/Form.php:120
+msgid "Collapse"
 msgstr ""
 
 #: src/Form.php:124
-msgid "Submit button label"
+msgid "Open button label"
 msgstr ""
 
 #: src/Form.php:128
+msgid "The label for the lightbox open button"
+msgstr ""
+
+#: src/Form.php:134
+msgid "Submit button label"
+msgstr ""
+
+#: src/Form.php:138
 msgid "The label for submit button"
 msgstr ""
 
-#: src/Form.php:174
+#: src/Form.php:190 src/Form.php:198
 msgid "Close"
 msgstr ""
 
