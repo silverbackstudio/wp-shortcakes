@@ -50,13 +50,29 @@ class Form extends Shortcake {
         
         $instance = parent::register($options);
         
-        add_action( "admin_post_nopriv_{$instance->action}", array($instance, 'processSubmission') );
-        add_action( "admin_post_{$instance->action}", array($instance, 'processSubmission') ); 
+        add_action( 'init', array($instance, 'processSubmission') );
         
         return $instance;
     }
     
+	protected function submitUrl() {
+		$base_url = set_url_scheme( home_url( '/' ) );
+		return add_query_arg( array( 'svbkSubmit' => $this->action ), $base_url );
+	}
+
     public function processSubmission(){
+        
+        if(filter_input(INPUT_GET, 'svbkSubmit', FILTER_SANITIZE_SPECIAL_CHARS) !== $this->action){
+            return;
+        }
+
+		if ( ! defined( 'DOING_AJAX' ) ) {
+			define( 'DOING_AJAX', true );
+		}
+
+		@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
+		@header('Content-Type: application/json');
+		send_nosniff_header();
         
         $form = $this->getForm(true);
         
@@ -64,9 +80,9 @@ class Form extends Shortcake {
         
         $errors = $form->getErrors();
         
-        header('Content-Type: application/json');
-
         echo $this->formatResponse($errors, $form);
+        
+        die();
     }
     
     public function formatResponse($errors, $form) {
@@ -156,6 +172,7 @@ class Form extends Shortcake {
         
         $form->field_prefix = $this->field_prefix;
         $form->action = $this->action;
+        $form->submitUrl = $this->submitUrl();
         
         if($set_send_params){
             $form->recipientEmail = $this->recipientEmail;
