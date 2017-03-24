@@ -212,7 +212,7 @@ class Form extends Shortcake {
             case 'lightbox':
                 $output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->field_prefix . '-container-' . $index .'" >' . urldecode( $attr['open_button_label'] ) . '</a>';
                 $output['hiddenBegin'] = '<div class="svbk-lightbox-container">';
-                $output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';                
+                $output['closeButton'] = '<a class="button svbk-hide-content svbk-lightbox-close" href="#' . $this->field_prefix . '-container-' . $index .'" ><span>' . __('Close', 'svbk-shortcakes') . '</span></a>';                
                 $output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-lightbox-content">';
                 $output['hiddenContentEnd'] = '</div>';
                 $output['hiddenEnd'] = '</div>';                   
