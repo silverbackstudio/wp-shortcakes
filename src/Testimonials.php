@@ -28,6 +28,7 @@ class Testimonials extends Shortcake {
     
     public $shortcode_id = 'testimonials';
     public $post_type = 'testimonial';
+    public $query_args = array();
     public $register_cpt = true;
 
     public static $defaults = array(
@@ -129,13 +130,13 @@ class Testimonials extends Shortcake {
 
     protected function getQueryArgs($attr){
 
-    	return array(
+    	return array_merge(array(
     	    'post_type' => $this->post_type,
     	    'post_status' => 'publish',
     	    'posts_per_page' => $attr['count'],
     	    'paged' => $attr['paged'],
     	    'offset' => $attr['offset'],
-    	);
+    	), $this->query_args );
     	
     }
     
