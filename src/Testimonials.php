@@ -159,16 +159,33 @@ class Testimonials extends Shortcake {
                 $output .= '<aside class="testimonials" '.$html_data_atts.'>';
             }
             
-            while( $testimonials->have_posts() ): $testimonials->next_post();
-                $output .= '<blockquote class="testimonial">';
-                $output .= apply_filters( 'the_content', $testimonials->post->post_content );
-                $output .= '<footer class="author">';
-                $output .=  '<cite class="name">'. get_the_title( $testimonials->post ) .'</cite>';
-                $output .=  '<div class="picture">' . get_the_post_thumbnail( $testimonials->post->ID, 'small' ) . '</div>';
-                $output .=  '<span class="role">'. get_field( 'author_role', $testimonials->post->ID ) .'</span>';
-                $output .= '</footer>';
-                $output .= '</blockquote>';
-            endwhile;
+            if ( locate_template('template-parts/thumb', $this->post_type) != '' ) { 
+                
+                ob_start();
+                
+                while( $testimonials->have_posts() ): $testimonials->the_post();
+            	    get_template_part( 'template-parts/content', $this->post_type );
+                endwhile;
+                
+                $output .= ob_get_contents();
+                ob_end_clean();                
+                
+            } else {
+                
+                while( $testimonials->have_posts() ): $testimonials->next_post();
+                
+                    $output .= '<blockquote class="testimonial">';
+                    $output .= apply_filters( 'the_content', $testimonials->post->post_content );
+                    $output .= '<footer class="author">';
+                    $output .=  '<cite class="name">'. get_the_title( $testimonials->post ) .'</cite>';
+                    $output .=  '<div class="picture">' . get_the_post_thumbnail( $testimonials->post->ID, 'small' ) . '</div>';
+                    $output .=  '<span class="role">'. get_field( 'author_role', $testimonials->post->ID ) .'</span>';
+                    $output .= '</footer>';
+                    $output .= '</blockquote>';                
+                
+                endwhile;
+            }
+            
             
             if($attr['load_more'] && (intval($attr['paged']) < $testimonials->max_num_pages) ){
                 $output .= '<button class="button loadmore">'.__('Show more testimonials', 'svbk-shorcakes').'</button>';
