@@ -98,7 +98,7 @@ class SimpleBox extends Shortcake {
     	$output['contentBegin'] = '<div class="content">';
     	
     	if($title){
-            $output['title'] = sprintf('<%2$s class="entry-title">%1$s</%2$s>', $title, $this->header_tag) ;
+            $output['title'] = sprintf('<%2$s class="entry-title"><span>%1$s</span></%2$s>', $title, $this->header_tag) ;
     	}
     	
     	if($attr['subtitle']){
