@@ -13,6 +13,7 @@ class GoogleMapDirections extends Shortcake {
 		'directions' => false,
 		'marker_title' => '',
 		'marker_icon' => '',
+		'classes' => '',		
 	);
 
     public function title(){
@@ -56,7 +57,13 @@ class GoogleMapDirections extends Shortcake {
     			'attr'   => 'marker_icon',
     			'type'   => 'url',
     			'encode' => true
-    		), 	    		
+    		), 	    
+    		array(
+    			'label'  => esc_html__( 'Class', 'svbk-shortcakes' ),
+    			'attr'   => 'classes',
+    			'type'   => 'text',
+    			'encode' => true
+    		), 	        		
     	);
     
     }
@@ -78,7 +85,7 @@ class GoogleMapDirections extends Shortcake {
     
 		ob_start();
 		?>
-    	<div class="gmap-container" id="gmap-container-<?php echo $index; ?>" data-map-lng="<?php echo esc_attr($attr['lng']); ?>" data-map-lat="<?php echo esc_attr($attr['lat']); ?>">
+    	<div class="gmap-container <?php echo esc_attr($attr['classes']); ?>" id="gmap-container-<?php echo $index++; ?>" data-map-lng="<?php echo esc_attr($attr['lng']); ?>" data-map-lat="<?php echo esc_attr($attr['lat']); ?>">
     		<div class="map-locker locked">
     			<div class="google-map"></div>
     			<div class="map-lock">
