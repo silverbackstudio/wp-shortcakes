@@ -28,6 +28,7 @@ class Testimonials extends Shortcake {
     
     public $shortcode_id = 'testimonials';
     public $post_type = 'testimonial';
+    public $query_args = array();
     public $register_cpt = true;
 
     public static $defaults = array(
@@ -88,9 +89,17 @@ class Testimonials extends Shortcake {
     	
     }
     
+    public function loadMoreFilters(){
+        return array(
+            'count' => FILTER_VALIDATE_INT,
+        	'paged' => FILTER_VALIDATE_INT,
+        	'offset' => FILTER_VALIDATE_INT,            
+        );
+    }
+    
     public function loadMore(){
         
-        $data = $this->shortcode_atts( self::$defaults, $_POST );  
+        $data = filter_input_array(INPUT_POST, $this->loadMoreFilters());
         
         echo $this->output( $data, '', $this->shortcode_id, false );
         exit;
@@ -129,22 +138,22 @@ class Testimonials extends Shortcake {
 
     protected function getQueryArgs($attr){
 
-    	return array(
+    	return array_merge(array(
     	    'post_type' => $this->post_type,
     	    'post_status' => 'publish',
     	    'posts_per_page' => $attr['count'],
     	    'paged' => $attr['paged'],
     	    'offset' => $attr['offset'],
-    	);
+    	), $this->query_args );
     	
     }
     
     public function output( $attr, $content, $shortcode_tag, $container=true ) {
         
         $output = '';
-        
+
         $attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );         
-        
+
         $testimonials = new WP_Query( $this->getQueryArgs($attr) );
         
         if($testimonials->have_posts()){
@@ -188,7 +197,7 @@ class Testimonials extends Shortcake {
             
             
             if($attr['load_more'] && (intval($attr['paged']) < $testimonials->max_num_pages) ){
-                $output .= '<button class="button loadmore">'.__('Show more testimonials', 'svbk-shorcakes').'</button>';
+                $output .= '<button class="button loadmore">'.__('Show more testimonials', 'svbk-shortcakes').'</button>';
             }
             
             if ($container) {

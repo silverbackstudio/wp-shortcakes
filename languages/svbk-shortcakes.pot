@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-21 11:04+0000\n"
+"POT-Creation-Date: 2017-03-30 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -30,111 +30,95 @@ msgstr ""
 msgid "Link Label"
 msgstr ""
 
-#: src/PreviewCard_Post.php:12
-msgid "Post Preview Card"
+#: src/Form.php:46
+msgid "Form"
 msgstr ""
 
-#: src/PreviewCard_Post.php:22
-msgid "Select Page"
+#: src/Form.php:114 src/ContactForm.php:21
+msgid "Thanks for your request, we will reply as soon as possible."
 msgstr ""
 
-#: src/WhitepaperDl.php:30
-msgid "Whitepaper Download"
-msgstr ""
-
-#: src/WhitepaperDl.php:38
-msgid "File to Download"
-msgstr ""
-
-#: src/WhitepaperDl.php:43 src/WhitepaperDl.php:44
-msgid "Select File"
-msgstr ""
-
-#: src/WhitepaperDl.php:51
-msgid ""
-"Thanks for your request, the file you requested will be sent to your inbox."
-msgstr ""
-
-#: src/TeamMember.php:19
-msgid "Team Member"
-msgstr ""
-
-#: src/TeamMember.php:32
-msgid "User"
-msgstr ""
-
-#: src/TeamMember.php:38 src/SimpleBox.php:43 src/SimpleBox.php:61
-#: src/PreviewCard.php:57 src/Form.php:110
-msgid "Insert title"
-msgstr ""
-
-#: src/TeamMember.php:42 src/TeamMember.php:61 src/PreviewCard.php:69
-msgid "URL"
-msgstr ""
-
-#: src/TeamMember.php:47
-msgid "Show role"
-msgstr ""
-
-#: src/TeamMember.php:52
-msgid "Show description"
-msgstr ""
-
-#: src/TeamMember.php:57
-msgid "Link destination"
-msgstr ""
-
-#: src/TeamMember.php:62
-msgid "Mail"
-msgstr ""
-
-#: src/TeamMember.php:63
-msgid "Popup"
-msgstr ""
-
-#: src/TeamMember.php:64
-msgid "Profile"
-msgstr ""
-
-#: src/TeamMember.php:68 src/PreviewCard.php:75
-msgid "Button Label"
-msgstr ""
-
-#: src/TeamMember.php:73
-msgid "Contact me"
-msgstr ""
-
-#: src/TeamMember.php:95
-msgid "User not found"
-msgstr ""
-
-#: src/Index.php:12
-msgid "Indexed Content"
-msgstr ""
-
-#: src/Index.php:19 src/SimpleBox.php:37 src/PreviewCard.php:51
-#: src/Form.php:104
+#: src/Form.php:120 src/Index.php:19 src/PreviewCard.php:51
+#: src/SimpleBox.php:37
 msgid "Title"
 msgstr ""
 
-#: src/Index.php:24
-msgid "Slug"
+#: src/Form.php:124 src/PreviewCard.php:55 src/SimpleBox.php:41
+#: src/SimpleBox.php:59
+msgid "This title will replace the Page title"
 msgstr ""
 
-#: src/Index.php:30 src/Index.php:56
-msgid "Index group"
+#: src/Form.php:126 src/TeamMember.php:38 src/PreviewCard.php:57
+#: src/SimpleBox.php:43 src/SimpleBox.php:61
+msgid "Insert title"
 msgstr ""
 
-#: src/Index.php:51
-msgid "Index"
+#: src/Form.php:130
+msgid "Hidden"
 msgstr ""
 
-#: src/Index.php:99
-msgid "-- Page Index --"
+#: src/Form.php:134
+msgid "Always Visible"
 msgstr ""
 
-#: src/Index.php:154
-msgid "Go to index"
+#: src/Form.php:135
+msgid "Lightbox"
+msgstr ""
+
+#: src/Form.php:136
+msgid "Collapse"
+msgstr ""
+
+#: src/Form.php:140
+msgid "Open button label"
+msgstr ""
+
+#: src/Form.php:144
+msgid "The label for the lightbox open button"
+msgstr ""
+
+#: src/Form.php:150
+msgid "Submit button label"
+msgstr ""
+
+#: src/Form.php:154
+msgid "The label for submit button"
+msgstr ""
+
+#: src/Form.php:160 src/PreviewCard.php:94 src/SimpleBox.php:65
+msgid "Custom Classes"
+msgstr ""
+
+#: src/Form.php:207 src/Form.php:215
+msgid "Close"
+msgstr ""
+
+#: src/LatestPosts.php:15
+msgid "Latest Posts"
+msgstr ""
+
+#: src/LatestPosts.php:31 src/Archive.php:33
+msgid "Post Count"
+msgstr ""
+
+#: src/LatestPosts.php:32
+msgid "The number of posts shown"
+msgstr ""
+
+#: src/Definition.php:11 src/Definition.php:28
+msgid "Definition"
+msgstr ""
+
+#: src/Definition.php:27 src/Definition.php:32
+msgid "Definitions"
+msgstr ""
+
+#: src/Definition.php:59
+msgid "Select Definition"
+msgstr ""
+
+#: src/Definition.php:66
+msgid "Abbreviation"
 msgstr ""
 
 #: src/GoogleMapDirections.php:19
@@ -201,135 +185,101 @@ msgstr ""
 msgid "Show Route"
 msgstr ""
 
-#: src/Definition.php:11 src/Definition.php:28
-msgid "Definition"
+#: src/Index.php:12
+msgid "Indexed Content"
 msgstr ""
 
-#: src/Definition.php:27 src/Definition.php:32
-msgid "Definitions"
+#: src/Index.php:24
+msgid "Slug"
 msgstr ""
 
-#: src/Definition.php:59
-msgid "Select Definition"
+#: src/Index.php:30 src/Index.php:56
+msgid "Index group"
 msgstr ""
 
-#: src/Definition.php:66
-msgid "Abbreviation"
+#: src/Index.php:51
+msgid "Index"
 msgstr ""
 
-#: src/LatestPosts.php:15
-msgid "Latest Posts"
+#: src/Index.php:99
+msgid "-- Page Index --"
 msgstr ""
 
-#: src/LatestPosts.php:31 src/Archive.php:33
-msgid "Post Count"
+#: src/Index.php:154
+msgid "Go to index"
 msgstr ""
 
-#: src/LatestPosts.php:32
-msgid "The number of posts shown"
+#: src/ResponsiveImage.php:24
+msgid "Responsive Image"
 msgstr ""
 
-#: src/Testimonials.php:41 src/Testimonials.php:61 src/Testimonials.php:66
-msgid "Testimonials"
-msgstr ""
-
-#: src/Testimonials.php:62
-msgid "Testimonial"
-msgstr ""
-
-#: src/Testimonials.php:102
-msgid "Reviews Count"
-msgstr ""
-
-#: src/Testimonials.php:106
-msgid "How many testimonials to show"
-msgstr ""
-
-#: src/Testimonials.php:112
-msgid "Show Load More"
-msgstr ""
-
-#: src/Testimonials.php:116
-msgid "Show the AJAX \"Load More\" button"
-msgstr ""
-
-#: src/Testimonials.php:119
-msgid "Offset"
-msgstr ""
-
-#: src/Testimonials.php:122
-msgid "Skip the first N testimonials"
-msgstr ""
-
-#: src/SimpleBox.php:31
-msgid "Simple Box"
-msgstr ""
-
-#: src/SimpleBox.php:41 src/SimpleBox.php:59 src/PreviewCard.php:55
-#: src/Form.php:108
-msgid "This title will replace the Page title"
-msgstr ""
-
-#: src/SimpleBox.php:47 src/PreviewCard.php:61 src/ResponsiveImage.php:31
+#: src/ResponsiveImage.php:31 src/PreviewCard.php:61 src/SimpleBox.php:47
 msgid "Image"
 msgstr ""
 
-#: src/SimpleBox.php:51 src/SimpleBox.php:52 src/PreviewCard.php:65
-#: src/PreviewCard.php:66 src/ResponsiveImage.php:35 src/ResponsiveImage.php:36
+#: src/ResponsiveImage.php:35 src/ResponsiveImage.php:36 src/PreviewCard.php:65
+#: src/PreviewCard.php:66 src/SimpleBox.php:51 src/SimpleBox.php:52
 msgid "Select Image"
 msgstr ""
 
-#: src/SimpleBox.php:55
-msgid "Subtitle"
+#: src/Shortcake.php:114
+msgid "Content"
 msgstr ""
 
-#: src/SimpleBox.php:65 src/PreviewCard.php:94 src/Form.php:144
-msgid "Custom Classes"
+#: src/Shortcake.php:115
+msgid "Insert content here"
+msgstr ""
+
+#: src/TeamMember.php:19
+msgid "Team Member"
+msgstr ""
+
+#: src/TeamMember.php:32
+msgid "User"
+msgstr ""
+
+#: src/TeamMember.php:42 src/TeamMember.php:61 src/PreviewCard.php:69
+msgid "URL"
+msgstr ""
+
+#: src/TeamMember.php:47
+msgid "Show role"
+msgstr ""
+
+#: src/TeamMember.php:52
+msgid "Show description"
+msgstr ""
+
+#: src/TeamMember.php:57
+msgid "Link destination"
+msgstr ""
+
+#: src/TeamMember.php:62
+msgid "Mail"
+msgstr ""
+
+#: src/TeamMember.php:63
+msgid "Popup"
+msgstr ""
+
+#: src/TeamMember.php:64
+msgid "Profile"
+msgstr ""
+
+#: src/TeamMember.php:68 src/PreviewCard.php:75
+msgid "Button Label"
+msgstr ""
+
+#: src/TeamMember.php:73
+msgid "Contact me"
+msgstr ""
+
+#: src/TeamMember.php:95
+msgid "User not found"
 msgstr ""
 
 #: src/ContactForm.php:17
 msgid "Contact Form"
-msgstr ""
-
-#: src/ContactForm.php:21 src/Form.php:98
-msgid "Thanks for your request, we will reply as soon as possible."
-msgstr ""
-
-#: src/Section.php:12
-msgid "Section Tag"
-msgstr ""
-
-#: src/Section.php:18
-msgid "HTML ID"
-msgstr ""
-
-#: src/Section.php:22
-msgid "The HTML id attribute value "
-msgstr ""
-
-#: src/Section.php:24
-msgid "section1"
-msgstr ""
-
-#: src/Section.php:28
-msgid "Classes"
-msgstr ""
-
-#: src/Archive.php:15
-msgid "Archive"
-msgstr ""
-
-#: src/Archive.php:26
-msgid "Select Post Type"
-msgstr ""
-
-#: src/PreviewCard_Term.php:20
-#, php-format
-msgid "Term Preview Card [%s]"
-msgstr ""
-
-#: src/PreviewCard_Term.php:28
-msgid "Select Term"
 msgstr ""
 
 #: src/PreviewCard.php:45
@@ -352,56 +302,110 @@ msgstr ""
 msgid "Enable Markdown"
 msgstr ""
 
-#: src/Shortcake.php:114
-msgid "Content"
+#: src/PreviewCard_Post.php:12
+msgid "Post Preview Card"
 msgstr ""
 
-#: src/Shortcake.php:115
-msgid "Insert content here"
+#: src/PreviewCard_Post.php:22
+msgid "Select Page"
 msgstr ""
 
-#: src/Form.php:46
-msgid "Form"
+#: src/Section.php:12
+msgid "Section Tag"
 msgstr ""
 
-#: src/Form.php:114
-msgid "Hidden"
+#: src/Section.php:18
+msgid "HTML ID"
 msgstr ""
 
-#: src/Form.php:118
-msgid "Always Visible"
+#: src/Section.php:22
+msgid "The HTML id attribute value "
 msgstr ""
 
-#: src/Form.php:119
-msgid "Lightbox"
+#: src/Section.php:24
+msgid "section1"
 msgstr ""
 
-#: src/Form.php:120
-msgid "Collapse"
+#: src/Section.php:28
+msgid "Classes"
 msgstr ""
 
-#: src/Form.php:124
-msgid "Open button label"
+#: src/PreviewCard_Term.php:20
+#, php-format
+msgid "Term Preview Card [%s]"
 msgstr ""
 
-#: src/Form.php:128
-msgid "The label for the lightbox open button"
+#: src/PreviewCard_Term.php:28
+msgid "Select Term"
 msgstr ""
 
-#: src/Form.php:134
-msgid "Submit button label"
+#: src/Archive.php:15
+msgid "Archive"
 msgstr ""
 
-#: src/Form.php:138
-msgid "The label for submit button"
+#: src/Archive.php:26
+msgid "Select Post Type"
 msgstr ""
 
-#: src/Form.php:190 src/Form.php:198
-msgid "Close"
+#: src/Testimonials.php:42 src/Testimonials.php:62 src/Testimonials.php:67
+msgid "Testimonials"
 msgstr ""
 
-#: src/ResponsiveImage.php:24
-msgid "Responsive Image"
+#: src/Testimonials.php:63
+msgid "Testimonial"
+msgstr ""
+
+#: src/Testimonials.php:111
+msgid "Reviews Count"
+msgstr ""
+
+#: src/Testimonials.php:115
+msgid "How many testimonials to show"
+msgstr ""
+
+#: src/Testimonials.php:121
+msgid "Show Load More"
+msgstr ""
+
+#: src/Testimonials.php:125
+msgid "Show the AJAX \"Load More\" button"
+msgstr ""
+
+#: src/Testimonials.php:128
+msgid "Offset"
+msgstr ""
+
+#: src/Testimonials.php:131
+msgid "Skip the first N testimonials"
+msgstr ""
+
+#: src/Testimonials.php:183
+msgid "Show more testimonials"
+msgstr ""
+
+#: src/SimpleBox.php:31
+msgid "Simple Box"
+msgstr ""
+
+#: src/SimpleBox.php:55
+msgid "Subtitle"
+msgstr ""
+
+#: src/WhitepaperDl.php:30
+msgid "Whitepaper Download"
+msgstr ""
+
+#: src/WhitepaperDl.php:38
+msgid "File to Download"
+msgstr ""
+
+#: src/WhitepaperDl.php:43 src/WhitepaperDl.php:44
+msgid "Select File"
+msgstr ""
+
+#: src/WhitepaperDl.php:51
+msgid ""
+"Thanks for your request, the file you requested will be sent to your inbox."
 msgstr ""
 
 #. Name of the plugin
