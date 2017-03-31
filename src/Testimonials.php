@@ -93,7 +93,8 @@ class Testimonials extends Shortcake {
         return array(
             'count' => FILTER_VALIDATE_INT,
         	'paged' => FILTER_VALIDATE_INT,
-        	'offset' => FILTER_VALIDATE_INT,            
+        	'offset' => FILTER_VALIDATE_INT,
+        	'load_more' => FILTER_VALIDATE_BOOLEAN,
         );
     }
     
@@ -138,9 +139,14 @@ class Testimonials extends Shortcake {
 
     protected function getQueryArgs($attr){
 
+        if($attr['offset'] > 0){
+            $attr['offset']  = $attr['count'] * $attr['paged'];
+        }
+
     	return array_merge(array(
     	    'post_type' => $this->post_type,
     	    'post_status' => 'publish',
+    	    'orderby' => 'date',
     	    'posts_per_page' => $attr['count'],
     	    'paged' => $attr['paged'],
     	    'offset' => $attr['offset'],
