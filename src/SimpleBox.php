@@ -87,7 +87,7 @@ class SimpleBox extends Shortcake {
             $this->classes .= ' has-image'; 
         }
         
-        $this->classes .= $attr['classes'];
+        $this->classes .= ' '.$attr['classes'];
     
     	$output['wrapperBegin']  = '<div class="'.esc_attr( trim($this->classes) ) . '">';
     	
