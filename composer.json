@@ -12,12 +12,12 @@
     "require": {
         "erusev/parsedown": "^1.6",
         "michelf/php-markdown": "^1.7",
-        "silverbackstudio/wp-themehelpers": "dev-master"
+        "silverbackstudio/wp-themehelper": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@gitlab.com:silverbackstudio/wp-themehelper.git"
+            "url": "git@gitlab.com:silverbackstudio/wp-themehelpers.git"
         }
     ], 
     "autoload": {
