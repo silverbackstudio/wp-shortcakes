@@ -174,7 +174,7 @@ class Testimonials extends Shortcake {
                 $output .= '<aside class="testimonials" '.$html_data_atts.'>';
             }
             
-            if ( locate_template('template-parts/thumb', $this->post_type) != '' ) { 
+            if ( locate_template('template-parts/content-' . $this->post_type . '.php') != '' ) { 
                 
                 ob_start();
                 
