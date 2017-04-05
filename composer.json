@@ -17,7 +17,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@gitlab.com:silverbackstudio/wp-themehelper.git"
+            "url": "git@gitlab.com:silverbackstudio/wp-themehelpers.git"
         }
     ], 
     "autoload": {
