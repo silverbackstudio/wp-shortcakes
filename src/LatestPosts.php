@@ -9,6 +9,7 @@ class LatestPosts extends Shortcake {
     public $shortcode_id = 'latest_posts';
     public $post_type = 'post';
     public $query_args = array();
+    public $classes = array('latest-posts');    
 
     public static $defaults = array(
 		'count' => 3,
@@ -88,14 +89,13 @@ class LatestPosts extends Shortcake {
         
         if( defined('SHORTCODE_UI_DOING_PREVIEW') && SHORTCODE_UI_DOING_PREVIEW ) {
             
-        	$output['wrapperBegin'] = '<div id="latest-posts" >';
+        	$output['wrapperBegin'] = '<div id="' . join('', $this->classes) . '" >';
         	$output['content'] = '<h2>{{'.($this->title ?: $this->title()).'}}</h2>';
         	$output['wrapperEnd'] = '</div>';
             
         } else {
         	
-			$output['wrapperBegin'] = '<div class="latest-posts post-thumbs">';
-
+			$output['wrapperBegin'] = '<div class="' . join('', $this->classes) . ' post-thumbs">';
 
 			$postsQuery = new WP_Query( $this->getQueryArgs($attr) );
 			

@@ -11,6 +11,8 @@ abstract class Shortcake {
     public $shortcode_id = 'shortcake_base';
     public $title = '';
     public $icon = 'dashicons-admin-links';
+    public $classes = array();
+    
     public $attach_to = array('page');
     
     public $show_content = true;
