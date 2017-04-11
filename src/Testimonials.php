@@ -139,7 +139,7 @@ class Testimonials extends Shortcake {
 
     protected function getQueryArgs($attr){
 
-        if($attr['offset'] > 0){
+        if( ($attr['offset'] > 0) && !empty($attr['paged'])){
             $attr['offset']  = $attr['count'] * $attr['paged'];
         }
 
