@@ -2,14 +2,24 @@
 
 namespace Svbk\WP\Shortcakes;
 
+use WP_Query;
+
 class LatestPosts extends Shortcake {
  
     public $shortcode_id = 'latest_posts';
     public $post_type = 'post';
+    public $query_args = array();
 
     public static $defaults = array(
 		'count' => 3,
+		'offset' => 0,
 	);
+
+    public $renderOrder = array(
+    	'wrapperBegin',
+        'content',
+        'wrapperEnd'
+    );
 
     public function title(){
         return __('Latest Posts', 'svbk-shortcakes');
@@ -27,7 +37,7 @@ class LatestPosts extends Shortcake {
     
     public function fields(){
         return array(
-			array(
+			'count' => array(
 				'label'       => esc_html__( 'Post Count', 'svbk-shortcakes' ),
 				'description' => esc_html__( 'The number of posts shown', 'svbk-shortcakes' ),
 				'attr'        => 'count',
@@ -39,42 +49,74 @@ class LatestPosts extends Shortcake {
 					'step'        => '1',
 				),
 			),
+			'offset' => array(
+				'label'       => esc_html__( 'Offset', 'svbk-shortcakes' ),
+				'description' => esc_html__( 'The number of posts to skip', 'svbk-shortcakes' ),
+				'attr'        => 'offset',
+				'type'        => 'number',
+				'meta'        => array(
+				    'placeholder'=>self::$defaults['offset'],
+					'min'         => '1',
+					'step'        => '1',
+				),
+			),			
     	);
     }    
     
-    public function output( $attr, $content, $shortcode_tag ) {
+    protected function getQueryArgs($attr){
+
+        if( ($attr['offset'] > 0) && !empty($attr['paged'])){
+            $attr['offset']  = $attr['count'] * $attr['paged'];
+        }
+
+    	return array_merge(array(
+    	    'post_type' => $this->post_type,
+    	    'post_status' => 'publish',
+    	    'orderby' => 'date',
+    	    'posts_per_page' => $attr['count'],
+    	    //'paged' => $attr['paged'],
+    	    'offset' => $attr['offset'],
+    	), $this->query_args );
+    	
+    }    
+    
+    public function renderOutput( $attr, $content, $shortcode_tag ) {
         
         $output = '';
+        
+        var_dump($attr);
         
     	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
         
         if( defined('SHORTCODE_UI_DOING_PREVIEW') && SHORTCODE_UI_DOING_PREVIEW ) {
             
-        	$output .= '<div id="latest-posts" ><h2>{{'.($this->title ?: $this->title()).'}}</h2></div>';
+        	$output['wrapperBegin'] = '<div id="latest-posts" >';
+        	$output['content'] = '<h2>{{'.($this->title ?: $this->title()).'}}</h2>';
+        	$output['wrapperEnd'] = '</div>';
             
         } else {
         	
-			$output .= '<div class="latest-posts post-thumbs">';
+			$output['wrapperBegin'] = '<div class="latest-posts post-thumbs">';
 
-			query_posts(array('posts_per_page'=>$attr['count'], 'post_type'=>$this->post_type));
+			var_dump($this->getQueryArgs($attr));
+
+			$postsQuery = new WP_Query( $this->getQueryArgs($attr) );
 			
 			ob_start();
 			
-			while ( have_posts() ) : the_post();
+			while ( $postsQuery->have_posts() ) : $postsQuery->the_post();
 				
 				get_template_part( 'template-parts/thumb', get_post_type() );
 
 			endwhile; // End of the loop.
 			
-			$output .= ob_get_clean();
+			$output['content'] = ob_get_clean();
 			
 			wp_reset_query();
 			wp_reset_postdata();
 			
-			$output .= '</div>';
-        	
-        	return $output;
-        	
+			$output['wrapperEnd'] = '</div>';
+
         }
     
         return $output;
