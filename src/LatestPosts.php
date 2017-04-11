@@ -84,8 +84,6 @@ class LatestPosts extends Shortcake {
         
         $output = '';
         
-        var_dump($attr);
-        
     	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
         
         if( defined('SHORTCODE_UI_DOING_PREVIEW') && SHORTCODE_UI_DOING_PREVIEW ) {
@@ -98,7 +96,6 @@ class LatestPosts extends Shortcake {
         	
 			$output['wrapperBegin'] = '<div class="latest-posts post-thumbs">';
 
-			var_dump($this->getQueryArgs($attr));
 
 			$postsQuery = new WP_Query( $this->getQueryArgs($attr) );
 			
