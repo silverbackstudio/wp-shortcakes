@@ -201,6 +201,8 @@ class Testimonials extends Shortcake {
                 endwhile;
             }
             
+			wp_reset_query();
+			wp_reset_postdata();            
             
             if($attr['load_more'] && (intval($attr['paged']) < $testimonials->max_num_pages) ){
                 $output .= '<button class="button loadmore">'.__('Show more testimonials', 'svbk-shortcakes').'</button>';
