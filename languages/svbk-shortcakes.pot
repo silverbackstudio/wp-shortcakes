@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-30 08:38+0000\n"
+"POT-Creation-Date: 2017-04-07 09:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,396 +14,427 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: src/Link.php:14
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Link.php:14
 msgid "Link"
 msgstr ""
 
-#: src/Link.php:20
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Link.php:20
 msgid "Post/Page to Link"
 msgstr ""
 
-#: src/Link.php:25
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Link.php:25
 msgid "Select the post to link"
 msgstr ""
 
-#: src/Link.php:34
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Link.php:34
 msgid "Link Label"
 msgstr ""
 
-#: src/Form.php:46
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:47
 msgid "Form"
 msgstr ""
 
-#: src/Form.php:114 src/ContactForm.php:21
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:115
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ContactForm.php:21
 msgid "Thanks for your request, we will reply as soon as possible."
 msgstr ""
 
-#: src/Form.php:120 src/Index.php:19 src/PreviewCard.php:51
-#: src/SimpleBox.php:37
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:121
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:19
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:51
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:37
 msgid "Title"
 msgstr ""
 
-#: src/Form.php:124 src/PreviewCard.php:55 src/SimpleBox.php:41
-#: src/SimpleBox.php:59
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:125
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:55
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:41
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:59
 msgid "This title will replace the Page title"
 msgstr ""
 
-#: src/Form.php:126 src/TeamMember.php:38 src/PreviewCard.php:57
-#: src/SimpleBox.php:43 src/SimpleBox.php:61
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:127
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:38
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:57
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:43
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:61
 msgid "Insert title"
 msgstr ""
 
-#: src/Form.php:130
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:131
 msgid "Hidden"
 msgstr ""
 
-#: src/Form.php:134
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:135
 msgid "Always Visible"
 msgstr ""
 
-#: src/Form.php:135
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:136
 msgid "Lightbox"
 msgstr ""
 
-#: src/Form.php:136
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:137
 msgid "Collapse"
 msgstr ""
 
-#: src/Form.php:140
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:141
 msgid "Open button label"
 msgstr ""
 
-#: src/Form.php:144
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:145
 msgid "The label for the lightbox open button"
 msgstr ""
 
-#: src/Form.php:150
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:151
 msgid "Submit button label"
 msgstr ""
 
-#: src/Form.php:154
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:155
 msgid "The label for submit button"
 msgstr ""
 
-#: src/Form.php:160 src/PreviewCard.php:94 src/SimpleBox.php:65
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:161
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:94
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:65
 msgid "Custom Classes"
 msgstr ""
 
-#: src/Form.php:207 src/Form.php:215
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:208
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Form.php:216
 msgid "Close"
 msgstr ""
 
-#: src/LatestPosts.php:15
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/LatestPosts.php:15
 msgid "Latest Posts"
 msgstr ""
 
-#: src/LatestPosts.php:31 src/Archive.php:33
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/LatestPosts.php:31
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Archive.php:33
 msgid "Post Count"
 msgstr ""
 
-#: src/LatestPosts.php:32
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/LatestPosts.php:32
 msgid "The number of posts shown"
 msgstr ""
 
-#: src/Definition.php:11 src/Definition.php:28
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:11
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:28
 msgid "Definition"
 msgstr ""
 
-#: src/Definition.php:27 src/Definition.php:32
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:27
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:32
 msgid "Definitions"
 msgstr ""
 
-#: src/Definition.php:59
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:59
 msgid "Select Definition"
 msgstr ""
 
-#: src/Definition.php:66
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Definition.php:66
 msgid "Abbreviation"
 msgstr ""
 
-#: src/GoogleMapDirections.php:19
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:20
 msgid "Google Maps Directions"
 msgstr ""
 
-#: src/GoogleMapDirections.php:26
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:27
 msgid "Lat"
 msgstr ""
 
-#: src/GoogleMapDirections.php:32
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:33
 msgid "Long"
 msgstr ""
 
-#: src/GoogleMapDirections.php:38
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:39
 msgid "Zoom"
 msgstr ""
 
-#: src/GoogleMapDirections.php:44
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:45
 msgid "Show directions"
 msgstr ""
 
-#: src/GoogleMapDirections.php:49
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:50
 msgid "Marker Title"
 msgstr ""
 
-#: src/GoogleMapDirections.php:55
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:56
 msgid "Marker Icon"
 msgstr ""
 
-#: src/GoogleMapDirections.php:85
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:62
+msgid "Class"
+msgstr ""
+
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:92
 msgid "Unlock map"
 msgstr ""
 
-#: src/GoogleMapDirections.php:86
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:93
 msgid "Lock map"
 msgstr ""
 
-#: src/GoogleMapDirections.php:94
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:101
 msgid "Directions"
 msgstr ""
 
-#: src/GoogleMapDirections.php:96
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:103
 msgid "Get route"
 msgstr ""
 
-#: src/GoogleMapDirections.php:100
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:107
 msgid "Walking"
 msgstr ""
 
-#: src/GoogleMapDirections.php:102
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:109
 msgid "Driving"
 msgstr ""
 
-#: src/GoogleMapDirections.php:104
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:111
 msgid "Transit"
 msgstr ""
 
-#: src/GoogleMapDirections.php:109
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:116
 msgid "Navigate"
 msgstr ""
 
-#: src/GoogleMapDirections.php:110
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/GoogleMapDirections.php:117
 msgid "Show Route"
 msgstr ""
 
-#: src/Index.php:12
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:12
 msgid "Indexed Content"
 msgstr ""
 
-#: src/Index.php:24
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:24
 msgid "Slug"
 msgstr ""
 
-#: src/Index.php:30 src/Index.php:56
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:30
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:56
 msgid "Index group"
 msgstr ""
 
-#: src/Index.php:51
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:51
 msgid "Index"
 msgstr ""
 
-#: src/Index.php:99
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:99
 msgid "-- Page Index --"
 msgstr ""
 
-#: src/Index.php:154
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Index.php:154
 msgid "Go to index"
 msgstr ""
 
-#: src/ResponsiveImage.php:24
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ResponsiveImage.php:24
 msgid "Responsive Image"
 msgstr ""
 
-#: src/ResponsiveImage.php:31 src/PreviewCard.php:61 src/SimpleBox.php:47
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ResponsiveImage.php:31
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:61
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:47
 msgid "Image"
 msgstr ""
 
-#: src/ResponsiveImage.php:35 src/ResponsiveImage.php:36 src/PreviewCard.php:65
-#: src/PreviewCard.php:66 src/SimpleBox.php:51 src/SimpleBox.php:52
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ResponsiveImage.php:35
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ResponsiveImage.php:36
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:65
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:66
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:51
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:52
 msgid "Select Image"
 msgstr ""
 
-#: src/Shortcake.php:114
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Shortcake.php:114
 msgid "Content"
 msgstr ""
 
-#: src/Shortcake.php:115
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Shortcake.php:115
 msgid "Insert content here"
 msgstr ""
 
-#: src/TeamMember.php:19
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:19
 msgid "Team Member"
 msgstr ""
 
-#: src/TeamMember.php:32
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:32
 msgid "User"
 msgstr ""
 
-#: src/TeamMember.php:42 src/TeamMember.php:61 src/PreviewCard.php:69
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:42
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:61
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:69
 msgid "URL"
 msgstr ""
 
-#: src/TeamMember.php:47
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:47
 msgid "Show role"
 msgstr ""
 
-#: src/TeamMember.php:52
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:52
 msgid "Show description"
 msgstr ""
 
-#: src/TeamMember.php:57
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:57
 msgid "Link destination"
 msgstr ""
 
-#: src/TeamMember.php:62
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:62
 msgid "Mail"
 msgstr ""
 
-#: src/TeamMember.php:63
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:63
 msgid "Popup"
 msgstr ""
 
-#: src/TeamMember.php:64
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:64
 msgid "Profile"
 msgstr ""
 
-#: src/TeamMember.php:68 src/PreviewCard.php:75
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:68
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:75
 msgid "Button Label"
 msgstr ""
 
-#: src/TeamMember.php:73
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:73
 msgid "Contact me"
 msgstr ""
 
-#: src/TeamMember.php:95
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:95
 msgid "User not found"
 msgstr ""
 
-#: src/ContactForm.php:17
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/ContactForm.php:17
 msgid "Contact Form"
 msgstr ""
 
-#: src/PreviewCard.php:45
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:45
 msgid "Preview Card"
 msgstr ""
 
-#: src/PreviewCard.php:72
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:72
 msgid "This URL will be used instead of Page permalink."
 msgstr ""
 
-#: src/PreviewCard.php:80
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:80
 msgid "Insert button label"
 msgstr ""
 
-#: src/PreviewCard.php:84
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:84
 msgid "Open in new window"
 msgstr ""
 
-#: src/PreviewCard.php:89
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard.php:89
 msgid "Enable Markdown"
 msgstr ""
 
-#: src/PreviewCard_Post.php:12
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard_Post.php:12
 msgid "Post Preview Card"
 msgstr ""
 
-#: src/PreviewCard_Post.php:22
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard_Post.php:22
 msgid "Select Page"
 msgstr ""
 
-#: src/Section.php:12
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Section.php:12
 msgid "Section Tag"
 msgstr ""
 
-#: src/Section.php:18
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Section.php:18
 msgid "HTML ID"
 msgstr ""
 
-#: src/Section.php:22
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Section.php:22
 msgid "The HTML id attribute value "
 msgstr ""
 
-#: src/Section.php:24
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Section.php:24
 msgid "section1"
 msgstr ""
 
-#: src/Section.php:28
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Section.php:28
 msgid "Classes"
 msgstr ""
 
-#: src/PreviewCard_Term.php:20
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard_Term.php:20
 #, php-format
 msgid "Term Preview Card [%s]"
 msgstr ""
 
-#: src/PreviewCard_Term.php:28
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/PreviewCard_Term.php:28
 msgid "Select Term"
 msgstr ""
 
-#: src/Archive.php:15
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Archive.php:15
 msgid "Archive"
 msgstr ""
 
-#: src/Archive.php:26
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Archive.php:26
 msgid "Select Post Type"
 msgstr ""
 
-#: src/Testimonials.php:42 src/Testimonials.php:62 src/Testimonials.php:67
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:42
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:62
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:67
 msgid "Testimonials"
 msgstr ""
 
-#: src/Testimonials.php:63
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:63
 msgid "Testimonial"
 msgstr ""
 
-#: src/Testimonials.php:111
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:112
 msgid "Reviews Count"
 msgstr ""
 
-#: src/Testimonials.php:115
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:116
 msgid "How many testimonials to show"
 msgstr ""
 
-#: src/Testimonials.php:121
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:122
 msgid "Show Load More"
 msgstr ""
 
-#: src/Testimonials.php:125
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:126
 msgid "Show the AJAX \"Load More\" button"
 msgstr ""
 
-#: src/Testimonials.php:128
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:129
 msgid "Offset"
 msgstr ""
 
-#: src/Testimonials.php:131
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:132
 msgid "Skip the first N testimonials"
 msgstr ""
 
-#: src/Testimonials.php:183
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:206
 msgid "Show more testimonials"
 msgstr ""
 
-#: src/SimpleBox.php:31
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:31
 msgid "Simple Box"
 msgstr ""
 
-#: src/SimpleBox.php:55
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/SimpleBox.php:55
 msgid "Subtitle"
 msgstr ""
 
-#: src/WhitepaperDl.php:30
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/WhitepaperDl.php:30
 msgid "Whitepaper Download"
 msgstr ""
 
-#: src/WhitepaperDl.php:38
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/WhitepaperDl.php:38
 msgid "File to Download"
 msgstr ""
 
-#: src/WhitepaperDl.php:43 src/WhitepaperDl.php:44
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/WhitepaperDl.php:43
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/WhitepaperDl.php:44
 msgid "Select File"
 msgstr ""
 
-#: src/WhitepaperDl.php:51
+#: ../../themes/studiolegalemauro/vendor/silverbackstudio/wp-shortcakes/src/WhitepaperDl.php:51
 msgid ""
 "Thanks for your request, the file you requested will be sent to your inbox."
 msgstr ""
