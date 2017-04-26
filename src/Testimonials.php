@@ -21,6 +21,9 @@ use WP_Query;
 //             .append(response)
 //             .data(data)
 //             .removeClass('loading');
+//          
+//         $(document.body).trigger( 'post-load' );
+
 //     });
 // });
 

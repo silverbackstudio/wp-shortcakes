@@ -12,7 +12,7 @@ class TeamMember extends Shortcake {
 		'link_dest' => 'dialog',
 		'show_role' => 'false',
 		'show_desc' => 'false',
-		'button_label' => _('Read More'),
+		'button_label' => 'Read More',
 	);
 
     public function title(){
