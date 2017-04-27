@@ -12,14 +12,8 @@
     "require": {
         "erusev/parsedown": "^1.6",
         "michelf/php-markdown": "^1.7",
-        "silverbackstudio/wp-themehelper": "dev-master"
+        "silverbackstudio/wp-themehelper": "^1.0.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@gitlab.com:silverbackstudio/wp-themehelpers.git"
-        }
-    ], 
     "autoload": {
         "psr-4": {"Svbk\\WP\\Shortcakes\\": "src/"}
     }
