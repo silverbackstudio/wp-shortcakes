@@ -2,4 +2,4 @@
 
 namespace Svbk\WP\Shortcakes;
 
-class GoogleMapDirections extends Maps/Directions { }
+class GoogleMapDirections extends Maps\Directions { }
