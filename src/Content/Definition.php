@@ -1,18 +1,18 @@
 <?php
 
-namespace Svbk\WP\Shortcakes;
+namespace Svbk\WP\Shortcakes\Content;
 
-class Definition extends Base {
+use Svbk\WP\Shortcakes\Shortcake;
+
+class Definition extends Shortcake {
     
     public $shortcode_id = 'dfn';
-    public $title = 'Definition';
-
     public $footnotes = array();
 
-    static function  register($post_types=array('page')){
-        $self = parent::register($post_types);
+    public function title(){
+        return __('Definition', 'svbk-shortcakes');
     }
-    
+
     function add(){
         
         parent::add();

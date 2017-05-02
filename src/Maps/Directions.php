@@ -1,11 +1,26 @@
 <?php
 
-namespace Svbk\WP\Shortcakes;
+namespace Svbk\WP\Shortcakes\Maps;
 
-class GoogleMapDirections extends Base {
+use Svbk\WP\Shortcakes\Shortcake;
+
+class Directions extends Shortcake {
     
     public $shortcode_id = 'gmap_directions';
-    public $title = 'Google Maps Directions';
+
+    public static $defaults = array(
+		'lat' => '',
+		'lng' => '',
+		'zoom' => 14,
+		'directions' => false,
+		'marker_title' => '',
+		'marker_icon' => '',
+		'classes' => '',		
+	);
+
+    public function title(){
+        return __('Google Maps Directions', 'svbk-shortcakes');
+    }
 
     function fields(){
         
@@ -26,7 +41,13 @@ class GoogleMapDirections extends Base {
     			'label'  => esc_html__( 'Zoom', 'svbk-shortcakes' ),
     			'attr'   => 'zoom',
     			'type'   => 'number',
+    			'default' => self::$defaults['zoom']
     		),
+    		array(
+    			'label'  => esc_html__( 'Show directions', 'svbk-shortcakes' ),
+    			'attr'   => 'directions',
+    			'type'   => 'checkbox',
+    		),    		
     		array(
     			'label'  => esc_html__( 'Marker Title', 'svbk-shortcakes' ),
     			'attr'   => 'marker_title',
@@ -38,7 +59,13 @@ class GoogleMapDirections extends Base {
     			'attr'   => 'marker_icon',
     			'type'   => 'url',
     			'encode' => true
-    		), 	    		
+    		), 	    
+    		array(
+    			'label'  => esc_html__( 'Class', 'svbk-shortcakes' ),
+    			'attr'   => 'classes',
+    			'type'   => 'text',
+    			'encode' => true
+    		), 	        		
     	);
     
     }
@@ -54,17 +81,13 @@ class GoogleMapDirections extends Base {
     }
     
     function output( $attr, $content, $shortcode_tag ) {
-    	$attr = shortcode_atts( array(
-    		'lat' => '',
-    		'lng' => '',
-    		'zoom' => '',
-    		'marker_title' => '',
-    		'marker_icon' => '',
-    	), $attr, $shortcode_tag );
+    	$attr = $this->shortcode_atts( self::$defaults , $attr, $shortcode_tag );
+    
+        static $index = 1;
     
 		ob_start();
 		?>
-    	<div class="gmap-container" id="reach-us" data-map-lng="<?php echo esc_attr($attr['lng']); ?>" data-map-lat="<?php echo esc_attr($attr['lat']); ?>">
+    	<div class="gmap-container <?php echo esc_attr($attr['classes']); ?>" id="gmap-container-<?php echo $index++; ?>" data-map-lng="<?php echo esc_attr($attr['lng']); ?>" data-map-lat="<?php echo esc_attr($attr['lat']); ?>">
     		<div class="map-locker locked">
     			<div class="google-map"></div>
     			<div class="map-lock">
@@ -72,8 +95,10 @@ class GoogleMapDirections extends Base {
     				<button class="lock-label"><span class="label"><?php _e('Lock map','svbk-shortcakes'); ?></span></button>
     			</div>
     		</div>
+    		
+    		<?php if($attr['directions']): ?>
         	<div id="directions">
-        		<form id="ask-directions" class="gmap-directions-form" data-target-map="#reach-us .google-map">
+        		<form id="ask-directions" class="gmap-directions-form" data-target-map="#gmap-container-<?php echo $index; ?> .google-map">
         			
         			<label for="directionsOrigin"><?php _e('Directions', 'svbk-shortcakes'); ?></label>
         			<input type="text" id="directionsOrigin" class="gmaps-directions-origin gmaps-autocomplete"  name="origin"/>
@@ -93,6 +118,7 @@ class GoogleMapDirections extends Base {
     		    <a href="http://maps.google.com/maps?daddr=<?php echo esc_attr($attr['lat']); ?>,<?php echo esc_attr($attr['lng']); ?>&amp;ll=&amp;saddr=" class="open-navigation action-button" target="_blank"><?php _e('Navigate', 'svbk-shortcakes') ?></a>
     			<h4 class="action-button"><?php _e('Show Route','svbk-shortcakes'); ?></h4>
     		</div>
+    		<?php endif; ?>
     	</div>	
         <?php return ob_get_clean();        
         
