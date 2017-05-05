@@ -84,7 +84,7 @@ class Testimonials extends Shortcake {
     		"rewrite" => true,
     		"query_var" => true,
     		"menu_icon" => "dashicons-admin-comments",
-    		"supports" => array( "title", "editor", "thumbnail",  "excerpt" ),
+    		"supports" => array( "title", "editor", "thumbnail",  "excerpt", "author" ),
     		"taxonomies" => array(  ),
     	);
     
