@@ -25,6 +25,7 @@ class Download extends Form {
     public $field_prefix = 'wdl';    
     public $action = 'sendwhitepaper';
     public $formClass = '\Svbk\WP\Helpers\Form\Download';
+    public $classes = array( 'whitepaper-dl', 'form-download' );
 
     public function title(){
         return __('Whitepaper Download', 'svbk-shortcakes');

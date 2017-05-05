@@ -19,6 +19,9 @@ class Form extends Shortcake {
     public $field_prefix = 'frm';    
     public $action = 'svbk_form';
     public $formClass = '\Svbk\WP\Helpers\Form\Submission';
+    
+    public $classes = array();
+    
     public $confirmMessage = '';
 
     public $recipientEmail = 'webmaster@silverbackstudio.it';    
@@ -185,6 +188,31 @@ class Form extends Shortcake {
         return $form;
     }
     
+    public function containerClasses( $attr ){
+        
+        $classes = $this->classes;
+        
+        if( !empty( $attr['hidden'] ) ){
+            $classes[] = 'svbk-hidden';
+            $classes[] = 'svbk-'.$attr['hidden'];
+        }
+        
+        $classes[] = 'svbk-form-container';
+
+        if( !empty( $attr['class'] )  ) {
+            $classes = array_merge( $classes, explode( ' ', $attr['class'] )  );
+        }
+        
+        if( !empty( $attr['classes'] ) ) {
+            $classes = array_merge( $classes, explode( ' ', $attr['classes'] )  );
+        }        
+
+        return $classes;
+    }
+    
+    public function containerId( $attr, $index ){
+        return $this->field_prefix . '-container-' . $index;
+    }
 
     public function renderOutput($attr, $content, $shortcode_tag){
     
@@ -197,7 +225,7 @@ class Form extends Shortcake {
 
         $output = $form->renderParts( $this->action, $attr );
 
-        $output['wrapperBegin'] = '<div class="whitepaper-dl svbk-form-container'.($attr['hidden']?(' svbk-hidden svbk-'.$attr['hidden']):'').'" id="' . $this->field_prefix . '-container-' . $index  . '">';
+        $output['wrapperBegin'] = '<div class="' . join( ' ', $this->containerClasses( $attr ) ) . '" id="' . $this->containerId($attr, $index)  . '">';
     
         if($attr['title']){
             $output['title'] = '<h2 class="form-title">'.$attr['title'].'</h2>';
