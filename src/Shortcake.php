@@ -4,7 +4,7 @@ namespace Svbk\WP\Shortcakes;
 
 add_action( 'after_setup_theme', __NAMESPACE__.'\\Shortcake::load_texdomain' );
 
-use Svbk\WP\Helpers\Renderer;
+use Svbk\WP\Helpers\Form\Renderer;
 
 abstract class Shortcake {
     
