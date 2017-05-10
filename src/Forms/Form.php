@@ -39,6 +39,7 @@ class Form extends Shortcake {
         'requiredNotice',
     	'beginPolicySubmit',
         'policy',
+        'content',
         'submitButton',
         'endPolicySubmit',
         'messages',
@@ -223,7 +224,7 @@ class Form extends Shortcake {
     	$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );      
         $form = $this->getForm();
 
-        $output = $form->renderParts( $this->action, $attr );
+        $output = array_merge( parent::renderOutput($attr, $content, $shortcode_tag), $form->renderParts( $this->action, $attr ) );
 
         $output['wrapperBegin'] = '<div class="' . join( ' ', $this->containerClasses( $attr ) ) . '" id="' . $this->containerId($attr, $index)  . '">';
     
