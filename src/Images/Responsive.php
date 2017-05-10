@@ -28,6 +28,16 @@ class Responsive extends Shortcake {
 
     function fields(){
         
+        $sizes = array_combine( get_intermediate_image_sizes(), get_intermediate_image_sizes() );
+        
+        $sizes = array_merge($sizes, apply_filters( 'image_size_names_choose', array(
+            'thumbnail' => __( 'Thumbnail' ),
+            'medium'    => __( 'Medium' ),
+            'large'     => __( 'Large' ),
+            'full'      => __( 'Full Size' )
+            ) 
+        ) );
+        
         return array(
     		array(
     			'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
@@ -38,10 +48,10 @@ class Responsive extends Shortcake {
     			'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
     		),
     		array(
-    			'label'       => esc_html__( 'Size', 'shortcode-ui-example' ),
+    			'label'       => esc_html__( 'Size', 'svbk-shortcakes' ),
     			'attr'        => 'size',
     			'type'        => 'select',
-    			'options'     => array_combine(get_intermediate_image_sizes(),get_intermediate_image_sizes())
+    			'options'     => $sizes
     		),    		
     	);
     }

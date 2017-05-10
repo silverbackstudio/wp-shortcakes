@@ -48,6 +48,20 @@ abstract class Shortcake {
             'value'=>$key,
         );
     }
+    
+    public static function selectOptions( $options ){
+        
+        $output = array();
+        
+        foreach($options as $key => $value){
+            $output[] = array(
+                'label'=>$value,
+                'value'=>$key,
+            );
+        }
+        
+        return $output;
+    }    
 
     static function register($options=array()){
         
