@@ -89,9 +89,9 @@ class Simple extends Shortcake {
             $this->classes .= ' has-image'; 
         }
         
-        $this->classes .= ' '.$attr['classes'];
+        $classes = array_merge($this->classes, $this->getClasses($attr) );
     
-    	$output['wrapperBegin']  = '<div class="'.esc_attr( trim($this->classes) ) . '">';
+    	$output['wrapperBegin']  = '<div class="' . esc_attr( join( ' ', $classes) ) . '">';
     	
     	if($image){
     	    $output['image'] = $image;

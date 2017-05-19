@@ -18,6 +18,10 @@ class Preview extends Shortcake {
     
     public $shortcode_id = 'preview_card';
     public $image_size = 'thumbnail';
+    public $buttonClasses = array('readmore');
+    public $linkImage = true;
+    public $linkTitle = true;
+    public $wrapperTag = 'div';
     public $classes = array('preview-card');
 
     public static $defaultRenderOrder = array(
@@ -141,27 +145,27 @@ class Preview extends Shortcake {
     	
     	$classes = array_merge($this->classes, $this->getClasses($attr) );
     	
-    	$output['wrapperBegin']  = '<div class="' . esc_attr( join( ' ', $classes) ) . '">';
+    	$output['wrapperBegin']  = '<'.$this->wrapperTag.' class="' . esc_attr( join( ' ', $classes) ) . '">';
     	
     	if($title){
     	    $output['headerBegin'] = '<div class="entry-header">';
-            $output['title'] = sprintf( $link ? '<h2 class="entry-title"><a href="%2$s" %3$s >%1$s</a></h2>':'<h2 class="entry-title">%1$s</h2>', $title, esc_attr($link), $target) ;
+            $output['title'] = sprintf( ($this->linkTitle && $link) ? '<h2 class="entry-title"><a href="%2$s" %3$s >%1$s</a></h2>':'<h2 class="entry-title">%1$s</h2>', $title, esc_attr($link), $target) ;
     	    $output['headerEnd'] = '</div>';
     	}
     	
     	if($image){
-    	    $output['image'] = sprintf( $link ? '<a href="%2$s" %3$s >%1$s</a>':'%1$s', $image, esc_attr($link), $target);
+    	    $output['image'] = sprintf( ($this->linkImage && $link) ? '<a href="%2$s" %3$s >%1$s</a>':'%1$s', $image, esc_attr($link), $target);
     	}
     	
     	$output['contentBegin'] = '<div class="card-text">';
         $output['content'] = '  <div class="entry-content">' . $content . '</div>';
         
         if($link && $attr[ 'link_label' ]){
-            $output['button'] = '  <a class="readmore" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
+            $output['button'] = '  <a class="' . esc_attr( join( ' ', $this->buttonClasses) ) . '" href="' . esc_attr($link) . '" ' . $target . ' >' . $attr[ 'link_label' ] . '</a>';
         }
     	
     	$output['contentEnd'] = '</div>';
-    	$output['wrapperEnd'] = '</div>';  
+    	$output['wrapperEnd'] = '</'.$this->wrapperTag.'>';  
     	
     	return $output;
         
