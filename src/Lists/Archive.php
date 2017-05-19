@@ -26,7 +26,7 @@ class Archive extends Shortcake {
         return array(
     		array(
     			'label'    => __( 'Select Post Type', 'svbk-shortcakes' ),
-    			'attr'     => 'section',
+    			'attr'     => 'post_type',
     			'type'     => 'select',
     			'options' => $custom_post_types,
     			'multiple' => false,
@@ -34,7 +34,7 @@ class Archive extends Shortcake {
     		array(
     			'label'    => __( 'Post Count', 'svbk-shortcakes' ),
     			'attr'     => 'posts_per_page',
-    			'type'     => 'numebr',
+    			'type'     => 'number',
     		),    		
         );
     }
@@ -67,11 +67,11 @@ class Archive extends Shortcake {
     
         $output = '';
 
-        if(!post_type_exists($attr['post_type'])){
+        if( !post_type_exists($attr['post_type']) ){
             return __('Post type dosen\'t exists', 'svbk-shortcodes');
         }
 
-        query_posts($this->getQueryArgs($args));
+        query_posts( $this->getQueryArgs($attr) );
 
         if ( have_posts() ) : 
 
@@ -79,7 +79,7 @@ class Archive extends Shortcake {
             ob_start();
             
         	while ( have_posts() ) : the_post();
-        	    get_template_part('template-parts/content', 'casestudy');
+        	    get_template_part('template-parts/content', get_post_type() );
         	endwhile;
         	
             $output .= ob_get_contents();
