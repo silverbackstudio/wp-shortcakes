@@ -10,6 +10,21 @@ class Index extends Shortcake {
     public $shortcode_id = 'indexed_content';
     public $sections = array();
     public $current_index = array();
+    public $template;
+
+    public function __construct( $properties ){
+        
+        $instance->template = '<section id="%1$s" class="index-section">'
+            .'<header class="section-header">'
+                .'<div class="section-title"><span class="index-counter">%4$s</span><h3  >&nbsp;%2$s</h3></div>'
+                .'<a class="anchor to-top" href="#index" title="' . __('Go to index', 'svbk-shortcakes') . '">&uarr;</a>'
+                .'<p class="section-subtitle">%3$s</p>'
+            .'</header>'
+        .'</section>';  
+    
+        
+        parent::__construct( $properties );
+    }
 
     public function title(){
         return __('Indexed Content', 'svbk-shortcakes');
@@ -124,7 +139,6 @@ class Index extends Shortcake {
         
         return $prepend;
     }
-        
     
     function output( $attr, $content, $shortcode_tag ) {
         
@@ -151,15 +165,7 @@ class Index extends Shortcake {
             'slug' => $attr['slug']
         );
         
-        $template = '<section id="%1$s" class="index-section">'
-                        .'<header class="section-header">'
-                            .'<h3 class="section-title" ><span class="index-counter">%4$s</span>&nbsp;%2$s</h3>'
-                            .'<a class="anchor to-top" href="#index" title="' . __('Go to index', 'svbk-shortcakes') . '">&uarr;</a>'
-                        .'</header>'
-                        .'<div class="section-content">%3$s</div>'
-                    .'</section>';
-    
-        $output .= sprintf( $template, $attr['slug'], esc_html($attr['title']), $content, $index);
+        $output .= sprintf( $this->template, $attr['slug'], esc_html($attr['title']), $content, $index);
 
         return $output;
         
