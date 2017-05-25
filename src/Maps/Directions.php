@@ -88,13 +88,7 @@ class Directions extends Shortcake {
 		ob_start();
 		?>
     	<div class="gmap-container <?php echo esc_attr($attr['classes']); ?>" id="gmap-container-<?php echo $index++; ?>" data-map-lng="<?php echo esc_attr($attr['lng']); ?>" data-map-lat="<?php echo esc_attr($attr['lat']); ?>">
-    		<div class="map-locker locked">
-    			<div class="google-map"></div>
-    			<div class="map-lock">
-    				<button class="unlock-label"><span class="label"><?php _e('Unlock map','svbk-shortcakes'); ?></span></button>
-    				<button class="lock-label"><span class="label"><?php _e('Lock map','svbk-shortcakes'); ?></span></button>
-    			</div>
-    		</div>
+			<div class="google-map"></div>
     		
     		<?php if($attr['directions']): ?>
         	<div id="directions">

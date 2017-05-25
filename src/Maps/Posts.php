@@ -89,11 +89,7 @@ class Posts extends Shortcake {
         $index++;
 
     	$output .= '<aside class="gmap-container '. join('', $this->classes) .'" id="gmap-container-' . $index . '" >
-    			<div class="google-map" style="min-width: 100px; min-height: 300px;"></div>
-    			<div class="map-lock">
-    				<button class="unlock"><span class="label">' . __('Unlock map','svbk-shortcakes') .'</span></button>
-    				<button class="lock"><span class="label">'. __('Lock map','svbk-shortcakes') .'</span></button>
-        		</div>';
+    			<div class="google-map"></div>';
 
         $output .= '
         <script>
