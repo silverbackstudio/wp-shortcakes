@@ -7,6 +7,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Archive extends Shortcake {
     
     public $shortcode_id = 'post-archive';
+    public $template_base = 'template-parts/content';
 
     public static $defaults = array(
     		'post_type' => 'post',
@@ -19,9 +20,9 @@ class Archive extends Shortcake {
 
     function fields(){
 
-        $custom_post_types = wp_list_pluck(get_post_types( array('public' => true, '_builtin' => false) , 'objects' ), 'label', 'name');
+        $custom_post_types = wp_list_pluck( get_post_types( array('public' => true, '_builtin' => false) , 'objects' ), 'label', 'name');
 
-        array_walk($custom_post_types, array(__CLASS__, 'castSelect' ));
+        //array_walk($custom_post_types, array(__CLASS__, 'castSelect' ));
 
         return array(
     		array(
@@ -79,7 +80,7 @@ class Archive extends Shortcake {
             ob_start();
             
         	while ( have_posts() ) : the_post();
-        	    get_template_part('template-parts/content', get_post_type() );
+        	    get_template_part($this->template_base, get_post_type() );
         	endwhile;
         	
             $output .= ob_get_contents();

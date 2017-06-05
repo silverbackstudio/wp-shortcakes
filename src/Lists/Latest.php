@@ -11,6 +11,7 @@ class Latest extends Shortcake {
     public $post_type = 'post';
     public $query_args = array();
     public $classes = array('latest-posts');    
+    public $template_base = 'template-parts/thumb';
 
     public static $defaults = array(
 		'count' => 3,
@@ -104,7 +105,7 @@ class Latest extends Shortcake {
 			
 			while ( $postsQuery->have_posts() ) : $postsQuery->the_post();
 				
-				get_template_part( 'template-parts/thumb', get_post_type() );
+				get_template_part( $this->template_base, get_post_type() );
 
 			endwhile; // End of the loop.
 			
