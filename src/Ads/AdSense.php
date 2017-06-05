@@ -3,6 +3,7 @@
 namespace Svbk\WP\Shortcakes\Ads;
 
 use Svbk\WP\Shortcakes\Shortcake;
+use Svbk\WP\Helpers;
 
 class AdSense extends Shortcake {
     
@@ -11,7 +12,7 @@ class AdSense extends Shortcake {
 
     public $defaults = array(
 	    'ad_slot' => '',
-	    'size' => '',
+	    'ad_size' => 'auto',
 	);
 
     public function title(){
@@ -28,15 +29,10 @@ class AdSense extends Shortcake {
     			'required'    => true,
     		),
     		array(
-    			'label'       => esc_html__( 'Size', 'svbk-shortcakes' ),
-    			'attr'        => 'size',
+    			'label'       => esc_html__( 'Ad Size', 'svbk-shortcakes' ),
+    			'attr'        => 'ad_size',
     			'type'        => 'select',
-    			'options'     => array(
-    			    'auto' => __('Adaptive', 'svbk-shortcakes'),
-    			    'leaderboard' => __('Leaderboard', 'svbk-shortcakes'),
-    			    'large_rectangle' => __('Leaderboard', 'svbk-shortcakes'),
-    			    'leaderboard' => __('Leaderboard', 'svbk-shortcakes'),
-    			 )
+    			'options'     => Helpers\Ads\AdSense::adunit_sizes(),
     		),    		
     	);
     }
@@ -62,28 +58,9 @@ class AdSense extends Shortcake {
             return sprintf( __('AdSense AdUnit Banner ID: %s', 'svbk-shortcakes'), $attr['ad_slot'] );
         }             
     	
-    	$format = '';
+        $adsense = new Helpers\Ads\AdSense( $this->google_ad_client );
     	
-        switch( $attr['size'] ){
-            case 'auto':
-                $style = 'display:block;';
-                $format = 'data-ad-format="auto"';
-                break;
-            case 'leaderboard':
-                $style = 'display:inline-block;width:728px;height:90px;';
-                break;                
-            case 'large_rectangle':
-                $style = 'display:inline-block;width:336px;height:280px;';
-                break;                
-            case 'skyscraper_large':
-                $style = 'display:inline-block;width:300px;height:600px;';
-                break;                
-        }
-
-        $output = '<ins class="adsbygoogle" style="' . $style . '" data-ad-client="' . $this->google_ad_client . '" data-ad-slot="' . $attr['ad_slot'] . '" ' . $format . '></ins>';
-        $output .= '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
-        
-        return $output;
+        return $adsense->adunit_code( $attr['ad_slot'], $attr['ad_size'] );
         
     }
     
