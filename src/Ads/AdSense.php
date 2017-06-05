@@ -27,6 +27,7 @@ class AdSense extends Shortcake {
     			'attr'        => 'ad_slot',
     			'type'        => 'text',
     			'required'    => true,
+    			'meta'     => [ 'placeholder' => $this->defaults['ad_slot'] ]
     		),
     		array(
     			'label'       => esc_html__( 'Ad Size', 'svbk-shortcakes' ),
