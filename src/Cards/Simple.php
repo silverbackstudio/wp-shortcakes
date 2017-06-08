@@ -15,7 +15,7 @@ class Simple extends Shortcake {
     
     public $shortcode_id = 'simple_box';
     public $header_tag = 'h2';
-    public $classes = 'simple-box';
+    public $classes = array('simple-box');
     public $image_size = 'post-thumbnail';
 
     public $renderOrder = array(
