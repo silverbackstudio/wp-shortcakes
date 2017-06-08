@@ -19,7 +19,8 @@ class Download extends Form {
     public $mc_list_id = '';
     public $md_apikey = '';
     public $md_template = '';
-    public $messageDefaults;
+    public $messageDefaults = array();
+    public $subscribeAttributes = array();
 
     public $shortcode_id = 'whitepaper_dl';
     public $field_prefix = 'wdl';    
@@ -70,6 +71,10 @@ class Download extends Form {
                     $this->messageDefaults
                 );
             }
+            
+            if(!empty( $this->subscribeAttributes ) ){
+                $form->subscribeAttributes = $this->subscribeAttributes;
+            }            
             
         }
         
