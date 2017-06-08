@@ -79,6 +79,10 @@ class Simple extends Shortcake {
         return $attr['head_image'] ? wp_get_attachment_image($attr['head_image'], $this->image_size) : '';
     }      
 
+    protected function getClasses($attr){
+        return array_map('trim', explode(' ', $attr['classes']));
+    }
+    
     function renderOutput($attr, $content, $shortcode_tag){
     
     	$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );      
