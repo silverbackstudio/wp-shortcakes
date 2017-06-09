@@ -90,7 +90,7 @@ class Simple extends Shortcake {
         $image = $this->getImage($attr);
         
         if($image) {
-            $this->classes .= ' has-image'; 
+            $this->classes[] = 'has-image'; 
         }
         
         $classes = array_merge($this->classes, $this->getClasses($attr) );
