@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Silverback Shortcakes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-05 14:04+0000\n"
-"PO-Revision-Date: 2017-06-05 14:05+0000\n"
+"POT-Creation-Date: 2017-06-26 09:19+0000\n"
+"PO-Revision-Date: 2017-06-26 09:21+0000\n"
 "Last-Translator: SilverbackStudio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
@@ -13,9 +13,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:32
-msgid "Ad Size"
-msgstr "Dimensione unità pubblicitaria"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:34
+msgid "Term to link"
+msgstr "Termine tassonomia da collegare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:38
+msgid "if you want to link a taxonomy term, please leave the post field blank"
+msgstr ""
+"Se vuoi effettuare un collegamento ad un termine di tassonomia, lascia il "
+"campo degli articoli vuoto"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:53
+msgid "Alignment"
+msgstr "Allineamento"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:57
+msgid "None"
+msgstr "Nessuno"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:58
+msgid "Align Left"
+msgstr "Allinea a Sinsitra"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:59
+msgid "Align Center"
+msgstr "Allinea al Centro"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:60
+msgid "Align Right"
+msgstr "Allinea a Destra"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:19
+msgid "Team Member"
+msgstr "Persona del Team"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:32
+msgid "User"
+msgstr "Utente"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:38
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:63
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:45
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:63
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:133
+msgid "Insert title"
+msgstr "Inserisci titolo"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:42
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:61
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:75
+msgid "URL"
+msgstr "URL"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:47
+msgid "Show role"
+msgstr "Mostra ruolo"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:52
+msgid "Show description"
+msgstr "Mostra descrizione"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:57
+msgid "Link destination"
+msgstr "Collegamento"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:62
+msgid "Mail"
+msgstr "Email"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:63
+msgid "Popup"
+msgstr "Popup"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:64
+msgid "Profile"
+msgstr "Profilo"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:68
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:81
+msgid "Button Label"
+msgstr "Etichetta pulsante"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:73
+msgid "Contact me"
+msgstr "Contattami"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:95
+msgid "User not found"
+msgstr "Nessun utente trovato"
 
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:45
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:65
@@ -64,78 +149,6 @@ msgstr "Contenuto"
 msgid "Insert content here"
 msgstr "Inserisci qui il contenuto"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:19
-msgid "Team Member"
-msgstr "Persona del Team"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:32
-msgid "User"
-msgstr "Utente"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:38
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:45
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:63
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:63
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:133
-msgid "Insert title"
-msgstr "Inserisci titolo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:42
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:61
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:75
-msgid "URL"
-msgstr "URL"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:47
-msgid "Show role"
-msgstr "Mostra ruolo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:52
-msgid "Show description"
-msgstr "Mostra descrizione"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:57
-msgid "Link destination"
-msgstr "Collegamento"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:62
-msgid "Mail"
-msgstr "Email"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:63
-msgid "Popup"
-msgstr "Popup"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:64
-msgid "Profile"
-msgstr "Profilo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:68
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:81
-msgid "Button Label"
-msgstr "Etichetta pulsante"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:73
-msgid "Contact me"
-msgstr "Contattami"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:95
-msgid "User not found"
-msgstr "Nessun utente trovato"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:19
-msgid "AdSense AdUnit"
-msgstr "Unita pubblicitaria AdSense"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:26
-msgid "Ad Unit ID"
-msgstr "ID Unita pubblicitaria"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:58
-#, php-format
-msgid "AdSense AdUnit Banner ID: %s"
-msgstr "Unita pubblicitaria AdSense ID: %s"
-
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewPost.php:12
 msgid "Post Preview Card"
 msgstr "Box Anteprima Articolo"
@@ -144,52 +157,38 @@ msgstr "Box Anteprima Articolo"
 msgid "Select Page"
 msgstr "Seleziona la pagina"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:33
-msgid "Simple Box"
-msgstr "Box Semplice"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:51
+msgid "Preview Card"
+msgstr "Box Anteprima"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:39
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:57
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:39
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:37
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:127
 msgid "Title"
 msgstr "Titolo"
 
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:61
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:43
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:61
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:61
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:131
 msgid "This title will replace the Page title"
 msgstr "Questo titolo sostituirà quello specificato nella pagina"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:49
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:67
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:43
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:49
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:45
 msgid "Image"
 msgstr "Immagine"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:53
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:54
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:71
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:72
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:47
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:48
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:53
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:54
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:49
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:50
 msgid "Select Image"
 msgstr "Seleziona Immagine"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:57
-msgid "Subtitle"
-msgstr "Sottotitolo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:67
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:100
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:167
-msgid "Custom Classes"
-msgstr "Classi Personalizzate"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:51
-msgid "Preview Card"
-msgstr "Box Anteprima"
 
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:78
 msgid "This URL will be used instead of Page permalink."
@@ -207,6 +206,12 @@ msgstr "Apri in una nuova finestra/scheda"
 msgid "Enable Markdown"
 msgstr "Abilita la formattazione Markdown"
 
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:100
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:67
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:167
+msgid "Custom Classes"
+msgstr "Classi Personalizzate"
+
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewTerm.php:22
 #, php-format
 msgid "Term Preview Card [%s]"
@@ -216,118 +221,13 @@ msgstr "Box Anteprima Tassonomia [%s]"
 msgid "Select Term"
 msgstr "Seleziona elemento"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:18
-msgid "Archive"
-msgstr "Archivio"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:33
+msgid "Simple Box"
+msgstr "Box Semplice"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:29
-msgid "Select Post Type"
-msgstr "Seleziona il tipo di post"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:36
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:44
-msgid "Post Count"
-msgstr "Numero di post"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:28
-msgid "Latest Posts"
-msgstr "Ultimi Articoli"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:45
-msgid "The number of posts shown"
-msgstr "Il numero di post da mostrare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:57
-msgid "The number of posts to skip"
-msgstr "Numero di articoli da saltare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:18
-msgid "Link"
-msgstr "Collegamento"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:24
-msgid "Post/Page to Link"
-msgstr "Pagina/Articolo da collegare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:29
-msgid "Select the post to link"
-msgstr "Seleziona il post da collegare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:32
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:31
-msgid "Classes"
-msgstr "Classi CSS"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:43
-msgid "Link Label"
-msgstr "Etichetta del collegamento"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:15
-msgid "Section Tag"
-msgstr "Tag Section"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:21
-msgid "HTML ID"
-msgstr "Attributo ID in HTML"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:25
-msgid "The HTML id attribute value "
-msgstr "L'id HTML da assegnare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:27
-msgid "section1"
-msgstr "sezione1"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:13
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:30
-msgid "Definition"
-msgstr "Definizione"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:29
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:34
-msgid "Definitions"
-msgstr "Definizioni"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:61
-msgid "Select Definition"
-msgstr "Seleziona la definizione"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:68
-msgid "Abbreviation"
-msgstr "Abbreviazione"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:20
-msgid "Go to index"
-msgstr "Vai all'indice"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:30
-msgid "Indexed Content"
-msgstr "Contenuto con indice"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:42
-msgid "Slug"
-msgstr "Identificativo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:48
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:74
-msgid "Index group"
-msgstr "Gruppo Indice"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:69
-msgid "Index"
-msgstr "Indice"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:117
-msgid "-- Page Index --"
-msgstr "-- Indice Pagina --"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:25
-msgid "Post Thumbnail"
-msgstr "Anteprima Articolo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:31
-msgid "Select Post"
-msgstr "Seleziona Elemento"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:57
+msgid "Subtitle"
+msgstr "Sottotitolo"
 
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:22
 msgid "Google Maps Directions"
@@ -389,6 +289,112 @@ msgstr "Navigatore"
 msgid "Show Route"
 msgstr "Mostra indicazioni"
 
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:19
+msgid "AdSense AdUnit"
+msgstr "Unita pubblicitaria AdSense"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:26
+msgid "Ad Unit ID"
+msgstr "ID Unita pubblicitaria"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:33
+msgid "Ad Size"
+msgstr "Dimensione unità pubblicitaria"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:59
+#, php-format
+msgid "AdSense AdUnit Banner ID: %s"
+msgstr "Unita pubblicitaria AdSense ID: %s"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:20
+msgid "Go to index"
+msgstr "Vai all'indice"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:30
+msgid "Indexed Content"
+msgstr "Contenuto con indice"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:42
+msgid "Slug"
+msgstr "Identificativo"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:48
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:74
+msgid "Index group"
+msgstr "Gruppo Indice"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:69
+msgid "Index"
+msgstr "Indice"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:117
+msgid "-- Page Index --"
+msgstr "-- Indice Pagina --"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:20
+msgid "Link"
+msgstr "Collegamento"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:26
+msgid "Post/Page to Link"
+msgstr "Pagina/Articolo da collegare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:31
+msgid "Select the post to link"
+msgstr "Seleziona il post da collegare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:42
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:31
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:70
+msgid "Classes"
+msgstr "Classi CSS"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:53
+msgid "Link Label"
+msgstr "Etichetta del collegamento"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:13
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:30
+msgid "Definition"
+msgstr "Definizione"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:29
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:34
+msgid "Definitions"
+msgstr "Definizioni"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:61
+msgid "Select Definition"
+msgstr "Seleziona la definizione"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:68
+msgid "Abbreviation"
+msgstr "Abbreviazione"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:15
+msgid "Section Tag"
+msgstr "Tag Section"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:21
+msgid "HTML ID"
+msgstr "Attributo ID in HTML"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:25
+msgid "The HTML id attribute value "
+msgstr "L'id HTML da assegnare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:27
+msgid "section1"
+msgstr "sezione1"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:25
+msgid "Post Thumbnail"
+msgstr "Anteprima Articolo"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:31
+msgid "Select Post"
+msgstr "Seleziona Elemento"
+
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:34
 msgid "ACF Form"
 msgstr "Form ACF"
@@ -424,26 +430,6 @@ msgstr "Mostra campo del contenuto"
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:66
 msgid "Show the post content field"
 msgstr "Mostra campo del contenuto dell'articolo"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:31
-msgid "Whitepaper Download"
-msgstr "Scarica documenti"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:39
-msgid "File to Download"
-msgstr "File da Scaricare"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:44
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:45
-msgid "Select File"
-msgstr "Seleziona File"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:52
-msgid ""
-"Thanks for your request, the file you requested will be sent to your inbox."
-msgstr ""
-"Grazie le per la tua richiesta, il file che hai richiesto verrà inviato alla "
-"casella di posta che hai indicato."
 
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Contact.php:18
 msgid "Contact Form"
@@ -495,13 +481,58 @@ msgstr "L'etichetta per il pulsante di invio del form."
 msgid "Close"
 msgstr "Chiudi"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:26
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:32
+msgid "Whitepaper Download"
+msgstr "Scarica documenti"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:40
+msgid "File to Download"
+msgstr "File da Scaricare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:45
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:46
+msgid "Select File"
+msgstr "Seleziona File"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:53
+msgid ""
+"Thanks for your request, the file you requested will be sent to your inbox."
+msgstr ""
+"Grazie le per la tua richiesta, il file che hai richiesto verrà inviato alla "
+"casella di posta che hai indicato."
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:28
 msgid "Responsive Image"
 msgstr "Immagine responsive"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:51
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:64
 msgid "Size"
 msgstr "Dimensione"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:18
+msgid "Archive"
+msgstr "Archivio"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:29
+msgid "Select Post Type"
+msgstr "Seleziona il tipo di post"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:36
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:44
+msgid "Post Count"
+msgstr "Numero di post"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:28
+msgid "Latest Posts"
+msgstr "Ultimi Articoli"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:45
+msgid "The number of posts shown"
+msgstr "Il numero di post da mostrare"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:57
+msgid "The number of posts to skip"
+msgstr "Numero di articoli da saltare"
 
 #. Name of the plugin
 msgid "Silverback Shortcakes"
