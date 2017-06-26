@@ -8,9 +8,11 @@ class Link extends Shortcake {
     public $shortcode_id = 'link';
     public $classes = array('link');
     public $post_query = array( 'post_type' => array('page', 'post') ); 
+    public $taxonomy = 'category'; 
     
     public static $defaults = array(
 		'post_id' => 0,
+		'term' => 0,
 		'class' => '',
 	);
 
@@ -29,6 +31,14 @@ class Link extends Shortcake {
         			'description' => esc_html__( 'Select the post to link', 'svbk-shortcakes' ),
         		),
         		array(
+        			'label'    => __( 'Term to link', 'svbk-shortcakes' ),
+        			'attr'     => 'term',
+        			'type'     => 'term_select',
+        			'taxonomy' => $this->taxonomy,
+        			'description' => esc_html__( 'if you want to link a taxonomy term, please leave the post field blank', 'svbk-shortcakes' ),
+        			'multiple' => false,
+        		),        		
+        		array(
         			'label'  => esc_html__( 'Classes', 'svbk-shortcakes' ),
         			'attr'   => 'class',
         			'type'   => 'text',
@@ -46,13 +56,31 @@ class Link extends Shortcake {
         
     }
     
+    function getLink($attr){
+        
+        if ( $attr['post_id'] ) {
+            return get_permalink( $attr['post_id'] );
+        }
+        
+        $term_link = get_term_link( intval( $attr['term'] ), $this->taxonomy );
+        
+        if($term_link && ! is_wp_error( $term_link )) {
+            return $term_link;
+        }
+        
+        return '';
+    }
+    
     function output( $attr, $content, $shortcode_tag ) {
         
     	$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
-        $label = $content ?: get_the_title($attr['post_id']);
+        $label = $content ?: get_the_title( $attr['post_id'] );
         $classes = array_merge( $this->classes, explode(' ', $attr['class']) );
+        $link = $this->getLink($attr);
         
-        return '<a class="' . esc_attr(join(' ', $classes)) . '" href="'.get_permalink($attr['post_id']).'">'.$content.'</a>';
+        if( $link ) {
+            return '<a class="' . esc_attr( join( ' ', $classes ) ) . '" href="' . $link . '">' . $content . '</a>';
+        }
     	
     }
 
