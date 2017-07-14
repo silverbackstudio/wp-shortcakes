@@ -6,6 +6,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Link extends Shortcake {
     
     public $shortcode_id = 'link';
+    public $icon = 'dashicons-admin-links';
     public $classes = array('link');
     public $post_query = array( 'post_type' => array('page', 'post') ); 
     public $taxonomy = 'category'; 

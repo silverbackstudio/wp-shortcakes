@@ -1,13 +1,15 @@
 <?php 
 
-namespace Svbk\WP\Shortcakes\Lists;
+namespace Svbk\WP\Shortcakes\Post;
 
 use Svbk\WP\Shortcakes\Shortcake;
 
 class Archive extends Shortcake {
     
-    public $shortcode_id = 'post-archive';
+    public $shortcode_id = 'post_archive';
     public $template_base = 'template-parts/content';
+    public $classes = array('post-archive', 'post-list' );  
+    public $icon = 'dashicons-schedule';
 
     public static $defaults = array(
     		'post_type' => 'post',
@@ -15,7 +17,7 @@ class Archive extends Shortcake {
     );
 
     public function title(){
-        return __('Archive', 'svbk-shortcakes');
+        return __('Post Archive', 'svbk-shortcakes');
     }
 
     function fields(){
@@ -76,7 +78,7 @@ class Archive extends Shortcake {
 
         if ( have_posts() ) : 
 
-            $output .= '<div class="post-list section-list">';
+            $output .= '<div class="' . join(' ', $this->getClasses($attr) ) . '">';
             ob_start();
             
         	while ( have_posts() ) : the_post();

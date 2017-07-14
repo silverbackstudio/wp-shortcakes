@@ -16,6 +16,7 @@ class Form extends Shortcake {
     );
     
     public $shortcode_id = 'svbk-form';
+    public $icon = 'dashicons-forms';
     public $field_prefix = 'frm';    
     public $action = 'svbk_form';
     public $formClass = '\Svbk\WP\Helpers\Form\Submission';
@@ -26,6 +27,8 @@ class Form extends Shortcake {
 
     public $recipientEmail = 'webmaster@silverbackstudio.it';    
     public $recipientName = 'Webmaster'; 
+
+    public $redirectTo;
 
     public $renderOrder = array(
         'wrapperBegin',
@@ -86,16 +89,14 @@ class Form extends Shortcake {
         $form->processSubmission();
         
         $errors = $form->getErrors();
-        
+
         echo $this->formatResponse($errors, $form);
-        
         die();
     }
     
     public function formatResponse($errors, $form) {
         
-        
-        if(!empty($errors)){
+        if( ! empty( $errors ) ){
             
             return json_encode( array(
                 'prefix' => $this->field_prefix,
@@ -107,13 +108,17 @@ class Form extends Shortcake {
             return false;
         }
         
-        return json_encode( 
-            array(
-                'prefix' => $this->field_prefix,
-                'status'=>'success', 
-                'message'=> $this->confirmMessage()
-            ) 
-        );        
+        $response = array(
+            'prefix' => $this->field_prefix,
+            'status'=>'success', 
+            'message'=> $this->confirmMessage()
+        );
+        
+        if( ! $this->hardRedirect && $this->redirectTo ){
+            $response['redirect'] = $this->redirectTo;
+        }
+        
+        return json_encode( $response );        
         
     }
     
@@ -191,7 +196,7 @@ class Form extends Shortcake {
     
     public function containerClasses( $attr ){
         
-        $classes = $this->classes;
+        $classes = $this->getClasses( $attr );
         
         if( !empty( $attr['hidden'] ) ){
             $classes[] = 'svbk-hidden';
@@ -199,14 +204,6 @@ class Form extends Shortcake {
         }
         
         $classes[] = 'svbk-form-container';
-
-        if( !empty( $attr['class'] )  ) {
-            $classes = array_merge( $classes, explode( ' ', $attr['class'] )  );
-        }
-        
-        if( !empty( $attr['classes'] ) ) {
-            $classes = array_merge( $classes, explode( ' ', $attr['classes'] )  );
-        }        
 
         return $classes;
     }

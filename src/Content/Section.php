@@ -6,6 +6,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Section extends Shortcake {
     
     public $shortcode_id = 'section';
+    public $icon = 'dashicons-align-center';
     public static $defaults = array(
 		'id' => 0,
 		'classes' => '',

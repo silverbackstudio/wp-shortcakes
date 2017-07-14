@@ -7,7 +7,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Responsive extends Shortcake {
     
     public $shortcode_id = 'responsive_image';
-    
+    public $icon = 'dashicons-format-image';
     public $classes = array('content-image');
     
     public $renderOrder = array(

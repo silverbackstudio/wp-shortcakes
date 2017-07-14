@@ -8,6 +8,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Index extends Shortcake {
     
     public $shortcode_id = 'indexed_content';
+    public $icon = 'dashicons-editor-ol';
     public $sections = array();
     public $current_index = array();
     public $template;

@@ -25,6 +25,10 @@ abstract class Shortcake {
         return __('Base Shortcode', 'svbk-shortcodes');
     }
 
+    protected function icon(){
+        return $this->icon;
+    }
+
     public function __construct($properties){
         
         foreach($properties as $property => $value){
@@ -62,6 +66,35 @@ abstract class Shortcake {
         
         return $output;
     }    
+
+    protected function getClasses($attr){
+    
+        $instance_classes = array();
+    
+        if( !empty( $attr['class'] ) ) {
+            $instance_classes = array_merge( $instance_classes, preg_split('/[\s,]+/', $attr['class'], -1, PREG_SPLIT_NO_EMPTY) );
+        } 
+        
+        if( !empty( $attr['classes'] ) ) {
+            $instance_classes = array_merge( preg_split('/[\s,]+/', $attr['classes'], -1, PREG_SPLIT_NO_EMPTY) );
+        }         
+        
+        $classes = array_merge( (array) $this->classes, $instance_classes );
+    
+        if ( !empty ( $classes ) ){
+            return array_map('trim', $classes);
+        }
+    
+    }
+    
+    protected static function renderClasses( $classes ) {
+        
+        if( empty( $classes )  ) {
+            return '';
+        }
+        
+        return  'class="' . esc_attr( join( ' ', $classes ) ) . '"';
+    }
 
     static function register($options=array()){
         
@@ -114,7 +147,7 @@ abstract class Shortcake {
     		 * Include an icon with your shortcode. Optional.
     		 * Use a dashicon, or full URL to image.
     		 */
-    		'listItemImage' => $this->icon,
+    		'listItemImage' => $this->icon(),
     
     		/*
     		 * Limit this shortcode UI to specific posts. Optional.

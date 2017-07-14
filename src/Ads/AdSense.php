@@ -8,6 +8,7 @@ use Svbk\WP\Helpers;
 class AdSense extends Shortcake {
     
     public $shortcode_id = 'adsense_adunit';
+    public $icon = 'dashicons-welcome-widgets-menus';
     public $google_ad_client = '';
 
     public $defaults = array(

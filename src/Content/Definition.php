@@ -7,6 +7,7 @@ use Svbk\WP\Shortcakes\Shortcake;
 class Definition extends Shortcake {
     
     public $shortcode_id = 'dfn';
+    public $icon = 'dashicons-feedback';
     public $footnotes = array();
 
     public function title(){

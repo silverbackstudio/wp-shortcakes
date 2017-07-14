@@ -1,6 +1,6 @@
 <?php 
 
-namespace Svbk\WP\Shortcakes\Lists;
+namespace Svbk\WP\Shortcakes\Post;
 
 use Svbk\WP\Shortcakes\Shortcake;
 use WP_Query;
@@ -8,6 +8,9 @@ use WP_Query;
 class Latest extends Shortcake {
  
     public $shortcode_id = 'latest_posts';
+    
+    public $icon = 'dashicons-pressthis';
+    
     public $post_type = 'post';
     public $query_args = array();
     public $classes = array('latest-posts');    
@@ -91,13 +94,13 @@ class Latest extends Shortcake {
         
         if( defined('SHORTCODE_UI_DOING_PREVIEW') && SHORTCODE_UI_DOING_PREVIEW ) {
             
-        	$output['wrapperBegin'] = '<div id="' . join('', $this->classes) . '" >';
+        	$output['wrapperBegin'] = '<div id="' . join(' ', $this->getClasses($attr) ) . '" >';
         	$output['content'] = '<h2>{{'.($this->title ?: $this->title()).'}}</h2>';
         	$output['wrapperEnd'] = '</div>';
             
         } else {
         	
-			$output['wrapperBegin'] = '<div class="' . join('', $this->classes) . ' post-thumbs">';
+			$output['wrapperBegin'] = '<div class="' . join(' ', $this->getClasses($attr) ) . ' post-thumbs">';
 
 			$postsQuery = new WP_Query( $this->getQueryArgs($attr) );
 			

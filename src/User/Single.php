@@ -1,10 +1,10 @@
 <?php
 
-namespace Svbk\WP\Shortcakes;
+namespace Svbk\WP\Shortcakes\User;
 
-class TeamMember extends Shortcake {
+class Single extends Shortcake {
     
-    public $shortcode_id = 'team_member';
+    public $shortcode_id = 'user_single';
     
     public static $defaults  = array(
 		'user' => 0,
