@@ -33,10 +33,10 @@ class Simple extends Shortcake {
 	public function title() {
 		return __( 'Simple Box', 'svbk-shortcakes' );
 	}
-
+	
 	function fields() {
 		return array(
-			array(
+			'title' => array(
 				'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),
 				'attr'   => 'title',
 				'type'   => 'text',
@@ -46,7 +46,7 @@ class Simple extends Shortcake {
 					'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
 				),
 			),
-			array(
+			'head_image' => array(
 				'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
 				'attr'        => 'head_image',
 				'type'        => 'attachment',
@@ -54,7 +54,7 @@ class Simple extends Shortcake {
 				'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 				'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 			),
-			array(
+			'subtitle' => array(
 				'label'  => esc_html__( 'Subtitle', 'svbk-shortcakes' ),
 				'attr'   => 'subtitle',
 				'type'   => 'text',
@@ -64,7 +64,7 @@ class Simple extends Shortcake {
 					'placeholder' => esc_html__( 'Insert title', 'svbk-shortcakes' ),
 				),
 			),
-			array(
+			'classes' => array(
 				'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
 				'attr'     => 'classes',
 				'type'     => 'text',
@@ -80,11 +80,7 @@ class Simple extends Shortcake {
 		return $attr['head_image'] ? wp_get_attachment_image( $attr['head_image'], $this->image_size ) : '';
 	}
 
-	protected function getClasses( $attr ) {
-		return array_map( 'trim', explode( ' ', $attr['classes'] ) );
-	}
-
-	function renderOutput( $attr, $content, $shortcode_tag ) {
+	public function renderOutput( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 		$title = $this->getTitle( $attr );
