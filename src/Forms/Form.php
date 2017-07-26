@@ -70,11 +70,11 @@ class Form extends Shortcake {
 
 		$base_url = set_url_scheme( home_url( '/' ) );
 		return add_query_arg(
-				array(
+			array(
 				'svbkSubmit' => $this->action,
 				),
-				$base_url
-			);
+			$base_url
+		);
 	}
 
 	public function processSubmission() {

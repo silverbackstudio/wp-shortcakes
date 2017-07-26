@@ -33,7 +33,7 @@ class Simple extends Shortcake {
 	public function title() {
 		return __( 'Simple Box', 'svbk-shortcakes' );
 	}
-	
+
 	public function fields() {
 		return array(
 			'title' => array(

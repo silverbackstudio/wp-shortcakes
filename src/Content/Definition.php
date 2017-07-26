@@ -88,9 +88,9 @@ class Definition extends Shortcake {
 		$output = '<aside id="footnotes"><dl>';
 
 		$dfns = new \WP_Query( array(
-		'post_type' => 'definition',
-		'post__in' => $this->footnotes,
-		'orderby' => 'post__in',
+			'post_type' => 'definition',
+			'post__in' => $this->footnotes,
+			'orderby' => 'post__in',
 		) );
 
 		$index = 1;
@@ -120,8 +120,8 @@ class Definition extends Shortcake {
 		static $index = 1;
 
 		$attr = shortcode_atts( array(
-		'definition_post' => false,
-		'abbr' => false,
+			'definition_post' => false,
+			'abbr' => false,
 		), $attr, $shortcode_tag );
 
 		$output = '';

@@ -40,7 +40,7 @@ class Thumb extends Shortcake {
 	protected function getQueryArgs( $attr ) {
 
 		return array_merge( array(
-		'p' => $attr['post_id'],
+			'p' => $attr['post_id'],
 		), $this->post_query );
 
 	}

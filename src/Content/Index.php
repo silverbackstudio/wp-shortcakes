@@ -110,7 +110,7 @@ class Index extends Shortcake {
 	public function index_shortcode( $attr, $content, $shortcode_tag ) {
 
 		$attr = shortcode_atts( array(
-		'group' => 'default',
+			'group' => 'default',
 		), $attr );
 
 		if ( 'index' == $shortcode_tag ) {

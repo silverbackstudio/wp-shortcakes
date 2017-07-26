@@ -33,8 +33,8 @@ class Contact extends Form {
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
-				$form->messageDefaults,
-				$this->messageDefaults
+					$form->messageDefaults,
+					$this->messageDefaults
 				);
 			}
 		}

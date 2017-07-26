@@ -76,12 +76,12 @@ class Latest extends Shortcake {
 		}
 
 		return array_merge(array(
-		'post_type' => $this->post_type,
-		'post_status' => 'publish',
-		'orderby' => 'date',
-		'posts_per_page' => $attr['count'],
-		// 'paged' => $attr['paged'],
-		'offset' => $attr['offset'],
+			'post_type' => $this->post_type,
+			'post_status' => 'publish',
+			'orderby' => 'date',
+			'posts_per_page' => $attr['count'],
+			// 'paged' => $attr['paged'],
+			'offset' => $attr['offset'],
 		), $this->query_args );
 
 	}
