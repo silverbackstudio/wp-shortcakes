@@ -14,7 +14,7 @@ class Definition extends Shortcake {
 		return __( 'Definition', 'svbk-shortcakes' );
 	}
 
-	function add() {
+	public function add() {
 
 		parent::add();
 
@@ -24,7 +24,7 @@ class Definition extends Shortcake {
 		add_filter( 'the_content', array( $this, 'add_footnotes' ), 99 );
 	}
 
-	function registerCPT() {
+	public function registerCPT() {
 
 		$labels = array(
 			'name' => __( 'Definitions', 'svbk-shortcakes' ),
@@ -58,7 +58,7 @@ class Definition extends Shortcake {
 		register_post_type( 'definition', $args );
 	}
 
-	function fields() {
+	public function fields() {
 
 		return array(
 			array(
@@ -79,7 +79,7 @@ class Definition extends Shortcake {
 
 	}
 
-	function add_footnotes( $content ) {
+	public function add_footnotes( $content ) {
 
 		if ( empty( $this->footnotes ) ) {
 			return $content;
@@ -110,12 +110,12 @@ class Definition extends Shortcake {
 		return $content . $output;
 	}
 
-	function inline_shortcode( $content ) {
+	public function inline_shortcode( $content ) {
 		return $content;
 	}
 
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 
 		static $index = 1;
 

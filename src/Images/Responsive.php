@@ -28,7 +28,7 @@ class Responsive extends Shortcake {
 		return __( 'Responsive Image', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 
 		$sizes = array_combine( get_intermediate_image_sizes(), get_intermediate_image_sizes() );
 
@@ -102,7 +102,7 @@ class Responsive extends Shortcake {
 
 	}
 
-	function renderOutput( $attr, $content, $shortcode_tag ) {
+	public function renderOutput( $attr, $content, $shortcode_tag ) {
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 
 		$output['wrapperBegin'] = '<figure class="' . esc_attr( join( ' ', $this->getClasses( $attr ) ) ) . '">';

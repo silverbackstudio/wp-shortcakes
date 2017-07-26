@@ -22,7 +22,7 @@ class Directions extends Shortcake {
 		return __( 'Google Maps Directions', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 
 		return array(
 			array(
@@ -70,7 +70,7 @@ class Directions extends Shortcake {
 
 	}
 
-	function ui_args() {
+	public function ui_args() {
 
 		$ret = parent::ui_args();
 
@@ -80,7 +80,7 @@ class Directions extends Shortcake {
 
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 		$attr = $this->shortcode_atts( self::$defaults , $attr, $shortcode_tag );
 
 		static $index = 1;

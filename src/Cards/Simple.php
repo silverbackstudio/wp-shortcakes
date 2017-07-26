@@ -34,7 +34,7 @@ class Simple extends Shortcake {
 		return __( 'Simple Box', 'svbk-shortcakes' );
 	}
 	
-	function fields() {
+	public function fields() {
 		return array(
 			'title' => array(
 				'label'  => esc_html__( 'Title', 'svbk-shortcakes' ),

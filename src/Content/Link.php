@@ -23,7 +23,7 @@ class Link extends Shortcake {
 		return __( 'Link', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 				array(
 					'label'  => esc_html__( 'Post/Page to Link', 'svbk-shortcakes' ),
@@ -49,7 +49,7 @@ class Link extends Shortcake {
 			);
 	}
 
-	function ui_args() {
+	public function ui_args() {
 
 		$args = parent::ui_args();
 
@@ -59,7 +59,7 @@ class Link extends Shortcake {
 
 	}
 
-	function getLink( $attr ) {
+	public function getLink( $attr ) {
 
 		if ( $attr['post_id'] ) {
 			return get_permalink( $attr['post_id'] );
@@ -74,7 +74,7 @@ class Link extends Shortcake {
 		return '';
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 		$label = $content ?: get_the_title( $attr['post_id'] );

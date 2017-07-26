@@ -23,7 +23,7 @@ class PreviewTerm extends PreviewCard {
 		return sprintf( __( 'Term Preview Card [%s]', 'svbk-shortcakes' ), $labels->name );
 	}
 
-	function fields() {
+	public function fields() {
 
 		$fields = parent::fields();
 

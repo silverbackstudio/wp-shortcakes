@@ -127,7 +127,7 @@ abstract class Shortcake {
 		return shortcode_atts( $defaults, $attr, $shortcode_tag );
 	}
 
-	function ui_args() {
+	public function ui_args() {
 		/*
 		* Define the Shortcode UI arguments.
 		*/

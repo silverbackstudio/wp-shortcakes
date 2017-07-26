@@ -111,7 +111,7 @@ class Testimonials extends Shortcake {
 		exit;
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 			array(
 				'label'  => esc_html__( 'Reviews Count', 'svbk-shortcakes' ),

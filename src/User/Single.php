@@ -19,7 +19,7 @@ class Single extends Shortcake {
 		return __( 'Team Member', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 
 		$users = array();
 
@@ -78,7 +78,7 @@ class Single extends Shortcake {
 		);
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
 		$user = get_user_by( 'id', $attr['user'] );

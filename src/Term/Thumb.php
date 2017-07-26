@@ -42,7 +42,7 @@ class Thumb extends Shortcake {
 		return __( 'Term Thumbnail', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 			'term_id' => array(
 				'label'    => esc_html__( 'Select Term', 'svbk-shortcakes' ),

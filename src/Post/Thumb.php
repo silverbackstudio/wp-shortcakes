@@ -25,7 +25,7 @@ class Thumb extends Shortcake {
 		return __( 'Post Thumbnail', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 			'post_id' => array(
 				'label'    => esc_html__( 'Select Post', 'svbk-shortcakes' ),
@@ -45,7 +45,7 @@ class Thumb extends Shortcake {
 
 	}
 
-	function renderOutput( $attr, $content, $shortcode_tag ) {
+	public function renderOutput( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 

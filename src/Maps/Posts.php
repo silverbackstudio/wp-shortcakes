@@ -33,7 +33,7 @@ class Posts extends Shortcake {
 		return __( 'MembersMap', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 			array(
 				'label'  => esc_html__( 'Members Count', 'svbk-shortcakes' ),

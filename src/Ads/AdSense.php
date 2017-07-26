@@ -20,7 +20,7 @@ class AdSense extends Shortcake {
 		return __( 'AdSense AdUnit', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 
 		return array(
 			array(
@@ -41,7 +41,7 @@ class AdSense extends Shortcake {
 		);
 	}
 
-	function ui_args() {
+	public function ui_args() {
 
 		$ui_args = parent::ui_args();
 
@@ -50,7 +50,7 @@ class AdSense extends Shortcake {
 		return $ui_args;
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 

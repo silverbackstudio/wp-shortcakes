@@ -30,7 +30,7 @@ class Index extends Shortcake {
 		return __( 'Indexed Content', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 
 		return array(
 			array(
@@ -53,7 +53,7 @@ class Index extends Shortcake {
 
 	}
 
-	function add() {
+	public function add() {
 
 		parent::add();
 
@@ -63,7 +63,7 @@ class Index extends Shortcake {
 		add_filter( 'the_content', 'do_shortcode', 12 );
 	}
 
-	function register_ui() {
+	public function register_ui() {
 
 		parent::register_ui();
 
@@ -83,7 +83,7 @@ class Index extends Shortcake {
 		);
 	}
 
-	function render_index( $sections ) {
+	public function render_index( $sections ) {
 
 		$output = '<ol id="index" class="content-index">';
 
@@ -96,7 +96,7 @@ class Index extends Shortcake {
 		return $output;
 	}
 
-	function replace_index( $content ) {
+	public function replace_index( $content ) {
 
 		$this->current_index = 0;
 
@@ -107,7 +107,7 @@ class Index extends Shortcake {
 		return preg_replace( '/\[index([^\]])?\]/', $prepend, $content, 1 );
 	}
 
-	function index_shortcode( $attr, $content, $shortcode_tag ) {
+	public function index_shortcode( $attr, $content, $shortcode_tag ) {
 
 		$attr = shortcode_atts( array(
 		'group' => 'default',
@@ -141,7 +141,7 @@ class Index extends Shortcake {
 		return $prepend;
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts(
 			array(

@@ -29,7 +29,7 @@ class Archive extends Shortcake {
 		return __( 'Term Archive', 'svbk-shortcakes' );
 	}
 
-	function fields() {
+	public function fields() {
 		return array(
 			'term_id' => array(
 				'label'    => esc_html__( 'Select Term', 'svbk-shortcakes' ),
@@ -46,7 +46,7 @@ class Archive extends Shortcake {
 		);
 	}
 
-	function ui_args() {
+	public function ui_args() {
 		$ui_args = parent::ui_args();
 
 		unset( $ui_args['inner_content'] );
@@ -77,7 +77,7 @@ class Archive extends Shortcake {
 		return $args;
 	}
 
-	function output( $attr, $content, $shortcode_tag ) {
+	public function output( $attr, $content, $shortcode_tag ) {
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
