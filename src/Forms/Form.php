@@ -68,13 +68,14 @@ class Form extends Shortcake {
 
 	protected function submitUrl() {
 
-		$base_url = set_url_scheme( home_url( '/' ) );
-		return add_query_arg(
-			array(
-				'svbkSubmit' => $this->action,
-				),
-			$base_url
+		return home_url( 
+			add_query_arg(
+				array(
+					'svbkSubmit' => $this->action,
+				)
+			) 
 		);
+		
 	}
 
 	public function processSubmission() {
@@ -92,7 +93,6 @@ class Form extends Shortcake {
 		send_nosniff_header();
 
 		$form = $this->getForm( true );
-
 		$form->processSubmission();
 
 		$errors = $form->getErrors();
