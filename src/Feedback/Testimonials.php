@@ -97,7 +97,7 @@ class Testimonials extends Shortcake {
 	public function loadMoreFilters() {
 		return array(
 			'count' => FILTER_VALIDATE_INT,
-			'paged' => FILTER_VALIDATE_INT,
+			'paged' => array( 'filter' => FILTER_VALIDATE_INT, 'default' => 0 ),
 			'offset' => FILTER_VALIDATE_INT,
 			'load_more' => FILTER_VALIDATE_BOOLEAN,
 		);
@@ -144,7 +144,7 @@ class Testimonials extends Shortcake {
 
 	protected function getQueryArgs( $attr ) {
 
-		if ( ($attr['offset'] > 0) && ! empty( $attr['paged'] ) ) {
+		if ( $attr['load_more'] && ( $attr['offset'] > 0 ) && ( $attr['paged'] > 1 ) ) {
 			$attr['offset']  = $attr['count'] * $attr['paged'];
 		}
 
