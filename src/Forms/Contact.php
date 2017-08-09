@@ -6,6 +6,7 @@ class Contact extends Form {
 
 	public $md_apikey = '';
 	public $md_template = '';
+	public $md_sender_template = '';
 	public $messageDefaults;
 
 	public $shortcode_id = 'svbk-contact-form';
@@ -30,7 +31,7 @@ class Contact extends Form {
 
 			$form->md_apikey = $this->md_apikey;
 			$form->templateName = $this->md_template;
-			$form->senderTemplateName = $this->md_senmder_template;
+			$form->senderTemplateName = $this->md_sender_template;
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
