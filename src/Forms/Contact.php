@@ -30,6 +30,7 @@ class Contact extends Form {
 
 			$form->md_apikey = $this->md_apikey;
 			$form->templateName = $this->md_template;
+			$form->senderTemplateName = $this->md_senmder_template;
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
