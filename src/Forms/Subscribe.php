@@ -4,8 +4,8 @@ namespace Svbk\WP\Shortcakes\Forms;
 
 class Subscribe extends Form {
 
-	public $md_apikey = '';
-	public $md_template = '';
+	public $mc_apikey = '';
+	public $mc_list_id = '';
 	public $messageDefaults;
 
 	public $shortcode_id = 'svbk_subscribe_form';
@@ -28,8 +28,8 @@ class Subscribe extends Form {
 
 		if ( $set_send_params ) {
 
-				$form->md_apikey = $this->md_apikey;
-			$form->templateName = $this->md_template;
+			$form->mc_apikey = $this->mc_apikey;
+			$form->mc_list_id = $this->mc_list_id;
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
