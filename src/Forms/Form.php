@@ -68,14 +68,14 @@ class Form extends Shortcake {
 
 	protected function submitUrl() {
 
-		return home_url( 
+		return home_url(
 			add_query_arg(
 				array(
 					'svbkSubmit' => $this->action,
 				)
-			) 
+			)
 		);
-		
+
 	}
 
 	public function processSubmission() {

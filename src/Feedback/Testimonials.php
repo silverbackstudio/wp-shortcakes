@@ -97,7 +97,10 @@ class Testimonials extends Shortcake {
 	public function loadMoreFilters() {
 		return array(
 			'count' => FILTER_VALIDATE_INT,
-			'paged' => array( 'filter' => FILTER_VALIDATE_INT, 'default' => 0 ),
+			'paged' => array(
+				'filter' => FILTER_VALIDATE_INT,
+				'default' => 0,
+			),
 			'offset' => FILTER_VALIDATE_INT,
 			'load_more' => FILTER_VALIDATE_BOOLEAN,
 		);
