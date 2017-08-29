@@ -6,92 +6,91 @@ use Svbk\WP\Shortcakes\Shortcake;
 use WP_Query;
 
 class Posts extends Shortcake {
-    
-    public $shortcode_id = 'posts_map';
-    public $post_type = 'post';
-    
-    public $locationAttribute = 'coordinates';
-    
-    public $query_args = array();    
-    
-    public $mapSettings = array(
-        'zoom' => 13,
-        'draggable' => false
-    );
-    
-    public $markerSettings = array(
-    );    
-    
-    public $markerCluster = array(
-        'imagePath' => 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-    );    
-    
-    public static $defaults = array(
+
+	public $shortcode_id = 'posts_map';
+	public $post_type = 'post';
+
+	public $locationAttribute = 'coordinates';
+
+	public $query_args = array();
+
+	public $mapSettings = array(
+		'zoom' => 13,
+		'draggable' => false,
+	);
+
+	public $markerSettings = array();
+
+	public $markerCluster = array(
+		'imagePath' => 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
+	);
+
+	public static $defaults = array(
 		'count' => 5,
-    );    
-    
-    public function title(){
-        return __('MembersMap', 'propertymanagers');
-    }
-    
-    function fields(){
-        return array(        
-        		array(
-        			'label'  => esc_html__( 'Members Count', 'propertymanagers' ),
-        			'attr'   => 'count',
-        			'type'   => 'number',
-        			'encode' => true,
-        			'description' => esc_html__( 'How many members to show', 'propertymanagers' ),
-        			'meta'   => array(
-        				'placeholder' =>  self::$defaults['count'],
-        			),
-        		)
-            );
-    }
+	);
 
-    protected function getQueryArgs($attr){
+	public function title() {
+		return __( 'MembersMap', 'svbk-shortcakes' );
+	}
 
-    	return array_merge(array(
-    	    'post_type' => $this->post_type,
-    	    'post_status' => 'publish',
-    	    'orderby' => 'date',
-    	    'posts_per_page' => -1,
-    	), $this->query_args );
-    	
-    }
-    
-    public function output( $attr, $content, $shortcode_tag) {
-        
-        static $index = 0;
-        
-        $output = '';
+	public function fields() {
+		return array(
+			array(
+				'label'  => esc_html__( 'Members Count', 'svbk-shortcakes' ),
+				'attr'   => 'count',
+				'type'   => 'number',
+				'encode' => true,
+				'description' => esc_html__( 'How many members to show', 'svbk-shortcakes' ),
+				'meta'   => array(
+				'placeholder' => self::$defaults['count'],
+				),
+			),
+		);
+	}
 
-        $attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );         
+	protected function getQueryArgs( $attr ) {
 
-        $members = new WP_Query( $this->getQueryArgs($attr) );
-        
-        $locations  = array();
-        while ($members->have_posts()) { $members->next_post();
-            
-            $location = get_field($this->locationAttribute, $members->post->ID);
-        
-            if($location){
-                $locations[] = array (
-                    'position' => array(
-                        'lat' => floatval($location['lat']), 
-                        'lng' => floatval($location['lng']), 
-                    ),
-                    'title' => $members->post->post_title  
-                );
-            }
-        }     
-        
-        $index++;
+		return array_merge(array(
+			'post_type' => $this->post_type,
+			'post_status' => 'publish',
+			'orderby' => 'date',
+			'posts_per_page' => -1,
+		), $this->query_args );
 
-    	$output .= '<aside class="gmap-container '. join('', $this->classes) .'" id="gmap-container-' . $index . '" >
+	}
+
+	public function output( $attr, $content, $shortcode_tag ) {
+
+		static $index = 0;
+
+		$output = '';
+
+		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
+
+		$members = new WP_Query( $this->getQueryArgs( $attr ) );
+
+		$locations  = array();
+		while ( $members->have_posts() ) { $members->next_post();
+
+						$location = get_field( $this->locationAttribute, $members->post->ID );
+
+			if ( $location ) {
+				$locations[] = array(
+				'position' => array(
+				'lat' => floatval( $location['lat'] ),
+				'lng' => floatval( $location['lng'] ),
+				),
+				'title' => $members->post->post_title,
+				);
+			}
+		}
+
+		$index++;
+
+		$output .= '<aside class="gmap-container ' . join( '', $this->classes ) . '" id="gmap-container-' . $index . '" >
     			<div class="google-map"></div>';
 
-        $output .= '
+		$output .= '
         <script>
 
         (function($){
@@ -100,7 +99,7 @@ class Posts extends Shortcake {
                 var $container = $(this);
                 var map = new google.maps.Map( $(this).find(\'.google-map\').get(0), ' . json_encode( $this->mapSettings ) . ');
                 var markerBounds = new google.maps.LatLngBounds();
-                var markerOptions = ' . json_encode( (object)$this->markerSettings ) . ';
+                var markerOptions = ' . json_encode( (object) $this->markerSettings ) . ';
                 
                 if(typeof markerOptions.icon === \'object\' ){
                     markerOptions.icon.size = new google.maps.Size(markerOptions.icon.size[0], markerOptions.icon.size[1]);
@@ -128,16 +127,16 @@ class Posts extends Shortcake {
                 
             });
         
-            var locations = ' . json_encode($locations) . ';
+            var locations = ' . json_encode( $locations ) . ';
         
         })(jQuery);
         
         </script>';
 
-        $output .= '</aside>';
-            
-    	return $output;
-    	
-    }
-    
+		$output .= '</aside>';
+
+		return $output;
+
+	}
+
 }

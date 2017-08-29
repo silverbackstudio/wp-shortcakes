@@ -3,46 +3,20 @@
 use WP_Query;
 use Svbk\WP\Shortcakes\Shortcake;
 
-/**
-	Add This JS to theme
 
-	$('.testimonials').on('click', '.loadmore', function(){
-		var container = $(this).closest('.testimonials');
-	var data = container.data();
-		data.paged++;
-	data.action = 'testimonials';
-		container.addClass('loading');
-		$.post( ajaxurl, data, function(response){
-	$('.loadmore', container).remove();
-			container
-	.append(response)
-	.data(data)
-	.removeClass('loading');
+class Testimonial extends Shortcake {
 
-	$(document.body).trigger( 'post-load' );
-	});
-	});
- */
-
-
-class Testimonials extends Shortcake {
-
-	public $shortcode_id = 'testimonials';
-	public $icon = 'dashicons-thumbs-up';
+	public $shortcode_id = 'testimonial';
 	public $post_type = 'testimonial';
 	public $query_args = array();
-	public $register_cpt = true;
-	public $post_type_args = array();
+	public $register_cpt = false;
 
 	public static $defaults = array(
 		'count' => 2,
-		'paged' => 1,
-		'load_more' => 0,
-		'offset' => 0,
 	);
 
 	public function title() {
-		return __( 'Testimonials', 'svbk-shortcakes' );
+		return __( 'Single Testimonial', 'svbk-shortcakes' );
 	}
 
 	static function register( $options = array() ) {
@@ -53,54 +27,13 @@ class Testimonials extends Shortcake {
 			add_action( 'init', array( $instance, 'register_cpts' ) );
 		}
 
-		add_action( 'wp_ajax_testimonials', array( $instance, 'loadMore' ) );
-		add_action( 'wp_ajax_nopriv_testimonials', array( $instance, 'loadMore' ) );
-
 		return $instance;
-	}
-
-	public function register_cpts() {
-
-		$labels = array(
-			'name' => __( 'Testimonials', 'svbk-shortcakes' ),
-			'singular_name' => __( 'Testimonial', 'svbk-shortcakes' ),
-		);
-
-		$args = array(
-			'label' => $labels['name'],
-			'labels' => $labels,
-			'description' => '',
-			'public' => true,
-			'publicly_queryable' => true,
-			'show_ui' => true,
-			'show_in_rest' => false,
-			'rest_base' => '',
-			'has_archive' => true,
-			'show_in_menu' => true,
-			'exclude_from_search' => true,
-			'capability_type' => 'post',
-			'map_meta_cap' => true,
-			'hierarchical' => false,
-			'rewrite' => true,
-			'query_var' => true,
-			'menu_icon' => 'dashicons-admin-comments',
-			'supports' => array( 'title', 'editor', 'thumbnail',  'excerpt', 'author' ),
-			'taxonomies' => array(),
-		);
-
-		$final_args = wp_parse_args( $this->post_type_args, $args );
-
-		register_post_type( $this->post_type, $final_args );
-
 	}
 
 	public function loadMoreFilters() {
 		return array(
 			'count' => FILTER_VALIDATE_INT,
-			'paged' => array(
-				'filter' => FILTER_VALIDATE_INT,
-				'default' => 0,
-			),
+			'paged' => FILTER_VALIDATE_INT,
 			'offset' => FILTER_VALIDATE_INT,
 			'load_more' => FILTER_VALIDATE_BOOLEAN,
 		);
@@ -116,38 +49,38 @@ class Testimonials extends Shortcake {
 
 	public function fields() {
 		return array(
-			array(
-				'label'  => esc_html__( 'Reviews Count', 'svbk-shortcakes' ),
-				'attr'   => 'count',
-				'type'   => 'number',
-				'encode' => true,
-				'description' => esc_html__( 'How many testimonials to show', 'svbk-shortcakes' ),
-				'meta'   => array(
-					'placeholder' => self::$defaults['count'],
+				array(
+					'label'  => esc_html__( 'Reviews Count', 'svbk-shortcakes' ),
+					'attr'   => 'count',
+					'type'   => 'number',
+					'encode' => true,
+					'description' => esc_html__( 'How many testimonials to show', 'svbk-shortcakes' ),
+					'meta'   => array(
+						'placeholder' => self::$defaults['count'],
+					),
 				),
-			),
-			array(
-				'label'  => esc_html__( 'Show Load More', 'svbk-shortcakes' ),
-				'attr'   => 'load_more',
-				'type'   => 'checkbox',
-				'default' => self::$defaults['load_more'],
-				'description' => esc_html__( 'Show the AJAX "Load More" button', 'svbk-shortcakes' ),
-			),
-			array(
-				'label'  => esc_html__( 'Offset', 'svbk-shortcakes' ),
-				'attr'   => 'offset',
-				'type'   => 'number',
-				'description' => esc_html__( 'Skip the first N testimonials', 'svbk-shortcakes' ),
-				'meta'   => array(
-					'placeholder' => self::$defaults['offset'],
+				array(
+					'label'  => esc_html__( 'Show Load More', 'svbk-shortcakes' ),
+					'attr'   => 'load_more',
+					'type'   => 'checkbox',
+					'default' => self::$defaults['load_more'],
+					'description' => esc_html__( 'Show the AJAX "Load More" button', 'svbk-shortcakes' ),
 				),
-			),
-		);
+				array(
+					'label'  => esc_html__( 'Offset', 'svbk-shortcakes' ),
+					'attr'   => 'offset',
+					'type'   => 'number',
+					'description' => esc_html__( 'Skip the first N testimonials', 'svbk-shortcakes' ),
+					'meta'   => array(
+						'placeholder' => self::$defaults['offset'],
+					),
+				),
+			);
 	}
 
 	protected function getQueryArgs( $attr ) {
 
-		if ( $attr['load_more'] && ( $attr['offset'] > 0 ) && ( $attr['paged'] > 1 ) ) {
+		if ( ($attr['offset'] > 0) && ! empty( $attr['paged'] ) ) {
 			$attr['offset']  = $attr['count'] * $attr['paged'];
 		}
 
@@ -179,7 +112,7 @@ class Testimonials extends Shortcake {
 			}
 
 			if ( $container ) {
-				$output .= '<aside class="testimonials-group testimonials-group-' . $this->post_type . '" ' . $html_data_atts . '>';
+				$output .= '<aside class="testimonials" ' . $html_data_atts . '>';
 			}
 
 			if ( locate_template( 'template-parts/content-' . $this->post_type . '.php' ) != '' ) {

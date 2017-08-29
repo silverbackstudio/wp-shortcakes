@@ -2,21 +2,20 @@
 
 namespace Svbk\WP\Shortcakes\Forms;
 
-class Contact extends Form {
+class Subscribe extends Form {
 
-	public $md_apikey = '';
-	public $md_template = '';
-	public $md_sender_template = '';
+	public $mc_apikey = '';
+	public $mc_list_id = '';
 	public $messageDefaults;
 
-	public $shortcode_id = 'svbk-contact-form';
+	public $shortcode_id = 'svbk_subscribe_form';
 	public $field_prefix = 'scf';
-	public $action = 'svbk_contact_form';
-	public $formClass = '\Svbk\WP\Helpers\Form\Contact';
-	public $classes = array( 'form-contact' );
+	public $action = 'svbk_subscribe_form';
+	public $formClass = '\Svbk\WP\Helpers\Form\Subscribe';
+	public $classes = array( 'form-subscribe' );
 
 	public function title() {
-		return __( 'Contact Form', 'svbk-shortcakes' );
+		return __( 'Subscribe Form', 'svbk-shortcakes' );
 	}
 
 	public function confirmMessage() {
@@ -29,9 +28,8 @@ class Contact extends Form {
 
 		if ( $set_send_params ) {
 
-			$form->md_apikey = $this->md_apikey;
-			$form->templateName = $this->md_template;
-			$form->senderTemplateName = $this->md_sender_template;
+			$form->mc_apikey = $this->mc_apikey;
+			$form->mc_list_id = $this->mc_list_id;
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
