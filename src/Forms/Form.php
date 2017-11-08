@@ -39,11 +39,11 @@ class Form extends Shortcake {
 		'hiddenContentBegin',
 		'formBegin',
 		'title',
+		'content',
 		'input',
 		'requiredNotice',
 		'beginPolicySubmit',
 		'policy',
-		'content',
 		'submitButton',
 		'endPolicySubmit',
 		'messages',
@@ -150,7 +150,7 @@ class Form extends Shortcake {
 				'type' => 'select',
 				'options'     => array(
 					array(
-						'value' => false,
+						'value' => '',
 						'label' => esc_html__( 'Always Visible', 'svbk-shortcakes' ),
 					),
 					array(
