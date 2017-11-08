@@ -5,6 +5,7 @@ namespace Svbk\WP\Shortcakes;
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\Shortcake::load_texdomain' );
 
 use Svbk\WP\Helpers\Form\Renderer;
+use Svbk\WP\Helpers;
 
 abstract class Shortcake {
 
@@ -44,6 +45,8 @@ abstract class Shortcake {
 		}
 
 	}
+
+	public function register_scripts(){ }
 
 	public static function castSelect( &$value, $key ) {
 		$value = array(
@@ -104,6 +107,7 @@ abstract class Shortcake {
 		add_action( 'init', array( $instance, 'add' ), 12 );
 		add_action( 'register_shortcode_ui', array( $instance, 'register_ui' ) );
 		add_action( 'after_setup_theme', array( __CLASS__, 'load_texdomain' ) );
+		add_action( 'wp_enqueue_scripts', array( $instance, 'register_scripts' ) );
 
 		return $instance;
 	}
@@ -181,10 +185,9 @@ abstract class Shortcake {
 
 	protected function renderOutput( $attr, $content, $shortcode_tag ) {
 		return array(
-		'content' => $content,
+			'content' => '<div class="shortcode-content">' . $content . '</div>',
 		);
 	}
-
 
 	protected function outputParts( $output, $order = null ) {
 
