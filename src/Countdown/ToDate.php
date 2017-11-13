@@ -76,7 +76,7 @@ class ToDate extends Shortcake {
 
         $format = $attr['format'] ?: __('%D days %H:%M:%S', 'svbk-shortcakes');
 
-        $output = '<div id="' . $id . '" class="' . $this->renderClasses( $this->getClasses($attr) ) . ' "></div>';
+        $output = '<div id="' . $id . '" ' . $this->renderClasses( $this->getClasses($attr) ) . '></div>';
         $output .= '
         <script type="text/javascript">
             (function($){
