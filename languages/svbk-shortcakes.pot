@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-26 09:19+0000\n"
+"POT-Creation-Date: 2017-11-13 16:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,521 +14,609 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:19
-msgid "Team Member"
+#: src/Shortcake.php:26
+msgid "Base Shortcode"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:32
-msgid "User"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:38
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:63
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:45
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:63
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:133
-msgid "Insert title"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:42
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:61
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:75
-msgid "URL"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:47
-msgid "Show role"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:52
-msgid "Show description"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:57
-msgid "Link destination"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:62
-msgid "Mail"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:63
-msgid "Popup"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:64
-msgid "Profile"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:68
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:81
-msgid "Button Label"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:73
-msgid "Contact me"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/TeamMember.php:95
-msgid "User not found"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:45
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:65
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:70
-msgid "Testimonials"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:66
-msgid "Testimonial"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:115
-msgid "Reviews Count"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:119
-msgid "How many testimonials to show"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:125
-msgid "Show Load More"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:129
-msgid "Show the AJAX \"Load More\" button"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:132
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:56
-msgid "Offset"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:135
-msgid "Skip the first N testimonials"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Testimonials.php:211
-msgid "Show more testimonials"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Shortcake.php:130
+#: src/Shortcake.php:162
 msgid "Content"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Shortcake.php:131
+#: src/Shortcake.php:163
 msgid "Insert content here"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewPost.php:12
-msgid "Post Preview Card"
+#: src/Feedback/Testimonial.php:20
+msgid "Single Testimonial"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewPost.php:22
-msgid "Select Page"
+#: src/Feedback/Testimonial.php:54 src/Feedback/Testimonials.php:105
+msgid "Reviews Count"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:51
-msgid "Preview Card"
+#: src/Feedback/Testimonial.php:58 src/Feedback/Testimonials.php:109
+msgid "How many testimonials to show"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:57
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:39
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:37
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:127
+#: src/Feedback/Testimonial.php:64 src/Feedback/Testimonials.php:115
+msgid "Show Load More"
+msgstr ""
+
+#: src/Feedback/Testimonial.php:68 src/Feedback/Testimonials.php:119
+msgid "Show the AJAX \"Load More\" button"
+msgstr ""
+
+#: src/Feedback/Testimonial.php:71 src/Feedback/Testimonials.php:122
+#: src/Post/Latest.php:59
+msgid "Offset"
+msgstr ""
+
+#: src/Feedback/Testimonial.php:74 src/Feedback/Testimonials.php:125
+msgid "Skip the first N testimonials"
+msgstr ""
+
+#: src/Feedback/Testimonial.php:150 src/Feedback/Testimonials.php:208
+msgid "Show more testimonials"
+msgstr ""
+
+#: src/Feedback/Testimonials.php:23 src/Feedback/Testimonials.php:45
+msgid "Testimonials"
+msgstr ""
+
+#: src/Feedback/Testimonials.php:46
+msgid "Testimonial"
+msgstr ""
+
+#: src/Post/Archive.php:20
+msgid "Post Archive"
+msgstr ""
+
+#: src/Post/Archive.php:32
+msgid "Select Post Type"
+msgstr ""
+
+#: src/Post/Archive.php:39 src/Post/Latest.php:47 src/Term/Archive.php:42
+msgid "Post Count"
+msgstr ""
+
+#: src/Post/Archive.php:75
+msgid "Post type doesn't exists"
+msgstr ""
+
+#: src/Post/Latest.php:31
+msgid "Latest Posts"
+msgstr ""
+
+#: src/Post/Latest.php:48
+msgid "The number of posts shown"
+msgstr ""
+
+#: src/Post/Latest.php:60
+msgid "The number of posts to skip"
+msgstr ""
+
+#: src/Post/Thumb.php:25
+msgid "Post Thumbnail"
+msgstr ""
+
+#: src/Post/Thumb.php:31 src/User/Archive.php:29
+msgid "Select Post"
+msgstr ""
+
+#: src/Content/Section.php:16
+msgid "Section Tag"
+msgstr ""
+
+#: src/Content/Section.php:22 src/Countdown/ToDate.php:40
+msgid "HTML ID"
+msgstr ""
+
+#: src/Content/Section.php:26
+msgid "The HTML id attribute value "
+msgstr ""
+
+#: src/Content/Section.php:28
+msgid "section1"
+msgstr ""
+
+#: src/Content/Section.php:32 src/Content/Link.php:51
+#: src/Images/Responsive.php:135 src/Countdown/ToDate.php:46
+#: src/User/Archive.php:36
+msgid "Classes"
+msgstr ""
+
+#: src/Content/Definition.php:14 src/Content/Definition.php:31
+msgid "Definition"
+msgstr ""
+
+#: src/Content/Definition.php:30 src/Content/Definition.php:35
+msgid "Definitions"
+msgstr ""
+
+#: src/Content/Definition.php:65
+msgid "Select Definition"
+msgstr ""
+
+#: src/Content/Definition.php:74
+msgid "Abbreviation"
+msgstr ""
+
+#: src/Content/Index.php:21
+msgid "Go to index"
+msgstr ""
+
+#: src/Content/Index.php:30
+msgid "Indexed Content"
+msgstr ""
+
+#: src/Content/Index.php:37 src/Cards/Preview.php:56 src/Cards/Simple.php:40
+#: src/Forms/Form.php:141
 msgid "Title"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:61
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:43
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:61
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:131
-msgid "This title will replace the Page title"
+#: src/Content/Index.php:42
+msgid "Slug"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:67
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:49
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:45
+#: src/Content/Index.php:48 src/Content/Index.php:77
+msgid "Index group"
+msgstr ""
+
+#: src/Content/Index.php:72
+msgid "Index"
+msgstr ""
+
+#: src/Content/Index.php:119
+msgid "-- Page Index --"
+msgstr ""
+
+#: src/Content/Link.php:29
+msgid "Link"
+msgstr ""
+
+#: src/Content/Link.php:35 src/Images/Responsive.php:108
+msgid "Post/Page to Link"
+msgstr ""
+
+#: src/Content/Link.php:40 src/Images/Responsive.php:113
+msgid "Select the post to link"
+msgstr ""
+
+#: src/Content/Link.php:43 src/Images/Responsive.php:116
+msgid "Term to link"
+msgstr ""
+
+#: src/Content/Link.php:47 src/Images/Responsive.php:120
+msgid "if you want to link a taxonomy term, please leave the post field blank"
+msgstr ""
+
+#: src/Content/Link.php:62 src/Term/Thumb.php:55
+msgid "Link Label"
+msgstr ""
+
+#: src/Maps/Directions.php:22
+msgid "Google Maps Directions"
+msgstr ""
+
+#: src/Maps/Directions.php:29
+msgid "Lat"
+msgstr ""
+
+#: src/Maps/Directions.php:35
+msgid "Long"
+msgstr ""
+
+#: src/Maps/Directions.php:41
+msgid "Zoom"
+msgstr ""
+
+#: src/Maps/Directions.php:47
+msgid "Show directions"
+msgstr ""
+
+#: src/Maps/Directions.php:52
+msgid "Marker Title"
+msgstr ""
+
+#: src/Maps/Directions.php:58
+msgid "Marker Icon"
+msgstr ""
+
+#: src/Maps/Directions.php:64
+msgid "Class"
+msgstr ""
+
+#: src/Maps/Directions.php:97
+msgid "Directions"
+msgstr ""
+
+#: src/Maps/Directions.php:99
+msgid "Get route"
+msgstr ""
+
+#: src/Maps/Directions.php:103
+msgid "Walking"
+msgstr ""
+
+#: src/Maps/Directions.php:105
+msgid "Driving"
+msgstr ""
+
+#: src/Maps/Directions.php:107
+msgid "Transit"
+msgstr ""
+
+#: src/Maps/Directions.php:112
+msgid "Navigate"
+msgstr ""
+
+#: src/Maps/Directions.php:113
+msgid "Show Route"
+msgstr ""
+
+#: src/Maps/Posts.php:33
+msgid "MembersMap"
+msgstr ""
+
+#: src/Maps/Posts.php:39
+msgid "Members Count"
+msgstr ""
+
+#: src/Maps/Posts.php:43
+msgid "How many members to show"
+msgstr ""
+
+#: src/Images/Responsive.php:40
+msgid "Responsive Image"
+msgstr ""
+
+#: src/Images/Responsive.php:47
+msgid "Image Caption"
+msgstr ""
+
+#: src/Images/Responsive.php:61
+msgid "Thumbnail"
+msgstr ""
+
+#: src/Images/Responsive.php:62
+msgid "Medium"
+msgstr ""
+
+#: src/Images/Responsive.php:63
+msgid "Large"
+msgstr ""
+
+#: src/Images/Responsive.php:64
+msgid "Full Size"
+msgstr ""
+
+#: src/Images/Responsive.php:71 src/Cards/Preview.php:66
+#: src/Cards/Simple.php:50
 msgid "Image"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:71
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:72
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:53
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:54
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:49
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:50
+#: src/Images/Responsive.php:75 src/Images/Responsive.php:76
+#: src/Cards/Preview.php:70 src/Cards/Preview.php:71 src/Cards/Simple.php:54
+#: src/Cards/Simple.php:55
 msgid "Select Image"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:78
+#: src/Images/Responsive.php:79
+msgid "Alignment"
+msgstr ""
+
+#: src/Images/Responsive.php:85
+msgid "None"
+msgstr ""
+
+#: src/Images/Responsive.php:89
+msgid "Align Left"
+msgstr ""
+
+#: src/Images/Responsive.php:93
+msgid "Align Center"
+msgstr ""
+
+#: src/Images/Responsive.php:97
+msgid "Align Right"
+msgstr ""
+
+#: src/Images/Responsive.php:102
+msgid "Size"
+msgstr ""
+
+#: src/Images/Responsive.php:124
+msgid "Link URL"
+msgstr ""
+
+#: src/Images/Responsive.php:127
+msgid "Select the URL to link"
+msgstr ""
+
+#: src/Images/Responsive.php:130
+msgid "Open link in a new window"
+msgstr ""
+
+#: src/Countdown/ToDate.php:22 src/Countdown/ToDate.php:28
+msgid "CountDown"
+msgstr ""
+
+#: src/Countdown/ToDate.php:31
+#, php-format
+msgid ""
+"Insert date in the dd-mm-YYYY format, or one of the accepted by <a "
+"href=\"%s\">PHP strtotime</a>"
+msgstr ""
+
+#: src/Countdown/ToDate.php:34
+msgid "Format"
+msgstr ""
+
+#: src/Countdown/ToDate.php:37
+#, php-format
+msgid "Insert date format as specified in <a href=\"%s\">JS strftime</a>"
+msgstr ""
+
+#: src/Countdown/ToDate.php:77
+msgid "%D days %H:%M:%S"
+msgstr ""
+
+#: src/Cards/PreviewPost.php:14
+msgid "Post Preview Card"
+msgstr ""
+
+#: src/Cards/PreviewPost.php:24
+msgid "Select Page"
+msgstr ""
+
+#: src/Cards/Preview.php:50
+msgid "Preview Card"
+msgstr ""
+
+#: src/Cards/Preview.php:60 src/Cards/Simple.php:44 src/Cards/Simple.php:62
+#: src/Forms/Form.php:145
+msgid "This title will replace the Page title"
+msgstr ""
+
+#: src/Cards/Preview.php:62 src/Cards/Simple.php:46 src/Cards/Simple.php:64
+#: src/User/Single.php:40 src/User/Thumb.php:49 src/Forms/Form.php:147
+msgid "Insert title"
+msgstr ""
+
+#: src/Cards/Preview.php:74 src/User/Single.php:44 src/User/Single.php:63
+#: src/User/Thumb.php:53 src/User/Thumb.php:72
+msgid "URL"
+msgstr ""
+
+#: src/Cards/Preview.php:77
 msgid "This URL will be used instead of Page permalink."
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:86
+#: src/Cards/Preview.php:80 src/User/Single.php:70 src/User/Thumb.php:79
+msgid "Button Label"
+msgstr ""
+
+#: src/Cards/Preview.php:85
 msgid "Insert button label"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:90
+#: src/Cards/Preview.php:89
 msgid "Open in new window"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:95
+#: src/Cards/Preview.php:94
 msgid "Enable Markdown"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:100
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:67
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:167
+#: src/Cards/Preview.php:99 src/Cards/Simple.php:68 src/Forms/Form.php:198
 msgid "Custom Classes"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewTerm.php:22
+#: src/Cards/PreviewTerm.php:23
 #, php-format
 msgid "Term Preview Card [%s]"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/PreviewTerm.php:30
+#: src/Cards/PreviewTerm.php:31 src/Term/Archive.php:35 src/Term/Thumb.php:48
 msgid "Select Term"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:33
+#: src/Cards/Simple.php:34
 msgid "Simple Box"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:57
+#: src/Cards/Simple.php:58
 msgid "Subtitle"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:22
-msgid "Google Maps Directions"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:29
-msgid "Lat"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:35
-msgid "Long"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:41
-msgid "Zoom"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:47
-msgid "Show directions"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:52
-msgid "Marker Title"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:58
-msgid "Marker Icon"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:64
-msgid "Class"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:97
-msgid "Directions"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:99
-msgid "Get route"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:103
-msgid "Walking"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:105
-msgid "Driving"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:107
-msgid "Transit"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:112
-msgid "Navigate"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Maps/Directions.php:113
-msgid "Show Route"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:19
+#: src/Ads/AdSense.php:20
 msgid "AdSense AdUnit"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:26
+#: src/Ads/AdSense.php:27
 msgid "Ad Unit ID"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:33
+#: src/Ads/AdSense.php:36
 msgid "Ad Size"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Ads/AdSense.php:59
+#: src/Ads/AdSense.php:63
 #, php-format
 msgid "AdSense AdUnit Banner ID: %s"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:20
-msgid "Go to index"
+#: src/User/Archive.php:20
+msgid "User List"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:30
-msgid "Indexed Content"
+#: src/User/Single.php:19 src/User/Thumb.php:21
+msgid "Team Member"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:42
-msgid "Slug"
+#: src/User/Single.php:34 src/User/Thumb.php:43
+msgid "User"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:48
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:74
-msgid "Index group"
+#: src/User/Single.php:49 src/User/Thumb.php:58
+msgid "Show role"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:69
-msgid "Index"
+#: src/User/Single.php:54 src/User/Thumb.php:63
+msgid "Show description"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Index.php:117
-msgid "-- Page Index --"
+#: src/User/Single.php:59 src/User/Thumb.php:68
+msgid "Link destination"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:20
-msgid "Link"
+#: src/User/Single.php:64 src/User/Thumb.php:73
+msgid "Mail"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:26
-msgid "Post/Page to Link"
+#: src/User/Single.php:65 src/User/Thumb.php:74
+msgid "Popup"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:31
-msgid "Select the post to link"
+#: src/User/Single.php:66 src/User/Thumb.php:75
+msgid "Profile"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:34
-msgid "Term to link"
+#: src/User/Single.php:75 src/User/Thumb.php:84
+msgid "Contact me"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:38
-msgid "if you want to link a taxonomy term, please leave the post field blank"
+#: src/User/Single.php:87 src/User/Thumb.php:96
+msgid "User not found"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:42
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:31
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:70
-msgid "Classes"
+#: src/Term/Archive.php:29
+msgid "Term Archive"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:53
-msgid "Link Label"
+#: src/Term/Thumb.php:42
+msgid "Term Thumbnail"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:13
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:30
-msgid "Definition"
+#: src/Term/Thumb.php:82
+msgid "Term not found"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:29
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:34
-msgid "Definitions"
+#: src/Term/Thumb.php:84
+msgid "Taxonomy not found"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:61
-msgid "Select Definition"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Definition.php:68
-msgid "Abbreviation"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:15
-msgid "Section Tag"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:21
-msgid "HTML ID"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:25
-msgid "The HTML id attribute value "
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Section.php:27
-msgid "section1"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:25
-msgid "Post Thumbnail"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Post/Thumb.php:31
-msgid "Select Post"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:34
+#: src/Forms/ACF.php:32
 msgid "ACF Form"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:43
+#: src/Forms/ACF.php:41
 msgid "Form Group"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:47
+#: src/Forms/ACF.php:45
 msgid "Select the ACF Form group to display"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:50
+#: src/Forms/ACF.php:48
 msgid "Submit Button Label"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:54
+#: src/Forms/ACF.php:52
 msgid "Submit Button label text"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:57
+#: src/Forms/ACF.php:55
 msgid "Show title field"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:60
+#: src/Forms/ACF.php:58
 msgid "Show the post title field"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:63
+#: src/Forms/ACF.php:61
 msgid "Show content field"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/ACF.php:66
+#: src/Forms/ACF.php:64
 msgid "Show the post content field"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Contact.php:18
-msgid "Contact Form"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Contact.php:22
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:121
-msgid "Thanks for your request, we will reply as soon as possible."
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:53
+#: src/Forms/Form.php:58
 msgid "Form"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:137
+#: src/Forms/Form.php:135 src/Forms/Contact.php:23 src/Forms/Subscribe.php:22
+msgid "Thanks for your request, we will reply as soon as possible."
+msgstr ""
+
+#: src/Forms/Form.php:151
 msgid "Hidden"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:141
+#: src/Forms/Form.php:157
 msgid "Always Visible"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:142
+#: src/Forms/Form.php:161
 msgid "Lightbox"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:143
+#: src/Forms/Form.php:165
 msgid "Collapse"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:147
+#: src/Forms/Form.php:170
 msgid "Open button label"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:151
+#: src/Forms/Form.php:174
 msgid "The label for the lightbox open button"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:157
+#: src/Forms/Form.php:180
 msgid "Submit button label"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:161
+#: src/Forms/Form.php:184
 msgid "The label for submit button"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:239
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:247
+#: src/Forms/Form.php:190
+msgid "Redirect To"
+msgstr ""
+
+#: src/Forms/Form.php:195
+msgid "Redirect to this page after successful form submission"
+msgstr ""
+
+#: src/Forms/Form.php:273 src/Forms/Form.php:281
 msgid "Close"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:32
+#: src/Forms/Contact.php:19
+msgid "Contact Form"
+msgstr ""
+
+#: src/Forms/Subscribe.php:18
+msgid "Subscribe Form"
+msgstr ""
+
+#: src/Forms/Download.php:32
 msgid "Whitepaper Download"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:40
+#: src/Forms/Download.php:40
 msgid "File to Download"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:45
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:46
+#: src/Forms/Download.php:45 src/Forms/Download.php:46
 msgid "Select File"
 msgstr ""
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Download.php:53
+#: src/Forms/Download.php:53
 msgid ""
 "Thanks for your request, the file you requested will be sent to your inbox."
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:28
-msgid "Responsive Image"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:53
-msgid "Alignment"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:57
-msgid "None"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:58
-msgid "Align Left"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:59
-msgid "Align Center"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:60
-msgid "Align Right"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:64
-msgid "Size"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:18
-msgid "Archive"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:29
-msgid "Select Post Type"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Archive.php:36
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:44
-msgid "Post Count"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:28
-msgid "Latest Posts"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:45
-msgid "The number of posts shown"
-msgstr ""
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Lists/Latest.php:57
-msgid "The number of posts to skip"
 msgstr ""
 
 #. Name of the plugin

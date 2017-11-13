@@ -17,7 +17,7 @@ abstract class Shortcake {
 	public $attach_to = array( 'page' );
 
 	public $show_content = true;
-
+	
 	public $renderOrder = array(
 		'content',
 	);
@@ -71,7 +71,7 @@ abstract class Shortcake {
 
 	protected function getClasses( $attr ) {
 
-			$instance_classes = array();
+		$instance_classes = array();
 
 		if ( ! empty( $attr['class'] ) ) {
 			$instance_classes = array_merge( $instance_classes, preg_split( '/[\s,]+/', $attr['class'], -1, PREG_SPLIT_NO_EMPTY ) );
@@ -81,7 +81,7 @@ abstract class Shortcake {
 			$instance_classes = array_merge( preg_split( '/[\s,]+/', $attr['classes'], -1, PREG_SPLIT_NO_EMPTY ) );
 		}
 
-				$classes = array_merge( (array) $this->classes, $instance_classes );
+		$classes = array_merge( (array) $this->classes, $instance_classes );
 
 		if ( ! empty( $classes ) ) {
 			return array_map( 'trim', $classes );
