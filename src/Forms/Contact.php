@@ -39,6 +39,11 @@ class Contact extends Form {
 					$this->messageDefaults
 				);
 			}
+
+			if ( ! empty( $this->subscribeAttributes ) ) {
+				$form->subscribeAttributes = $this->subscribeAttributes;
+			}			
+			
 		}
 
 		return $form;

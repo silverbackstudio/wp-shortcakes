@@ -13,12 +13,14 @@ class Download extends Form {
 		'file' => '',
 		'open_button_label' => 'Open',
 		'submit_button_label' => 'Submit',
+		'redirect_to' => '',
 	);
 
 	public $mc_apikey = '';
 	public $mc_list_id = '';
 	public $md_apikey = '';
 	public $md_template = '';
+	public $md_sender_template = '';
 	public $messageDefaults = array();
 	public $subscribeAttributes = array();
 
@@ -66,7 +68,6 @@ class Download extends Form {
 			$form->templateName = $this->md_template;
 			$form->senderTemplateName = $this->md_sender_template;
 			
-
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
 					$form->messageDefaults,
