@@ -243,7 +243,7 @@ class Form extends Shortcake {
 		static $index = 0;
 
 		$index++;
-
+		
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 		$form = $this->getForm();
 
