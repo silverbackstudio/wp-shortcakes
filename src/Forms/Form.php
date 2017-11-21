@@ -255,7 +255,7 @@ class Form extends Shortcake {
 			$output['title'] = '<h2 class="form-title">' . $attr['title'] . '</h2>';
 		}
 
-		if( $attr['redirect_to'] ) {
+		if( !empty($attr['redirect_to']) ) {
 			$output['input']['redirect_to'] =  $form->renderField( 'redirect_to', 
 				array(
 					'label' => __( 'Redirect To', 'svbk-helpers' ),

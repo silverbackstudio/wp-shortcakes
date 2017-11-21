@@ -15,7 +15,7 @@ class Download extends Subscribe {
 		'submit_button_label' => 'Submit',
 		'redirect_to' => '',
 	);
-
+	
 	public $shortcode_id = 'whitepaper_dl';
 	public $field_prefix = 'wdl';
 	public $action = 'sendwhitepaper';
@@ -46,5 +46,4 @@ class Download extends Subscribe {
 	public function confirmMessage() {
 		return $this->confirmMessage ?: __( 'Thanks for your request, the file you requested will be sent to your inbox.', 'svbk-shortcakes' );
 	}
-
 }
