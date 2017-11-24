@@ -21,6 +21,8 @@ abstract class Shortcake {
 	public $renderOrder = array(
 		'content',
 	);
+	
+	public $staticOutput = array();
 
 	public function title() {
 		return __( 'Base Shortcode', 'svbk-shortcakes' );
@@ -184,9 +186,12 @@ abstract class Shortcake {
 	}
 
 	protected function renderOutput( $attr, $content, $shortcode_tag ) {
-		return array(
-			'content' => '<div class="shortcode-content">' . $content . '</div>',
-		);
+		
+		$contents = $this->staticOutput;
+		
+		$contents['content'] = '<div class="shortcode-content">' . $content . '</div>';
+		
+		return $contents;
 	}
 
 	protected function outputParts( $output, $order = null ) {
