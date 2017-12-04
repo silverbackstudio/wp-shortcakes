@@ -46,4 +46,5 @@ class Download extends Subscribe {
 	public function confirmMessage() {
 		return $this->confirmMessage ?: __( 'Thanks for your request, the file you requested will be sent to your inbox.', 'svbk-shortcakes' );
 	}
+
 }

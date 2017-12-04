@@ -8,6 +8,7 @@ class Subscribe extends Form {
 	public $mc_list_id = '';
 	
 	public $md_apikey = '';
+	public $md_template = '';	
 	public $md_sender_template = '';	
 	
 	public $messageDefaults;
@@ -38,6 +39,11 @@ class Subscribe extends Form {
 			
 			$form->md_apikey = $this->md_apikey;
 			$form->senderTemplateName = $this->md_sender_template;
+			
+			// retrocompatibility.
+			if (!$form->md_sender_template && $form->md_template ) {
+				$form->senderTemplateName = $this->md_template;
+			}			
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
