@@ -168,7 +168,7 @@ class Responsive extends Link {
 		$output['image'] = wp_get_attachment_image( $attr['image_id'], $attr['size'] );
 
 		if ( $content ) {
-			$output['caption'] = '<figcaption class="caption">' . $content . '</figcaption>';
+			$output['caption'] = '<figcaption class="caption">' . $output['content'] . '</figcaption>';
 		}
 
 		$output['wrapperEnd'] = '</figure>';

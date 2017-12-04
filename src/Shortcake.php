@@ -189,7 +189,7 @@ abstract class Shortcake {
 		
 		$contents = $this->staticOutput;
 		
-		$contents['content'] = '<div class="shortcode-content">' . $content . '</div>';
+		$contents['content'] = '<div class="shortcode-content">' . do_shortcode($content) . '</div>';
 		
 		return $contents;
 	}

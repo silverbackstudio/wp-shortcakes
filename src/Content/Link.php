@@ -105,7 +105,7 @@ class Link extends Shortcake {
 
 		$label = $content ?: get_the_title( $attr['post_id'] );
 
-		$output = array();
+		$output = parent::renderOutput($attr, $content, $shortcode_tag);
 
 		$link = $this->getLink( $attr );
 		$link_target = filter_var( $attr['target'], FILTER_VALIDATE_BOOLEAN );
@@ -114,8 +114,6 @@ class Link extends Shortcake {
 			$output['linkBegin'] = '<a  ' . $this->renderClasses( $this->getClasses( $attr ) ) . '  href="' . esc_url( $link ) . '" ' . ( $link_target ? ' target="_blank"' : '' ) . '  >';
 			$output['linkEnd'] = '</a>';
 		}
-
-		$output['content'] = $content;
 
 		return $output;
 
