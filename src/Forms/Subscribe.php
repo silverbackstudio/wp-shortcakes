@@ -41,7 +41,7 @@ class Subscribe extends Form {
 			$form->senderTemplateName = $this->md_sender_template;
 			
 			// retrocompatibility.
-			if (!$form->md_sender_template && $form->md_template ) {
+			if (!$this->md_sender_template && $this->md_template ) {
 				$form->senderTemplateName = $this->md_template;
 			}			
 
