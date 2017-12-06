@@ -11,7 +11,7 @@
     "require": {
         "erusev/parsedown": "^1.6",
         "michelf/php-markdown": "^1.7",
-        "silverbackstudio/wp-themehelper": "^2.0",
+        "silverbackstudio/wp-themehelper": "~2.2.0",
         "wpackagist-plugin/shortcode-ui": "0.7.2"        
     },
     "autoload": {
