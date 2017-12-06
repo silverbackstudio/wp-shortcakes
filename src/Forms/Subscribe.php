@@ -39,11 +39,6 @@ class Subscribe extends Form {
 			
 			$form->md_apikey = $this->md_apikey;
 			$form->senderTemplateName = $this->md_sender_template;
-			
-			// retrocompatibility.
-			if (!$this->md_sender_template && $this->md_template ) {
-				$form->senderTemplateName = $this->md_template;
-			}			
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
