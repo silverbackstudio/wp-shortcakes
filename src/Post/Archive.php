@@ -22,10 +22,17 @@ class Archive extends Shortcake {
 
 	public function fields() {
 
-		$custom_post_types = wp_list_pluck( get_post_types( array(
-			'public' => true,
-			'_builtin' => false,
-		) , 'objects' ), 'label', 'name' );
+		$custom_post_types = wp_list_pluck( 
+			get_post_types( 
+				array(
+					'public' => true,
+					'_builtin' => false,
+				),
+				'objects' 
+			),
+			'label',
+			'name'
+		);
 
 		return array(
 			array(
@@ -53,7 +60,7 @@ class Archive extends Shortcake {
 
 	protected function getQueryArgs( $attr ) {
 
-				$args = array(
+		$args = array(
 			'post_type' => $attr['post_type'],
 			'posts_per_page' => (int) $attr['posts_per_page'],
 		);
@@ -62,7 +69,7 @@ class Archive extends Shortcake {
 			$args['paged'] = (int) get_query_var( 'paged' );
 		}
 
-				return $args;
+		return $args;
 	}
 
 	public function output( $attr, $content, $shortcode_tag ) {
@@ -86,13 +93,13 @@ class Archive extends Shortcake {
 				get_template_part( $this->template_base, get_post_type() );
 			endwhile;
 
-					$output .= ob_get_contents();
+			$output .= ob_get_contents();
 			ob_end_clean();
 
-				 $output .= get_the_posts_navigation();
+			$output .= get_the_posts_navigation();
 			$output .= '</div>';
 
-						wp_reset_postdata();
+			wp_reset_postdata();
 			wp_reset_query();
 
 			endif;

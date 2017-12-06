@@ -61,7 +61,7 @@ class Thumb extends Shortcake {
 				get_template_part( $this->template, get_post_type() );
 			endwhile;
 
-					$output .= ob_get_contents();
+			$output .= ob_get_contents();
 			ob_end_clean();
 
 		}
