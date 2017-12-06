@@ -98,6 +98,8 @@ class Simple extends Shortcake {
 			$output['image'] = $image;
 		}
 
+		$output = parent::renderOutput($attr, $content, $shortcode_tag);
+
 		$output['contentBegin'] = '<div class="content">';
 
 		if ( $title ) {
@@ -108,7 +110,7 @@ class Simple extends Shortcake {
 			$output['subtitle'] = '<div class="entry-title">' . $attr['subtitle'] . '</div>';
 		}
 
-		$output['content'] = '<div class="entry-content">' . $content . '</div>';
+		$output['content'] = '<div class="entry-content">' . $output['content'] . '</div>';
 		$output['contentEnd'] = '</div>';
 		$output['wrapperEnd'] = '</div>';
 

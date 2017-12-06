@@ -1,4 +1,5 @@
-<?php namespace Svbk\WP\Shortcakes\Feedback;
+<?php 
+namespace Svbk\WP\Shortcakes\Feedback;
 
 use WP_Query;
 use Svbk\WP\Shortcakes\Shortcake;

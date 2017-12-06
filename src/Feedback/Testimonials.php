@@ -3,28 +3,6 @@
 use WP_Query;
 use Svbk\WP\Shortcakes\Shortcake;
 
-/**
-	Add This JS to theme
-
-	$('.testimonials').on('click', '.loadmore', function(){
-		var container = $(this).closest('.testimonials');
-	var data = container.data();
-		data.paged++;
-	data.action = 'testimonials';
-		container.addClass('loading');
-		$.post( ajaxurl, data, function(response){
-	$('.loadmore', container).remove();
-			container
-	.append(response)
-	.data(data)
-	.removeClass('loading');
-
-	$(document.body).trigger( 'post-load' );
-	});
-	});
- */
-
-
 class Testimonials extends Shortcake {
 
 	public $shortcode_id = 'testimonials';
@@ -53,8 +31,10 @@ class Testimonials extends Shortcake {
 			add_action( 'init', array( $instance, 'register_cpts' ) );
 		}
 
-		add_action( 'wp_ajax_testimonials', array( $instance, 'loadMore' ) );
-		add_action( 'wp_ajax_nopriv_testimonials', array( $instance, 'loadMore' ) );
+		
+		add_action( 'wp_enqueue_scripts', array( $instance, 'scripts' ) );
+		add_action( 'wp_ajax_svbk_'. $instance->shortcode_id, array( $instance, 'loadMore' ) );
+		add_action( 'wp_ajax_nopriv_svbk_' . $instance->shortcode_id, array( $instance, 'loadMore' ) );
 
 		return $instance;
 	}
@@ -92,6 +72,11 @@ class Testimonials extends Shortcake {
 
 		register_post_type( $this->post_type, $final_args );
 
+	}
+
+	public function scripts(){
+		wp_enqueue_script('jquery');
+		wp_localize_script( 'jquery', 'ajaxurl',  admin_url( 'admin-ajax.php' ) );
 	}
 
 	public function loadMoreFilters() {
@@ -148,10 +133,10 @@ class Testimonials extends Shortcake {
 	protected function getQueryArgs( $attr ) {
 
 		if ( $attr['load_more'] && ( $attr['offset'] > 0 ) && ( $attr['paged'] > 1 ) ) {
-			$attr['offset']  = $attr['count'] * $attr['paged'];
-		}
+			$attr['offset']  = $attr['offset'] + $attr['count'] * ($attr['paged'] - 1);
+		} 
 
-		return array_merge(array(
+		$query_args = array_merge(array(
 			'post_type' => $this->post_type,
 			'post_status' => 'publish',
 			'orderby' => 'date',
@@ -160,12 +145,19 @@ class Testimonials extends Shortcake {
 			'offset' => $attr['offset'],
 		), $this->query_args );
 
+		// Setting offset to 0 breaks pagination
+		if( intval($query_args['offset']) === 0 ) {
+			unset( $query_args['offset'] );
+		}
+
+		return $query_args;
+
 	}
 
 	public function output( $attr, $content, $shortcode_tag, $container = true ) {
 
 		$output = '';
-
+		
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
 		$testimonials = new WP_Query( $this->getQueryArgs( $attr ) );
@@ -214,6 +206,7 @@ class Testimonials extends Shortcake {
 
 			if ( $attr['load_more'] && (intval( $attr['paged'] ) < $testimonials->max_num_pages) ) {
 				$output .= '<button class="button loadmore">' . __( 'Show more testimonials', 'svbk-shortcakes' ) . '</button>';
+				add_action( 'wp_footer', array( $this, 'print_loadmore_script'), 99 );
 			}
 
 			if ( $container ) {
@@ -223,6 +216,31 @@ class Testimonials extends Shortcake {
 
 		return $output;
 
+	}
+	
+	public function print_loadmore_script(){  ?>
+		<script>
+		(function($){
+			$('.testimonials-group-<?php echo esc_attr($this->post_type); ?>').on('click', '.loadmore', function(){
+	    		var container = $(this).closest('.testimonials-group');
+	      		var data = container.data();
+	    		data.paged++;
+	    		data.action = '<?php echo 'svbk_' . esc_attr($this->shortcode_id); ?>';
+	    		container.addClass('loading');
+	    		
+	    		$.post( ajaxurl, data, function(response){
+	          		$('.loadmore', container).remove();
+	          		container
+		          		.append(response)
+		          		.data(data)
+		          		.removeClass('loading');	
+	          
+	        		$(document.body).trigger( 'post-load' );
+		  		});
+			});		
+		})(jQuery);
+		</script>
+	<?php
 	}
 
 }

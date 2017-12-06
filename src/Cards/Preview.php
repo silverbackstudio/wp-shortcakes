@@ -144,6 +144,8 @@ class Preview extends Shortcake {
 
 		$classes = array_merge( $this->classes, $this->getClasses( $attr ) );
 
+		$output = parent::renderOutput($attr, $content, $shortcode_tag);
+
 		$output['wrapperBegin']  = '<' . $this->wrapperTag . ' class="' . esc_attr( join( ' ', $classes ) ) . '">';
 
 		if ( $title ) {
@@ -157,7 +159,7 @@ class Preview extends Shortcake {
 		}
 
 		$output['contentBegin'] = '<div class="card-text">';
-		$output['content'] = '  <div class="entry-content">' . $content . '</div>';
+		$output['content'] = '  <div class="entry-content">' . $output['content'] . '</div>';
 
 		if ( $link && $attr['link_label'] ) {
 			$output['button'] = '  <a class="' . esc_attr( join( ' ', $this->buttonClasses ) ) . '" href="' . esc_attr( $link ) . '" ' . $target . ' >' . $attr['link_label'] . '</a>';

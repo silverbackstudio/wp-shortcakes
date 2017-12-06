@@ -13,6 +13,7 @@ class Form extends Shortcake {
 		'file' => '',
 		'open_button_label' => 'Open',
 		'submit_button_label' => 'Submit',
+		'redirect_to' => '',
 	);
 
 	public $shortcode_id = 'svbk-form';
@@ -39,11 +40,11 @@ class Form extends Shortcake {
 		'hiddenContentBegin',
 		'formBegin',
 		'title',
+		'content',
 		'input',
 		'requiredNotice',
 		'beginPolicySubmit',
 		'policy',
-		'content',
 		'submitButton',
 		'endPolicySubmit',
 		'messages',
@@ -116,13 +117,15 @@ class Form extends Shortcake {
 		}
 
 		$response = array(
-			'prefix' => $this->field_prefix,
+			'prefix' => $form->field_prefix,
 			'status' => 'success',
 			'message' => $this->confirmMessage(),
 		);
+		
+		$redirect_to = filter_input( INPUT_POST, $form->fieldName('redirect_to'), FILTER_VALIDATE_INT );
 
-		if ( ! $this->hardRedirect && $this->redirectTo ) {
-			$response['redirect'] = $this->redirectTo;
+		if ( $redirect_to ) {
+			$response['redirect'] = get_permalink( $redirect_to );
 		}
 
 		return json_encode( $response );
@@ -150,7 +153,7 @@ class Form extends Shortcake {
 				'type' => 'select',
 				'options'     => array(
 					array(
-						'value' => false,
+						'value' => '',
 						'label' => esc_html__( 'Always Visible', 'svbk-shortcakes' ),
 					),
 					array(
@@ -183,6 +186,14 @@ class Form extends Shortcake {
 					'placeholder' => $this->defaults['submit_button_label'],
 			   ),
 			),
+			'redirect_to' => array(
+				'label'  => esc_html__( 'Redirect To', 'svbk-shortcakes' ),
+				'attr'   => 'redirect_to',
+				'type'   => 'post_select',
+				'query'    => array( 'post_type' => 'any' ),
+				'multiple' => false,				
+				'description' => esc_html__( 'Redirect to this page after successful form submission', 'svbk-shortcakes' ),
+			),			
 			'classes' => array(
 				'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
 				'attr'     => 'classes',
@@ -232,7 +243,7 @@ class Form extends Shortcake {
 		static $index = 0;
 
 		$index++;
-
+		
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 		$form = $this->getForm();
 
@@ -242,6 +253,17 @@ class Form extends Shortcake {
 
 		if ( $attr['title'] ) {
 			$output['title'] = '<h2 class="form-title">' . $attr['title'] . '</h2>';
+		}
+
+		if( !empty($attr['redirect_to']) ) {
+			$output['input']['redirect_to'] =  $form->renderField( 'redirect_to', 
+				array(
+					'label' => __( 'Redirect To', 'svbk-helpers' ),
+					'type' => 'hidden',
+					'default' => $attr['redirect_to'],
+					'filter' => FILTER_VALIDATE_INT,
+				) 
+			);
 		}
 
 		switch ( $attr['hidden'] ) {

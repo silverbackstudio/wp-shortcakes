@@ -6,8 +6,14 @@ class Subscribe extends Form {
 
 	public $mc_apikey = '';
 	public $mc_list_id = '';
+	
+	public $md_apikey = '';
+	public $md_template = '';	
+	public $md_sender_template = '';	
+	
 	public $messageDefaults;
-
+	public $subscribeAttributes = array();
+	
 	public $shortcode_id = 'svbk_subscribe_form';
 	public $field_prefix = 'scf';
 	public $action = 'svbk_subscribe_form';
@@ -30,6 +36,14 @@ class Subscribe extends Form {
 
 			$form->mc_apikey = $this->mc_apikey;
 			$form->mc_list_id = $this->mc_list_id;
+			
+			$form->md_apikey = $this->md_apikey;
+			$form->senderTemplateName = $this->md_sender_template;
+			
+			// retrocompatibility.
+			if (!$form->md_sender_template && $form->md_template ) {
+				$form->senderTemplateName = $this->md_template;
+			}			
 
 			if ( ! empty( $this->messageDefaults ) ) {
 				$form->messageDefaults = array_merge(
@@ -38,6 +52,10 @@ class Subscribe extends Form {
 				);
 			}
 		}
+		
+		if ( ! empty( $this->subscribeAttributes ) ) {
+			$form->subscribeAttributes = $this->subscribeAttributes;
+		}		
 
 		return $form;
 	}
