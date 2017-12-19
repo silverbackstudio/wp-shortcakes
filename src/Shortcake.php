@@ -199,7 +199,7 @@ abstract class Shortcake {
 			$content = do_shortcode($content);
 		}
 		
-		$contents['content'] = '<div class="shortcode-content">' . $content . '</div>';
+		$contents['content'] = $content;
 		
 		return $contents;
 	}
