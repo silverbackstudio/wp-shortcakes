@@ -51,7 +51,7 @@ class Link extends Shortcake {
 			),
 			'url' => array(
 				'label'  => esc_html__( 'Link URL', 'svbk-shortcakes' ),
-				'attr'   => 'link_url',
+				'attr'   => 'url',
 				'type'   => 'url',
 				'description' => esc_html__( 'Select the URL to link', 'svbk-shortcakes' ),
 			),
