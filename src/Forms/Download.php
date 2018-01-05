@@ -4,7 +4,7 @@ namespace Svbk\WP\Shortcakes\Forms;
 
 use Svbk\WP\Helpers\MailChimp;
 
-class Download extends Form {
+class Download extends Subscribe {
 
 	public $defaults = array(
 		'title' => '',
@@ -13,15 +13,9 @@ class Download extends Form {
 		'file' => '',
 		'open_button_label' => 'Open',
 		'submit_button_label' => 'Submit',
+		'redirect_to' => '',
 	);
-
-	public $mc_apikey = '';
-	public $mc_list_id = '';
-	public $md_apikey = '';
-	public $md_template = '';
-	public $messageDefaults = array();
-	public $subscribeAttributes = array();
-
+	
 	public $shortcode_id = 'whitepaper_dl';
 	public $field_prefix = 'wdl';
 	public $action = 'sendwhitepaper';
@@ -58,23 +52,11 @@ class Download extends Form {
 		$form = parent::getForm( $set_send_params );
 
 		if ( $set_send_params ) {
-
-			$form->mc_apikey = $this->mc_apikey;
-			$form->mc_list_id = $this->mc_list_id;
-			$form->md_apikey = $this->md_apikey;
-
-			$form->templateName = $this->md_template;
-
-			if ( ! empty( $this->messageDefaults ) ) {
-				$form->messageDefaults = array_merge(
-					$form->messageDefaults,
-					$this->messageDefaults
-				);
-			}
-
-			if ( ! empty( $this->subscribeAttributes ) ) {
-				$form->subscribeAttributes = $this->subscribeAttributes;
-			}
+			
+			// ensure to send content to user for retrocompatibility.
+			if (!$this->md_sender_template && $this->md_template ) {
+				$form->senderTemplateName = $this->md_template;
+			}			
 		}
 
 		return $form;

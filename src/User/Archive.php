@@ -22,8 +22,12 @@ class Archive extends Shortcake {
 
 	public function fields() {
 
-		$roles = get_editable_roles();
-
+		if( function_exists('get_editable_roles') )  {
+			$roles = get_editable_roles();	
+		} else {
+			$roles = array();	
+		}
+		
 		return array(
 			'role' => array(
 				'label'    => esc_html__( 'Select Post', 'svbk-shortcakes' ),

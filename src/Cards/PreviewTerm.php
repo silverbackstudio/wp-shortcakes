@@ -4,7 +4,7 @@ namespace Svbk\WP\Shortcakes\Cards;
 
 use Svbk\WP\Shortcakes\Shortcake;
 
-class PreviewTerm extends PreviewCard {
+class PreviewTerm extends Preview {
 
 	public $shortcode_id = 'preview_card_term';
 	public $taxonomy = 'category';

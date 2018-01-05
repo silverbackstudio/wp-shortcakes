@@ -5,6 +5,7 @@ namespace Svbk\WP\Shortcakes;
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\Shortcake::load_texdomain' );
 
 use Svbk\WP\Helpers\Form\Renderer;
+use Svbk\WP\Helpers;
 
 abstract class Shortcake {
 
@@ -16,10 +17,12 @@ abstract class Shortcake {
 	public $attach_to = array( 'page' );
 
 	public $show_content = true;
-
+	
 	public $renderOrder = array(
 		'content',
 	);
+	
+	public $staticOutput = array();
 
 	public function title() {
 		return __( 'Base Shortcode', 'svbk-shortcakes' );
@@ -45,6 +48,8 @@ abstract class Shortcake {
 
 	}
 
+	public function register_scripts(){ }
+
 	public static function castSelect( &$value, $key ) {
 		$value = array(
 		'label' => $value,
@@ -68,7 +73,7 @@ abstract class Shortcake {
 
 	protected function getClasses( $attr ) {
 
-			$instance_classes = array();
+		$instance_classes = array();
 
 		if ( ! empty( $attr['class'] ) ) {
 			$instance_classes = array_merge( $instance_classes, preg_split( '/[\s,]+/', $attr['class'], -1, PREG_SPLIT_NO_EMPTY ) );
@@ -78,7 +83,7 @@ abstract class Shortcake {
 			$instance_classes = array_merge( preg_split( '/[\s,]+/', $attr['classes'], -1, PREG_SPLIT_NO_EMPTY ) );
 		}
 
-				$classes = array_merge( (array) $this->classes, $instance_classes );
+		$classes = array_merge( (array) $this->classes, $instance_classes );
 
 		if ( ! empty( $classes ) ) {
 			return array_map( 'trim', $classes );
@@ -104,6 +109,7 @@ abstract class Shortcake {
 		add_action( 'init', array( $instance, 'add' ), 12 );
 		add_action( 'register_shortcode_ui', array( $instance, 'register_ui' ) );
 		add_action( 'after_setup_theme', array( __CLASS__, 'load_texdomain' ) );
+		add_action( 'wp_enqueue_scripts', array( $instance, 'register_scripts' ) );
 
 		return $instance;
 	}
@@ -180,11 +186,23 @@ abstract class Shortcake {
 	}
 
 	protected function renderOutput( $attr, $content, $shortcode_tag ) {
-		return array(
-		'content' => $content,
-		);
+		
+		$contents = $this->staticOutput;
+		
+		if( empty($content) ) {
+			return $contents;
+		}
+		
+		$has_shortcodes = strpos($content, '[');
+		
+		if( $has_shortcodes !== false ) {
+			$content = do_shortcode($content);
+		}
+		
+		$contents['content'] = $content;
+		
+		return $contents;
 	}
-
 
 	protected function outputParts( $output, $order = null ) {
 

@@ -92,12 +92,13 @@ class Simple extends Shortcake {
 
 		$classes = array_merge( $this->classes, $this->getClasses( $attr ) );
 
-		$output['wrapperBegin']  = '<div class="' . esc_attr( join( ' ', $classes ) ) . '">';
+		$output = parent::renderOutput($attr, $content, $shortcode_tag);
 
 		if ( $image ) {
 			$output['image'] = $image;
 		}
 
+		$output['wrapperBegin']  = '<div ' . $this->renderClasses( $classes ) . '>';
 		$output['contentBegin'] = '<div class="content">';
 
 		if ( $title ) {
@@ -108,10 +109,10 @@ class Simple extends Shortcake {
 			$output['subtitle'] = '<div class="entry-title">' . $attr['subtitle'] . '</div>';
 		}
 
-		$output['content'] = '<div class="entry-content">' . $content . '</div>';
+		$output['content'] = '<div class="entry-content">' . $output['content'] . '</div>';
 		$output['contentEnd'] = '</div>';
 		$output['wrapperEnd'] = '</div>';
-
+		
 		return $output;
 
 	}

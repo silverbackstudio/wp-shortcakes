@@ -11,7 +11,8 @@
     "require": {
         "erusev/parsedown": "^1.6",
         "michelf/php-markdown": "^1.7",
-        "silverbackstudio/wp-themehelper": "^2.0"
+        "silverbackstudio/wp-themehelper": "^2.3",
+        "wpackagist-plugin/shortcode-ui": "^0.7.3"        
     },
     "autoload": {
         "psr-4": {"Svbk\\WP\\Shortcakes\\": "src/"}

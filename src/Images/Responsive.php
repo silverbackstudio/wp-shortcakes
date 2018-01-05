@@ -10,23 +10,43 @@ class Responsive extends Shortcake {
 	public $icon = 'dashicons-format-image';
 	public $classes = array( 'content-image' );
 
+	public $post_query = array(
+		'post_type' => 'any',
+	);
+
+	public $taxonomy;
+
 	public $renderOrder = array(
+		'linkBegin',
 		'wrapperBegin',
 		'image',
 		'caption',
 		'wrapperEnd',
+		'linkEnd',
 	);
 
-	public $defaults = array(
+	public static $defaults = array(
 		'image_id' => '',
-		'alignment' => array(),
-		'class' => array(),
+		'alignment' => '',
+		'link' => '',
+		'class' => '',
 		'size' => '',
 	);
 
 	public function title() {
 		return __( 'Responsive Image', 'svbk-shortcakes' );
 	}
+
+	public function ui_args() {
+
+		$args = parent::ui_args();
+
+		$args['inner_content']['label'] = __( 'Image Caption', 'svbk-shortcakes' );
+
+		return $args;
+
+	}
+
 
 	public function fields() {
 
@@ -43,9 +63,9 @@ class Responsive extends Shortcake {
 				)
 			)
 		);
-
+		
 		return array(
-			array(
+			'image_id' => array(
 				'label'       => esc_html__( 'Image', 'svbk-shortcakes' ),
 				'attr'        => 'image_id',
 				'type'        => 'attachment',
@@ -53,7 +73,7 @@ class Responsive extends Shortcake {
 				'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 				'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 			),
-			array(
+			'alignment' => array(
 				'label'       => esc_html__( 'Alignment', 'svbk-shortcakes' ),
 				'attr'        => 'alignment',
 				'type'        => 'select',
@@ -76,40 +96,82 @@ class Responsive extends Shortcake {
 					),
 				),
 			),
-			array(
+			'link' => array(
+				'label'       => esc_html__( 'Link', 'svbk-shortcakes' ),
+				'attr'        => 'size',
+				'type'        => 'radio',
+				'options'     => array(
+					'' => esc_html__( 'None', 'svbk-shortcakes' ),
+					'image' => esc_html__( 'Image', 'svbk-shortcakes' ),
+					'attachment' => esc_html__( 'Attachment', 'svbk-shortcakes' ),
+				)
+			),			
+			'size' => array(
 				'label'       => esc_html__( 'Size', 'svbk-shortcakes' ),
 				'attr'        => 'size',
 				'type'        => 'select',
 				'options'     => $sizes,
-			),
-			array(
-				'label'  => esc_html__( 'Classes', 'svbk-shortcakes' ),
-				'attr'   => 'class',
-				'type'   => 'text',
 			),
 		);
 	}
 
 	protected function getClasses( $attr ) {
 
-		return array_merge(
-			(array) $this->classes,
-			$attr['alignment'] ? array( 'align' . $attr['alignment'] ) : array(),
-			$attr['size'] ? array( 'size-' . $attr['size'] ) : array(),
-			$attr['image_id'] ? array( 'wp-image-' . $attr['image_id'] ) : array(),
-			(array) $attr['class']
-		);
+		$classes = parent::getClasses( $attr );
+
+		if( !empty( $attr['alignment'] ) ) {
+			$classes[] = 'align' . $attr['alignment'];
+		}
+
+		if( !empty( $attr['size'] ) ) {
+			$classes[] = 'size-' . $attr['size'];
+		}
+
+		if( !empty( $attr['image_id'] ) ) {
+			$classes[] = 'wp-image-' . $attr['image_id'];
+		}
+		
+		return $classes;
 
 	}
 
-	public function renderOutput( $attr, $content, $shortcode_tag ) {
-		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
+	public function getLink( $attr ){
+		
+		$link = '';
+		
+		if( empty( $attr['link'] ) ) {
+			return '';
+		}
+		
+		switch( $attr['link'] ) {
+			case 'image': 
+				$link = wp_get_attachment_url( $attr['image_id'] );
+				break;
+			case 'attachment': 
+				$link = get_attachment_link( $attr['image_id'] );
+				break;
+		}
+		
+		return $link;
+	}
 
-		$output['wrapperBegin'] = '<figure class="' . esc_attr( join( ' ', $this->getClasses( $attr ) ) ) . '">';
+	public function renderOutput( $attr, $content, $shortcode_tag ) {
+		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
+
+		$output = parent::renderOutput($attr, $content, $shortcode_tag);
+		
+		$link = $this->getLink( $attr );
+		
+		if( $link ) {
+			$output['linkBegin'] = '<a class="image-link" href="' . esc_url( $link ) . '">';
+			$output['linkEnd'] = '</a>';
+		}
+
+		$output['wrapperBegin'] = '<figure ' . $this->renderClasses( $this->getClasses( $attr ) ) . '">';
 		$output['image'] = wp_get_attachment_image( $attr['image_id'], $attr['size'] );
 
 		if ( $content ) {
-			$output['caption'] = '<figcaption class="caption">' . $content . '</figcaption>';
+			$output['caption'] = '<figcaption class="caption">' . $output['content'] . '</figcaption>';
 		}
 
 		$output['wrapperEnd'] = '</figure>';
