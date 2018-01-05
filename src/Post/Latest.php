@@ -13,7 +13,7 @@ class Latest extends Shortcake {
 
 	public $post_type = 'post';
 	public $query_args = array();
-	public $classes = array( 'latest-posts' );
+	public $classes = array( 'latest-posts', 'post-thumbs' );
 	public $template_base = 'template-parts/thumb';
 
 	public static $defaults = array(
@@ -80,7 +80,6 @@ class Latest extends Shortcake {
 			'post_status' => 'publish',
 			'orderby' => 'date',
 			'posts_per_page' => $attr['count'],
-			// 'paged' => $attr['paged'],
 			'offset' => $attr['offset'],
 		), $this->query_args );
 
@@ -88,19 +87,19 @@ class Latest extends Shortcake {
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
 
-		$output = '';
+		$output = array();
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
 		if ( defined( 'SHORTCODE_UI_DOING_PREVIEW' ) && SHORTCODE_UI_DOING_PREVIEW ) {
 
-			$output['wrapperBegin'] = '<div id="' . join( ' ', $this->getClasses( $attr ) ) . '" >';
+			$output['wrapperBegin'] = '<div ' . $this->renderClasses( $this->getClasses( $attr ) ) . ' >';
 			$output['content'] = '<h2>{{' . ($this->title ?: $this->title()) . '}}</h2>';
 			$output['wrapperEnd'] = '</div>';
 
 		} else {
 
-			$output['wrapperBegin'] = '<div class="' . join( ' ', $this->getClasses( $attr ) ) . ' post-thumbs">';
+			$output['wrapperBegin'] = '<div ' . $this->renderClasses( $this->getClasses( $attr ) ) . ' >';
 
 			$postsQuery = new WP_Query( $this->getQueryArgs( $attr ) );
 

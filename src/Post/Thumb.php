@@ -49,7 +49,7 @@ class Thumb extends Shortcake {
 
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 
-		$output = '';
+		$output = array();
 
 		$post_query = new WP_Query( $this->getQueryArgs( $attr ) );
 
@@ -61,7 +61,7 @@ class Thumb extends Shortcake {
 				get_template_part( $this->template, get_post_type() );
 			endwhile;
 
-					$output .= ob_get_contents();
+			$output['content'] = ob_get_contents();
 			ob_end_clean();
 
 		}

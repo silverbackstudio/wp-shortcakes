@@ -79,7 +79,7 @@ class Archive extends Shortcake {
 
 		if ( have_posts() ) :
 
-			$output .= '<div class="' . join( ' ', $this->getClasses( $attr ) ) . '">';
+			$output .= '<div ' . $this->renderClasses( $this->getClasses( $attr ) ) . ' >';
 			ob_start();
 
 			while ( have_posts() ) : the_post();
