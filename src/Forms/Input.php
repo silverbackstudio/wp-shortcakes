@@ -39,25 +39,25 @@ class Input extends Shortcake {
 		}
 
         if( empty( $attr['field'] ) ) {
-            return 'no field specified';
+            return '';
         }
         
         $data = filter_input( INPUT_GET,$this->dataAttribute, FILTER_SANITIZE_STRING );
         
         if( empty($data) ) {
-            return 'no data available';
+            return '';
         }     
         
         $data = base64_decode($data);
         
         if( false === $data ) {
-            return 'data decode failed';
+            return '';
         }             
 
         $data = unserialize($data);
 
         if( (false === $data) || !isset( $data[ $attr['field'] ] ) ) {
-            return 'data unserialization failed';
+            return '';
         }
 
 		return esc_html($data[ $attr['field'] ]);
