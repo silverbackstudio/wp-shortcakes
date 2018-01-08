@@ -31,6 +31,7 @@ class Form extends Shortcake {
 
 	public $hardRedirect = false;
 	public $redirectTo;
+	public $redirectData = array();	
 
 	public $renderOrder = array(
 		'wrapperBegin',
@@ -125,7 +126,16 @@ class Form extends Shortcake {
 		$redirect_to = filter_input( INPUT_POST, $form->fieldName('redirect_to'), FILTER_VALIDATE_INT );
 
 		if ( $redirect_to ) {
-			$response['redirect'] = get_permalink( $redirect_to );
+			
+			$redirectUrl = get_permalink( $redirect_to );
+
+			if( !empty($this->redirectData) ) {
+				$redirectData = array_intersect_key( $form->getInput(), array_flip($this->redirectData) );
+				$redirectData = base64_encode( serialize( $redirectData ) );
+				$redirectUrl = add_query_arg( 'fdata', $redirectData, $redirectUrl );
+			}
+			
+			$response['redirect'] = $redirectUrl;
 		}
 
 		return json_encode( $response );
