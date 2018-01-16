@@ -47,7 +47,6 @@ class Responsive extends Shortcake {
 
 	}
 
-
 	public function fields() {
 
 		$sizes = array_combine( get_intermediate_image_sizes(), get_intermediate_image_sizes() );
@@ -112,6 +111,11 @@ class Responsive extends Shortcake {
 				'type'        => 'select',
 				'options'     => $sizes,
 			),
+			'classes' => array(
+				'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
+				'attr'     => 'classes',
+				'type'     => 'text',
+			),			
 		);
 	}
 
