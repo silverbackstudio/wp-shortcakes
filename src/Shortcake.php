@@ -80,7 +80,7 @@ abstract class Shortcake {
 		}
 
 		if ( ! empty( $attr['classes'] ) ) {
-			$instance_classes = array_merge( preg_split( '/[\s,]+/', $attr['classes'], -1, PREG_SPLIT_NO_EMPTY ) );
+			$instance_classes = array_merge( $instance_classes, preg_split( '/[\s,]+/', $attr['classes'], -1, PREG_SPLIT_NO_EMPTY ) );
 		}
 
 		$classes = array_merge( (array) $this->classes, $instance_classes );
