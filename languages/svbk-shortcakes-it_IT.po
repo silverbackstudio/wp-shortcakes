@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Silverback Shortcakes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-13 16:23+0000\n"
-"PO-Revision-Date: 2017-11-13 16:30+0000\n"
-"Last-Translator: silverbackstudio <webmaster@silverbackstudio.it>\n"
+"POT-Creation-Date: 2018-01-22 10:10+0000\n"
+"PO-Revision-Date: 2018-01-22 10:16+0000\n"
+"Last-Translator: SilverbackStudio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -13,65 +13,588 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: src/Shortcake.php:26
+#: src/Feedback/Testimonials.php:90 src/Feedback/Testimonials.php:95
+#: src/Feedback/Testimonials.php:99
+msgid "Testimonial Types"
+msgstr "Tipi Testimonianza"
+
+#: src/Feedback/Testimonials.php:91
+msgid "Testimonial Type"
+msgstr "Tipo Testimonianza"
+
+#: src/Feedback/Testimonials.php:124
+msgid "Testimonials Details"
+msgstr "Dettagli testimonianza"
+
+#: src/Feedback/Testimonials.php:129
+msgid "Role"
+msgstr "Ruolo"
+
+#: src/Feedback/Testimonials.php:148 src/Feedback/Testimonials.php:392
+msgid "Rating"
+msgstr "Valutazione"
+
+#: src/Feedback/Testimonials.php:175
+msgid "Video"
+msgstr "Video"
+
+#: src/Feedback/Testimonials.php:245
+msgid "Select Category"
+msgstr "Seleziona Categoria"
+
+#: src/Feedback/Testimonial.php:48
+msgid "Select the testimonial to show"
+msgstr "Seleziona le testimonianze da mostrare"
+
+#: src/Product/Price.php:22
+msgid "Product Price"
+msgstr "Prezzo Prodotto"
+
+#: src/Product/Price.php:28
+msgid "Price"
+msgstr "Prezzo"
+
+#: src/Product/Price.php:35
+msgid "Select the product"
+msgstr "Seleziona il prodotto"
+
+#: src/Product/Price.php:38
+msgid "Template"
+msgstr "Modello"
+
+#: src/Product/Price.php:45
+msgid ""
+"The template when the product is not on sale. Use: {{price}} {{regular_price}"
+"} {{sale_price}} {{formatted}} placeholders"
+msgstr ""
+"Il template da mostrare quando il prodotto non e' in saldo. Sono disponibili "
+"i seguenti valori: {{price}} {{regular_price}} {{sale_price}} {{formatted}}"
+
+#: src/Product/Price.php:48
+msgid "Template on Sale"
+msgstr "Modello in saldo"
+
+#: src/Product/Price.php:52
+msgid ""
+"The template when the product is on sale. Use: {{price}} {{regular_price}} "
+"{{sale_price}} {{formatted}} placeholders"
+msgstr ""
+"Il template da mostrare quando il prodotto e' in saldo. Sono disponibili i "
+"seguenti valori: {{price}} {{regular_price}} {{sale_price}} {{formatted}}"
+
+#: src/Post/Link.php:20
+msgid "Post Link"
+msgstr "Collegamento a post"
+
+#: src/Forms/Input.php:18
+msgid "Form Input Data"
+msgstr "Dati inviati con il form"
+
+#: src/Forms/Input.php:25
+msgid "Data Field"
+msgstr "Campo del form:"
+
+#: src/Forms/Form.php:200
+msgid "Redirect To"
+msgstr "Effettua il redirect verso:"
+
+#: src/Forms/Form.php:205
+msgid "Redirect to this page after successful form submission"
+msgstr ""
+"Effettua il reindirizzamento a questa pagina dopo l'invio con successo del "
+"form"
+
+#: src/Images/Responsive.php:105
+msgid "Attachment"
+msgstr "Allegato"
+
+#: src/Shortcake.php:28
 msgid "Base Shortcode"
 msgstr "Shortcode Base"
 
-#: src/Feedback/Testimonial.php:20
+#: src/Shortcake.php:164
+msgid "Content"
+msgstr "Contenuto"
+
+#: src/Shortcake.php:165
+msgid "Insert content here"
+msgstr "Inserisci qui il contenuto"
+
+#: src/Content/Link.php:31 src/Images/Responsive.php:99
+msgid "Link"
+msgstr "Collegamento"
+
+#: src/Content/Link.php:37 src/Post/Link.php:30
+msgid "Post/Page to Link"
+msgstr "Pagina/Articolo da collegare"
+
+#: src/Content/Link.php:42 src/Post/Link.php:35
+msgid "Select the post to link"
+msgstr "Seleziona il post da collegare"
+
+#: src/Content/Link.php:45
+msgid "Term to link"
+msgstr "Termine tassonomia da collegare"
+
+#: src/Content/Link.php:49
+msgid "if you want to link a taxonomy term, please leave the post field blank"
+msgstr ""
+"Se vuoi effettuare un collegamento ad un termine di tassonomia, lascia il "
+"campo degli articoli vuoto"
+
+#: src/Content/Link.php:53
+msgid "Link URL"
+msgstr "URL Collegamento"
+
+#: src/Content/Link.php:56
+msgid "Select the URL to link"
+msgstr "Inserisci la URL che desideri collegare"
+
+#: src/Content/Link.php:59
+msgid "Open link in a new window"
+msgstr "Apri collegamento in una nuova finestra"
+
+#: src/Content/Link.php:64 src/Content/Section.php:32 src/Product/Price.php:55
+#: src/User/Archive.php:40 src/Countdown/ToDate.php:46
+msgid "Classes"
+msgstr "Classi CSS"
+
+#: src/Content/Link.php:75 src/Term/Thumb.php:55
+msgid "Link Label"
+msgstr "Etichetta del collegamento"
+
+#: src/Content/Index.php:21
+msgid "Go to index"
+msgstr "Vai all'indice"
+
+#: src/Content/Index.php:30
+msgid "Indexed Content"
+msgstr "Contenuto con indice"
+
+#: src/Content/Index.php:37 src/Cards/Simple.php:40 src/Cards/Preview.php:56
+#: src/Forms/Form.php:151
+msgid "Title"
+msgstr "Titolo"
+
+#: src/Content/Index.php:42
+msgid "Slug"
+msgstr "Identificativo"
+
+#: src/Content/Index.php:48 src/Content/Index.php:77
+msgid "Index group"
+msgstr "Gruppo Indice"
+
+#: src/Content/Index.php:72
+msgid "Index"
+msgstr "Indice"
+
+#: src/Content/Index.php:119
+msgid "-- Page Index --"
+msgstr "-- Indice Pagina --"
+
+#: src/Content/Section.php:16
+msgid "Section Tag"
+msgstr "Tag Section"
+
+#: src/Content/Section.php:22 src/Countdown/ToDate.php:40
+msgid "HTML ID"
+msgstr "Attributo ID in HTML"
+
+#: src/Content/Section.php:26
+msgid "The HTML id attribute value "
+msgstr "L'id HTML da assegnare"
+
+#: src/Content/Section.php:28
+msgid "section1"
+msgstr "sezione1"
+
+#: src/Content/Definition.php:14 src/Content/Definition.php:31
+msgid "Definition"
+msgstr "Definizione"
+
+#: src/Content/Definition.php:30 src/Content/Definition.php:35
+msgid "Definitions"
+msgstr "Definizioni"
+
+#: src/Content/Definition.php:65
+msgid "Select Definition"
+msgstr "Seleziona la definizione"
+
+#: src/Content/Definition.php:74
+msgid "Abbreviation"
+msgstr "Abbreviazione"
+
+#: src/Feedback/Testimonials.php:28 src/Feedback/Testimonials.php:53
+msgid "Testimonials"
+msgstr "Testimonianze"
+
+#: src/Feedback/Testimonials.php:54 src/Feedback/Testimonial.php:40
+msgid "Testimonial"
+msgstr "Testimonianza"
+
+#: src/Feedback/Testimonials.php:252
+msgid "Reviews Count"
+msgstr "Numero testimonianze"
+
+#: src/Feedback/Testimonials.php:256
+msgid "How many testimonials to show"
+msgstr "Il numero di testimonianze da mostrare"
+
+#: src/Feedback/Testimonials.php:262
+msgid "Show Load More"
+msgstr "Mostra pulsante \"Carica successivi\""
+
+#: src/Feedback/Testimonials.php:266
+msgid "Show the AJAX \"Load More\" button"
+msgstr "Mostra il pulsante di caricamento dinamico degli elementi successivi"
+
+#: src/Feedback/Testimonials.php:269 src/Post/Latest.php:59
+msgid "Offset"
+msgstr "Parti dalla N"
+
+#: src/Feedback/Testimonials.php:272
+msgid "Skip the first N testimonials"
+msgstr "Salta le primi N testimonianze"
+
+#: src/Feedback/Testimonials.php:405
+msgid "Show more testimonials"
+msgstr "Carica altre testimonianze"
+
+#: src/Feedback/Testimonial.php:23
 msgid "Single Testimonial"
 msgstr "Testimonianza Singola"
+
+#: src/Post/Latest.php:31
+msgid "Latest Posts"
+msgstr "Ultimi Articoli"
+
+#: src/Post/Latest.php:47 src/Post/Archive.php:39 src/Term/Archive.php:42
+msgid "Post Count"
+msgstr "Numero di post"
+
+#: src/Post/Latest.php:48
+msgid "The number of posts shown"
+msgstr "Il numero di post da mostrare"
+
+#: src/Post/Latest.php:60
+msgid "The number of posts to skip"
+msgstr "Numero di articoli da saltare"
+
+#: src/Post/Thumb.php:25
+msgid "Post Thumbnail"
+msgstr "Anteprima Articolo"
+
+#: src/Post/Thumb.php:31 src/User/Archive.php:33
+msgid "Select Post"
+msgstr "Seleziona Elemento"
 
 #: src/Post/Archive.php:20
 msgid "Post Archive"
 msgstr "Archivio Post"
 
+#: src/Post/Archive.php:32
+msgid "Select Post Type"
+msgstr "Seleziona il tipo di post"
+
 #: src/Post/Archive.php:75
 msgid "Post type doesn't exists"
 msgstr "La tipologia di post non esiste"
 
-#: src/Maps/Posts.php:33
-msgid "MembersMap"
-msgstr "Mappa Iscritti"
+#: src/Ads/AdSense.php:20
+msgid "AdSense AdUnit"
+msgstr "Unita pubblicitaria AdSense"
 
-#: src/Maps/Posts.php:39
-msgid "Members Count"
-msgstr "Numero iscritti"
+#: src/Ads/AdSense.php:27
+msgid "Ad Unit ID"
+msgstr "ID Unita pubblicitaria"
 
-#: src/Maps/Posts.php:43
-msgid "How many members to show"
-msgstr "Quanti iscritti mostrare"
+#: src/Ads/AdSense.php:36
+msgid "Ad Size"
+msgstr "Dimensione unità pubblicitaria"
 
-#: src/Images/Responsive.php:47
+#: src/Ads/AdSense.php:63
+#, php-format
+msgid "AdSense AdUnit Banner ID: %s"
+msgstr "Unita pubblicitaria AdSense ID: %s"
+
+#: src/Cards/PreviewPost.php:14
+msgid "Post Preview Card"
+msgstr "Box Anteprima Articolo"
+
+#: src/Cards/PreviewPost.php:24
+msgid "Select Page"
+msgstr "Seleziona la pagina"
+
+#: src/Cards/Simple.php:34
+msgid "Simple Box"
+msgstr "Box Semplice"
+
+#: src/Cards/Simple.php:44 src/Cards/Simple.php:62 src/Cards/Preview.php:60
+#: src/Forms/Form.php:155
+msgid "This title will replace the Page title"
+msgstr "Questo titolo sostituirà quello specificato nella pagina"
+
+#: src/Cards/Simple.php:46 src/Cards/Simple.php:64 src/Cards/Preview.php:62
+#: src/Forms/Form.php:157 src/User/Thumb.php:49 src/User/Single.php:40
+msgid "Insert title"
+msgstr "Inserisci titolo"
+
+#: src/Cards/Simple.php:50 src/Cards/Preview.php:66
+#: src/Images/Responsive.php:68 src/Images/Responsive.php:104
+msgid "Image"
+msgstr "Immagine"
+
+#: src/Cards/Simple.php:54 src/Cards/Simple.php:55 src/Cards/Preview.php:70
+#: src/Cards/Preview.php:71 src/Images/Responsive.php:72
+#: src/Images/Responsive.php:73
+msgid "Select Image"
+msgstr "Seleziona Immagine"
+
+#: src/Cards/Simple.php:58
+msgid "Subtitle"
+msgstr "Sottotitolo"
+
+#: src/Cards/Simple.php:68 src/Cards/Preview.php:99 src/Forms/Form.php:208
+#: src/Images/Responsive.php:115
+msgid "Custom Classes"
+msgstr "Classi Personalizzate"
+
+#: src/Cards/Preview.php:50
+msgid "Preview Card"
+msgstr "Box Anteprima"
+
+#: src/Cards/Preview.php:74 src/User/Thumb.php:53 src/User/Thumb.php:72
+#: src/User/Single.php:44 src/User/Single.php:63
+msgid "URL"
+msgstr "URL"
+
+#: src/Cards/Preview.php:77
+msgid "This URL will be used instead of Page permalink."
+msgstr "Questa URL sostituirà quella della pagina/articolo correlato"
+
+#: src/Cards/Preview.php:80 src/User/Thumb.php:79 src/User/Single.php:70
+msgid "Button Label"
+msgstr "Etichetta pulsante"
+
+#: src/Cards/Preview.php:85
+msgid "Insert button label"
+msgstr "Inserisci l'etichetta del bottone"
+
+#: src/Cards/Preview.php:89
+msgid "Open in new window"
+msgstr "Apri in una nuova finestra/scheda"
+
+#: src/Cards/Preview.php:94
+msgid "Enable Markdown"
+msgstr "Abilita la formattazione Markdown"
+
+#: src/Cards/PreviewTerm.php:23
+#, php-format
+msgid "Term Preview Card [%s]"
+msgstr "Box Anteprima Tassonomia [%s]"
+
+#: src/Cards/PreviewTerm.php:31 src/Term/Thumb.php:48 src/Term/Archive.php:35
+msgid "Select Term"
+msgstr "Seleziona elemento"
+
+#: src/Forms/ACF.php:32
+msgid "ACF Form"
+msgstr "Form ACF"
+
+#: src/Forms/ACF.php:41
+msgid "Form Group"
+msgstr "Gruppo Form"
+
+#: src/Forms/ACF.php:45
+msgid "Select the ACF Form group to display"
+msgstr "Seleziona il gruppo form ACF da mostrare"
+
+#: src/Forms/ACF.php:48
+msgid "Submit Button Label"
+msgstr "Etichetta pulsante invio"
+
+#: src/Forms/ACF.php:52
+msgid "Submit Button label text"
+msgstr "Testo etichetta pulsante invio"
+
+#: src/Forms/ACF.php:55
+msgid "Show title field"
+msgstr "Mostra il campo per il titolo"
+
+#: src/Forms/ACF.php:58
+msgid "Show the post title field"
+msgstr "Mostra il campo per il titolo dell'articolo"
+
+#: src/Forms/ACF.php:61
+msgid "Show content field"
+msgstr "Mostra campo del contenuto"
+
+#: src/Forms/ACF.php:64
+msgid "Show the post content field"
+msgstr "Mostra campo del contenuto dell'articolo"
+
+#: src/Forms/Form.php:59
+msgid "Form"
+msgstr "Modulo"
+
+#: src/Forms/Form.php:145 src/Forms/Subscribe.php:28
+msgid "Thanks for your request, we will reply as soon as possible."
+msgstr "Grazie per la tua richiesta, risponderemo il più presto possibile."
+
+#: src/Forms/Form.php:161
+msgid "Hidden"
+msgstr "Nascosto"
+
+#: src/Forms/Form.php:167
+msgid "Always Visible"
+msgstr "Sempre visibile"
+
+#: src/Forms/Form.php:171
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: src/Forms/Form.php:175
+msgid "Collapse"
+msgstr "Collapse"
+
+#: src/Forms/Form.php:180
+msgid "Open button label"
+msgstr "Etichetta pulsante apertura"
+
+#: src/Forms/Form.php:184
+msgid "The label for the lightbox open button"
+msgstr "L'etichetta per il pulsante di apertura del form"
+
+#: src/Forms/Form.php:190
+msgid "Submit button label"
+msgstr "Etichetta pulsante invio"
+
+#: src/Forms/Form.php:194
+msgid "The label for submit button"
+msgstr "L'etichetta per il pulsante di invio del form."
+
+#: src/Forms/Form.php:283 src/Forms/Form.php:291
+msgid "Close"
+msgstr "Chiudi"
+
+#: src/Forms/Download.php:26
+msgid "Whitepaper Download"
+msgstr "Scarica documenti"
+
+#: src/Forms/Download.php:34
+msgid "File to Download"
+msgstr "File da Scaricare"
+
+#: src/Forms/Download.php:39 src/Forms/Download.php:40
+msgid "Select File"
+msgstr "Seleziona File"
+
+#: src/Forms/Download.php:47
+msgid ""
+"Thanks for your request, the file you requested will be sent to your inbox."
+msgstr ""
+"Grazie le per la tua richiesta, il file che hai richiesto verrà inviato alla "
+"casella di posta che hai indicato."
+
+#: src/Forms/Contact.php:16
+msgid "Contact Form"
+msgstr "Modulo di contatto"
+
+#: src/Forms/Subscribe.php:24
+msgid "Subscribe Form"
+msgstr "Form Iscrizione"
+
+#: src/User/Thumb.php:21 src/User/Single.php:19
+msgid "Team Member"
+msgstr "Persona del Team"
+
+#: src/User/Thumb.php:43 src/User/Single.php:34
+msgid "User"
+msgstr "Utente"
+
+#: src/User/Thumb.php:58 src/User/Single.php:49
+msgid "Show role"
+msgstr "Mostra ruolo"
+
+#: src/User/Thumb.php:63 src/User/Single.php:54
+msgid "Show description"
+msgstr "Mostra descrizione"
+
+#: src/User/Thumb.php:68 src/User/Single.php:59
+msgid "Link destination"
+msgstr "Collegamento"
+
+#: src/User/Thumb.php:73 src/User/Single.php:64
+msgid "Mail"
+msgstr "Email"
+
+#: src/User/Thumb.php:74 src/User/Single.php:65
+msgid "Popup"
+msgstr "Popup"
+
+#: src/User/Thumb.php:75 src/User/Single.php:66
+msgid "Profile"
+msgstr "Profilo"
+
+#: src/User/Thumb.php:84 src/User/Single.php:75
+msgid "Contact me"
+msgstr "Contattami"
+
+#: src/User/Thumb.php:96 src/User/Single.php:87
+msgid "User not found"
+msgstr "Nessun utente trovato"
+
+#: src/User/Archive.php:20
+msgid "User List"
+msgstr "Lista utenti"
+
+#: src/Images/Responsive.php:37
+msgid "Responsive Image"
+msgstr "Immagine responsive"
+
+#: src/Images/Responsive.php:44
 msgid "Image Caption"
 msgstr "Didascalia immagine"
 
-#: src/Images/Responsive.php:61
+#: src/Images/Responsive.php:58
 msgid "Thumbnail"
 msgstr "Piccola"
 
-#: src/Images/Responsive.php:62
+#: src/Images/Responsive.php:59
 msgid "Medium"
 msgstr "Media"
 
-#: src/Images/Responsive.php:63
+#: src/Images/Responsive.php:60
 msgid "Large"
 msgstr "Grande"
 
-#: src/Images/Responsive.php:64
+#: src/Images/Responsive.php:61
 msgid "Full Size"
 msgstr "Dimensioni Originali"
 
-#: src/Images/Responsive.php:124
-msgid "Link URL"
-msgstr "URL Collegamento"
+#: src/Images/Responsive.php:76
+msgid "Alignment"
+msgstr "Allineamento"
 
-#: src/Images/Responsive.php:127
-msgid "Select the URL to link"
-msgstr "Inserisci la URL che desideri collegare"
+#: src/Images/Responsive.php:82 src/Images/Responsive.php:103
+msgid "None"
+msgstr "Nessuno"
 
-#: src/Images/Responsive.php:130
-msgid "Open link in a new window"
-msgstr "Apri collegamento in una nuova finestra"
+#: src/Images/Responsive.php:86
+msgid "Align Left"
+msgstr "Allinea a Sinsitra"
+
+#: src/Images/Responsive.php:90
+msgid "Align Center"
+msgstr "Allinea al Centro"
+
+#: src/Images/Responsive.php:94
+msgid "Align Right"
+msgstr "Allinea a Destra"
+
+#: src/Images/Responsive.php:109
+msgid "Size"
+msgstr "Dimensione"
 
 #: src/Countdown/ToDate.php:22 src/Countdown/ToDate.php:28
 msgid "CountDown"
@@ -100,14 +623,6 @@ msgstr ""
 msgid "%D days %H:%M:%S"
 msgstr "%D giorni %H:%M:%S"
 
-#: src/User/Archive.php:20
-msgid "User List"
-msgstr "Lista utenti"
-
-#: src/Term/Archive.php:29
-msgid "Term Archive"
-msgstr "Archivio Termini"
-
 #: src/Term/Thumb.php:42
 msgid "Term Thumbnail"
 msgstr "Immagini Termine"
@@ -120,175 +635,9 @@ msgstr "Termine non trovato"
 msgid "Taxonomy not found"
 msgstr "La Tassonomia non e' stata trovata"
 
-#: src/Forms/Subscribe.php:18
-msgid "Subscribe Form"
-msgstr "Form Iscrizione"
-
-#: src/Shortcake.php:162
-msgid "Content"
-msgstr "Contenuto"
-
-#: src/Shortcake.php:163
-msgid "Insert content here"
-msgstr "Inserisci qui il contenuto"
-
-#: src/Feedback/Testimonial.php:54 src/Feedback/Testimonials.php:105
-msgid "Reviews Count"
-msgstr "Numero testimonianze"
-
-#: src/Feedback/Testimonial.php:58 src/Feedback/Testimonials.php:109
-msgid "How many testimonials to show"
-msgstr "Il numero di testimonianze da mostrare"
-
-#: src/Feedback/Testimonial.php:64 src/Feedback/Testimonials.php:115
-msgid "Show Load More"
-msgstr "Mostra pulsante \"Carica successivi\""
-
-#: src/Feedback/Testimonial.php:68 src/Feedback/Testimonials.php:119
-msgid "Show the AJAX \"Load More\" button"
-msgstr "Mostra il pulsante di caricamento dinamico degli elementi successivi"
-
-#: src/Feedback/Testimonial.php:71 src/Feedback/Testimonials.php:122
-#: src/Post/Latest.php:59
-msgid "Offset"
-msgstr "Parti dalla N"
-
-#: src/Feedback/Testimonial.php:74 src/Feedback/Testimonials.php:125
-msgid "Skip the first N testimonials"
-msgstr "Salta le primi N testimonianze"
-
-#: src/Feedback/Testimonial.php:150 src/Feedback/Testimonials.php:208
-msgid "Show more testimonials"
-msgstr "Carica altre testimonianze"
-
-#: src/Feedback/Testimonials.php:23 src/Feedback/Testimonials.php:45
-msgid "Testimonials"
-msgstr "Testimonianze"
-
-#: src/Feedback/Testimonials.php:46
-msgid "Testimonial"
-msgstr "Testimonianza"
-
-#: src/Post/Archive.php:32
-msgid "Select Post Type"
-msgstr "Seleziona il tipo di post"
-
-#: src/Post/Archive.php:39 src/Post/Latest.php:47 src/Term/Archive.php:42
-msgid "Post Count"
-msgstr "Numero di post"
-
-#: src/Post/Latest.php:31
-msgid "Latest Posts"
-msgstr "Ultimi Articoli"
-
-#: src/Post/Latest.php:48
-msgid "The number of posts shown"
-msgstr "Il numero di post da mostrare"
-
-#: src/Post/Latest.php:60
-msgid "The number of posts to skip"
-msgstr "Numero di articoli da saltare"
-
-#: src/Post/Thumb.php:25
-msgid "Post Thumbnail"
-msgstr "Anteprima Articolo"
-
-#: src/Post/Thumb.php:31 src/User/Archive.php:29
-msgid "Select Post"
-msgstr "Seleziona Elemento"
-
-#: src/Content/Section.php:16
-msgid "Section Tag"
-msgstr "Tag Section"
-
-#: src/Content/Section.php:22 src/Countdown/ToDate.php:40
-msgid "HTML ID"
-msgstr "Attributo ID in HTML"
-
-#: src/Content/Section.php:26
-msgid "The HTML id attribute value "
-msgstr "L'id HTML da assegnare"
-
-#: src/Content/Section.php:28
-msgid "section1"
-msgstr "sezione1"
-
-#: src/Content/Section.php:32 src/Content/Link.php:51
-#: src/Images/Responsive.php:135 src/Countdown/ToDate.php:46
-#: src/User/Archive.php:36
-msgid "Classes"
-msgstr "Classi CSS"
-
-#: src/Content/Definition.php:14 src/Content/Definition.php:31
-msgid "Definition"
-msgstr "Definizione"
-
-#: src/Content/Definition.php:30 src/Content/Definition.php:35
-msgid "Definitions"
-msgstr "Definizioni"
-
-#: src/Content/Definition.php:65
-msgid "Select Definition"
-msgstr "Seleziona la definizione"
-
-#: src/Content/Definition.php:74
-msgid "Abbreviation"
-msgstr "Abbreviazione"
-
-#: src/Content/Index.php:21
-msgid "Go to index"
-msgstr "Vai all'indice"
-
-#: src/Content/Index.php:30
-msgid "Indexed Content"
-msgstr "Contenuto con indice"
-
-#: src/Content/Index.php:37 src/Cards/Preview.php:56 src/Cards/Simple.php:40
-#: src/Forms/Form.php:138
-msgid "Title"
-msgstr "Titolo"
-
-#: src/Content/Index.php:42
-msgid "Slug"
-msgstr "Identificativo"
-
-#: src/Content/Index.php:48 src/Content/Index.php:77
-msgid "Index group"
-msgstr "Gruppo Indice"
-
-#: src/Content/Index.php:72
-msgid "Index"
-msgstr "Indice"
-
-#: src/Content/Index.php:119
-msgid "-- Page Index --"
-msgstr "-- Indice Pagina --"
-
-#: src/Content/Link.php:29
-msgid "Link"
-msgstr "Collegamento"
-
-#: src/Content/Link.php:35 src/Images/Responsive.php:108
-msgid "Post/Page to Link"
-msgstr "Pagina/Articolo da collegare"
-
-#: src/Content/Link.php:40 src/Images/Responsive.php:113
-msgid "Select the post to link"
-msgstr "Seleziona il post da collegare"
-
-#: src/Content/Link.php:43 src/Images/Responsive.php:116
-msgid "Term to link"
-msgstr "Termine tassonomia da collegare"
-
-#: src/Content/Link.php:47 src/Images/Responsive.php:120
-msgid "if you want to link a taxonomy term, please leave the post field blank"
-msgstr ""
-"Se vuoi effettuare un collegamento ad un termine di tassonomia, lascia il "
-"campo degli articoli vuoto"
-
-#: src/Content/Link.php:62 src/Term/Thumb.php:55
-msgid "Link Label"
-msgstr "Etichetta del collegamento"
+#: src/Term/Archive.php:29
+msgid "Term Archive"
+msgstr "Archivio Termini"
 
 #: src/Maps/Directions.php:22
 msgid "Google Maps Directions"
@@ -350,272 +699,17 @@ msgstr "Navigatore"
 msgid "Show Route"
 msgstr "Mostra indicazioni"
 
-#: src/Images/Responsive.php:40
-msgid "Responsive Image"
-msgstr "Immagine responsive"
+#: src/Maps/Posts.php:33
+msgid "MembersMap"
+msgstr "Mappa Iscritti"
 
-#: src/Images/Responsive.php:71 src/Cards/Preview.php:66
-#: src/Cards/Simple.php:50
-msgid "Image"
-msgstr "Immagine"
+#: src/Maps/Posts.php:39
+msgid "Members Count"
+msgstr "Numero iscritti"
 
-#: src/Images/Responsive.php:75 src/Images/Responsive.php:76
-#: src/Cards/Preview.php:70 src/Cards/Preview.php:71 src/Cards/Simple.php:54
-#: src/Cards/Simple.php:55
-msgid "Select Image"
-msgstr "Seleziona Immagine"
-
-#: src/Images/Responsive.php:79
-msgid "Alignment"
-msgstr "Allineamento"
-
-#: src/Images/Responsive.php:85
-msgid "None"
-msgstr "Nessuno"
-
-#: src/Images/Responsive.php:89
-msgid "Align Left"
-msgstr "Allinea a Sinsitra"
-
-#: src/Images/Responsive.php:93
-msgid "Align Center"
-msgstr "Allinea al Centro"
-
-#: src/Images/Responsive.php:97
-msgid "Align Right"
-msgstr "Allinea a Destra"
-
-#: src/Images/Responsive.php:102
-msgid "Size"
-msgstr "Dimensione"
-
-#: src/Cards/PreviewPost.php:14
-msgid "Post Preview Card"
-msgstr "Box Anteprima Articolo"
-
-#: src/Cards/PreviewPost.php:24
-msgid "Select Page"
-msgstr "Seleziona la pagina"
-
-#: src/Cards/Preview.php:50
-msgid "Preview Card"
-msgstr "Box Anteprima"
-
-#: src/Cards/Preview.php:60 src/Cards/Simple.php:44 src/Cards/Simple.php:62
-#: src/Forms/Form.php:142
-msgid "This title will replace the Page title"
-msgstr "Questo titolo sostituirà quello specificato nella pagina"
-
-#: src/Cards/Preview.php:62 src/Cards/Simple.php:46 src/Cards/Simple.php:64
-#: src/User/Single.php:40 src/User/Thumb.php:49 src/Forms/Form.php:144
-msgid "Insert title"
-msgstr "Inserisci titolo"
-
-#: src/Cards/Preview.php:74 src/User/Single.php:44 src/User/Single.php:63
-#: src/User/Thumb.php:53 src/User/Thumb.php:72
-msgid "URL"
-msgstr "URL"
-
-#: src/Cards/Preview.php:77
-msgid "This URL will be used instead of Page permalink."
-msgstr "Questa URL sostituirà quella della pagina/articolo correlato"
-
-#: src/Cards/Preview.php:80 src/User/Single.php:70 src/User/Thumb.php:79
-msgid "Button Label"
-msgstr "Etichetta pulsante"
-
-#: src/Cards/Preview.php:85
-msgid "Insert button label"
-msgstr "Inserisci l'etichetta del bottone"
-
-#: src/Cards/Preview.php:89
-msgid "Open in new window"
-msgstr "Apri in una nuova finestra/scheda"
-
-#: src/Cards/Preview.php:94
-msgid "Enable Markdown"
-msgstr "Abilita la formattazione Markdown"
-
-#: src/Cards/Preview.php:99 src/Cards/Simple.php:68 src/Forms/Form.php:187
-msgid "Custom Classes"
-msgstr "Classi Personalizzate"
-
-#: src/Cards/PreviewTerm.php:23
-#, php-format
-msgid "Term Preview Card [%s]"
-msgstr "Box Anteprima Tassonomia [%s]"
-
-#: src/Cards/PreviewTerm.php:31 src/Term/Archive.php:35 src/Term/Thumb.php:48
-msgid "Select Term"
-msgstr "Seleziona elemento"
-
-#: src/Cards/Simple.php:34
-msgid "Simple Box"
-msgstr "Box Semplice"
-
-#: src/Cards/Simple.php:58
-msgid "Subtitle"
-msgstr "Sottotitolo"
-
-#: src/Ads/AdSense.php:20
-msgid "AdSense AdUnit"
-msgstr "Unita pubblicitaria AdSense"
-
-#: src/Ads/AdSense.php:27
-msgid "Ad Unit ID"
-msgstr "ID Unita pubblicitaria"
-
-#: src/Ads/AdSense.php:36
-msgid "Ad Size"
-msgstr "Dimensione unità pubblicitaria"
-
-#: src/Ads/AdSense.php:63
-#, php-format
-msgid "AdSense AdUnit Banner ID: %s"
-msgstr "Unita pubblicitaria AdSense ID: %s"
-
-#: src/User/Single.php:19 src/User/Thumb.php:21
-msgid "Team Member"
-msgstr "Persona del Team"
-
-#: src/User/Single.php:34 src/User/Thumb.php:43
-msgid "User"
-msgstr "Utente"
-
-#: src/User/Single.php:49 src/User/Thumb.php:58
-msgid "Show role"
-msgstr "Mostra ruolo"
-
-#: src/User/Single.php:54 src/User/Thumb.php:63
-msgid "Show description"
-msgstr "Mostra descrizione"
-
-#: src/User/Single.php:59 src/User/Thumb.php:68
-msgid "Link destination"
-msgstr "Collegamento"
-
-#: src/User/Single.php:64 src/User/Thumb.php:73
-msgid "Mail"
-msgstr "Email"
-
-#: src/User/Single.php:65 src/User/Thumb.php:74
-msgid "Popup"
-msgstr "Popup"
-
-#: src/User/Single.php:66 src/User/Thumb.php:75
-msgid "Profile"
-msgstr "Profilo"
-
-#: src/User/Single.php:75 src/User/Thumb.php:84
-msgid "Contact me"
-msgstr "Contattami"
-
-#: src/User/Single.php:87 src/User/Thumb.php:96
-msgid "User not found"
-msgstr "Nessun utente trovato"
-
-#: src/Forms/ACF.php:32
-msgid "ACF Form"
-msgstr "Form ACF"
-
-#: src/Forms/ACF.php:41
-msgid "Form Group"
-msgstr "Gruppo Form"
-
-#: src/Forms/ACF.php:45
-msgid "Select the ACF Form group to display"
-msgstr "Seleziona il gruppo form ACF da mostrare"
-
-#: src/Forms/ACF.php:48
-msgid "Submit Button Label"
-msgstr "Etichetta pulsante invio"
-
-#: src/Forms/ACF.php:52
-msgid "Submit Button label text"
-msgstr "Testo etichetta pulsante invio"
-
-#: src/Forms/ACF.php:55
-msgid "Show title field"
-msgstr "Mostra il campo per il titolo"
-
-#: src/Forms/ACF.php:58
-msgid "Show the post title field"
-msgstr "Mostra il campo per il titolo dell'articolo"
-
-#: src/Forms/ACF.php:61
-msgid "Show content field"
-msgstr "Mostra campo del contenuto"
-
-#: src/Forms/ACF.php:64
-msgid "Show the post content field"
-msgstr "Mostra campo del contenuto dell'articolo"
-
-#: src/Forms/Form.php:57
-msgid "Form"
-msgstr "Modulo"
-
-#: src/Forms/Form.php:132 src/Forms/Contact.php:23 src/Forms/Subscribe.php:22
-msgid "Thanks for your request, we will reply as soon as possible."
-msgstr "Grazie per la tua richiesta, risponderemo il più presto possibile."
-
-#: src/Forms/Form.php:148
-msgid "Hidden"
-msgstr "Nascosto"
-
-#: src/Forms/Form.php:154
-msgid "Always Visible"
-msgstr "Sempre visibile"
-
-#: src/Forms/Form.php:158
-msgid "Lightbox"
-msgstr "Lightbox"
-
-#: src/Forms/Form.php:162
-msgid "Collapse"
-msgstr "Collapse"
-
-#: src/Forms/Form.php:167
-msgid "Open button label"
-msgstr "Etichetta pulsante apertura"
-
-#: src/Forms/Form.php:171
-msgid "The label for the lightbox open button"
-msgstr "L'etichetta per il pulsante di apertura del form"
-
-#: src/Forms/Form.php:177
-msgid "Submit button label"
-msgstr "Etichetta pulsante invio"
-
-#: src/Forms/Form.php:181
-msgid "The label for submit button"
-msgstr "L'etichetta per il pulsante di invio del form."
-
-#: src/Forms/Form.php:251 src/Forms/Form.php:259
-msgid "Close"
-msgstr "Chiudi"
-
-#: src/Forms/Contact.php:19
-msgid "Contact Form"
-msgstr "Modulo di contatto"
-
-#: src/Forms/Download.php:32
-msgid "Whitepaper Download"
-msgstr "Scarica documenti"
-
-#: src/Forms/Download.php:40
-msgid "File to Download"
-msgstr "File da Scaricare"
-
-#: src/Forms/Download.php:45 src/Forms/Download.php:46
-msgid "Select File"
-msgstr "Seleziona File"
-
-#: src/Forms/Download.php:53
-msgid ""
-"Thanks for your request, the file you requested will be sent to your inbox."
-msgstr ""
-"Grazie le per la tua richiesta, il file che hai richiesto verrà inviato alla "
-"casella di posta che hai indicato."
+#: src/Maps/Posts.php:43
+msgid "How many members to show"
+msgstr "Quanti iscritti mostrare"
 
 #. Name of the plugin
 msgid "Silverback Shortcakes"
