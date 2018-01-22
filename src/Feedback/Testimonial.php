@@ -11,8 +11,7 @@ class Testimonial extends Shortcake {
 	public $post_type = 'testimonial';
 	public $icon = 'dashicons-thumbs-up';	
 	public $query_args = array();
-	public $register_cpt = false;
-	
+
 	public $classes = array('single-testimonial', 'testimonial');
 
 	public static $defaults = array(
@@ -26,10 +25,6 @@ class Testimonial extends Shortcake {
 	static function register( $options = array() ) {
 
 		$instance = parent::register( $options );
-
-		if ( $instance->register_cpt ) {
-			add_action( 'init', array( $instance, 'register_cpts' ) );
-		}
 
 		return $instance;
 	}
@@ -84,12 +79,27 @@ class Testimonial extends Shortcake {
 
 				while ( $testimonials->have_posts() ) : $testimonials->next_post();
 
-					$output .= '<blockquote ' . $this->renderClasses( $this->getClasses($attr) ) . '>';
-					$output .=		apply_filters( 'the_content', $testimonials->post->post_content );
+					$video = get_field('video', $testimonials->post->ID );
+					$rating = get_field('rating', $testimonials->post->ID);
+
+					$output .= '<blockquote ' . $this->renderClasses( get_post_class('', $testimonials->post) ) .  ' >';
+					$output .= apply_filters( 'the_content', $testimonials->post->post_content );
 					$output .= '	<footer class="author">';
 					$output .= '		<cite class="name">' . get_the_title( $testimonials->post ) . '</cite>';
-					$output .= '		<div class="picture">' . get_the_post_thumbnail( $testimonials->post->ID, 'small' ) . '</div>';
-					$output .= '		<span class="role">' . get_field( 'author_role', $testimonials->post->ID ) . '</span>';
+					
+					if ( $video ) :
+						$output .= $video;
+					else:
+						$output .= '	<div class="picture">' . get_the_post_thumbnail( $testimonials->post->ID, 'small' ) . '</div>';
+					endif;
+					
+					$output .= '		<span class="role">' . get_field( 'role', $testimonials->post->ID ) . '</span>';
+					
+					if( $rating ) :
+						$output .= '	<div class="rating ' . esc_attr('rating-' . $rating) . '>';
+						$output .= '	<span class="screen-reader-text">' . __('Rating', 'svbk-shortcakes') . ': ' . esc_html($rating) . '</span>';
+					endif;					
+					
 					$output .= '	</footer>';
 					$output .= '</blockquote>';
 
