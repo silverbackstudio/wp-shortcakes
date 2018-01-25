@@ -91,11 +91,7 @@ class Price extends Shortcake {
 	}	
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
-		
-		global $product;
-		
-		$orig_product = $product;
-		
+
 		$output = parent::renderOutput( $attr, $content, $shortcode_tag );
 		
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
@@ -120,8 +116,6 @@ class Price extends Shortcake {
 			array_values( $prices ), 
 			urldecode($template)
 		) );
-
-		$product = $orig_product;
 
 		return $output;
 	}	
