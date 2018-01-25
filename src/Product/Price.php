@@ -91,11 +91,9 @@ class Price extends Shortcake {
 	}	
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
-		
+
 		global $product;
-		
-		$orig_product = $product;
-		
+
 		$output = parent::renderOutput( $attr, $content, $shortcode_tag );
 		
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
@@ -103,25 +101,26 @@ class Price extends Shortcake {
 		if( !function_exists('wc_get_product') ) {
 			return $output;
 		}
+		
 		if( $attr['product_id'] ) {
-			$product = wc_get_product( $attr['product_id'] );
+			$theproduct = wc_get_product( $attr['product_id'] );
+		} else {
+			$theproduct = $product;	
 		}
 		
-		if( !$product ) {
+		if( !$theproduct ) {
 			return $output;	
 		}
 
-		$prices = $this->getPrices( $product );	
+		$prices = $this->getPrices( $theproduct );	
 
-		$template = ( $attr['template_sale'] && $this->isOnSale($prices, $product) ) ? $attr['template_sale'] : $attr['template'];
+		$template = ( $attr['template_sale'] && $this->isOnSale($prices, $theproduct) ) ? $attr['template_sale'] : $attr['template'];
 		
 		$output['content'] = do_shortcode( str_replace( 
 			array_map( array($this, 'wrapReplacement'), array_keys( $prices )), 
 			array_values( $prices ), 
 			urldecode($template)
 		) );
-
-		$product = $orig_product;
 
 		return $output;
 	}	
