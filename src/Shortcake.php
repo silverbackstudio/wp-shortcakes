@@ -212,7 +212,11 @@ abstract class Shortcake {
 
 		$output_html = '';
 
-		foreach ( $order as $part ) {
+		foreach ( $order as $key_part => $part ) {
+
+			if ( is_array( $part ) ) {
+				$part = $key_part;
+			}
 
 			if ( ! array_key_exists( $part, $output ) ) {
 				continue;
