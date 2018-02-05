@@ -21,10 +21,10 @@ class Downloads extends Shortcake {
 		'downloads' => [
 			'linkBegin',
 			'name',
+			'filetype',
+			'size',			
 			'caption',
 			'description',
-			'filetype',
-			'size',
 			'linkEnd',
 		],
 		'wrapperEnd',
