@@ -22,7 +22,9 @@ abstract class Shortcake {
 		'content',
 	);
 	
-	public $staticOutput = array();
+	public $staticOutput = array(
+		'content' => ''
+	);
 
 	public function title() {
 		return __( 'Base Shortcode', 'svbk-shortcakes' );
