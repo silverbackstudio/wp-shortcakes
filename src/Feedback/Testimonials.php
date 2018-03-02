@@ -283,14 +283,16 @@ class Testimonials extends Shortcake {
 			$attr['offset']  = $attr['offset'] + $attr['count'] * ($attr['paged'] - 1);
 		} 
 
-		$query_args = array_merge(array(
-			'post_type' => $this->post_type,
-			'post_status' => 'publish',
-			'orderby' => 'date',
-			'posts_per_page' => $attr['count'],
-			'paged' => $attr['paged'],
-			'offset' => $attr['offset'],
-		), $this->query_args );
+		$query_args = array_merge(
+			array(
+				'post_type' => $this->post_type,
+				'post_status' => 'publish',
+				'orderby' => 'date',
+				'posts_per_page' => $attr['count'],
+				'paged' => $attr['paged'],
+				'offset' => $attr['offset'],
+			), 
+		$this->query_args );
 		
 		if( $this->taxonomy  && $attr['type'] ) {
 			$query_args['tax_query'] = array(
@@ -331,7 +333,7 @@ class Testimonials extends Shortcake {
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
 		$testimonials = new WP_Query( $this->getQueryArgs( $attr ) );
-
+		
 		if ( $testimonials->have_posts() ) {
 
 			$html_data_atts = '';
@@ -356,7 +358,7 @@ class Testimonials extends Shortcake {
 				$output .= '<aside ' . $this->renderClasses( $this->getClasses( $attr, isset($term) ? $term : null ) ) . ' ' . $html_data_atts . '>';
 			}
 
-			if ( ! empty($template)  ) {
+			if ( ! empty($template) ) {
 
 				ob_start();
 
@@ -366,7 +368,9 @@ class Testimonials extends Shortcake {
 
 				$output .= ob_get_contents();
 				ob_end_clean();
-
+				
+				wp_reset_postdata();
+				
 			} else {
 
 				while ( $testimonials->have_posts() ) : $testimonials->next_post();
@@ -397,9 +401,6 @@ class Testimonials extends Shortcake {
 
 				endwhile;
 			}
-
-			wp_reset_query();
-			wp_reset_postdata();
 
 			if ( $attr['load_more'] && (intval( $attr['paged'] ) < $testimonials->max_num_pages) ) {
 				$output .= '<button class="button loadmore">' . __( 'Show more testimonials', 'svbk-shortcakes' ) . '</button>';
