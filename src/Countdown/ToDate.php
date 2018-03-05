@@ -3,7 +3,9 @@ namespace Svbk\WP\Shortcakes\Countdown;
 
 use Svbk\WP\Shortcakes\Shortcake;
 use Svbk\WP\Helpers;
-
+use DateInterval;
+use DateTime;
+use DateTimeImmutable;
 
 class ToDate extends Shortcake {
     
@@ -13,6 +15,7 @@ class ToDate extends Shortcake {
 
 	public static $defaults = array(
 		'date' => '',
+		'recurrence' => '',
 		'format' => '',
 		'id' => '',
 		'class' => '',
@@ -30,6 +33,12 @@ class ToDate extends Shortcake {
 					'type'   => 'text',
 					'description' => sprintf( __( 'Insert date in the dd-mm-YYYY format, or one of the accepted by <a href="%s">PHP strtotime</a>', 'svbk-shortcakes' ), 'http://php.net/manual/en/function.strtotime.php' ),
 				),
+				'recurrence' => array(
+					'label'  => esc_html__( 'Recurrence', 'svbk-shortcakes' ),
+					'attr'   => 'recurrence',
+					'type'   => 'text',
+					'description' => sprintf( sprintf( __( 'Insert the recurrence period (ex. 3M: 3 months, 1D: 1 day, T5M: 1 minutes, 2MT10M: 2 months and 10 minutes, etc) or one of the accepted by <a href="%s">PHP DateInterval</a>', 'svbk-shortcakes' ), 'http://php.net/manual/en/dateinterval.construct.php' ) ),
+				),				
 				'format' => array(
 					'label'  => esc_html__( 'Format', 'svbk-shortcakes' ),
 					'attr'   => 'format',
@@ -71,8 +80,40 @@ class ToDate extends Shortcake {
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
-        $date = strtotime($attr['date']);
+        $date = new DateTime($attr['date']);
         $id = $attr['id'] ?: ('countdown-' . $index); 
+        
+        
+    	if( $attr['recurrence'] ) {
+	        try {
+		       	$recurrence = new DateInterval('P' . $attr['recurrence'] );	
+	        } catch( Exception $e ) {
+	        	$recurrence = null;
+	        }
+    	}
+       
+        if( !empty( $recurrence ) ) {
+        
+	        $now = new DateTime('now');        	
+        	
+	        while( $date <= $now )  {
+	        	
+				if ( version_compare(PHP_VERSION, '5.6.0') >= 0) {
+				    $check_date = DateTimeImmutable::createFromMutable($date);
+				} else {
+				    $check_date = DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s.uP', $date->format('Y-m-d\TH:i:s.uP'));
+				}
+				
+	        	$date->add( $recurrence );
+
+				//Check if there has been no increment
+				if ( ! ($date > $check_date) ) {
+					break;
+				}
+	        	
+	        }
+	        
+        }
 
         $format = $attr['format'] ?: __('%D days %H:%M:%S', 'svbk-shortcakes');
 
@@ -82,7 +123,7 @@ class ToDate extends Shortcake {
             (function($){
                 $(document).ready(function(){
                     $("#' . $id .'")
-                    .countdown("' . date('Y/m/d', $date) . '", function(event) {
+                    .countdown("' . $date->format('Y/m/d') . '", function(event) {
                         $(this).text(
                             event.strftime(\'' . $format . '\')
                         );
