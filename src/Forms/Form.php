@@ -26,8 +26,7 @@ class Form extends Shortcake {
 
 	public $confirmMessage = '';
 
-	public $recipientEmail = 'webmaster@silverbackstudio.it';
-	public $recipientName = 'Webmaster';
+	public $formParams = array();
 
 	public $hardRedirect = false;
 	public $redirectTo;
@@ -59,9 +58,11 @@ class Form extends Shortcake {
 		return __( 'Form', 'svbk-shortcakes' );
 	}
 
-	public static function register( $options = array() ) {
+	public static function register( $options = array(), $form_properties = array() ) {
 
 		$instance = parent::register( $options );
+
+		$instance->formParams = $form_properties;
 
 		add_action( 'init', array( $instance, 'processSubmission' ) );
 
@@ -222,10 +223,7 @@ class Form extends Shortcake {
 		$form->action = $this->action;
 		$form->submitUrl = $this->submitUrl();
 
-		if ( $set_send_params ) {
-			$form->recipientEmail = $this->recipientEmail;
-			$form->recipientName = $this->recipientName;
-		}
+		self::configure( $form, $this->formParams );
 
 		return $form;
 	}

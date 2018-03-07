@@ -4,8 +4,6 @@ namespace Svbk\WP\Shortcakes\Forms;
 
 class Contact extends Subscribe {
 
-	public $md_template = '';
-
 	public $shortcode_id = 'svbk-contact-form';
 	public $field_prefix = 'scf';
 	public $action = 'svbk_contact_form';
@@ -14,17 +12,6 @@ class Contact extends Subscribe {
 
 	public function title() {
 		return __( 'Contact Form', 'svbk-shortcakes' );
-	}
-
-	protected function getForm( $set_send_params = false ) {
-
-		$form = parent::getForm( $set_send_params );
-
-		if ( $set_send_params ) {
-			$form->templateName = $this->md_template;
-		}
-
-		return $form;
 	}
 
 }

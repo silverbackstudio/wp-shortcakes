@@ -35,27 +35,31 @@ abstract class Shortcake {
 	}
 
 	public function __construct( $properties ) {
-
+		self::configure( $this, $properties );
+	}
+	
+	protected static function configure( &$target, $properties ) {
+		
 		foreach ( $properties as $property => $value ) {
-			if ( ! property_exists( $this, $property ) ) {
+			if ( ! property_exists( $target, $property ) ) {
 				continue;
 			}
 
-			if ( 'defaults' === $property ) {
-				$this->defaults = array_merge( $this->defaults, $value );
+			if ( is_array( $target->$property ) ) {
+				$target->$property = array_merge( $target->$property, (array)$value );
 			} else {
-				$this->$property = $value;
+				$target->$property = $value;
 			}
 		}
-
+		
 	}
 
 	public function register_scripts(){ }
 
 	public static function castSelect( &$value, $key ) {
 		$value = array(
-		'label' => $value,
-		'value' => $key,
+			'label' => $value,
+			'value' => $key,
 		);
 	}
 

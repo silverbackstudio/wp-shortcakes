@@ -47,19 +47,4 @@ class Download extends Subscribe {
 		return $this->confirmMessage ?: __( 'Thanks for your request, the file you requested will be sent to your inbox.', 'svbk-shortcakes' );
 	}
 
-	protected function getForm( $set_send_params = false ) {
-
-		$form = parent::getForm( $set_send_params );
-
-		if ( $set_send_params ) {
-			
-			// ensure to send content to user for retrocompatibility.
-			if (!$this->md_sender_template && $this->md_template ) {
-				$form->senderTemplateName = $this->md_template;
-			}			
-		}
-
-		return $form;
-	}
-
 }
