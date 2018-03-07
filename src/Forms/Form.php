@@ -20,7 +20,7 @@ class Form extends Shortcake {
 	public $icon = 'dashicons-forms';
 	public $field_prefix = 'frm';
 	public $action = 'svbk_form';
-	public $formClass = '\Svbk\WP\Helpers\Form\Submission';
+	public $formClass = '\Svbk\WP\Forms\Submission';
 
 	public $classes = array();
 

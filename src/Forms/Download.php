@@ -19,7 +19,7 @@ class Download extends Subscribe {
 	public $shortcode_id = 'whitepaper_dl';
 	public $field_prefix = 'wdl';
 	public $action = 'sendwhitepaper';
-	public $formClass = '\Svbk\WP\Helpers\Form\Download';
+	public $formClass = '\Svbk\WP\Forms\Download';
 	public $classes = array( 'whitepaper-dl', 'form-download' );
 
 	public function title() {
