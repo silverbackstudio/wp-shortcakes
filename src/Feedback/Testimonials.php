@@ -72,7 +72,7 @@ class Testimonials extends Shortcake {
 			'rewrite' => true,
 			'query_var' => true,
 			'menu_icon' => 'dashicons-admin-comments',
-			'supports' => array( 'title', 'editor', 'thumbnail',  'excerpt', 'author' ),
+			'supports' => array( 'title', 'editor', 'thumbnail',  'excerpt', 'author', 'page-attributes' ),
 			'taxonomies' => array(),
 		);
 
@@ -287,7 +287,7 @@ class Testimonials extends Shortcake {
 			array(
 				'post_type' => $this->post_type,
 				'post_status' => 'publish',
-				'orderby' => 'date',
+				'orderby' => 'menu_order date',
 				'posts_per_page' => $attr['count'],
 				'paged' => $attr['paged'],
 				'offset' => $attr['offset'],
