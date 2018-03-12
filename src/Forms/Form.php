@@ -71,6 +71,13 @@ class Form extends Shortcake {
 		return $instance;
 	}
 
+	public function register_scripts(){
+		
+		parent::register_scripts();
+		
+		\Svbk\WP\Forms\Form::enqueue_scripts();
+	}
+
 	protected function submitUrl() {
 
 		return home_url(
@@ -127,7 +134,7 @@ class Form extends Shortcake {
 
 	}
 
-	public function formatResponse( $errors, $form, $redirect_to = false ) {
+	public function formatResponse( $errors, $form, $redirect_url = null ) {
 
 		if ( ! empty( $errors ) ) {
 
