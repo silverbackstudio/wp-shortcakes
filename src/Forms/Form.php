@@ -32,6 +32,8 @@ class Form extends Shortcake {
 	public $redirectTo;
 	public $redirectData = array();	
 
+	public static $form_errors = array();
+
 	public $renderOrder = array(
 		'wrapperBegin',
 		'openButton',
@@ -87,24 +89,45 @@ class Form extends Shortcake {
 			return;
 		}
 
-		if ( ! defined( 'DOING_AJAX' ) ) {
+		if( filter_input( INPUT_POST, 'ajax', FILTER_VALIDATE_BOOLEAN ) && ! defined( 'DOING_AJAX' ) ) {
 			define( 'DOING_AJAX', true );
 		}
 
-		@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
-		@header( 'Content-Type: application/json' );
-		send_nosniff_header();
-
 		$form = $this->getForm( true );
 		$form->processSubmission();
-
 		$errors = $form->getErrors();
 
-		echo $this->formatResponse( $errors, $form );
-		die();
+		$redirect_to = filter_input( INPUT_POST, $form->fieldName('redirect_to'), FILTER_VALIDATE_INT );
+		$redirect_url = null;
+		
+		if ( $redirect_to ) {
+			$redirect_url = get_permalink( $redirect_to );
+
+			if( !empty($this->redirectData) ) {
+				$redirect_data = array_intersect_key( $form->getInput(), array_flip($this->redirectData) );
+				$redirect_data = base64_encode( serialize( $redirect_data ) );
+				$redirect_url = add_query_arg( 'fdata', $redirect_data, $redirect_url );
+			}
+		}
+
+		if( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
+			@header( 'Content-Type: application/json' );
+			send_nosniff_header();
+			echo $this->formatResponse( $errors, $form, $redirect_url );
+			exit;
+		}
+
+		self::$form_errors = $errors;
+
+		if( empty( $errors ) && $redirect_url ) {
+			wp_redirect( $redirect_url );
+			exit;
+		}
+
 	}
 
-	public function formatResponse( $errors, $form ) {
+	public function formatResponse( $errors, $form, $redirect_to = false ) {
 
 		if ( ! empty( $errors ) ) {
 
@@ -124,19 +147,8 @@ class Form extends Shortcake {
 			'message' => $this->confirmMessage(),
 		);
 		
-		$redirect_to = filter_input( INPUT_POST, $form->fieldName('redirect_to'), FILTER_VALIDATE_INT );
-
-		if ( $redirect_to ) {
-			
-			$redirectUrl = get_permalink( $redirect_to );
-
-			if( !empty($this->redirectData) ) {
-				$redirectData = array_intersect_key( $form->getInput(), array_flip($this->redirectData) );
-				$redirectData = base64_encode( serialize( $redirectData ) );
-				$redirectUrl = add_query_arg( 'fdata', $redirectData, $redirectUrl );
-			}
-			
-			$response['redirect'] = $redirectUrl;
+		if ( $redirect_url ) {
+			$response['redirect'] = $redirect_url;
 		}
 
 		return json_encode( $response );
@@ -222,6 +234,10 @@ class Form extends Shortcake {
 		$form->field_prefix = $this->field_prefix;
 		$form->action = $this->action;
 		$form->submitUrl = $this->submitUrl();
+
+		if( !empty( self::$form_errors  ) ) {
+			$form->errors = self::$form_errors;
+		}
 
 		self::configure( $form, $this->formParams );
 
