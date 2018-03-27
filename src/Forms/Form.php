@@ -27,6 +27,7 @@ class Form extends Shortcake {
 	public $confirmMessage = '';
 
 	public $formParams = array();
+	public static $formDefaults = array();
 
 	public $hardRedirect = false;
 	public $redirectTo;
@@ -63,8 +64,7 @@ class Form extends Shortcake {
 	public static function register( $options = array(), $form_properties = array() ) {
 
 		$instance = parent::register( $options );
-
-		$instance->formParams = $form_properties;
+		$instance->formParams = array_merge( Form::$formDefaults, $form_properties );
 
 		add_action( 'init', array( $instance, 'processSubmission' ) );
 
@@ -76,6 +76,10 @@ class Form extends Shortcake {
 		parent::register_scripts();
 		
 		\Svbk\WP\Forms\Form::enqueue_scripts();
+	}
+	
+	public static function setFormDefaults( $params ){
+		Form::$formDefaults = $params;
 	}
 
 	protected function submitUrl() {
