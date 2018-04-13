@@ -106,7 +106,7 @@ abstract class Shortcake {
 		return  'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 
-	static function register( $options = array() ) {
+	public static function register( $options = array() ) {
 
 		$class = get_called_class();
 

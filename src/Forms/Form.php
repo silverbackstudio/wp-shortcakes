@@ -21,12 +21,12 @@ class Form extends Shortcake {
 	public $field_prefix = 'frm';
 	public $action = 'svbk_form';
 	public $formClass = '\Svbk\WP\Forms\Submission';
+	public $form;
 
 	public $classes = array();
 
 	public $confirmMessage = '';
 
-	public $formParams = array();
 	public static $formDefaults = array();
 
 	public $hardRedirect = false;
@@ -64,11 +64,25 @@ class Form extends Shortcake {
 	public static function register( $options = array(), $form_properties = array() ) {
 
 		$instance = parent::register( $options );
-		$instance->formParams = array_merge( Form::$formDefaults, $form_properties );
 
-		add_action( 'init', array( $instance, 'processSubmission' ) );
+		//Retrocompatibility with 4.1
+		$instance->setForm( $form_properties );
+
+		add_action( 'init', array( $instance, 'processSubmission' ), 100 );
 
 		return $instance;
+	}
+
+	public function setForm( $form = array() ){
+		
+		if( is_array( $form ) ) {
+			$formClass = $this->formClass;
+			$this->form = new $formClass( $form );
+		} else {
+			$this->form = $form;
+		}
+		
+		return $this->form;
 	}
 
 	public function register_scripts(){
@@ -77,26 +91,13 @@ class Form extends Shortcake {
 		
 		\Svbk\WP\Forms\Form::enqueue_scripts();
 	}
-	
-	public static function setFormDefaults( $params ){
-		Form::$formDefaults = $params;
-	}
-
-	protected function submitUrl() {
-
-		return home_url(
-			add_query_arg(
-				array(
-					'svbkSubmit' => $this->action,
-				)
-			)
-		);
-
-	}
 
 	public function processSubmission() {
 
-		if ( filter_input( INPUT_GET, 'svbkSubmit', FILTER_SANITIZE_SPECIAL_CHARS ) !== $this->action ) {
+		$form = $this->getForm();
+		$submitAction = filter_input( INPUT_GET, 'svbkSubmit', FILTER_SANITIZE_SPECIAL_CHARS );
+
+		if ( $submitAction !== $form->action ) {
 			return;
 		}
 
@@ -104,7 +105,6 @@ class Form extends Shortcake {
 			define( 'DOING_AJAX', true );
 		}
 
-		$form = $this->getForm( true );
 		$form->processSubmission();
 		$errors = $form->getErrors();
 
@@ -236,23 +236,13 @@ class Form extends Shortcake {
 		);
 	}
 
-	protected function getForm( $set_send_params = false ) {
-
-		$formClass = $this->formClass;
-
-		$form = new $formClass;
-
-		$form->field_prefix = $this->field_prefix;
-		$form->action = $this->action;
-		$form->submitUrl = $this->submitUrl();
+	protected function getForm() {
 
 		if( !empty( self::$form_errors  ) ) {
 			$form->errors = self::$form_errors;
 		}
 
-		self::configure( $form, $this->formParams );
-
-		return $form;
+		return $this->form;
 	}
 
 	public function containerClasses( $attr ) {
@@ -282,7 +272,7 @@ class Form extends Shortcake {
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 		$form = $this->getForm();
 
-		$output = array_merge( parent::renderOutput( $attr, $content, $shortcode_tag ), $form->renderParts( $this->action, $attr ) );
+		$output = array_merge( parent::renderOutput( $attr, $content, $shortcode_tag ), $form->renderParts( $attr ) );
 
 		$output['wrapperBegin'] = '<div class="' . join( ' ', $this->containerClasses( $attr ) ) . '" id="' . $this->containerId( $attr, $index ) . '">';
 

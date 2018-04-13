@@ -5,8 +5,6 @@ namespace Svbk\WP\Shortcakes\Forms;
 class Subscribe extends Form {
 
 	public $shortcode_id = 'svbk_subscribe_form';
-	public $field_prefix = 'scf';
-	public $action = 'svbk_subscribe_form';
 	public $formClass = '\Svbk\WP\Forms\Subscribe';
 	public $classes = array( 'form-subscribe' );
 
