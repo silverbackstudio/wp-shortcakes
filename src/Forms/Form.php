@@ -66,7 +66,10 @@ class Form extends Shortcake {
 		$instance = parent::register( $options );
 
 		//Retrocompatibility with 4.1
-		$instance->setForm( $form_properties );
+		if ( ! empty( $form_properties ) ) {
+		    _deprecated_argument( __FUNCTION__, '4.2.0', 'Please use the setForm method' );
+    		$instance->setForm( $form_properties );
+		}
 
 		add_action( 'init', array( $instance, 'processSubmission' ), 100 );
 
@@ -144,7 +147,7 @@ class Form extends Shortcake {
 
 			return json_encode(
 				array(
-					'prefix' => $this->field_prefix,
+					'prefix' => $form->field_prefix,
 					'status' => 'error',
 					'errors' => $errors,
 				)
@@ -260,7 +263,7 @@ class Form extends Shortcake {
 	}
 
 	public function containerId( $attr, $index ) {
-		return $this->field_prefix . '-container-' . $index;
+		return $this->shortcode_id . '-container-' . $index;
 	}
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
@@ -293,17 +296,17 @@ class Form extends Shortcake {
 
 		switch ( $attr['hidden'] ) {
 			case 'collapse':
-				$output['openButton'] = '<a class="button svbk-show-content svbk-collapse-open" href="#' . $this->field_prefix . '-container-' . $index . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+				$output['openButton'] = '<a class="button svbk-show-content svbk-collapse-open" href="#' . $this->containerId( $attr, $index ) . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
 				$output['hiddenBegin'] = '<div class="svbk-collapse-container">';
-				$output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->field_prefix . '-container-' . $index . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
+				$output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->containerId( $attr, $index ) . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
 				$output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-collapse-content">';
 				$output['hiddenContentEnd'] = '</div>';
 				$output['hiddenEnd'] = '</div>';
 				break;
 			case 'lightbox':
-				$output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->field_prefix . '-container-' . $index . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+				$output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->containerId( $attr, $index ) . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
 				$output['hiddenBegin'] = '<div class="svbk-lightbox-container">';
-				$output['closeButton'] = '<a class="button svbk-hide-content svbk-lightbox-close" href="#' . $this->field_prefix . '-container-' . $index . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
+				$output['closeButton'] = '<a class="button svbk-hide-content svbk-lightbox-close" href="#' . $this->containerId( $attr, $index ) . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
 				$output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-lightbox-content">';
 				$output['hiddenContentEnd'] = '</div>';
 				$output['hiddenEnd'] = '</div>';
