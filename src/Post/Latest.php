@@ -17,6 +17,7 @@ class Latest extends Shortcake {
 	public $template_base = 'template-parts/thumb';
 
 	public static $defaults = array(
+		'category' => 0,
 		'count' => 3,
 		'offset' => 0,
 	);
@@ -43,6 +44,13 @@ class Latest extends Shortcake {
 
 	public function fields() {
 		return array(
+			'category' => array(
+				'label'       => esc_html__( 'Category', 'svbk-shortcakes' ),
+				'description' => esc_html__( 'The filter the posts by category', 'svbk-shortcakes' ),
+				'attr'        => 'category',
+				'type'     => 'term_select',
+				'taxonomy' => 'category',
+			),			
 			'count' => array(
 				'label'       => esc_html__( 'Post Count', 'svbk-shortcakes' ),
 				'description' => esc_html__( 'The number of posts shown', 'svbk-shortcakes' ),
@@ -71,18 +79,22 @@ class Latest extends Shortcake {
 
 	protected function getQueryArgs( $attr ) {
 
-		if ( ($attr['offset'] > 0) && ! empty( $attr['paged'] ) ) {
-			$attr['offset']  = $attr['count'] * $attr['paged'];
-		}
-
-		return array_merge(array(
+		$args = array(
 			'post_type' => $this->post_type,
 			'post_status' => 'publish',
 			'orderby' => 'date',
 			'posts_per_page' => $attr['count'],
-			'offset' => $attr['offset'],
-		), $this->query_args );
+		);
 
+		if ( ($attr['offset'] > 0) && ! empty( $attr['paged'] ) ) {
+			$args['offset']  = $attr['count'] * $attr['paged'];
+		}
+
+		if ( $attr['category']  ) {
+			$args['cat'] = intval( $attr['category'] );
+		}
+		
+		return array_merge($args, $this->query_args );
 	}
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
