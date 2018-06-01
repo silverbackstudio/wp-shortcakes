@@ -8,15 +8,7 @@ use Exception;
 
 class Form extends Shortcake {
 
-	public $defaults = array(
-		'title' => '',
-		'hidden' => false,
-		'privacy_link' => '',
-		'file' => '',
-		'open_button_label' => 'Open',
-		'submit_button_label' => 'Submit',
-		'redirect_to' => '',
-	);
+	public $defaults = array();
 
 	public $shortcode_id = 'svbk-form';
 	public $icon = 'dashicons-forms';
@@ -62,6 +54,15 @@ class Form extends Shortcake {
 	public static function register( $options = array(), $form_properties = array() ) {
 
 		$instance = parent::register( $options );
+
+		$instance->defaults = array_merge( array(
+			'title' => '',
+			'hidden' => false,
+			'privacy_link' => '',
+			'open_button_label' => __('Open', 'svbk-shortcakes'),
+			'submit_button_label' => __( 'Submit', 'svbk-shortcakes') ,
+			'redirect_to' => '',
+		), $instance->defaults );
 
 		//Retrocompatibility with 4.1
 		if ( ! empty( $form_properties ) ) {

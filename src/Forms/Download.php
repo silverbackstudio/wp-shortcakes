@@ -6,19 +6,18 @@ use Svbk\WP\Helpers\MailChimp;
 
 class Download extends Subscribe {
 
-	public $defaults = array(
-		'title' => '',
-		'hidden' => false,
-		'privacy_link' => '',
-		'file' => '',
-		'open_button_label' => 'Open',
-		'submit_button_label' => 'Submit',
-		'redirect_to' => '',
-	);
-	
 	public $shortcode_id = 'whitepaper_dl';
 	public $formClass = '\Svbk\WP\Forms\Download';
 	public $classes = array( 'whitepaper-dl', 'form-download' );
+
+	public static function register( $options = array(), $form_properties = array() ) {
+
+		$instance = parent::register( $options );
+		
+		$instance->defaults['file'] = '';
+		
+		return $instance;
+	}
 
 	public function title() {
 		return __( 'Whitepaper Download', 'svbk-shortcakes' );
