@@ -3,6 +3,8 @@
 namespace Svbk\WP\Shortcakes\Forms;
 
 use Svbk\WP\Shortcakes\Shortcake;
+use Svbk\WP\Forms;
+use Exception;
 
 class Form extends Shortcake {
 
@@ -27,10 +29,6 @@ class Form extends Shortcake {
 
 	public $confirmMessage = '';
 
-	public static $formDefaults = array();
-
-	public $hardRedirect = false;
-	public $redirectTo;
 	public $redirectData = array();	
 
 	public static $form_errors = array();
@@ -71,8 +69,6 @@ class Form extends Shortcake {
     		$instance->setForm( $form_properties );
 		}
 
-		add_action( 'init', array( $instance, 'processSubmission' ), 100 );
-
 		return $instance;
 	}
 
@@ -81,8 +77,12 @@ class Form extends Shortcake {
 		if( is_array( $form ) ) {
 			$formClass = $this->formClass;
 			$this->form = new $formClass( $form );
-		} else {
+		} elseif ( is_string( $form ) && Forms\Manager::has( $form ) ) {
+			$this->form = Forms\Manager::get( $form );
+		} elseif( is_a( $form,  Form::class ) ) {
 			$this->form = $form;
+		} else {
+			throw new Exception( 'Unable to setup form' );
 		}
 		
 		return $this->form;
@@ -93,83 +93,6 @@ class Form extends Shortcake {
 		parent::register_scripts();
 		
 		\Svbk\WP\Forms\Form::enqueue_scripts();
-	}
-
-	public function processSubmission() {
-
-		$form = $this->getForm();
-		$submitAction = filter_input( INPUT_GET, 'svbkSubmit', FILTER_SANITIZE_SPECIAL_CHARS );
-
-		if ( $submitAction !== $form->action ) {
-			return;
-		}
-
-		if( filter_input( INPUT_POST, 'ajax', FILTER_VALIDATE_BOOLEAN ) && ! defined( 'DOING_AJAX' ) ) {
-			define( 'DOING_AJAX', true );
-		}
-
-		$form->processSubmission();
-		$errors = $form->getErrors();
-
-		$redirect_to = filter_input( INPUT_POST, $form->fieldName('redirect_to'), FILTER_VALIDATE_INT );
-		$redirect_url = null;
-		
-		if ( $redirect_to ) {
-			$redirect_url = get_permalink( $redirect_to );
-
-			if( !empty($this->redirectData) ) {
-				$redirect_data = array_intersect_key( $form->getInput(), array_flip($this->redirectData) );
-				$redirect_data = base64_encode( serialize( $redirect_data ) );
-				$redirect_url = add_query_arg( 'fdata', $redirect_data, $redirect_url );
-			}
-		}
-
-		if( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-			@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
-			@header( 'Content-Type: application/json' );
-			send_nosniff_header();
-			echo $this->formatResponse( $errors, $form, $redirect_url );
-			exit;
-		}
-
-		self::$form_errors = $errors;
-
-		if( empty( $errors ) && $redirect_url ) {
-			wp_redirect( $redirect_url );
-			exit;
-		}
-
-	}
-
-	public function formatResponse( $errors, $form, $redirect_url = null ) {
-
-		if ( ! empty( $errors ) ) {
-
-			return json_encode(
-				array(
-					'prefix' => $form->field_prefix,
-					'status' => 'error',
-					'errors' => $errors,
-				)
-			);
-
-		}
-
-		$response = array(
-			'prefix' => $form->field_prefix,
-			'status' => 'success',
-			'message' => $this->confirmMessage(),
-		);
-		
-		if ( $redirect_url ) {
-			$response['redirect'] = $redirect_url;
-		}
-
-		return json_encode( $response );
-	}
-
-	public function confirmMessage() {
-		return $this->confirmMessage ?: __( 'Thanks for your request, we will reply as soon as possible.', 'svbk-shortcakes' );
 	}
 
 	public function fields() {

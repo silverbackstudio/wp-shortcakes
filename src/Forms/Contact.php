@@ -12,4 +12,6 @@ class Contact extends Subscribe {
 		return __( 'Contact Form', 'svbk-shortcakes' );
 	}
 
+
+
 }
