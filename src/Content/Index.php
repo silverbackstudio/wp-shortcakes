@@ -15,7 +15,7 @@ class Index extends Shortcake {
 
 	public function __construct( $properties ) {
 
-		$instance->template = '<section id="%1$s" class="index-section">'
+		$this->template = '<section id="%1$s" class="index-section">'
 			. '<header class="section-header">'
 				. '<div class="section-title"><span class="index-counter">%4$s</span><h3  >&nbsp;%2$s</h3></div>'
 				. '<a class="anchor to-top" href="#index" title="' . __( 'Go to index', 'svbk-shortcakes' ) . '">&uarr;</a>'
