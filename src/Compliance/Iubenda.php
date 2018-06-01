@@ -2,6 +2,7 @@
 namespace Svbk\WP\Shortcakes\Compliance;
 
 use Svbk\WP\Shortcakes\Shortcake;
+use Svbk\WP\Helpers;
 
 class Iubenda extends Shortcake {
 
@@ -10,8 +11,8 @@ class Iubenda extends Shortcake {
 	public $classes = array( 'iubenda-embed' );
 
 	public static $defaults = array(
-		'policy_id' => '',
-		'policy_type' => 'privacy',
+		'policy_id' => null,
+		'policy_type' => 'privacy-policy',
 		'extended' => 1,
 		'remove_styles' => 1,
 		'strip_headings' => 1,
@@ -39,8 +40,8 @@ class Iubenda extends Shortcake {
 				'attr'   => 'policy_type',
 				'type'   => 'radio',
 				'options' => array(
-				    'privacy' => esc_html__( 'Privacy', 'svbk-shortcakes' ),
-				    'cookie' => esc_html__( 'Cookie', 'svbk-shortcakes' )
+				    'privacy-policy' => esc_html__( 'Privacy', 'svbk-shortcakes' ),
+				    'cookie-policy' => esc_html__( 'Cookie', 'svbk-shortcakes' )
 				),
 			),
 			'remove_styles' => array(
@@ -68,52 +69,13 @@ class Iubenda extends Shortcake {
 
 	}
 	
-	public function getPolicy( $id, $type = 'privacy-policy' , $markup = true ){
-	   
-	    $cache_key = 'iubenda_policy';
-	    
-	    $url = 'https://www.iubenda.com/api/privacy-policy/';
-	    
-        $url .= $id;
-        $cache_key .= '_' . $id;
-        
-        if( $type && ( 'privacy-policy' !== $type ) ) {
-            $url .= '/' . $type;
-            $cache_key .= '_' . str_replace('-', '_', $type );
-        }
-        
-        if( $markup ) {
-            $url .= '/no-markup';
-            $cache_key .= '_no_markup';
-        }
-
-	    $policy_html = get_transient( $cache_key );
-
-        if ( ! $policy_html ) {
-            // It wasn't there, so regenerate the data and save the transient
-    	    $request = wp_remote_get( $url );
-    	    
-            if( !is_wp_error( $request ) ) {
-                $response =  wp_remote_retrieve_body( $request );
-                $response = json_decode( $response, true );
-            }
-            
-            if( !empty($response['content']) ) {
-                $policy_html = $response['content'];
-                set_transient( $cache_key, $policy_html, 12 * HOUR_IN_SECONDS );
-            }
-        }	    
-        
-        return $policy_html;
-	}
-
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
 		
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
         $output = '';
 
-        $policy_html = $this->getPolicy( $attr['policy_id'], $attr['policy_type'] . '-policy', $attr['remove_styles'] );
+        $policy_html = Helpers\Compliance\Iubenda::getInstance()->getPolicy( array_filter( $attr ) );
 
         if( $attr['strip_headings'] ) {
             $policy_html = preg_replace('/<h1[^>]*>([\s\S]*?)<\/h1[^>]*>/', '', $policy_html, 1);
