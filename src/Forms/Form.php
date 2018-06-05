@@ -89,13 +89,6 @@ class Form extends Shortcake {
 		return $this->form;
 	}
 
-	public function register_scripts(){
-		
-		parent::register_scripts();
-		
-		\Svbk\WP\Forms\Form::enqueue_scripts();
-	}
-
 	public function fields() {
 		return array(
 			'title' => array(
