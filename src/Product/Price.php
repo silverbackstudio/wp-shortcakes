@@ -119,7 +119,7 @@ class Price extends Shortcake {
 		$output['content'] = do_shortcode( str_replace( 
 			array_map( array($this, 'wrapReplacement'), array_keys( $prices )), 
 			array_values( $prices ), 
-			urldecode($template)
+			$template
 		) );
 
 		return $output;

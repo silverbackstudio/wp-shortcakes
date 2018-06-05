@@ -79,7 +79,6 @@ class Thumb extends Shortcake {
 				'label'  => esc_html__( 'Button Label', 'svbk-shortcakes' ),
 				'attr'   => 'button_label',
 				'type'   => 'text',
-				'encode' => true,
 				'meta'   => array(
 					'placeholder' => esc_html__( 'Contact me', 'svbk-shortcakes' ),
 				),
@@ -120,18 +119,20 @@ class Thumb extends Shortcake {
 			$output .= '    <p class="author-description" >' . $description . '</p>';
 		}
 
+		$button_label = $attr['button_label'];
+
 		switch ( $attr['link_dest'] ) {
 			case 'dialog':
-				$output .= '        <button class="action-button dialog-open">' . $attr['button_label'] . '</button>';
+				$output .= '        <button class="action-button dialog-open">' . $button_label . '</button>';
 				break;
 			case 'url':
-				$output .= '        <a href="' . esc_attr( $attr['url'] ) . '" class="action-button">' . $attr['button_label'] . '</a>';
+				$output .= '        <a href="' . esc_attr( $attr['url'] ) . '" class="action-button">' . $button_label . '</a>';
 				break;
 			case 'mail':
-				$output .= '        <a href="mailto:' . $user->user_email . '" class="action-button">' . $attr['button_label'] . '</a>';
+				$output .= '        <a href="mailto:' . $user->user_email . '" class="action-button">' . $button_label . '</a>';
 				break;
 			case 'profile':
-				$output .= '        <a href="' . get_author_posts_url( $user->ID ) . '" class="action-button">' . $attr['button_label'] . '</a>';
+				$output .= '        <a href="' . get_author_posts_url( $user->ID ) . '" class="action-button">' . $button_label . '</a>';
 				break;
 		}
 

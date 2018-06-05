@@ -252,7 +252,6 @@ class Testimonials extends Shortcake {
 				'label'  => __( 'Reviews Count', 'svbk-shortcakes' ),
 				'attr'   => 'count',
 				'type'   => 'number',
-				'encode' => true,
 				'description' => esc_html__( 'How many testimonials to show', 'svbk-shortcakes' ),
 				'meta'   => array(
 					'placeholder' => self::$defaults['count'],

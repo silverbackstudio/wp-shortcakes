@@ -22,7 +22,7 @@ class Section extends Shortcake {
 					'label'  => esc_html__( 'HTML ID', 'svbk-shortcakes' ),
 					'attr'   => 'id',
 					'type'   => 'text',
-					'encode' => true,
+					'encode' => false,
 					'description' => esc_html__( 'The HTML id attribute value ', 'svbk-shortcakes' ),
 					'meta'   => array(
 						'placeholder' => esc_html__( 'section1', 'svbk-shortcakes' ),
@@ -50,7 +50,7 @@ class Section extends Shortcake {
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
 
-		return '<section id="' . esc_attr( $attr['classes'] ) . '" class="' . esc_attr( $attr['classes'] ) . '">' . $content . '</section>';
+		return '<section id="' . esc_attr( $attr['id'] ) . '" class="' . esc_attr( $attr['classes'] ) . '">' . $content . '</section>';
 
 	}
 

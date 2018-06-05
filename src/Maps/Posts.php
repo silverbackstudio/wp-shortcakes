@@ -39,7 +39,6 @@ class Posts extends Shortcake {
 				'label'  => esc_html__( 'Members Count', 'svbk-shortcakes' ),
 				'attr'   => 'count',
 				'type'   => 'number',
-				'encode' => true,
 				'description' => esc_html__( 'How many members to show', 'svbk-shortcakes' ),
 				'meta'   => array(
 				'placeholder' => self::$defaults['count'],
@@ -72,7 +71,7 @@ class Posts extends Shortcake {
 		$locations  = array();
 		while ( $members->have_posts() ) { $members->next_post();
 
-						$location = get_field( $this->locationAttribute, $members->post->ID );
+			$location = get_field( $this->locationAttribute, $members->post->ID );
 
 			if ( $location ) {
 				$locations[] = array(

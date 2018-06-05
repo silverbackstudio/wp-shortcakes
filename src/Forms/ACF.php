@@ -48,7 +48,6 @@ class ACF extends Shortcake {
 				'label'  => esc_html__( 'Submit Button Label', 'svbk-shortcakes' ),
 				'attr'   => 'submit_value',
 				'type'   => 'text',
-				'encode' => true,
 				'description' => esc_html__( 'Submit Button label text', 'svbk-shortcakes' ),
 			),
 			array(

@@ -136,6 +136,8 @@ abstract class Shortcake {
 			$shortcode_tag = $this->shortcode_id;
 		}
 
+		array_walk( $attr, array( $this, 'field_decode' ) );
+
 		return shortcode_atts( $defaults, $attr, $shortcode_tag );
 	}
 
@@ -189,6 +191,13 @@ abstract class Shortcake {
 		$parts = (array) $parts;
 
 		$this->renderOrder = Renderer::arrayInsert( array_diff( $this->renderOrder, $parts ), $parts, $after, $position );
+	}
+
+	public static function field_decode( &$value ) {
+		
+		$value = html_entity_decode( urldecode( $value ) );
+		
+		return $value;
 	}
 
 	protected function renderOutput( $attr, $content, $shortcode_tag ) {

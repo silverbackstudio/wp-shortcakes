@@ -70,7 +70,6 @@ class Single extends Shortcake {
 					'label'  => esc_html__( 'Button Label', 'svbk-shortcakes' ),
 					'attr'   => 'button_label',
 					'type'   => 'text',
-					'encode' => true,
 					'meta'   => array(
 						'placeholder' => esc_html__( 'Contact me', 'svbk-shortcakes' ),
 					),

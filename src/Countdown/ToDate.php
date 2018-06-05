@@ -43,6 +43,7 @@ class ToDate extends Shortcake {
 					'label'  => esc_html__( 'Format', 'svbk-shortcakes' ),
 					'attr'   => 'format',
 					'type'   => 'text',
+					'encode' => true,
 					'description' => sprintf( __( 'Insert date format as specified in <a href="%s">JS strftime</a>', 'svbk-shortcakes' ), 'http://hilios.github.io/jQuery.countdown/documentation.html#format' ),
 				),	
 				'id' => array(
@@ -126,7 +127,7 @@ class ToDate extends Shortcake {
                 $(document).ready(function(){
                     $("#' . $id .'")
                     .countdown("' . $date->format('Y/m/d') . '", function(event) {
-                        $(this).text(
+                        $(this).html(
                             event.strftime(\'' . $format . '\')
                         );
                     });

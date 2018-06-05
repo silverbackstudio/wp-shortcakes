@@ -173,7 +173,7 @@ class Downloads extends Shortcake {
 		$output['wrapperBegin'] = '<section id="' . $id . '" ' . $this->renderClasses( $this->getClasses( $attr ) ) . ' >';
 		
 		if( $attr['title'] ) {
-			$output['title'] = '<h2>' . urldecode($attr['title']) . '</h2>';
+			$output['title'] = '<h2>' . $attr['title'] . '</h2>';
 		}
 		
 		$single_template = $this->renderOrder['downloads'];

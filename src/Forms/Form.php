@@ -134,7 +134,6 @@ class Form extends Shortcake {
 				'label'  => esc_html__( 'Submit button label', 'svbk-shortcakes' ),
 				'attr'   => 'submit_button_label',
 				'type'   => 'text',
-				'encode' => true,
 				'description' => esc_html__( 'The label for submit button', 'svbk-shortcakes' ),
 				'meta'   => array(
 					'placeholder' => $this->defaults['submit_button_label'],
@@ -213,7 +212,7 @@ class Form extends Shortcake {
 
 		switch ( $attr['hidden'] ) {
 			case 'collapse':
-				$output['openButton'] = '<a class="button svbk-show-content svbk-collapse-open" href="#' . $this->containerId( $attr, $index ) . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+				$output['openButton'] = '<a class="button svbk-show-content svbk-collapse-open" href="#' . $this->containerId( $attr, $index ) . '" >' . $attr['open_button_label'] . '</a>';
 				$output['hiddenBegin'] = '<div class="svbk-collapse-container">';
 				$output['closeButton'] = '<a class="button svbk-hide-content svbk-collapse-close" href="#' . $this->containerId( $attr, $index ) . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
 				$output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-collapse-content">';
@@ -221,7 +220,7 @@ class Form extends Shortcake {
 				$output['hiddenEnd'] = '</div>';
 				break;
 			case 'lightbox':
-				$output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->containerId( $attr, $index ) . '" >' . urldecode( $attr['open_button_label'] ) . '</a>';
+				$output['openButton'] = '<a class="button svbk-show-content svbk-lightbox-open" href="#' . $this->containerId( $attr, $index ) . '" >' . $attr['open_button_label'] . '</a>';
 				$output['hiddenBegin'] = '<div class="svbk-lightbox-container">';
 				$output['closeButton'] = '<a class="button svbk-hide-content svbk-lightbox-close" href="#' . $this->containerId( $attr, $index ) . '" ><span>' . __( 'Close', 'svbk-shortcakes' ) . '</span></a>';
 				$output['hiddenContentBegin'] = '<div class="svbk-form-content svbk-lightbox-content">';
