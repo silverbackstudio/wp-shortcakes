@@ -12,6 +12,7 @@ class Index extends Shortcake {
 	public $sections = array();
 	public $current_index = array();
 	public $template;
+	public $post_types; //added
 
 	public function __construct( $properties ) {
 
