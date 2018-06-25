@@ -2,6 +2,8 @@
 
 namespace Svbk\WP\Shortcakes\User;
 
+use Svbk\WP\Shortcakes\Shortcake;
+
 class Thumb extends Shortcake {
 
 	public $shortcode_id = 'team_member';
