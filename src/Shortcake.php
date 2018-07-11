@@ -130,15 +130,17 @@ abstract class Shortcake {
 
 	abstract function fields();
 
-	protected function shortcode_atts( $defaults, $attr = array(), $shortcode_tag = '' ) {
+	protected function shortcode_atts( $defaults, $attributes = array(), $shortcode_tag = '' ) {
 
 		if ( ! $shortcode_tag ) {
 			$shortcode_tag = $this->shortcode_id;
 		}
 
-		array_walk( $attr, array( $this, 'field_decode' ) );
+		$attributes = shortcode_atts( $defaults, $attributes, $shortcode_tag );
 
-		return shortcode_atts( $defaults, $attr, $shortcode_tag );
+		array_walk( $attributes, array( $this, 'field_decode' ) );
+
+		return $attributes;
 	}
 
 	public function ui_args() {
