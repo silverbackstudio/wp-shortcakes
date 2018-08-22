@@ -172,7 +172,18 @@ class Responsive extends Shortcake {
 		}
 
 		$output['wrapperBegin'] = '<figure ' . $this->renderClasses( $this->getClasses( $attr ) ) . '">';
-		$output['image'] = wp_get_attachment_image( $attr['image_id'], $attr['size'] );
+		
+		if ( is_numeric($attr['size']) ){
+		    $size = array( intval( $attr['size']), intval( $attr['size']) );
+		} elseif ( strpos($attr['size'], ",") > 0){
+			$size = explode(',', $attr['size'], 2 );
+		}
+		else {
+			$size = $attr['size'];
+		}
+		   
+		
+		$output['image'] = wp_get_attachment_image( $attr['image_id'], $size );
 
 		if ( $content ) {
 			$output['caption'] = '<figcaption class="caption">' . $output['content'] . '</figcaption>';

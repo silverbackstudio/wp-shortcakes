@@ -38,7 +38,7 @@ class PreviewPost extends Preview {
 		unset( $defaults['url'] );
 		$defaults['linked_post']  = '';
 
-		return shortcode_atts( $defaults, $attr, $shortcode_tag );
+		return parent::shortcode_atts( $defaults, $attr, $shortcode_tag );
 	}
 
 	protected function getLink( $attr ) {
