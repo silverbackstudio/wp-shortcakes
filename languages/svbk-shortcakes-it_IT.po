@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Silverback Shortcakes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 16:07+0000\n"
-"PO-Revision-Date: 2018-08-28 16:17+0000\n"
+"POT-Creation-Date: 2018-08-29 09:34+0000\n"
+"PO-Revision-Date: 2018-08-29 09:36+0000\n"
 "Last-Translator: silverbackstudio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -93,7 +93,7 @@ msgid "Classes"
 msgstr "Classi CSS"
 
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Content/Link.php:31
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:99
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:144
 msgid "Link"
 msgstr "Collegamento"
 
@@ -274,39 +274,38 @@ msgstr "Seleziona la definizione"
 msgid "Abbreviation"
 msgstr "Abbreviazione"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:37
-msgid "Responsive Image"
-msgstr "Immagine responsive"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:23
+msgid "Picture"
+msgstr "Picture"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:44
-msgid "Image Caption"
-msgstr "Didascalia immagine"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:55
+msgid "Fallback Image"
+msgstr "Immagine di Fallback"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:58
-msgid "Thumbnail"
-msgstr "Piccola"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:56
+msgid ""
+"The image printed in non supporting browser or if not any other source is "
+"matching"
+msgstr ""
+"L'immagine stampata nei browser che non supportano i tag picture o se "
+"nessuna delle altre source non corrispondono"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:59
-msgid "Medium"
-msgstr "Media"
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:57
+msgid "Size for Fallback"
+msgstr "Dimensione del Fallback"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:60
-msgid "Large"
-msgstr "Grande"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:61
-msgid "Full Size"
-msgstr "Dimensioni Originali"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:68
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:104
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:66
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:107
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:149
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:66
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:50
 msgid "Image"
 msgstr "Immagine"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:72
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:73
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:70
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:71
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:111
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:112
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:70
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:71
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:54
@@ -314,36 +313,85 @@ msgstr "Immagine"
 msgid "Select Image"
 msgstr "Seleziona Immagine"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:76
-msgid "Alignment"
-msgstr "Allineamento"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:82
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:103
-msgid "None"
-msgstr "Nessuno"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:86
-msgid "Align Left"
-msgstr "Allinea a Sinsitra"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:90
-msgid "Align Center"
-msgstr "Allinea al Centro"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:94
-msgid "Align Right"
-msgstr "Allinea a Destra"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:105
-msgid "Attachment"
-msgstr "Allegato"
-
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:109
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:75
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:115
 msgid "Size"
 msgstr "Dimensione"
 
-#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:115
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Picture.php:82
+msgid "Media"
+msgstr "Media"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:32
+msgid "Responsive Image"
+msgstr "Immagine responsive"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:39
+msgid "Image Caption"
+msgstr "Didascalia immagine"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:53
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:84
+msgid "Thumbnail"
+msgstr "Piccola"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:54
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:85
+msgid "Medium"
+msgstr "Media"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:55
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:86
+msgid "Large"
+msgstr "Grande"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:56
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:87
+msgid "Full Size"
+msgstr "Dimensioni Originali"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:70
+msgid "-- Default (Not Set) --"
+msgstr "-- Non impostato --"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:74
+msgid "Native"
+msgstr "Sistema"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:78
+msgid "Custom"
+msgstr "Perosnalizzate"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:121
+msgid "Alignment"
+msgstr "Allineamento"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:127
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:148
+msgid "None"
+msgstr "Nessuno"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:131
+msgid "Align Left"
+msgstr "Allinea a Sinsitra"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:135
+msgid "Align Center"
+msgstr "Allinea al Centro"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:139
+msgid "Align Right"
+msgstr "Allinea a Destra"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:150
+msgid "Attachment"
+msgstr "Allegato"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:154
+msgid "Alternative Text (alt)"
+msgstr "Testo Alternativo (alt)"
+
+#: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Images/Responsive.php:159
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Forms/Form.php:151
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Preview.php:99
 #: ../../../../vendor/silverbackstudio/wp-shortcakes/src/Cards/Simple.php:68
