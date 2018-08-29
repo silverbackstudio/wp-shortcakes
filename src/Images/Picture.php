@@ -39,7 +39,6 @@ class Picture extends Responsive {
 		
 		for ($image_index = 1; $image_index <= $images_count; $image_index++) {
 			$defaults[ 'source_' . $image_index ] = '';
-			$defaults[ 'size_' . $image_index ] = '';
 			$defaults[ 'media_' . $image_index ] = '';
 		}
 		
@@ -54,10 +53,7 @@ class Picture extends Responsive {
 		
 		$fields['image_id']['label'] = esc_html__( 'Fallback Image', 'svbk-shortcakes' );
 		$fields['image_id']['description'] = esc_html__( 'The image printed in non supporting browser or if not any other source is matching', 'svbk-shortcakes' );
-		$fields['size']['label'] = esc_html__( 'Size for Fallback', 'svbk-shortcakes' );
-		
-		$sizes = $fields['size']['options'];		
-		
+
 		unset($fields['link']);
 		
 		for ($image_index = 1; $image_index <= $this->images; $image_index++) {
@@ -69,13 +65,6 @@ class Picture extends Responsive {
 				'libraryType' => array( 'image' ),
 				'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 				'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
-			);
-
-			$source_fields['size' . $image_index] = array(
-				'label'       => esc_html__( 'Size', 'svbk-shortcakes' ) . ' ' . $image_index,
-				'attr'        => 'size_' . $image_index,
-				'type'        => 'select',
-				'options'     => $sizes,
 			);
 			
 			$source_fields['media' . $image_index] = array(
@@ -100,17 +89,16 @@ class Picture extends Responsive {
 		for ($image_index = 1; $image_index <= $this->images; $image_index++) {
 			
 			$image  = $attr[ 'source_'	. $image_index ];
-			$size	= $attr[ 'size_'	. $image_index ];
 			$media  = trim($attr[ 'media_'	. $image_index ]);
 		
-			if ( !$image || !$size ) { continue; };
+			if ( !$image || !$attr['size'] ) { continue; };
 			
-			$size = $this->parseSize( $size );
+			$size = $this->parseSize( $attr['size'] );
 			
 			$output['sources'][$image_index] = '<source ' . 
 				'media="' . esc_attr( $media ) . '" ' .
 				'srcset="' . esc_attr( wp_get_attachment_image_srcset($image, $size) ) . '" ' .
-				'sizes="' . esc_attr( wp_get_attachment_image_sizes($image, $size) ) . '" ' .
+				'sizes="' . esc_attr( wp_calculate_image_sizes($size, null, null, $image) ) . '" ' .
 			'>';
 		}
 
