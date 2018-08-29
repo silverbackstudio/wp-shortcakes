@@ -10,12 +10,6 @@ class Responsive extends Shortcake {
 	public $icon = 'dashicons-format-image';
 	public $classes = array( 'content-image' );
 
-	public $post_query = array(
-		'post_type' => 'any',
-	);
-
-	public $taxonomy;
-
 	public $renderOrder = array(
 		'linkBegin',
 		'wrapperBegin',
@@ -29,6 +23,7 @@ class Responsive extends Shortcake {
 		'image_id' => '',
 		'alignment' => '',
 		'link' => '',
+		'alt' => '',
 		'class' => '',
 		'size' => '',
 	);
@@ -46,12 +41,12 @@ class Responsive extends Shortcake {
 		return $args;
 
 	}
-
-	public function fields() {
-
+	
+	public static function getAvailableSizes() {
+		
 		$sizes = array_combine( get_intermediate_image_sizes(), get_intermediate_image_sizes() );
 
-		$sizes = array_merge(
+		return array_merge(
 			$sizes,
 			apply_filters( 'image_size_names_choose',
 				array(
@@ -61,7 +56,51 @@ class Responsive extends Shortcake {
 					'full'      => __( 'Full Size', 'svbk-shortcakes' ),
 				)
 			)
+		);		
+		
+	}	
+
+	public function fields() {
+
+		$custom_sizes = get_intermediate_image_sizes();
+
+		$size_options = array(
+			array(
+				'value' => '',
+				'label' => esc_html__( '-- Default (Not Set) --', 'svbk-shortcakes' ),
+			),
+			array(
+				'options' => array(),
+				'label' => esc_html__( 'Native', 'svbk-shortcakes' ),
+			),
+			array(
+				'options' => array(),
+				'label' => esc_html__( 'Custom', 'svbk-shortcakes' ),
+			)			
 		);
+
+		$native_sizes = apply_filters( 'image_size_names_choose',
+				array(
+					'thumbnail' => __( 'Thumbnail', 'svbk-shortcakes' ),
+					'medium'    => __( 'Medium', 'svbk-shortcakes' ),
+					'large'     => __( 'Large', 'svbk-shortcakes' ),
+					'full'      => __( 'Full Size', 'svbk-shortcakes' ),
+				)
+		);	
+		
+		foreach( $native_sizes as $size => $label ) {
+			$size_options[1]['options'][] = array(
+				'value' => $size,
+				'label' => $label,
+			);
+		}
+		
+		foreach( $custom_sizes as $size ) {
+			$size_options[2]['options'][] = array(
+				'value' => $size,
+				'label' => $size,
+			);
+		}			
 		
 		return array(
 			'image_id' => array(
@@ -72,6 +111,12 @@ class Responsive extends Shortcake {
 				'addButton'   => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 				'frameTitle'  => esc_html__( 'Select Image', 'svbk-shortcakes' ),
 			),
+			'size' => array(
+				'label'       => esc_html__( 'Size', 'svbk-shortcakes' ),
+				'attr'        => 'size',
+				'type'        => 'select',
+				'options'     => $size_options,
+			),			
 			'alignment' => array(
 				'label'       => esc_html__( 'Alignment', 'svbk-shortcakes' ),
 				'attr'        => 'alignment',
@@ -105,12 +150,11 @@ class Responsive extends Shortcake {
 					'attachment' => esc_html__( 'Attachment', 'svbk-shortcakes' ),
 				)
 			),			
-			'size' => array(
-				'label'       => esc_html__( 'Size', 'svbk-shortcakes' ),
-				'attr'        => 'size',
-				'type'        => 'select',
-				'options'     => $sizes,
-			),
+			'alt' => array(
+				'label'    => esc_html__( 'Alternative Text (alt)', 'svbk-shortcakes' ),
+				'attr'     => 'alt',
+				'type'     => 'text',
+			),			
 			'classes' => array(
 				'label'    => esc_html__( 'Custom Classes', 'svbk-shortcakes' ),
 				'attr'     => 'classes',
@@ -158,6 +202,19 @@ class Responsive extends Shortcake {
 		
 		return $link;
 	}
+	
+	public static function parseSize( $size ) {
+		
+		if ( is_numeric($size) ){
+		    $size = array( intval( $size ), intval( $size ) );
+		} elseif ( strpos($size, ",") > 0){
+			$size = explode(',', $size, 2 );
+		}		
+	
+		return $size;
+		
+	}
+	
 
 	public function renderOutput( $attr, $content, $shortcode_tag ) {
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
@@ -173,17 +230,15 @@ class Responsive extends Shortcake {
 
 		$output['wrapperBegin'] = '<figure ' . $this->renderClasses( $this->getClasses( $attr ) ) . '">';
 		
-		if ( is_numeric($attr['size']) ){
-		    $size = array( intval( $attr['size']), intval( $attr['size']) );
-		} elseif ( strpos($attr['size'], ",") > 0){
-			$size = explode(',', $attr['size'], 2 );
-		}
-		else {
-			$size = $attr['size'];
-		}
-		   
+		$size = $this->parseSize( $attr['size'] );
 		
-		$output['image'] = wp_get_attachment_image( $attr['image_id'], $size );
+		$img_attr = array();
+		
+		if ( $attr['alt'] ) {
+			$img_attr['alt'] = esc_html( $attr['alt'] );
+		}
+		
+		$output['image'] = wp_get_attachment_image( $attr['image_id'], $size, false, $img_attr );
 
 		if ( $content ) {
 			$output['caption'] = '<figcaption class="caption">' . $output['content'] . '</figcaption>';
