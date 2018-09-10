@@ -290,16 +290,15 @@ class Testimonials extends Shortcake {
 				'posts_per_page' => $attr['count'],
 				'paged' => $attr['paged'],
 				'offset' => $attr['offset'],
+				'tax_query' => [],
 			), 
 		$this->query_args );
 		
 		if( $this->taxonomy  && $attr['type'] ) {
-			$query_args['tax_query'] = array(
-				array(
-					'taxonomy' => $this->taxonomy,
-					'field'    => 'term_id',
-					'terms'    => array( $attr['type']  ),
-				),
+			$query_args['tax_query'][] = array(
+				'taxonomy' => $this->taxonomy,
+				'field'    => 'term_id',
+				'terms'    => array( $attr['type']  ),
 			);
 		}
 
@@ -309,7 +308,6 @@ class Testimonials extends Shortcake {
 		}
 
 		return $query_args;
-
 	}
 
 	public function getClasses( $attr, $term = null ){
