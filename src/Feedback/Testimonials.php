@@ -389,8 +389,9 @@ class Testimonials extends Shortcake {
 					$output .= '		<span class="role">' . get_field( 'role', $testimonials->post->ID ) . '</span>';
 					
 					if( $rating ) :
-						$output .= '	<div class="rating ' . esc_attr('rating-' . $rating) . '>';
+						$output .= '	<div class="rating ' . esc_attr('rating-' . $rating) . '">';
 						$output .= '	<span class="screen-reader-text">' . __('Rating', 'svbk-shortcakes') . ': ' . esc_html($rating) . '</span>';
+						$output .= '	</div>';
 					endif;					
 					
 					$output .= '	</footer>';
