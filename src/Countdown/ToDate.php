@@ -72,7 +72,7 @@ class ToDate extends Shortcake {
 	public function register_scripts(){
 		parent::register_scripts();
 		
-		Helpers\Theme\Script::enqueue( 'jquery-countdown', '/dist/jquery.countdown.js', [ 'version' => '2', 'deps' => 'jquery' ] );
+		Helpers\Assets\Script::enqueue( 'jquery-countdown', '/dist/jquery.countdown.js', [ 'version' => '2', 'deps' => 'jquery' ] );
 	}
 
 	public function output( $attr, $content, $shortcode_tag ) {
