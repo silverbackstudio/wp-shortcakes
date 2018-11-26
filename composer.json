@@ -11,7 +11,7 @@
     "require": {
         "erusev/parsedown": "^1.6",
         "michelf/php-markdown": "^1.7",
-        "silverbackstudio/wp-themehelper": "^4.0.0",
+        "silverbackstudio/wp-themehelper": "^5.0.0",
         "silverbackstudio/wp-forms": "^2.0.0",
         "wpackagist-plugin/shortcode-ui": "^0.7.3"        
     },
