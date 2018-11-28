@@ -140,7 +140,6 @@ class Latest extends Shortcake {
 			ob_start();
 
 			while ( $postsQuery->have_posts() ) : $postsQuery->the_post();
-
 				get_template_part( $this->template_base, get_post_type() );
 
 			endwhile; // End of the loop.

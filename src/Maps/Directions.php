@@ -83,11 +83,11 @@ class Directions extends Shortcake {
 	public function output( $attr, $content, $shortcode_tag ) {
 		$attr = $this->shortcode_atts( self::$defaults , $attr, $shortcode_tag );
 
-		static $index = 1;
-
+		static $index = 0;
+        $index++;
 		ob_start();
 		?>
-		<div class="gmap-container <?php echo esc_attr( $attr['classes'] ); ?>" id="gmap-container-<?php echo $index++; ?>" data-map-lng="<?php echo esc_attr( $attr['lng'] ); ?>" data-map-lat="<?php echo esc_attr( $attr['lat'] ); ?>">
+		<div class="gmap-container <?php echo esc_attr( $attr['classes'] ); ?>" id="gmap-container-<?php echo $index; ?>" data-map-lng="<?php echo esc_attr( $attr['lng'] ); ?>" data-map-lat="<?php echo esc_attr( $attr['lat'] ); ?>">
 		<div class="google-map"></div>
 		
 		<?php if ( $attr['directions'] ) : ?>
