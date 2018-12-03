@@ -25,6 +25,7 @@ class Link extends Shortcake {
 		'url' => '',
 		'target' => 0,
 		'class' => '',
+		'rel' => ''
 	);
 
 	public function title() {
@@ -64,7 +65,12 @@ class Link extends Shortcake {
 				'label'  => esc_html__( 'Classes', 'svbk-shortcakes' ),
 				'attr'   => 'class',
 				'type'   => 'text',
-			),				
+			),                           //added checkbox option
+			'rel' => array(
+				'label'  => esc_html__( 'Add "rel" attribute value', 'svbk-shortcakes' ),
+				'attr'   => 'rel',
+				'type'   => 'text',
+			),
 		);
 	}
 
@@ -109,9 +115,11 @@ class Link extends Shortcake {
 
 		$link = $this->getLink( $attr );
 		$link_target = filter_var( $attr['target'], FILTER_VALIDATE_BOOLEAN );
+		
+		$rel_attr = $attr['rel'];
 
 		if ( $link ) {
-			$output['linkBegin'] = '<a  ' . $this->renderClasses( $this->getClasses( $attr ) ) . '  href="' . esc_url( $link ) . '" ' . ( $link_target ? ' target="_blank"' : '' ) . '  >';
+			$output['linkBegin'] = '<a  ' . $this->renderClasses( $this->getClasses( $attr ) ) . '  href="' . esc_url( $link ) . '" ' . ( $link_target ? ' target="_blank"' : '' ) . ( $rel_attr ? ' rel="'. esc_attr( $rel_attr ) . '"' : '' ) . ' >';
 			$output['linkEnd'] = '</a>';
 		}
 
