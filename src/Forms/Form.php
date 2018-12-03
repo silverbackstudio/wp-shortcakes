@@ -191,7 +191,13 @@ class Form extends Shortcake {
 		$attr = $this->shortcode_atts( $this->defaults, $attr, $shortcode_tag );
 		$form = $this->getForm();
 
-		$output = array_merge( parent::renderOutput( $attr, $content, $shortcode_tag ), $form->renderParts( $attr ) );
+		$output = parent::renderOutput( $attr, $content, $shortcode_tag );
+		
+		if ( !empty($output['content']) ){
+			$output['content'] = '<div class="form__description">'. $output['content'] . '</div>';
+		}
+		
+		$output = array_merge( $output, $form->renderParts( $attr ) );
 
 		$output['wrapperBegin'] = '<div class="' . join( ' ', $this->containerClasses( $attr ) ) . '" id="' . $this->containerId( $attr, $index ) . '">';
 

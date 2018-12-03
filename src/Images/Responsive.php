@@ -228,7 +228,7 @@ class Responsive extends Shortcake {
 			$output['linkEnd'] = '</a>';
 		}
 
-		$output['wrapperBegin'] = '<figure ' . $this->renderClasses( $this->getClasses( $attr ) ) . '">';
+		$output['wrapperBegin'] = '<figure ' . $this->renderClasses( $this->getClasses( $attr ) ) . '>';
 		
 		$size = $this->parseSize( $attr['size'] );
 		
