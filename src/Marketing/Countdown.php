@@ -7,6 +7,7 @@ use DateInterval;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeZone;
+use DatePeriod;
 use Exception;
 
 class Countdown extends Shortcake {
@@ -17,7 +18,7 @@ class Countdown extends Shortcake {
 
 	public static $defaults = array(
 		'date' => '',
-		'timeout' => '',
+		'interval' => '',
 		'recurrent' => '',
 		'format' => '',
 		'id' => '',
@@ -34,19 +35,19 @@ class Countdown extends Shortcake {
 					'label'  => esc_html__( 'CountDown', 'svbk-shortcakes' ),
 					'attr'   => 'date',
 					'type'   => 'text',
-					'description' => sprintf( __( 'Insert date in the dd-mm-YYYY format, or one of the accepted by <a href="%s">PHP strtotime</a>', 'svbk-shortcakes' ), 'http://php.net/manual/en/function.strtotime.php' ),
+					'description' => sprintf( __( 'Insert date in the dd-mm-YYYY format, or one of the accepted by <a href="%s">PHP strtotime</a>. If no date is specified the current time is used.', 'svbk-shortcakes' ), 'http://php.net/manual/en/function.strtotime.php' ),
 				),
-				'timeout' => array(
-					'label'  => esc_html__( 'Timeout', 'svbk-shortcakes' ),
-					'attr'   => 'timeout',
+				'interval' => array(
+					'label'  => esc_html__( 'Interval', 'svbk-shortcakes' ),
+					'attr'   => 'interval',
 					'type'   => 'text',
-					'description' => sprintf( sprintf( __( 'Insert the recurrence period (ex. 3M: 3 months, 1D: 1 day, T5M: 5 minutes, 2MT10M: 2 months and 10 minutes, etc) or one of the accepted by <a href="%s">PHP DateInterval</a>', 'svbk-shortcakes' ), 'http://php.net/manual/en/dateinterval.construct.php' ) ),
+					'description' => sprintf( sprintf( __( 'Insert the interval (ex. P3M: 3 months, P1D: 1 day, PT5M: 5 minutes, P2MT10M: 2 months and 10 minutes, etc) or one of the accepted by <a href="%s">PHP DateInterval</a>', 'svbk-shortcakes' ), 'http://php.net/manual/en/dateinterval.construct.php' ) ),
 				),
 				'recurrent' => array(
 					'label'  => esc_html__( 'Recurrent', 'svbk-shortcakes' ),
 					'attr'   => 'recurrent',
-					'type'   => 'checkout',
-					'description' =>  __( 'Set the timeout as recurrent', 'svbk-shortcakes' ),
+					'type'   => 'text',
+					'description' =>  __( 'Set the countdown as recurrent. Uses the "date" ad start point and the "interval" as the recurrent period', 'svbk-shortcakes' ),
 				),				
 				'format' => array(
 					'label'  => esc_html__( 'Format', 'svbk-shortcakes' ),
@@ -99,46 +100,40 @@ class Countdown extends Shortcake {
 
 	public function expires( $attr ){
 		
-		$now = new DateTime('now');        	
+		$now = new DateTimeImmutable('now');        	
+       	$expireDate = $attr['date'] ? new DateTimeImmutable($attr['date']) : null;
 
-       	$expireDate = $attr['date'] ? new DateTime($attr['date']) : $now;
+		$targetDate = new DateTime('now');
+		$targetDate->setTimezone( new DateTimeZone( get_option('timezone_string') ?: (get_option('gmt_offset').'00') )  );
 
-    	if( $attr['timeout'] ) {
-	        
+        if ( $expireDate ) {
+        	$targetDate->setTimestamp($expireDate->getTimestamp());
+        }
+
+    	if( $attr['interval'] ) {
+	       
 	        try {
-		       	$timeout = new DateInterval('P' . $attr['timeout'] );
+		       	$interval = new DateInterval( $attr['interval'] );
+	    		$targetDate->add( $interval );		       	
 	        } catch( Exception $e ) {
-	        	$timeout = null;
-	        }
-	        
-	        if ( $now <= $expireDate ) {
-	    		$expireDate->add( $timeout );
+	        	$interval = null;
 	        }
 	        
     	}        
-        
-        if( $timeout && filter_var( $attr['recurrent'], FILTER_VALIDATE_BOOLEAN ) ) {
-        
-	        while( $expireDate <= $now )  {
-	        	
-				if ( version_compare(PHP_VERSION, '5.6.0') >= 0) {
-				    $check_date = DateTimeImmutable::createFromMutable($expireDate);
-				} else {
-				    $check_date = DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s.uP', $expireDate->format('Y-m-d\TH:i:s.uP'));
-				}
-				
-	        	$expireDate->add( $timeout );
-
-				//Check if there has been no increment
-				if ( ! ($expireDate > $check_date) ) {
-					break;
-				}
-	        	
-	        }
-	        
-        }		
 		
-       return $expireDate;
+    	if( $interval && filter_var( $attr['recurrent'], FILTER_VALIDATE_BOOLEAN ) ) {
+
+			$recurrence_ends = $now->add( $interval );
+        	$periods = new DatePeriod( $expireDate, $interval, $recurrence_ends );
+
+			// Set the last occurrence
+        	foreach( $periods as $date ) {
+        		$targetDate = $date;
+        	}
+        
+    	}		
+		
+       return $targetDate;
 		
 	}
 
@@ -153,8 +148,7 @@ class Countdown extends Shortcake {
         $id = $attr['id'] ?: ('countdown-' . $index); 
 
 		$date = $this->expires($attr);
-		$date->setTimezone( new DateTimeZone( get_option('timezone_string') ?: (get_option('gmt_offset').'00') )  );
-        
+
         $format = $attr['format'] ?: __('%D days %H:%M:%S', 'svbk-shortcakes');
 
         $output = '<div id="' . $id . '" ' . $this->renderClasses( $this->getClasses($attr) ) . ' data-expires="' . esc_attr($date->format('Y/m/d H:i:s')) . '" data-format="' . $format . '" ></div>';
