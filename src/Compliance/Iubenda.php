@@ -9,6 +9,7 @@ class Iubenda extends Shortcake {
 	public $shortcode_id = 'iubenda-embed';
 	public $icon = 'dashicons-editor-paragraph';
 	public $classes = array( 'iubenda-embed' );
+	public $iubenda = null;
 
 	public static $defaults = array(
 		'policy_id' => null,
@@ -19,6 +20,9 @@ class Iubenda extends Shortcake {
 	);
 
 	public function __construct( $properties ) {
+		
+		$this->iubenda = new Helpers\Compliance\Iubenda( Helpers\Config::get( array(), 'iubenda' ) );		
+		
 		parent::__construct( $properties );
 	}
 
@@ -75,7 +79,7 @@ class Iubenda extends Shortcake {
 
         $output = '';
 
-        $policy_html = Helpers\Compliance\Iubenda::getInstance()->getPolicy( array_filter( $attr ) );
+        $policy_html = $this->iubenda->getPolicy( array_filter( $attr ) );
 
         if( $attr['strip_headings'] ) {
             $policy_html = preg_replace('/<h1[^>]*>([\s\S]*?)<\/h1[^>]*>/', '', $policy_html, 1);

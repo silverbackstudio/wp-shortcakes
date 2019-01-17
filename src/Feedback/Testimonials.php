@@ -224,6 +224,7 @@ class Testimonials extends Shortcake {
 				'filter' => FILTER_VALIDATE_INT,
 				'default' => 0,
 			),
+			'type' => FILTER_VALIDATE_INT,
 			'offset' => FILTER_VALIDATE_INT,
 			'load_more' => FILTER_VALIDATE_BOOLEAN,
 		);
@@ -389,9 +390,8 @@ class Testimonials extends Shortcake {
 					$output .= '		<span class="role">' . get_field( 'role', $testimonials->post->ID ) . '</span>';
 					
 					if( $rating ) :
-						$output .= '	<div class="rating ' . esc_attr('rating-' . $rating) . '">';
+						$output .= '	<div class="rating ' . esc_attr('rating-' . $rating) . '>';
 						$output .= '	<span class="screen-reader-text">' . __('Rating', 'svbk-shortcakes') . ': ' . esc_html($rating) . '</span>';
-						$output .= '	</div>';
 					endif;					
 					
 					$output .= '	</footer>';
@@ -416,25 +416,27 @@ class Testimonials extends Shortcake {
 	
 	public function print_loadmore_script(){  ?>
 		<script>
-		(function($){
-			$('.testimonials-group-<?php echo esc_attr($this->post_type); ?>').on('click', '.loadmore', function(){
-	    		var container = $(this).closest('.testimonials-group');
-	      		var data = container.data();
-	    		data.paged++;
-	    		data.action = '<?php echo 'svbk_' . esc_attr($this->shortcode_id); ?>';
-	    		container.addClass('loading');
-	    		
-	    		$.post( ajaxurl, data, function(response){
-	          		$('.loadmore', container).remove();
-	          		container
-		          		.append(response)
-		          		.data(data)
-		          		.removeClass('loading');	
-	          
-	        		$(document.body).trigger( 'post-load' );
-		  		});
-			});		
-		})(jQuery);
+		document.addEventListener("DOMContentLoaded", function(){
+			(function($){
+				$('.testimonials-group-<?php echo esc_attr($this->post_type); ?>').on('click', '.loadmore', function(){
+		    		var container = $(this).closest('.testimonials-group');
+		      		var data = container.data();
+		    		data.paged++;
+		    		data.action = '<?php echo 'svbk_' . esc_attr($this->shortcode_id); ?>';
+		    		container.addClass('loading');
+		    		
+		    		$.post( ajaxurl, data, function(response){
+		          		$('.loadmore', container).remove();
+		          		container
+			          		.append(response)
+			          		.data(data)
+			          		.removeClass('loading');	
+		          
+		        		$(document.body).trigger( 'post-load' );
+			  		});
+				});		
+			})(jQuery);
+		});
 		</script>
 	<?php
 	}
