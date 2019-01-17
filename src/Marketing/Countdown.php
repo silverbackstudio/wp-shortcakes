@@ -87,7 +87,13 @@ class Countdown extends Shortcake {
 		(function($){
                 $(document).ready(function(){
                     $(".countdown").each(function(){
-                    	$(this).countdown( $(this).data(\'expires\'), function(event) {
+                    	expires = $(this).data(\'expires\');
+                    	
+                    	if( $.isNumeric( expires ) ) {
+                    		expires += new Date().getTime();
+                    	}
+                    	
+                    	$(this).countdown( expires, function(event) {
                         	$(this).html( event.strftime($(this).data(\'format\') ) );
                     	});
                 	});
@@ -144,14 +150,19 @@ class Countdown extends Shortcake {
         $index++;
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
-
         $id = $attr['id'] ?: ('countdown-' . $index); 
-
+		
 		$date = $this->expires($attr);
-
         $format = $attr['format'] ?: __('%D days %H:%M:%S', 'svbk-shortcakes');
+		$expires =  $date->format('Y/m/d H:i:s');
+		
+		// If no absolute date is specified, use relative format to support cached pages.
+		if ( empty($attr['date']) ) {
+			$now = new DateTime('now');
+			$expires = ($date->getTimestamp() - $now->getTimestamp()) * 1000;
+		}
 
-        $output = '<div id="' . $id . '" ' . $this->renderClasses( $this->getClasses($attr) ) . ' data-expires="' . esc_attr($date->format('Y/m/d H:i:s')) . '" data-format="' . $format . '" ></div>';
+        $output = '<div id="' . $id . '" ' . $this->renderClasses( $this->getClasses($attr) ) . ' data-expires="' . esc_attr($expires) . '" data-format="' . $format . '" ></div>';
 
         return $output;
     
