@@ -20,6 +20,7 @@ class Countdown extends Shortcake {
 		'date' => '',
 		'interval' => '',
 		'recurrent' => '',
+		'persist' => 0,
 		'format' => '',
 		'id' => '',
 		'class' => '',
@@ -48,6 +49,12 @@ class Countdown extends Shortcake {
 					'attr'   => 'recurrent',
 					'type'   => 'text',
 					'description' =>  __( 'Set the countdown as recurrent. Uses the "date" ad start point and the "interval" as the recurrent period', 'svbk-shortcakes' ),
+				),
+				'persist' => array(
+					'label'  => esc_html__( 'Persist', 'svbk-shortcakes' ),
+					'attr'   => 'persist',
+					'type'   => 'number',
+					'description' =>  __( 'Reset the countdown after X hours', 'svbk-shortcakes' ),
 				),				
 				'format' => array(
 					'label'  => esc_html__( 'Format', 'svbk-shortcakes' ),
@@ -85,19 +92,38 @@ class Countdown extends Shortcake {
 		Helpers\Assets\Script::enqueue( 'jquery-countdown', '/dist/jquery.countdown.js', [ 'version' => '2', 'deps' => 'jquery' ] );
 		wp_add_inline_script( 'jquery-countdown', '
 		(function($){
+		
+				function getCookie(name) {
+				  var value = "; " + document.cookie;
+				  var parts = value.split("; " + name + "=");
+				  if (parts.length == 2) return parts.pop().split(";").shift();
+				}
+		
                 $(document).ready(function(){
                     $(".countdown").each(function(){
-<<<<<<< HEAD
-                    	$(this).countdown( $(this).data(\'expires\'), function(event) {
-=======
-                    	expires = $(this).data(\'expires\');
+                    	var countdown_expires = $(this).data(\'expires\');
                     	
-                    	if( $.isNumeric( expires ) ) {
-                    		expires += new Date().getTime();
+                    	if( $.isNumeric( countdown_expires ) ) {
+                    		countdown_expires += new Date().getTime();
                     	}
                     	
-                    	$(this).countdown( expires, function(event) {
->>>>>>> countdown-cache
+                    	var countdown_persist = parseInt($(this).data(\'persist\'));
+                    	
+                    	if( countdown_persist ) {
+     						var cookie_name = $(this).attr("id") + "_expires";
+                    		var countdown_cookie = getCookie(cookie_name);
+                    		
+                    		if (countdown_cookie) {
+                    			countdown_expires = countdown_cookie;
+                    		} else {
+                    			var cookie_expire = new Date();
+                    			cookie_expire.setTime(cookie_expire.getTime() + (countdown_persist*60*60*1000));
+								document.cookie = cookie_name + "=" + countdown_expires + "; expires=" + cookie_expire;                    		
+                    		}   
+                    	}
+                    	
+                    	
+                    	$(this).countdown( countdown_expires, function(event) {
                         	$(this).html( event.strftime($(this).data(\'format\') ) );
                     	});
                 	});
@@ -166,7 +192,7 @@ class Countdown extends Shortcake {
 			$expires = ($date->getTimestamp() - $now->getTimestamp()) * 1000;
 		}
 
-        $output = '<div id="' . $id . '" ' . $this->renderClasses( $this->getClasses($attr) ) . ' data-expires="' . esc_attr($expires) . '" data-format="' . $format . '" ></div>';
+        $output = '<div id="' . esc_attr( $id ) . '" ' . $this->renderClasses( $this->getClasses($attr) ) . ' data-expires="' . esc_attr($expires) . '" data-format="' . esc_attr($format) . '"  data-persist="' . esc_attr($attr['persist']) . '" ></div>';
 
         return $output;
     
