@@ -157,7 +157,7 @@ class Countdown extends Shortcake {
 	        
     	}        
 		
-    	if( $interval && filter_var( $attr['recurrent'], FILTER_VALIDATE_BOOLEAN ) ) {
+    	if( $expireDate && $interval && filter_var( $attr['recurrent'], FILTER_VALIDATE_BOOLEAN ) ) {
 
 			$recurrence_ends = $now->add( $interval );
         	$periods = new DatePeriod( $expireDate, $interval, $recurrence_ends );
