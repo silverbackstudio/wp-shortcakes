@@ -94,14 +94,19 @@ abstract class Shortcake {
 		if ( ! empty( $classes ) ) {
 			return array_map( 'trim', $classes );
 		}
-
+		
+		return array();
 	}
 
-	protected static function renderClasses( $classes ) {
+	protected static function renderClasses( $classes, $suffix = null ) {
 
 		if ( empty( $classes ) ) {
 			return '';
 		}
+		
+		if ( !empty( $suffix )  ) {
+			array_walk($classes, function(&$class) use ( $suffix ) { $class .= $suffix; });
+		}		
 
 		return  'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
@@ -112,7 +117,7 @@ abstract class Shortcake {
 
 		$instance = new $class($options);
 
-		add_action( 'init', array( $instance, 'add' ), 12 );
+		add_action( 'init', array( $instance, 'init' ), 12 );
 		add_action( 'register_shortcode_ui', array( $instance, 'register_ui' ) );
 		add_action( 'after_setup_theme', array( __CLASS__, 'load_texdomain' ) );
 		add_action( 'wp_enqueue_scripts', array( $instance, 'register_scripts' ) );
@@ -124,21 +129,31 @@ abstract class Shortcake {
 		load_textdomain( 'svbk-shortcakes', dirname( __DIR__ ) . '/languages/svbk-shortcakes-' . get_locale() . '.mo' );
 	}
 
+	public function init() {
+		$this->add();
+	}
+
 	public function add() {
 		add_shortcode( $this->shortcode_id, array( $this, 'output' ) );
 	}
+	
+	public function remove() {
+		remove_shortcode( $this->shortcode_id );
+	}	
 
 	abstract function fields();
 
-	protected function shortcode_atts( $defaults, $attr = array(), $shortcode_tag = '' ) {
+	protected function shortcode_atts( $defaults, $attributes = array(), $shortcode_tag = '' ) {
 
 		if ( ! $shortcode_tag ) {
 			$shortcode_tag = $this->shortcode_id;
 		}
 
-		array_walk( $attr, array( $this, 'field_decode' ) );
+		$attributes = shortcode_atts( $defaults, $attributes, $shortcode_tag );
 
-		return shortcode_atts( $defaults, $attr, $shortcode_tag );
+		array_walk( $attributes, array( $this, 'field_decode' ) );
+
+		return $attributes;
 	}
 
 	public function ui_args() {

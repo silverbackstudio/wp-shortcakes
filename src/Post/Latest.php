@@ -15,9 +15,11 @@ class Latest extends Shortcake {
 	public $query_args = array();
 	public $classes = array( 'latest-posts', 'post-thumbs' );
 	public $template_base = 'template-parts/thumb';
+	public $taxonomy = 'category';
 
 	public static $defaults = array(
-		'category' => 0,
+		'category' => 0, // for back compat.
+		'taxonomy' => 0,
 		'count' => 3,
 		'offset' => 0,
 	);
@@ -43,14 +45,8 @@ class Latest extends Shortcake {
 	}
 
 	public function fields() {
-		return array(
-			'category' => array(
-				'label'       => esc_html__( 'Category', 'svbk-shortcakes' ),
-				'description' => esc_html__( 'The filter the posts by category', 'svbk-shortcakes' ),
-				'attr'        => 'category',
-				'type'     => 'term_select',
-				'taxonomy' => 'category',
-			),			
+		
+		$fields  = array(
 			'count' => array(
 				'label'       => esc_html__( 'Post Count', 'svbk-shortcakes' ),
 				'description' => esc_html__( 'The number of posts shown', 'svbk-shortcakes' ),
@@ -75,6 +71,22 @@ class Latest extends Shortcake {
 				),
 			),
 		);
+		
+		if ( $this->taxonomy && taxonomy_exists( $this->taxonomy ) ) {
+			
+			$taxonomy = get_taxonomy( $this->taxonomy );
+			
+			$fields['taxonomy'] = array(
+				'label'       => $taxonomy->label,
+				'description' => esc_html__( 'The filter the posts by taxonomy', 'svbk-shortcakes' ),
+				'attr'        => 'taxonomy',
+				'type'     => 'term_select',
+				'taxonomy' => $this->taxonomy,
+			);
+		}
+		
+		return $fields;
+		
 	}
 
 	protected function getQueryArgs( $attr ) {
@@ -90,8 +102,14 @@ class Latest extends Shortcake {
 			$args['offset']  = $attr['count'] * $attr['paged'];
 		}
 
-		if ( $attr['category']  ) {
-			$args['cat'] = intval( $attr['category'] );
+		if ( $this->taxonomy && $attr['taxonomy']  ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => $this->taxonomy,
+					'field' => 'id',
+					'terms' => intval( $attr['taxonomy'] )
+				)
+			);
 		}
 		
 		return array_merge($args, $this->query_args );
@@ -102,6 +120,10 @@ class Latest extends Shortcake {
 		$output = array();
 
 		$attr = $this->shortcode_atts( self::$defaults, $attr, $shortcode_tag );
+
+		if ( $attr['category'] && ! $attr['taxonomy'] ) {
+			$attr['taxonomy'] = $attr['category'];
+		}
 
 		if ( defined( 'SHORTCODE_UI_DOING_PREVIEW' ) && SHORTCODE_UI_DOING_PREVIEW ) {
 
@@ -118,7 +140,6 @@ class Latest extends Shortcake {
 			ob_start();
 
 			while ( $postsQuery->have_posts() ) : $postsQuery->the_post();
-
 				get_template_part( $this->template_base, get_post_type() );
 
 			endwhile; // End of the loop.
