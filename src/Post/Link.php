@@ -1,5 +1,5 @@
 <?php
-namespace Svbk\WP\Shortcakes\Content;
+namespace Svbk\WP\Shortcakes\Post;
 
 class Link extends Svbk\WP\Shortcakes\Content\Link {
 
